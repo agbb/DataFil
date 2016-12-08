@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */; };
+		FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
+		FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
 		FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
@@ -15,6 +18,8 @@
 		FAD59C6F1DF880B000A7FD6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */; };
 		FAD59C7A1DF880B000A7FD6A /* Accelerometer_GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C791DF880B000A7FD6A /* Accelerometer_GraphTests.swift */; };
 		FAD59C851DF880B000A7FD6A /* Accelerometer_GraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */; };
+		FAD59C9E1DF8811400A7FD6A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD59C991DF880F400A7FD6A /* Charts.framework */; };
+		FAD59C9F1DF8811400A7FD6A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD59C991DF880F400A7FD6A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +37,54 @@
 			remoteGlobalIDString = FAD59C5E1DF880B000A7FD6A;
 			remoteInfo = "Accelerometer Graph";
 		};
+		FAD59C981DF880F400A7FD6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		FAD59C9A1DF880F400A7FD6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		FAD59C9C1DF880F400A7FD6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		FAD59CA01DF8811400A7FD6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FAD59CA21DF8811400A7FD6A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FAD59C9F1DF8811400A7FD6A /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelerometerManager.swift; sourceTree = "<group>"; };
+		FA186CC21DF98C7300835B7C /* accelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelPoint.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +99,7 @@
 		FAD59C801DF880B000A7FD6A /* Accelerometer GraphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Accelerometer GraphUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer_GraphUITests.swift; sourceTree = "<group>"; };
 		FAD59C861DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master-4/Charts.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD59C9E1DF8811400A7FD6A /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +131,7 @@
 		FAD59C561DF880B000A7FD6A = {
 			isa = PBXGroup;
 			children = (
+				FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */,
 				FAD59C611DF880B000A7FD6A /* Accelerometer Graph */,
 				FAD59C781DF880B000A7FD6A /* Accelerometer GraphTests */,
 				FAD59C831DF880B000A7FD6A /* Accelerometer GraphUITests */,
@@ -106,6 +159,9 @@
 				FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */,
 				FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */,
 				FAD59C701DF880B000A7FD6A /* Info.plist */,
+				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
+				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
+				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
 			);
 			path = "Accelerometer Graph";
 			sourceTree = "<group>";
@@ -128,6 +184,16 @@
 			path = "Accelerometer GraphUITests";
 			sourceTree = "<group>";
 		};
+		FAD59C931DF880F400A7FD6A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAD59C991DF880F400A7FD6A /* Charts.framework */,
+				FAD59C9B1DF880F400A7FD6A /* ChartsRealm.framework */,
+				FAD59C9D1DF880F400A7FD6A /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +204,12 @@
 				FAD59C5B1DF880B000A7FD6A /* Sources */,
 				FAD59C5C1DF880B000A7FD6A /* Frameworks */,
 				FAD59C5D1DF880B000A7FD6A /* Resources */,
+				FAD59CA21DF8811400A7FD6A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FAD59CA11DF8811400A7FD6A /* PBXTargetDependency */,
 			);
 			name = "Accelerometer Graph";
 			productName = "Accelerometer Graph";
@@ -196,6 +264,7 @@
 				TargetAttributes = {
 					FAD59C5E1DF880B000A7FD6A = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 82V36U7G5D;
 						ProvisioningStyle = Automatic;
 					};
 					FAD59C741DF880B000A7FD6A = {
@@ -221,6 +290,12 @@
 			mainGroup = FAD59C561DF880B000A7FD6A;
 			productRefGroup = FAD59C601DF880B000A7FD6A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FAD59C931DF880F400A7FD6A /* Products */;
+					ProjectRef = FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */,
@@ -229,6 +304,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FAD59C991DF880F400A7FD6A /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = FAD59C981DF880F400A7FD6A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAD59C9B1DF880F400A7FD6A /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = FAD59C9A1DF880F400A7FD6A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FAD59C9D1DF880F400A7FD6A /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = FAD59C9C1DF880F400A7FD6A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FAD59C5D1DF880B000A7FD6A /* Resources */ = {
@@ -265,6 +364,9 @@
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
 				FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */,
+				FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */,
+				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
+				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +398,11 @@
 			isa = PBXTargetDependency;
 			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */;
 			targetProxy = FAD59C811DF880B000A7FD6A /* PBXContainerItemProxy */;
+		};
+		FAD59CA11DF8811400A7FD6A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = FAD59CA01DF8811400A7FD6A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -415,7 +522,9 @@
 		FAD59C8A1DF880B000A7FD6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 82V36U7G5D;
 				INFOPLIST_FILE = "Accelerometer Graph/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Gubbay.Accelerometer-Graph";
@@ -427,7 +536,9 @@
 		FAD59C8B1DF880B000A7FD6A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 82V36U7G5D;
 				INFOPLIST_FILE = "Accelerometer Graph/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Gubbay.Accelerometer-Graph";
@@ -509,6 +620,7 @@
 				FAD59C8B1DF880B000A7FD6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAD59C8C1DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +629,7 @@
 				FAD59C8E1DF880B000A7FD6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAD59C8F1DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer GraphUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +638,7 @@
 				FAD59C911DF880B000A7FD6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

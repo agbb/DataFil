@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
+               BuildableName = "Accelerometer Graph.app"
+               BlueprintName = "Accelerometer Graph"
+               ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAD59C741DF880B000A7FD6A"
+               BuildableName = "Accelerometer GraphTests.xctest"
+               BlueprintName = "Accelerometer GraphTests"
+               ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FAD59C7F1DF880B000A7FD6A"
+               BuildableName = "Accelerometer GraphUITests.xctest"
+               BlueprintName = "Accelerometer GraphUITests"
+               ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
+            BuildableName = "Accelerometer Graph.app"
+            BlueprintName = "Accelerometer Graph"
+            ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,7 +71,22 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
+            BuildableName = "Accelerometer Graph.app"
+            BlueprintName = "Accelerometer Graph"
+            ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -35,6 +95,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
+            BuildableName = "Accelerometer Graph.app"
+            BlueprintName = "Accelerometer Graph"
+            ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
