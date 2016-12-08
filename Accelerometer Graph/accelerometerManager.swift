@@ -15,7 +15,7 @@ class accelerometerManager{
     
     lazy var manager = CMMotionManager()
     lazy var queue = OperationQueue()
-    
+    var count = 0
     func initaliseAccelerometer(){
         
         print("init")
@@ -23,7 +23,7 @@ class accelerometerManager{
             
             if manager.isAccelerometerActive == false{
                 
-                manager.accelerometerUpdateInterval = 1.0/100.0
+                manager.accelerometerUpdateInterval = 1.0/10.0
                 
             }else{
                 print("accelerometer busy")
@@ -35,15 +35,14 @@ class accelerometerManager{
             if manager.isGyroActive == false {
                 
                 //manager.gyroUpdateInterval = 0.001
-                
                 manager.startAccelerometerUpdates(to: queue,
                                                   withHandler: {data, error in
                                                     
                                                     guard data != nil else{
                                                         return
                                                     }
-                                
-                                                    let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!)
+                                                    self.count += 1
+                                                    let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
                                                     self.notify(accel: accel)
                                                     
                                                 })
