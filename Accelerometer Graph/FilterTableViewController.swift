@@ -10,7 +10,7 @@ import UIKit
 
 class FilterTableViewController: UITableViewController {
 
-    let tests = ["A","B","C"]
+    let tests = ["High Pass","Low Pass","Kalman"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -37,13 +37,13 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VQt-RS-Vui" secondAttribute="bottom" constant="167" id="2lD-v1-Gps"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="3i2-ae-mb2"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="9kj-Ex-arW" secondAttribute="bottom" constant="8" symbolic="YES" id="44Q-4K-qaG"/>
-                            <constraint firstItem="9kj-Ex-arW" firstAttribute="trailing" secondItem="VQt-RS-Vui" secondAttribute="trailing" id="6v2-8W-zNA"/>
+                            <constraint firstItem="9kj-Ex-arW" firstAttribute="trailing" secondItem="VQt-RS-Vui" secondAttribute="trailing" constant="16" id="6v2-8W-zNA"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="9Np-4e-NcL"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="trailing" secondItem="VQt-RS-Vui" secondAttribute="trailing" id="BFt-0L-cGE"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="leading" secondItem="VQt-RS-Vui" secondAttribute="leading" id="RkR-BE-R2q"/>
                             <constraint firstItem="9kj-Ex-arW" firstAttribute="top" secondItem="VQt-RS-Vui" secondAttribute="bottom" constant="8" symbolic="YES" id="XRd-X1-TTf"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="k6r-h9-Fu0"/>
-                            <constraint firstItem="9kj-Ex-arW" firstAttribute="leading" secondItem="VQt-RS-Vui" secondAttribute="leading" id="kYB-p6-3xs"/>
+                            <constraint firstItem="9kj-Ex-arW" firstAttribute="leading" secondItem="VQt-RS-Vui" secondAttribute="leading" constant="-16" id="kYB-p6-3xs"/>
                             <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tGS-bq-7T2" secondAttribute="bottom" constant="8" symbolic="YES" id="ohE-2Y-Oj5"/>
                         </constraints>
                     </view>
@@ -62,19 +62,19 @@
             <objects>
                 <tableViewController id="5FN-Xc-xDN" customClass="FilterTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Md-3E-8U9">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="151"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" textLabel="IhU-Sp-qdw" style="IBUITableViewCellStyleDefault" id="fq9-3k-cxF">
-                                <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="filterCell" textLabel="IhU-Sp-qdw" style="IBUITableViewCellStyleDefault" id="fq9-3k-cxF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fq9-3k-cxF" id="ppe-o5-vY2">
-                                    <frame key="frameInset" width="343" height="43"/>
+                                    <frame key="frameInset" width="336" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IhU-Sp-qdw">
-                                            <frame key="frameInset" minX="15" width="313" height="43"/>
+                                            <frame key="frameInset" minX="15" width="321" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>

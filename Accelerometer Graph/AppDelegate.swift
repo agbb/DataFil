@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          var fm = FilterManager.sharedInstance
         
         fm.addNewFilter(filterName: "High Pass")
+        let highPass: HighPass = fm.activeFilters[0] as! HighPass
+        highPass.alpha = 0.1
         
         return true
     }
