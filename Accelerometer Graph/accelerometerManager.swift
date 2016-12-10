@@ -18,7 +18,6 @@ class accelerometerManager{
     var count = 0
     func initaliseAccelerometer(){
         
-        print("init")
         if manager.isAccelerometerAvailable{
             
             if manager.isAccelerometerActive == false{
@@ -43,7 +42,8 @@ class accelerometerManager{
                                                     }
                                                     self.count += 1
                                                     let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
-                                                    self.notify(accel: accel)
+                                                    NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
+                                                    //self.notify(accel: accel)
                                                     
                                                 })
             } else {
@@ -56,8 +56,8 @@ class accelerometerManager{
     }
     
     func notify(accel: accelPoint){
-        notificationManager.nc.post(name: notificationManager.newRawDataNotification, object: nil, userInfo:["data":accel])
-
+        
+             NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
     }
 }
 

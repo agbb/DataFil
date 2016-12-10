@@ -10,6 +10,7 @@
 		FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */; };
 		FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
 		FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
+		FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
 		FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
@@ -20,6 +21,8 @@
 		FAD59C851DF880B000A7FD6A /* Accelerometer_GraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */; };
 		FAD59C9E1DF8811400A7FD6A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD59C991DF880F400A7FD6A /* Charts.framework */; };
 		FAD59C9F1DF8811400A7FD6A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD59C991DF880F400A7FD6A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B3D1DFB509B00962F61 /* FilterManager.swift */; };
+		FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B421DFB526100962F61 /* FilteringProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,7 @@
 		FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelerometerManager.swift; sourceTree = "<group>"; };
 		FA186CC21DF98C7300835B7C /* accelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelPoint.swift; sourceTree = "<group>"; };
+		FA186CC51DF9BC8000835B7C /* HighPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPass.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 		FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer_GraphUITests.swift; sourceTree = "<group>"; };
 		FAD59C861DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master-4/Charts.xcodeproj"; sourceTree = "<group>"; };
+		FAE34B3D1DFB509B00962F61 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilteringProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,9 +134,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA186CC41DF9BC7200835B7C /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				FA186CC51DF9BC8000835B7C /* HighPass.swift */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
 		FAD59C561DF880B000A7FD6A = {
 			isa = PBXGroup;
 			children = (
+				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
+				FA186CC41DF9BC7200835B7C /* Filters */,
 				FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */,
 				FAD59C611DF880B000A7FD6A /* Accelerometer Graph */,
 				FAD59C781DF880B000A7FD6A /* Accelerometer GraphTests */,
@@ -162,6 +178,7 @@
 				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
 				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
 				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
+				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
 			);
 			path = "Accelerometer Graph";
 			sourceTree = "<group>";
@@ -362,11 +379,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
+				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
+				FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */,
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
 				FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */,
 				FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */,
 				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
 				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,
+				FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

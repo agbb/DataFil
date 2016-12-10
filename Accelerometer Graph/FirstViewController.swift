@@ -9,10 +9,10 @@
 import UIKit
 import Charts
 
-struct notificationManager{
-    static var nc = NotificationCenter.default
-    static let newRawDataNotification = Notification.Name("newRawData")
-}
+//struct notificationManager{
+ //   static var nc = NotificationCenter.default
+ //   static let newRawDataNotification = Notification.Name("newRawData")
+//}
 
 class FirstViewController: UIViewController, ChartViewDelegate {
 
@@ -23,7 +23,9 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        notificationManager.nc.addObserver(self, selector: #selector(FirstViewController.newRawData), name: notificationManager.newRawDataNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newprocessedData"), object: nil)
+        
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = UIColor.lightGray
         self.TopLineChartView.noDataText = "No Data"
@@ -31,7 +33,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         self.BottomLineChartView.delegate = self
         self.BottomLineChartView.backgroundColor = UIColor.lightGray
         self.BottomLineChartView.noDataText = "No Data"
-        
+       
         setTopChartData(values: [0])
         setBottomChartData(values: [0])
         // Do any additional setup after loading the view, typically from a nib.
@@ -43,6 +45,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     }
 
     func newRawData(notification: NSNotification){
+        
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
 
@@ -57,6 +60,26 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             // your code here
             self.TopLineChartView.setNeedsDisplay()
+        }
+        
+    }
+    
+    func newProcessedData(notification: NSNotification){
+        
+        let data = notification.userInfo as! Dictionary<String,accelPoint>
+        let accelData = data["data"]
+        
+        let newEntry = ChartDataEntry(x: Double((accelData?.count)!), y: (accelData?.x)!)
+        BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
+        if((accelData?.count)! > 300){
+            BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+        }
+        BottomLineChartView.notifyDataSetChanged()
+        BottomLineChartView.data?.notifyDataChanged()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            // your code here
+            self.BottomLineChartView.setNeedsDisplay()
         }
         
     }
