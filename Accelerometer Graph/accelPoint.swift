@@ -25,6 +25,15 @@ class accelPoint {
         
     }
     
+    init() {
+        
+        self.x = 0
+        self.y = 0
+        self.z = 0
+        self.count = 0
+        
+    }
+    
     func getAxis(axis: String) -> Double{
         
         switch axis {

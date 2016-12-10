@@ -34,7 +34,7 @@ class FilterManager{
         let accelData = data["data"]
         let currentData = accelData?.getAxis(axis: "x")
 
-        activeFilters[0].addDataPoint(dataPoint: currentData!)
+        activeFilters[0].addDataPoint(dataPoint: accelData!)
         
     }
     
@@ -46,7 +46,7 @@ class FilterManager{
             let highPass = HighPass(alpha: 1)
             highPass.id = activeFilters.count
             
-            var update = {(data: [Double])->Void in
+            var update = {(data: [accelPoint])->Void in
                 
                 self.receiveData(data: data, id: highPass.id)
             }
@@ -59,10 +59,10 @@ class FilterManager{
         
     }
     
-    func receiveData(data: [Double], id:Int){
+    func receiveData(data: [accelPoint], id:Int){
         print(id)
-        if(id == activeFilters.count){
-            //DATADONE
+        if(id == activeFilters.count-1){
+            NotificationCenter.default.post(name: Notification.Name("newProcessedData"), object: nil, userInfo:["data":data])
         }else{
             for dataPoint in data{
                 activeFilters[id+1].addDataPoint(dataPoint: dataPoint)

@@ -13,12 +13,12 @@ protocol FilteringProtocol {
     
     var filterName: String {get}  //The full name of the filter
     
-    var observers: [(_: [Double])-> Void] {get}  //Closures that must accept a double and have void return
+    var observers: [(_: [accelPoint])-> Void] {get}  //Closures that must accept a double and have void return
     
-    func addDataPoint(dataPoint:Double) -> Void //Add another raw data point for processing
+    func addDataPoint(dataPoint:accelPoint) -> Void //Add another raw data point for processing
     
-    func addObserver(update: @escaping (_: [Double])-> Void) //Add another observer to be notified when new data is ready
+    func addObserver(update: @escaping (_: [accelPoint])-> Void) //Add another observer to be notified when new data is ready
     
-    func notifyObservers(data: [Double]) //Notify observers of new data point. Could be any number of data points.
+    func notifyObservers(data: [accelPoint]) //Notify observers of new data point. Could be any number of data points.
     
 }

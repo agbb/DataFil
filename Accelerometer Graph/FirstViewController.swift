@@ -24,7 +24,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newprocessedData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
         
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = UIColor.lightGray
@@ -66,22 +66,23 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     
     func newProcessedData(notification: NSNotification){
         
-        let data = notification.userInfo as! Dictionary<String,accelPoint>
-        let accelData = data["data"]
+        let data = notification.userInfo as! Dictionary<String,[accelPoint]>
+        let accelDataArray = data["data"]
         
-        let newEntry = ChartDataEntry(x: Double((accelData?.count)!), y: (accelData?.x)!)
-        BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
-        if((accelData?.count)! > 300){
-            BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+        for accelData in accelDataArray!{
+            let newEntry = ChartDataEntry(x: Double(accelData.count), y: accelData.x)
+            BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
+            if(accelData.count > 300){
+                BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+            }
+            BottomLineChartView.notifyDataSetChanged()
+            BottomLineChartView.data?.notifyDataChanged()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                // your code here
+                self.BottomLineChartView.setNeedsDisplay()
+            }
         }
-        BottomLineChartView.notifyDataSetChanged()
-        BottomLineChartView.data?.notifyDataChanged()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            // your code here
-            self.BottomLineChartView.setNeedsDisplay()
-        }
-        
     }
     
     func setTopChartData(values: [Double]){
@@ -123,11 +124,10 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Filtered Data")
         set1.axisDependency = .left
         set1.setColor(UIColor.blue.withAlphaComponent(0.5))
-        set1.lineWidth = 2.0
-        set1.circleRadius = 6.0
+        set1.lineWidth = 1.0
         set1.fillColor = UIColor.blue
         set1.highlightColor = UIColor.white
-        set1.drawCirclesEnabled = true
+        set1.drawCirclesEnabled = false
         
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
         dataSets.append(set1)
