@@ -19,6 +19,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var BottomLineChartView: LineChartView!
     @IBOutlet weak var TopLineChartView: LineChartView!
     var axis = "x"
+    var customAxisState = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,37 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             if(accelData.count > 300){
                 BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
             }
+            
+            let yAxisBottom = BottomLineChartView.getAxis(YAxis.AxisDependency.left)
+            let yAxisTop = TopLineChartView.getAxis(YAxis.AxisDependency.left)
+            
+            let bottomRange = abs((BottomLineChartView.lineData?.yMax)! - (BottomLineChartView.lineData?.yMin)!)
+            let topRange = abs((TopLineChartView.lineData?.yMax)! - (TopLineChartView.lineData?.yMin)!)
+            
+            
+            if Double((BottomLineChartView.lineData?.yMax)!) >= Double((TopLineChartView.lineData?.yMax)!){
+                //Bottom chart is higher, Make top chart max slave
+                
+                yAxisTop.axisMaximum = Double(yAxisBottom.axisMaximum)
+                yAxisBottom.resetCustomAxisMax()
+                
+            }else{
+                //Top chart is higher, make bottom chart max slave
+                yAxisBottom.axisMaximum = Double(yAxisTop.axisMaximum)
+                yAxisTop.resetCustomAxisMax()
+            }
+            if Double((BottomLineChartView.lineData?.yMin)!) <= Double((TopLineChartView.lineData?.yMin)!){
+                //Bottom chart is lower, Make top chart min slave
+                
+                 yAxisTop.axisMinimum = Double(yAxisBottom.axisMinimum)
+                 yAxisBottom.resetCustomAxisMin()
+                
+            }else{
+                //Top chart is lower, Make bottom chart min slave
+                yAxisBottom.axisMinimum = Double(yAxisTop.axisMinimum)
+                yAxisTop.resetCustomAxisMin()
+            }
+            
             BottomLineChartView.notifyDataSetChanged()
             BottomLineChartView.data?.notifyDataChanged()
             
@@ -94,7 +126,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             yVals1.append(ChartDataEntry(x: Double(i), y: values[i]))
         }
         
-        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Raw Data")
+        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
         set1.axisDependency = .left
         TopLineChartView.dragEnabled = false
         set1.setColor(UIColor.red.withAlphaComponent(0.5))
@@ -102,6 +134,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         set1.drawCirclesEnabled = false
         set1.fillColor = UIColor.red
         set1.highlightColor = UIColor.white
+      
         
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
         dataSets.append(set1)
@@ -109,7 +142,10 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         let data: LineChartData = LineChartData(dataSets: dataSets)
         data.setValueTextColor(UIColor.white)
         
+        self.TopLineChartView.legend.enabled = false
+        
         self.TopLineChartView.data = data
+        
     }
     
     func setBottomChartData(values: [Double]){
@@ -121,7 +157,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             yVals1.append(ChartDataEntry(x: Double(i), y: values[i]))
         }
         
-        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Filtered Data")
+        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
         set1.axisDependency = .left
         set1.setColor(UIColor.blue.withAlphaComponent(0.5))
         set1.lineWidth = 1.0
@@ -135,6 +171,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         let data: LineChartData = LineChartData(dataSets: dataSets)
         data.setValueTextColor(UIColor.white)
         
+         self.BottomLineChartView.legend.enabled = false
         self.BottomLineChartView.data = data
     }
     
