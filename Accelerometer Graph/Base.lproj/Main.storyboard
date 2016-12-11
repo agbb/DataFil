@@ -33,10 +33,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tGS-bq-7T2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="8" symbolic="YES" id="6wO-QS-GUa"/>
+                            <constraint firstItem="tGS-bq-7T2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="6wO-QS-GUa"/>
                             <constraint firstItem="9kj-Ex-arW" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="9Nn-E1-Eug"/>
-                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="221" id="RVO-28-pBk"/>
-                            <constraint firstAttribute="bottom" secondItem="VQt-RS-Vui" secondAttribute="bottom" constant="261" id="RkW-Lb-XHI"/>
+                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="213" id="RVO-28-pBk"/>
+                            <constraint firstAttribute="bottom" secondItem="VQt-RS-Vui" secondAttribute="bottom" constant="269" id="RkW-Lb-XHI"/>
                             <constraint firstItem="VQt-RS-Vui" firstAttribute="leading" secondItem="9kj-Ex-arW" secondAttribute="leading" id="U8I-t0-All"/>
                             <constraint firstItem="9kj-Ex-arW" firstAttribute="top" secondItem="VQt-RS-Vui" secondAttribute="bottom" id="VI6-I0-edt"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="trailing" secondItem="VQt-RS-Vui" secondAttribute="trailing" id="Wmf-Z4-X6h"/>
@@ -62,7 +62,7 @@
             <objects>
                 <tableViewController title="Filters" id="5FN-Xc-xDN" customClass="FilterTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Md-3E-8U9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -108,7 +108,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NBN-vw-P9e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1HP-pc-vIO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in4-kN-QVj">

@@ -58,6 +58,14 @@ class FilterManager{
         }
         
     }
+    func getFilterByName(name: String) -> FilteringProtocol?{
+        for filter in activeFilters{
+            if filter.filterName == name{
+            return filter
+            }
+        }
+        return nil
+    }
     
     func receiveData(data: [accelPoint], id:Int){
         print(id)
