@@ -43,7 +43,7 @@ class FilterTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath)
-
+    
         // Configure the cell...
         print(indexPath.row)
         cell.textLabel?.text = filters[indexPath.row]
@@ -85,20 +85,21 @@ class FilterTableViewController: UITableViewController {
         return true
     }
     */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let Storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let destination = Storyboard.instantiateViewController(withIdentifier: "HighPassView")
+        navigationController?.pushViewController(destination, animated: true)
+    }
 
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "FilterDetailSegue"{
-            let destination = segue.destination as? FilterDetailViewController
-            let tappedItem = filters[(tableView.indexPathForSelectedRow?.row)!]
-            destination?.filterName = tappedItem
-        }
-    }
+       
+    //}
     
 
 }

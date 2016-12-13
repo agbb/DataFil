@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,9 +81,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="EAi-iH-o3d" kind="show" identifier="FilterDetailSegue" id="f4e-8W-5FP"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -99,39 +95,33 @@
             </objects>
             <point key="canvasLocation" x="2436" y="-482.15892053973016"/>
         </scene>
-        <!--Filter Detail View Controller-->
-        <scene sceneID="wmj-lM-6Kc">
+        <!--HIgh Pass-->
+        <scene sceneID="E5n-Xn-Sly">
             <objects>
-                <viewController id="EAi-iH-o3d" customClass="FilterDetailViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HighPassView" title="HIgh Pass" id="Uvm-7m-f90" customClass="HighPassViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EDz-Gg-Cnq"/>
-                        <viewControllerLayoutGuide type="bottom" id="NBN-vw-P9e"/>
+                        <viewControllerLayoutGuide type="top" id="OhO-Zl-D3R"/>
+                        <viewControllerLayoutGuide type="bottom" id="FNu-Jl-Dqh"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1HP-pc-vIO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                    <view key="view" contentMode="scaleToFill" id="ALF-Jg-SVW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in4-kN-QVj">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3Y-Vb-qZr">
+                                <frame key="frameInset" minX="177" minY="283" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="in4-kN-QVj" firstAttribute="leading" secondItem="1HP-pc-vIO" secondAttribute="leadingMargin" constant="108" id="Z7o-aW-fMg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="in4-kN-QVj" secondAttribute="trailing" constant="193" id="eew-W9-KMO"/>
-                            <constraint firstItem="NBN-vw-P9e" firstAttribute="top" secondItem="in4-kN-QVj" secondAttribute="bottom" constant="123" id="fSq-nG-a6X"/>
-                            <constraint firstItem="in4-kN-QVj" firstAttribute="top" secondItem="EDz-Gg-Cnq" secondAttribute="bottom" constant="8" id="w0j-gb-9bC"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="titleLabel" destination="in4-kN-QVj" id="cHQ-D9-OXW"/>
-                    </connections>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D3z-02-fpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNZ-5d-qDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="-110"/>
+            <point key="canvasLocation" x="1706" y="225"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">

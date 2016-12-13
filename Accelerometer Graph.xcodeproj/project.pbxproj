@@ -11,6 +11,7 @@
 		FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
 		FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
 		FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
+		FA9B3AE31E0048F700873309 /* HighPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3AE21E0048F700873309 /* HighPassViewController.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
 		FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
@@ -90,6 +91,7 @@
 		FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelerometerManager.swift; sourceTree = "<group>"; };
 		FA186CC21DF98C7300835B7C /* accelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelPoint.swift; sourceTree = "<group>"; };
 		FA186CC51DF9BC8000835B7C /* HighPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPass.swift; sourceTree = "<group>"; };
+		FA9B3AE21E0048F700873309 /* HighPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPassViewController.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
 				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
 				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
+				FA9B3AE21E0048F700873309 /* HighPassViewController.swift */,
 			);
 			path = "Accelerometer Graph";
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA9B3AE31E0048F700873309 /* HighPassViewController.swift in Sources */,
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
 				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
 				FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */,

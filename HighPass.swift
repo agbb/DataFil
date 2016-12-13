@@ -32,7 +32,6 @@ class HighPass: FilteringProtocol{
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
-        print("got data")
         highPass(currentRaw: dataPoint)
     }
     
@@ -46,6 +45,7 @@ class HighPass: FilteringProtocol{
     }
     
     func highPass(currentRaw: accelPoint){
+  
         let newPoint = accelPoint()
         newPoint.x = (currentRaw.x - (alpha * currentRaw.x)) + (previousValue.x * (1.0 - alpha))
         newPoint.y = alpha * currentRaw.y + previousValue.y * (1.0 - alpha)

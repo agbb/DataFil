@@ -43,7 +43,6 @@ class accelerometerManager{
                                                     self.count += 1
                                                     let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
                                                     NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
-                                                    //self.notify(accel: accel)
                                                     
                                                 })
             } else {
@@ -54,11 +53,7 @@ class accelerometerManager{
             print("Gyro isn't available")
         }
     }
-    
-    func notify(accel: accelPoint){
-        
-             NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
-    }
+
 }
 
 

@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let acm = accelerometerManager()
         acm.initaliseAccelerometer()
        
-         var fm = FilterManager.sharedInstance
+         let fm = FilterManager.sharedInstance
         
         fm.addNewFilter(filterName: "High Pass")
         let highPass: HighPass = fm.activeFilters[0] as! HighPass

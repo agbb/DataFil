@@ -33,8 +33,13 @@ class FilterManager{
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
         let currentData = accelData?.getAxis(axis: "x")
-
-        activeFilters[0].addDataPoint(dataPoint: accelData!)
+        print(currentData)
+        if activeFilters.count >= 1 {
+            activeFilters[0].addDataPoint(dataPoint: accelData!)
+        }else{ //no filters, direct input straight to output
+            print("no filters")
+            receiveData(data: [accelData!], id: -1)
+        }
         
     }
     
@@ -68,7 +73,8 @@ class FilterManager{
     }
     
     func receiveData(data: [accelPoint], id:Int){
-        print(id)
+        print("data coming from filter: \(data[0].x)")
+        
         if(id == activeFilters.count-1){
             NotificationCenter.default.post(name: Notification.Name("newProcessedData"), object: nil, userInfo:["data":data])
         }else{
