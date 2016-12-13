@@ -10,7 +10,7 @@ import Foundation
 
 class HighPass: FilteringProtocol{
     
-    var alpha = 0.0
+    var alpha = 0.5
     var filterName = "High Pass"
     var observers: [([accelPoint]) -> Void]
     var previousValue: accelPoint
@@ -45,9 +45,11 @@ class HighPass: FilteringProtocol{
     }
     
     func highPass(currentRaw: accelPoint){
-  
+        print(alpha)
         let newPoint = accelPoint()
-        newPoint.x = (currentRaw.x - (alpha * currentRaw.x)) + (previousValue.x * (1.0 - alpha))
+        newPoint.x = (alpha * currentRaw.x) + (previousValue.x * (1.0 - alpha))
+        print("\(currentRaw.x),\(newPoint.x)")
+        
         newPoint.y = alpha * currentRaw.y + previousValue.y * (1.0 - alpha)
         newPoint.z = alpha * currentRaw.z + previousValue.z * (1.0 - alpha)
         newPoint.count = currentRaw.count

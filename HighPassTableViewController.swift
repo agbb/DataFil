@@ -1,25 +1,41 @@
 //
-//  FilterTableViewController.swift
+//  HighPassTableViewController.swift
 //  Accelerometer Graph
 //
-//  Created by Alex Gubbay on 08/12/2016.
+//  Created by Alex Gubbay on 13/12/2016.
 //  Copyright © 2016 Alex Gubbay. All rights reserved.
 //
 
 import UIKit
 
-class FilterTableViewController: UITableViewController {
+class HighPassTableViewController: UITableViewController {
 
-    let filters = ["High Pass","Low Pass","Kalman"]
+    
+    @IBAction func switchTapped(_ sender: AnyObject) {
+        
+    }
+    
+    @IBAction func highPassSwitchTapped(_ sender: UISwitch) {
+         let fm = FilterManager.sharedInstance
+        
+        if sender.isOn{
+            fm.addNewFilter(filterName: "High Pass")
+            print("more!")
+        }else{
+            print("no more!")
+        }
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+
+      
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.navigationItem.title = "Filters"
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,27 +45,25 @@ class FilterTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+   // override func numberOfSections(in tableView: UITableView) -> Int {
+     //   // #warning Incomplete implementation, return the number of sections
+     //   return 0
+    //}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return filters.count
-    }
+     //   return 0
+    //}
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath)
-    
         // Configure the cell...
-        print(indexPath.row)
-        cell.textLabel?.text = filters[indexPath.row]
+
         return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -85,21 +99,15 @@ class FilterTableViewController: UITableViewController {
         return true
     }
     */
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let Storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let destination = Storyboard.instantiateViewController(withIdentifier: "HighPassTableView")
-        navigationController?.pushViewController(destination, animated: true)
-    }
 
-    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-       
-    //}
-    
+    }
+    */
 
 }

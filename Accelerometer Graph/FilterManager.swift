@@ -32,12 +32,11 @@ class FilterManager{
         
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
-        let currentData = accelData?.getAxis(axis: "x")
-        print(currentData)
+        //let currentData = accelData?.getAxis(axis: "x")
         if activeFilters.count >= 1 {
+            print("sending data to process")
             activeFilters[0].addDataPoint(dataPoint: accelData!)
         }else{ //no filters, direct input straight to output
-            print("no filters")
             receiveData(data: [accelData!], id: -1)
         }
         
@@ -47,11 +46,11 @@ class FilterManager{
         
         switch filterName {
         case "High Pass":
-            
-            let highPass = HighPass(alpha: 1)
+            print("Adding High Pass")
+            let highPass = HighPass(alpha: 0.5)
             highPass.id = activeFilters.count
             
-            var update = {(data: [accelPoint])->Void in
+            let update = {(data: [accelPoint])->Void in
                 
                 self.receiveData(data: data, id: highPass.id)
             }
@@ -73,9 +72,10 @@ class FilterManager{
     }
     
     func receiveData(data: [accelPoint], id:Int){
-        print("data coming from filter: \(data[0].x)")
+
         
         if(id == activeFilters.count-1){
+            print("processing data")
             NotificationCenter.default.post(name: Notification.Name("newProcessedData"), object: nil, userInfo:["data":data])
         }else{
             for dataPoint in data{

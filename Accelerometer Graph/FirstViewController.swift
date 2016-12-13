@@ -66,7 +66,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     }
     
     func newProcessedData(notification: NSNotification){
-        
+        print("data sent")
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelDataArray = data["data"]
         
@@ -127,25 +127,27 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
-        set1.axisDependency = .left
-        TopLineChartView.dragEnabled = false
         set1.setColor(UIColor.red.withAlphaComponent(0.5))
-        set1.lineWidth = 1.0
-        set1.drawCirclesEnabled = false
-        set1.fillColor = UIColor.red
-        set1.highlightColor = UIColor.white
-      
-        
-        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-        dataSets.append(set1)
-        
-        let data: LineChartData = LineChartData(dataSets: dataSets)
-        data.setValueTextColor(UIColor.white)
         
         self.TopLineChartView.legend.enabled = false
+        TopLineChartView.dragEnabled = false
+        self.TopLineChartView.data = configureDataSet(set: set1)
         
-        self.TopLineChartView.data = data
+    }
+    
+    func configureDataSet(set: LineChartDataSet)->LineChartData{
+        set.axisDependency = .left
+        set.lineWidth = 1.0
+        set.fillColor = UIColor.blue
+        set.highlightColor = UIColor.white
+        set.drawCirclesEnabled = false
+        set.drawValuesEnabled = false
         
+        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
+        dataSets.append(set)
+        
+        let data: LineChartData = LineChartData(dataSets: dataSets)
+        return  data
     }
     
     func setBottomChartData(values: [Double]){
@@ -158,21 +160,11 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
-        set1.axisDependency = .left
         set1.setColor(UIColor.blue.withAlphaComponent(0.5))
-        set1.lineWidth = 1.0
-        set1.fillColor = UIColor.blue
-        set1.highlightColor = UIColor.white
-        set1.drawCirclesEnabled = false
-        
-        var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-        dataSets.append(set1)
-        
-        let data: LineChartData = LineChartData(dataSets: dataSets)
-        data.setValueTextColor(UIColor.white)
-        
-         self.BottomLineChartView.legend.enabled = false
-        self.BottomLineChartView.data = data
+
+        self.BottomLineChartView.legend.enabled = false
+        BottomLineChartView.dragEnabled = false
+        self.BottomLineChartView.data = configureDataSet(set: set1)
     }
     
 }
