@@ -12,7 +12,7 @@ protocol FilteringProtocol {
     
     
     var filterName: String {get}  //The full name of the filter
-    
+    var params: [String:Double] {get}
     var observers: [(_: [accelPoint])-> Void] {get}  //Closures that must accept a double and have void return
     
     func addDataPoint(dataPoint:accelPoint) -> Void //Add another raw data point for processing
@@ -21,4 +21,5 @@ protocol FilteringProtocol {
     
     func notifyObservers(data: [accelPoint]) //Notify observers of new data point. Could be any number of data points.
     
+    func setParameter(parameterName:String, parameterValue:Double) -> Void
 }

@@ -66,7 +66,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     }
     
     func newProcessedData(notification: NSNotification){
-        print("data sent")
+
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelDataArray = data["data"]
         

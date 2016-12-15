@@ -121,7 +121,7 @@
 		FAD59C861DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAD59C921DF880F400A7FD6A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../Downloads/Charts-master-4/Charts.xcodeproj"; sourceTree = "<group>"; };
 		FAE34B3D1DFB509B00962F61 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
-		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteringProtocol.swift; path = ../../FilteringProtocol.swift; sourceTree = "<group>"; };
+		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteringProtocol.swift; path = ../FilteringProtocol.swift; sourceTree = "<group>"; };
 		FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				FA9B3B081E006D8A00873309 /* LICENSE */,
-				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
 				FA9B3AFD1E006D7E00873309 /* Enum.swift */,
 				FA9B3AFE1E006D7E00873309 /* FontAwesome.h */,
 				FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */,
@@ -201,6 +200,7 @@
 			children = (
 				FA9B3AFC1E006D7E00873309 /* FontAwesome */,
 				FAD59C621DF880B000A7FD6A /* AppDelegate.swift */,
+				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
 				FAD59C641DF880B000A7FD6A /* FirstViewController.swift */,
 				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
 				FAD59C681DF880B000A7FD6A /* Main.storyboard */,

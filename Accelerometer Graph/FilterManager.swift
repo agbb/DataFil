@@ -23,7 +23,7 @@ class FilterManager{
     var filteringAxis = "x"
     
     init(){
-        print("adding observer")
+
         NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRawData"), object: nil)
 
     }
@@ -34,7 +34,6 @@ class FilterManager{
         let accelData = data["data"]
         //let currentData = accelData?.getAxis(axis: "x")
         if activeFilters.count >= 1 {
-            print("sending data to process")
             activeFilters[0].addDataPoint(dataPoint: accelData!)
         }else{ //no filters, direct input straight to output
             receiveData(data: [accelData!], id: -1)
@@ -46,8 +45,7 @@ class FilterManager{
         
         switch filterName {
         case "High Pass":
-            print("Adding High Pass")
-            let highPass = HighPass(alpha: 0.5)
+            let highPass = HighPass()
             highPass.id = activeFilters.count
             
             let update = {(data: [accelPoint])->Void in
@@ -62,7 +60,17 @@ class FilterManager{
         }
         
     }
-    func getFilterByName(name: String) -> FilteringProtocol?{
+    
+    func removeFilter(filterName: String){
+        for i in 0 ..< activeFilters.count{
+            if activeFilters[i].filterName == filterName{
+                activeFilters.remove(at: i)
+                break;
+            }
+        }
+    }
+    
+    private func getFilterByName(name: String) -> FilteringProtocol?{
         for filter in activeFilters{
             if filter.filterName == name{
             return filter
@@ -71,11 +79,15 @@ class FilterManager{
         return nil
     }
     
+    func setFilterParameter(filterName: String, parameterName: String, parameterValue: Double){
+        getFilterByName(name: filterName)?.setParameter(parameterName: parameterName, parameterValue: parameterValue)
+    }
+    
     func receiveData(data: [accelPoint], id:Int){
 
         
         if(id == activeFilters.count-1){
-            print("processing data")
+
             NotificationCenter.default.post(name: Notification.Name("newProcessedData"), object: nil, userInfo:["data":data])
         }else{
             for dataPoint in data{

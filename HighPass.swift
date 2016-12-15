@@ -10,15 +10,17 @@ import Foundation
 
 class HighPass: FilteringProtocol{
     
-    var alpha = 0.5
+    var params = [String:Double]()
     var filterName = "High Pass"
     var observers: [([accelPoint]) -> Void]
     var previousValue: accelPoint
     
     var id = 0
     
-    init(alpha: Double){
-        self.alpha = alpha
+    init(){
+
+        params["alpha"] = 0.5
+        
         self.previousValue = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
         observers = []
     }
@@ -26,9 +28,9 @@ class HighPass: FilteringProtocol{
     func getFilterName() -> String{
         return filterName
     }
-    
-    func setAlpha(alpha: Double){
-        self.alpha = alpha
+
+    func setParameter(parameterName: String, parameterValue: Double) {
+        params[parameterName] = parameterValue
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
@@ -45,13 +47,10 @@ class HighPass: FilteringProtocol{
     }
     
     func highPass(currentRaw: accelPoint){
-        print(alpha)
         let newPoint = accelPoint()
-        newPoint.x = (alpha * currentRaw.x) + (previousValue.x * (1.0 - alpha))
-        print("\(currentRaw.x),\(newPoint.x)")
-        
-        newPoint.y = alpha * currentRaw.y + previousValue.y * (1.0 - alpha)
-        newPoint.z = alpha * currentRaw.z + previousValue.z * (1.0 - alpha)
+        newPoint.x = (params["alpha"]! * currentRaw.x) + (previousValue.x * (1.0 - params["alpha"]!))
+        newPoint.y = params["alpha"]! * currentRaw.y + previousValue.y * (1.0 - params["alpha"]!)
+        newPoint.z = params["alpha"]! * currentRaw.z + previousValue.z * (1.0 - params["alpha"]!)
         newPoint.count = currentRaw.count
         previousValue = newPoint
         notifyObservers(data: [newPoint])
