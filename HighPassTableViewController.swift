@@ -13,8 +13,8 @@ class HighPassTableViewController: UITableViewController {
     let fm = FilterManager.sharedInstance
     @IBOutlet weak var highPassSwitch: UISwitch!
     @IBOutlet weak var currentAlphaLabel: UILabel!
-    @IBOutlet weak var leftSliderLabel: UILabel!
-    @IBOutlet weak var rightSliderLabel: UILabel!
+    //@IBOutlet weak var leftSliderLabel: UILabel!
+    //@IBOutlet weak var rightSliderLabel: UILabel!
     
    
     
@@ -23,8 +23,11 @@ class HighPassTableViewController: UITableViewController {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
 
+        //leftSliderLabel.font = UIFont.fontAwesome(ofSize: 15)
+        //rightSliderLabel.font = UIFont.fontAwesome(ofSize: 15)
         
-        
+        //leftSliderLabel.text = String.fontAwesomeIcon(code:"fa-chevron-down")
+        //rightSliderLabel.text = String.fontAwesomeIcon(code:"fa-chevron-up")
     }
 
     @IBAction func highPassSwitchTapped(_ sender: UISwitch) {
@@ -42,6 +45,7 @@ class HighPassTableViewController: UITableViewController {
         
         if highPassSwitch.isOn {
             fm.setFilterParameter(filterName: "High Pass", parameterName: "alpha", parameterValue: Double(sender.value))
+            currentAlphaLabel.text = String(Double(sender.value).roundTo(places: 2))
         }
     }
     

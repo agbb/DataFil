@@ -21,6 +21,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     var axis = "x"
     var customAxisState = false
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,11 +29,11 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
         
         self.TopLineChartView.delegate = self
-        self.TopLineChartView.backgroundColor = UIColor.lightGray
+        self.TopLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
         self.TopLineChartView.noDataText = "No Data"
         
         self.BottomLineChartView.delegate = self
-        self.BottomLineChartView.backgroundColor = UIColor.lightGray
+        self.BottomLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
         self.BottomLineChartView.noDataText = "No Data"
        
         setTopChartData(values: [0])
@@ -127,7 +128,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
-        set1.setColor(UIColor.red.withAlphaComponent(0.5))
+        set1.setColor(#colorLiteral(red: 0.2726118863, green: 0.6989091039, blue: 0.6175016761, alpha: 1))
         
         self.TopLineChartView.legend.enabled = false
         TopLineChartView.dragEnabled = false
@@ -160,7 +161,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
-        set1.setColor(UIColor.blue.withAlphaComponent(0.5))
+        set1.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
 
         self.BottomLineChartView.legend.enabled = false
         BottomLineChartView.dragEnabled = false
