@@ -13,6 +13,34 @@ class LowPassTableViewController: UITableViewController {
     let fm = FilterManager.sharedInstance
 
     
+    @IBOutlet weak var pLabel: UILabel!
+    @IBOutlet weak var gLabel: UILabel!
+    
+    @IBOutlet weak var lowPassSwitch: UISwitch!
+    
+    @IBAction func pValueChanged(_ sender: UIStepper) {
+        pLabel.text = "P: \(sender.value)"
+        if lowPassSwitch.isOn{
+            fm.setFilterParameter(filterName: "Low Pass", parameterName: "p", parameterValue: sender.value)
+        }
+    }
+   
+    
+    @IBAction func gValueChanged(_ sender: UIStepper) {
+        gLabel.text = "G: \(sender.value)"
+        if lowPassSwitch.isOn{
+            fm.setFilterParameter(filterName: "Low Pass", parameterName: "g", parameterValue: sender.value)
+        }
+    }
+    
+    @IBAction func passesValueChanged(_ sender: UISegmentedControl) {
+        if lowPassSwitch.isOn{
+            fm.setFilterParameter(filterName: "Low Pass", parameterName: "n", parameterValue: Double(sender.selectedSegmentIndex+1))
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

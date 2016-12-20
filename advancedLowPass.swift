@@ -31,7 +31,7 @@ class advancedLowPass: FilteringProtocol {
         params["g"] = 1.0
         params["n"] = 1.0
         params["fs"] = 10
-        params["f0"] = 0.01
+        params["f0"] = 0.1
         calculateCoeffcients()
     }
     
