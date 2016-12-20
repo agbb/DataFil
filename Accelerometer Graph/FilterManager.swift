@@ -8,19 +8,7 @@
 
 import Foundation
 
-struct notificationManager{
-    static var nc = NotificationCenter.default
-    static let newRawDataNotification = Notification.Name("newRawData")
-}
 
-
-extension Double {
-    /// Rounds the double to decimal places value
-    func roundTo(places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
-}
 
 class FilterManager{
     
@@ -62,6 +50,19 @@ class FilterManager{
             
             highPass.addObserver(update: update)
             activeFilters.append(highPass)
+            break
+        case "Low Pass":
+            let lowPass = advancedLowPass()
+            lowPass.id = activeFilters.count
+            
+            let update = {(data: [accelPoint])->Void in
+                
+                self.receiveData(data: data, id: lowPass.id)
+            }
+            
+            lowPass.addObserver(update: update)
+            activeFilters.append(lowPass)
+            break
         default:
             print("No match in FilterManager")
         }

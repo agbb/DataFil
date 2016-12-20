@@ -10,7 +10,8 @@ import UIKit
 
 class FilterTableViewController: UITableViewController {
 
-    let filters = ["High Pass","Low Pass","Kalman"]
+    let filterDisplayNames = ["High Pass","Low Pass"]
+    let filterViewControllers = ["HighPassTableView","LowPassTableView"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ class FilterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return filters.count
+        return filterDisplayNames.count
     }
 
     
@@ -46,7 +47,7 @@ class FilterTableViewController: UITableViewController {
     
         // Configure the cell...
         print(indexPath.row)
-        cell.textLabel?.text = filters[indexPath.row]
+        cell.textLabel?.text = filterDisplayNames[indexPath.row]
         return cell
     }
     
@@ -87,7 +88,8 @@ class FilterTableViewController: UITableViewController {
     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let Storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let destination = Storyboard.instantiateViewController(withIdentifier: "HighPassTableView")
+        
+        let destination = Storyboard.instantiateViewController(withIdentifier: filterViewControllers[indexPath.row])
         navigationController?.pushViewController(destination, animated: true)
     }
 

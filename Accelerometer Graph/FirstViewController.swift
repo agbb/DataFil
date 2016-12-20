@@ -80,11 +80,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             
             let yAxisBottom = BottomLineChartView.getAxis(YAxis.AxisDependency.left)
             let yAxisTop = TopLineChartView.getAxis(YAxis.AxisDependency.left)
-            
-            let bottomRange = abs((BottomLineChartView.lineData?.yMax)! - (BottomLineChartView.lineData?.yMin)!)
-            let topRange = abs((TopLineChartView.lineData?.yMax)! - (TopLineChartView.lineData?.yMin)!)
-            
-            
+
             if Double((BottomLineChartView.lineData?.yMax)!) >= Double((TopLineChartView.lineData?.yMax)!){
                 //Bottom chart is higher, Make top chart max slave
                 
