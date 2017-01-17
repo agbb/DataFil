@@ -20,6 +20,7 @@
 		FA9B3B071E006D7E00873309 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3B021E006D7E00873309 /* Info.plist */; };
 		FA9B3B091E006D8A00873309 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3B081E006D8A00873309 /* LICENSE */; };
 		FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
+		FAD5693C1E2E7CBF009886E0 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5693B1E2E7CBF009886E0 /* TimePickerViewController.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
 		FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
@@ -109,6 +110,7 @@
 		FA9B3B021E006D7E00873309 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9B3B081E006D8A00873309 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighPassTableViewController.swift; path = ../HighPassTableViewController.swift; sourceTree = "<group>"; };
+		FAD5693B1E2E7CBF009886E0 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 			path = FontAwesome;
 			sourceTree = "<group>";
 		};
+		FAD5693A1E2E7C96009886E0 /* DataCapture */ = {
+			isa = PBXGroup;
+			children = (
+				FAD5693B1E2E7CBF009886E0 /* TimePickerViewController.swift */,
+			);
+			name = DataCapture;
+			sourceTree = "<group>";
+		};
 		FAD59C561DF880B000A7FD6A = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +225,7 @@
 		FAD59C611DF880B000A7FD6A /* Accelerometer Graph */ = {
 			isa = PBXGroup;
 			children = (
+				FAD5693A1E2E7C96009886E0 /* DataCapture */,
 				FA9B3AFC1E006D7E00873309 /* FontAwesome */,
 				FAD59C621DF880B000A7FD6A /* AppDelegate.swift */,
 				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
@@ -437,6 +448,7 @@
 				FAF398D41E09753E00021CD6 /* LowPassTableViewController.swift in Sources */,
 				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
 				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,
+				FAD5693C1E2E7CBF009886E0 /* TimePickerViewController.swift in Sources */,
 				FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */,
 				FA9B3B061E006D7E00873309 /* FontAwesomeView.swift in Sources */,
 				FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */,

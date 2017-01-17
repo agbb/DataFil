@@ -4,7 +4,7 @@
 //
 //  Created by Alex Gubbay on 20/12/2016.
 //  Copyright © 2016 Alex Gubbay. All rights reserved.
-//
+// A programitic implementation and adaptation of the mathematics found at http://unicorn.us.com/trading/allpolefilters.html
 
 import Foundation
 
