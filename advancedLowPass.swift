@@ -51,7 +51,6 @@ class advancedLowPass: FilteringProtocol {
         let g = params["g"]!
         
         c = (2.0^^(1/n)-1.0)^^(-0.25)
-        c = 0.7344009
         fStar = c * params["f0"]! / params["fs"]!
         
         if(fStar < 0 || fStar > 0.125 ){
