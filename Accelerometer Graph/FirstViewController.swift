@@ -20,7 +20,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var TopLineChartView: LineChartView!
     var axis = "x"
     var customAxisState = false
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,6 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     }
 
     func newRawData(notification: NSNotification){
-        
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
 

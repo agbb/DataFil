@@ -41,8 +41,14 @@ class accelerometerManager{
                                                         return
                                                     }
                                                     self.count += 1
-                                                    let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
-                                                    NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
+                                                   
+                                                   
+                                                    DispatchQueue.main.async{
+                                                        let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
+                                                        
+                                                        NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
+                                                        
+                                                    }
                                                     
                                                 })
             } else {
