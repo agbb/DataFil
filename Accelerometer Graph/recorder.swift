@@ -15,7 +15,7 @@ class recorder{
     var processedData = [accelPoint]()
     
     func beginRecording(raw: Bool, processed: Bool, time: Double, complete: () -> Void){
-        print("recording")
+
         if raw{
             NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRawData"), object: nil)
         }
@@ -31,7 +31,6 @@ class recorder{
     }
     
      @objc func newRawData(notification: NSNotification){
-        print("raw")
        let data = notification.userInfo as! Dictionary<String,accelPoint>
        let accelData = data["data"]
         rawData.append(accelData!)
@@ -43,11 +42,12 @@ class recorder{
         print(rawData.count)
         print(processedData.count)
         NotificationCenter.default.removeObserver(self)
-        formatJSONheader()
+        
+        let outputHeader = formatJSONheader()
+        let outputData = formatJSONdata(header: outputHeader)
     }
     
     @objc func newProcessedData(notification: NSNotification){
-        print("processed")
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelData = data["data"]
         for point in accelData! {
@@ -55,7 +55,7 @@ class recorder{
         }
 }
     
-    func formatJSONheader(){
+    func formatJSONheader()-> JSON{
         
         let today = NSDate()
         
@@ -76,7 +76,44 @@ class recorder{
         }
         json["filters"] = JSON(filterData)
         
-        print(json)
+        return json
+        
+    }
+    
+    func formatJSONdata(header: JSON) -> JSON{
+        var workingJSON = header
+
+        
+        var rawPoints = [[String:Double]]()
+        var processedPoints = [[String:Double]]()
+        
+        for point in rawData{
+           var pointDict = [String:Double]()
+            pointDict["ID"] = Double(point.count)
+            pointDict["x"] = point.x
+            pointDict["y"] = point.y
+            pointDict["z"] = point.z
+            rawPoints.append(pointDict)
+
+        }
+        rawData.removeAll()
+        
+        for point in processedData{
+            var pointDict = [String:Double]()
+            pointDict["ID"] = Double(point.count)
+            pointDict["x"] = point.x
+            pointDict["y"] = point.y
+            pointDict["z"] = point.z
+            processedPoints.append(pointDict)
+        }
+        processedData.removeAll()
+        
+        workingJSON["raw"] = JSON(rawPoints)
+        workingJSON["processed"] = JSON(processedPoints)
+        
+        print(workingJSON)
+        return workingJSON
+  
         
     }
     
