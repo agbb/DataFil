@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 struct notificationManager{
     static var nc = NotificationCenter.default
     static let newRawDataNotification = Notification.Name("newRawData")
@@ -21,6 +23,18 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
 }
+
+var persistentContainer: NSPersistentContainer = {
+    
+    let container = NSPersistentContainer(name: "you_model_file_name")
+    container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        if let error = error {
+            
+            fatalError("Unresolved error with the persistent container")
+        }
+    })
+    return container
+}()
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ^^ : PowerPrecedence

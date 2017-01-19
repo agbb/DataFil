@@ -33,6 +33,7 @@
 		FAEE08811E30DB0300AEEDE0 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEE08791E30D83500AEEDE0 /* Charts.framework */; };
 		FAEE08821E30DB0300AEEDE0 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAEE08791E30D83500AEEDE0 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
+		FAEE08891E31317700AEEDE0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08871E31317700AEEDE0 /* Model.xcdatamodeld */; };
 		FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */; };
 		FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */; };
 		FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
@@ -131,6 +132,7 @@
 		FAE34B3D1DFB509B00962F61 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteringProtocol.swift; path = ../FilteringProtocol.swift; sourceTree = "<group>"; };
 		FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		FAEE08881E31317700AEEDE0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDetailViewController.swift; sourceTree = "<group>"; };
 		FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPass.swift; sourceTree = "<group>"; };
 		FAF398D11E0963C700021CD6 /* globalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalConfig.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD59C681DF880B000A7FD6A /* Main.storyboard */,
+				FAEE08871E31317700AEEDE0 /* Model.xcdatamodeld */,
 				FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */,
 				FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */,
 			);
@@ -483,6 +486,7 @@
 				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
 				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,
 				FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */,
+				FAEE08891E31317700AEEDE0 /* Model.xcdatamodeld in Sources */,
 				FA9B3B061E006D7E00873309 /* FontAwesomeView.swift in Sources */,
 				FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */,
 				FA9B3B051E006D7E00873309 /* FontAwesome.swift in Sources */,
@@ -762,6 +766,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAEE08871E31317700AEEDE0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAEE08881E31317700AEEDE0 /* Model.xcdatamodel */,
+			);
+			currentVersion = FAEE08881E31317700AEEDE0 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FAD59C571DF880B000A7FD6A /* Project object */;
 }

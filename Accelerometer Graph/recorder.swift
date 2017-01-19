@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class recorder{
     
     var rawData = [accelPoint]()
     var processedData = [accelPoint]()
-    
+    let triggerTime = NSDate()
     func beginRecording(raw: Bool, processed: Bool, time: Double, complete: () -> Void){
 
         if raw{
@@ -63,7 +64,7 @@ class recorder{
             dateFormatter.dateStyle = .full
             dateFormatter.timeStyle = .full
         
-        let dateString = "{\"date\" : \""+dateFormatter.string(from: today as Date)+"\"}"
+        let dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
         
         let dateJson = dateString.data(using: .utf8, allowLossyConversion: false)
         var json = JSON(data: dateJson!)
@@ -117,8 +118,23 @@ class recorder{
         
     }
     
-    func saveRecording(){
-    
+    func saveRecording(json: JSON, triggerTime:Date){
+        
+        let jsonString = json.string
+        let managedContext = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Recording", in: managedContext)
+        let recording = NSManagedObject(entity: entity!, insertInto: managedContext)
+       
+        recording.setValue(triggerTime, forKeyPath: "triggerTime")
+        recording.setValue(jsonString, forKeyPath: "jsonString")
+        
+        do {
+         try managedContext.save()
+        }catch{
+            print("save filed")
+        }
+        
+
     }
     
   deinit{
