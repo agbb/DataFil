@@ -56,21 +56,27 @@ class recorder{
 }
     
     func formatJSONheader(){
+        
         let today = NSDate()
         
         let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .full
             dateFormatter.timeStyle = .full
         
-        let dateString = "{date : "+dateFormatter.string(from: today as Date)+"}"
-        
-        print(dateString)
+        let dateString = "{\"date\" : \""+dateFormatter.string(from: today as Date)+"\"}"
         
         let dateJson = dateString.data(using: .utf8, allowLossyConversion: false)
-        let json = JSON(data: dateJson!)
+        var json = JSON(data: dateJson!)
+        
+     
+        let filters = FilterManager.sharedInstance.activeFilters
+        var filterData = [String:[String:Double]]()
+        for filter in filters{
+            filterData[filter.filterName] = filter.params
+        }
+        json["filters"] = JSON(filterData)
+        
         print(json)
-        
-        
         
     }
     
