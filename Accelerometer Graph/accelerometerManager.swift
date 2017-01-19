@@ -12,7 +12,7 @@ import CoreMotion
 
 
 class accelerometerManager{
-    
+
     lazy var manager = CMMotionManager()
     lazy var queue = OperationQueue()
     var count = 0

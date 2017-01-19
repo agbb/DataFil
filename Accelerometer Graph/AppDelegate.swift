@@ -16,17 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
+ 
         
         let acm = accelerometerManager()
         acm.initaliseAccelerometer()
        
-         let fm = FilterManager.sharedInstance
-        
-        //fm.addNewFilter(filterName: "High Pass")
-        //let highPass: HighPass = fm.activeFilters[0] as! HighPass
-        //highPass.alpha = 0.1
+        //TODO fix this.
+        _ = FilterManager.sharedInstance
         
         return true
     }

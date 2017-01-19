@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 struct notificationManager{
     static var nc = NotificationCenter.default
     static let newRawDataNotification = Notification.Name("newRawData")
@@ -27,4 +27,13 @@ infix operator ^^ : PowerPrecedence
 
 func ^^ (first: Double, second: Double) -> Double {
     return pow(Double(first), Double(second))
+}
+
+struct alertBuilder{
+    
+    func build(title: String,  message:String, buttonText:String)-> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        return alert
+    }
 }

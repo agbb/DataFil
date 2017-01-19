@@ -44,25 +44,23 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         return 1
     }
     @IBAction func recordPressed(_ sender: UIButton) {
-
-   
-        print(raw)
-        print(processed)
+        print("press")
         let recordTimeSecs = (minuteSelection * 60) + secondSelection
-        print(recordTimeSecs)
+
         if recordTimeSecs == 0.0{
-            let alert = UIAlertController(title: "Invalid time", message: "Select a valid time for recording.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            let alert = alertBuilder().build(title: "Invalid time", message: "Select a valid time for recording.", buttonText: "OK")
             self.present(alert, animated: true, completion: nil)
+            
         }else if raw == false && processed == false{
-            let alert = UIAlertController(title: "No data selected", message: "Select at least one data type for recording.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            let alert = alertBuilder().build(title:"No data selected", message:"Select at least one data type for recording.", buttonText:"OK")
             self.present(alert, animated: true, completion: nil)
 
         }else{
-            print("done")
+            
             record.beginRecording(raw:self.raw, processed:self.processed, time:recordTimeSecs, complete:{
-                    print("done")
+            sender.isEnabled = false
             })
         }
         

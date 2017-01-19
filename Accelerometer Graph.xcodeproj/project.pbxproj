@@ -20,8 +20,6 @@
 		FA9B3B091E006D8A00873309 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3B081E006D8A00873309 /* LICENSE */; };
 		FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
 		FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
-		FAABDB551E2E8CDF0029ABE9 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAABDB501E2E8CA00029ABE9 /* Charts.framework */; };
-		FAABDB561E2E8CDF0029ABE9 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAABDB501E2E8CA00029ABE9 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
 		FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
@@ -32,6 +30,9 @@
 		FAD59C851DF880B000A7FD6A /* Accelerometer_GraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */; };
 		FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B3D1DFB509B00962F61 /* FilterManager.swift */; };
 		FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B421DFB526100962F61 /* FilteringProtocol.swift */; };
+		FAEE08811E30DB0300AEEDE0 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAEE08791E30D83500AEEDE0 /* Charts.framework */; };
+		FAEE08821E30DB0300AEEDE0 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAEE08791E30D83500AEEDE0 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
 		FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */; };
 		FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */; };
 		FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
@@ -39,34 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FAABDB4F1E2E8CA00029ABE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F241D8110E600722320;
-			remoteInfo = Charts;
-		};
-		FAABDB511E2E8CA00029ABE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06B120D51D811E6200D14B02;
-			remoteInfo = ChartsRealm;
-		};
-		FAABDB531E2E8CA00029ABE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06165F2E1D8110E600722320;
-			remoteInfo = ChartsTests;
-		};
-		FAABDB571E2E8CDF0029ABE9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 06165F231D8110E600722320;
-			remoteInfo = Charts;
-		};
 		FAD59C761DF880B000A7FD6A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAD59C571DF880B000A7FD6A /* Project object */;
@@ -81,6 +54,34 @@
 			remoteGlobalIDString = FAD59C5E1DF880B000A7FD6A;
 			remoteInfo = "Accelerometer Graph";
 		};
+		FAEE08781E30D83500AEEDE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		FAEE087A1E30D83500AEEDE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		FAEE087C1E30D83500AEEDE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		FAEE08831E30DB0300AEEDE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,7 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAABDB561E2E8CDF0029ABE9 /* Charts.framework in Embed Frameworks */,
+				FAEE08821E30DB0300AEEDE0 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,7 +113,7 @@
 		FA9B3B081E006D8A00873309 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighPassTableViewController.swift; path = ../HighPassTableViewController.swift; sourceTree = "<group>"; };
 		FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataCaptureTableViewController.swift; sourceTree = "<group>"; };
-		FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+		FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts.xcodeproj; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		FAD59C861DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE34B3D1DFB509B00962F61 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteringProtocol.swift; path = ../FilteringProtocol.swift; sourceTree = "<group>"; };
+		FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDetailViewController.swift; sourceTree = "<group>"; };
 		FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPass.swift; sourceTree = "<group>"; };
 		FAF398D11E0963C700021CD6 /* globalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalConfig.swift; sourceTree = "<group>"; };
@@ -140,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAABDB551E2E8CDF0029ABE9 /* Charts.framework in Frameworks */,
+				FAEE08811E30DB0300AEEDE0 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +170,7 @@
 				FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */,
 			);
 			name = Filters;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FA9B3AFC1E006D7E00873309 /* FontAwesome */ = {
@@ -184,30 +187,9 @@
 			path = FontAwesome;
 			sourceTree = "<group>";
 		};
-		FAABDB4A1E2E8CA00029ABE9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAABDB501E2E8CA00029ABE9 /* Charts.framework */,
-				FAABDB521E2E8CA00029ABE9 /* ChartsRealm.framework */,
-				FAABDB541E2E8CA00029ABE9 /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FAD5693A1E2E7C96009886E0 /* DataCapture */ = {
-			isa = PBXGroup;
-			children = (
-				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
-				FA51377A1E2FCB9000C1D7B5 /* recorder.swift */,
-			);
-			name = DataCapture;
-			sourceTree = "<group>";
-		};
 		FAD59C561DF880B000A7FD6A = {
 			isa = PBXGroup;
 			children = (
-				FA186CC41DF9BC7200835B7C /* Filters */,
-				FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */,
 				FAD59C611DF880B000A7FD6A /* Accelerometer Graph */,
 				FAD59C781DF880B000A7FD6A /* Accelerometer GraphTests */,
 				FAD59C831DF880B000A7FD6A /* Accelerometer GraphUITests */,
@@ -228,24 +210,12 @@
 		FAD59C611DF880B000A7FD6A /* Accelerometer Graph */ = {
 			isa = PBXGroup;
 			children = (
-				FAD5693A1E2E7C96009886E0 /* DataCapture */,
-				FA9B3AFC1E006D7E00873309 /* FontAwesome */,
 				FAD59C621DF880B000A7FD6A /* AppDelegate.swift */,
-				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
-				FAD59C641DF880B000A7FD6A /* FirstViewController.swift */,
-				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
-				FAD59C681DF880B000A7FD6A /* Main.storyboard */,
-				FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */,
-				FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */,
+				FAEE08801E30D8A400AEEDE0 /* controller */,
+				FAEE087F1E30D88B00AEEDE0 /* model */,
+				FAEE087E1E30D86E00AEEDE0 /* view */,
+				FAEE08701E30D80300AEEDE0 /* lib */,
 				FAD59C701DF880B000A7FD6A /* Info.plist */,
-				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
-				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
-				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
-				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
-				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
-				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
-				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
-				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
 			);
 			path = "Accelerometer Graph";
 			sourceTree = "<group>";
@@ -268,6 +238,64 @@
 			path = "Accelerometer GraphUITests";
 			sourceTree = "<group>";
 		};
+		FAEE08701E30D80300AEEDE0 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */,
+				FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */,
+				FA9B3AFC1E006D7E00873309 /* FontAwesome */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		FAEE08731E30D83500AEEDE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE08791E30D83500AEEDE0 /* Charts.framework */,
+				FAEE087B1E30D83500AEEDE0 /* ChartsRealm.framework */,
+				FAEE087D1E30D83500AEEDE0 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAEE087E1E30D86E00AEEDE0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FAD59C681DF880B000A7FD6A /* Main.storyboard */,
+				FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */,
+				FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		FAEE087F1E30D88B00AEEDE0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
+				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
+				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
+				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
+				FA51377A1E2FCB9000C1D7B5 /* recorder.swift */,
+				FA186CC41DF9BC7200835B7C /* Filters */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		FAEE08801E30D8A400AEEDE0 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
+				FAD59C641DF880B000A7FD6A /* FirstViewController.swift */,
+				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
+				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
+				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
+				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
+				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
+				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,7 +311,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FAABDB581E2E8CDF0029ABE9 /* PBXTargetDependency */,
+				FAEE08841E30DB0300AEEDE0 /* PBXTargetDependency */,
 			);
 			name = "Accelerometer Graph";
 			productName = "Accelerometer Graph";
@@ -366,7 +394,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = FAABDB4A1E2E8CA00029ABE9 /* Products */;
+					ProductGroup = FAEE08731E30D83500AEEDE0 /* Products */;
 					ProjectRef = FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */;
 				},
 			);
@@ -380,25 +408,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		FAABDB501E2E8CA00029ABE9 /* Charts.framework */ = {
+		FAEE08791E30D83500AEEDE0 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = FAABDB4F1E2E8CA00029ABE9 /* PBXContainerItemProxy */;
+			remoteRef = FAEE08781E30D83500AEEDE0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FAABDB521E2E8CA00029ABE9 /* ChartsRealm.framework */ = {
+		FAEE087B1E30D83500AEEDE0 /* ChartsRealm.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ChartsRealm.framework;
-			remoteRef = FAABDB511E2E8CA00029ABE9 /* PBXContainerItemProxy */;
+			remoteRef = FAEE087A1E30D83500AEEDE0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FAABDB541E2E8CA00029ABE9 /* ChartsTests.xctest */ = {
+		FAEE087D1E30D83500AEEDE0 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = FAABDB531E2E8CA00029ABE9 /* PBXContainerItemProxy */;
+			remoteRef = FAEE087C1E30D83500AEEDE0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -441,6 +469,7 @@
 				FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */,
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
+				FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */,
 				FA9B3B031E006D7E00873309 /* Enum.swift in Sources */,
 				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
 				FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */,
@@ -479,11 +508,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FAABDB581E2E8CDF0029ABE9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = FAABDB571E2E8CDF0029ABE9 /* PBXContainerItemProxy */;
-		};
 		FAD59C771DF880B000A7FD6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */;
@@ -493,6 +517,11 @@
 			isa = PBXTargetDependency;
 			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */;
 			targetProxy = FAD59C811DF880B000A7FD6A /* PBXContainerItemProxy */;
+		};
+		FAEE08841E30DB0300AEEDE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = FAEE08831E30DB0300AEEDE0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
