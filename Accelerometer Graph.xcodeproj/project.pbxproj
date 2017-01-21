@@ -34,6 +34,8 @@
 		FAEE08821E30DB0300AEEDE0 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAEE08791E30D83500AEEDE0 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
 		FAEE08891E31317700AEEDE0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08871E31317700AEEDE0 /* Model.xcdatamodeld */; };
+		FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */; };
+		FAEE08CF1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */; };
 		FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */; };
 		FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */; };
 		FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
@@ -133,6 +135,8 @@
 		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteringProtocol.swift; path = ../FilteringProtocol.swift; sourceTree = "<group>"; };
 		FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FAEE08881E31317700AEEDE0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storage.swift; sourceTree = "<group>"; };
+		FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRecordingsTableViewController.swift; sourceTree = "<group>"; };
 		FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDetailViewController.swift; sourceTree = "<group>"; };
 		FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPass.swift; sourceTree = "<group>"; };
 		FAF398D11E0963C700021CD6 /* globalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalConfig.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
 				FA51377A1E2FCB9000C1D7B5 /* recorder.swift */,
 				FA186CC41DF9BC7200835B7C /* Filters */,
+				FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
 				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
 				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
+				FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -478,10 +484,12 @@
 				FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */,
 				FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */,
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
+				FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */,
 				FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */,
 				FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */,
 				FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */,
 				FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */,
+				FAEE08CF1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift in Sources */,
 				FAF398D41E09753E00021CD6 /* LowPassTableViewController.swift in Sources */,
 				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
 				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,

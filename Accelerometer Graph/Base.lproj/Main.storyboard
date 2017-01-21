@@ -158,14 +158,30 @@
                         <color key="separatorColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m3a-wG-dF5">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="pis-b0-oUF">
                             <rect key="frame" x="0.0" y="296" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Begin Recording"/>
-                            <connections>
-                                <action selector="recordPressed:" destination="76H-1W-O64" eventType="touchUpInside" id="YKG-ow-sI4"/>
-                            </connections>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3a-wG-dF5">
+                                    <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Begin Recording"/>
+                                    <connections>
+                                        <action selector="recordPressed:" destination="76H-1W-O64" eventType="touchUpInside" id="YKG-ow-sI4"/>
+                                    </connections>
+                                </button>
+                                <progressView contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-qt-Heg"/>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="m3a-wG-dF5" firstAttribute="leading" secondItem="pis-b0-oUF" secondAttribute="leading" id="E73-sQ-eI0"/>
+                                <constraint firstAttribute="bottom" secondItem="m3a-wG-dF5" secondAttribute="bottom" id="HSh-GD-oua"/>
+                                <constraint firstItem="MAP-qt-Heg" firstAttribute="top" secondItem="m3a-wG-dF5" secondAttribute="top" id="MtT-aH-S8U"/>
+                                <constraint firstItem="m3a-wG-dF5" firstAttribute="top" secondItem="pis-b0-oUF" secondAttribute="top" id="oIK-4L-S7G"/>
+                                <constraint firstItem="MAP-qt-Heg" firstAttribute="leading" secondItem="m3a-wG-dF5" secondAttribute="leading" id="q2X-Eu-93i"/>
+                                <constraint firstItem="MAP-qt-Heg" firstAttribute="trailing" secondItem="m3a-wG-dF5" secondAttribute="trailing" id="t0P-nt-BmV"/>
+                                <constraint firstAttribute="trailing" secondItem="m3a-wG-dF5" secondAttribute="trailing" id="vLd-fr-h6z"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="Z6L-yv-oue">
                                 <cells>
@@ -272,11 +288,13 @@
                     </tableView>
                     <connections>
                         <outlet property="pickerView" destination="qz3-xk-GFg" id="PnF-Tz-Giw"/>
+                        <outlet property="progressBar" destination="MAP-qt-Heg" id="xhw-aU-tSp"/>
+                        <outlet property="recordButton" destination="m3a-wG-dF5" id="pp2-ME-XVt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JW-Je-OSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2472.8000000000002" y="-59.820089955022496"/>
+            <point key="canvasLocation" x="2472.8000000000002" y="-60.26986506746627"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="5Y8-8n-5eO">
@@ -345,22 +363,26 @@
             </objects>
             <point key="canvasLocation" x="2526" y="358"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Saved-->
         <scene sceneID="hZQ-0X-oIB">
             <objects>
-                <tableViewController id="3tk-4H-92J" sceneMemberID="viewController">
+                <tableViewController title="Saved" id="3tk-4H-92J" customClass="SavedRecordingsTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vza-Q8-EFo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="i8j-cB-KhI">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordingCell" id="i8j-cB-KhI">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i8j-cB-KhI" id="ztd-cG-etj">
                                     <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.29408180709999998" green="0.29413825269999999" blue="0.29407823090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -368,8 +390,9 @@
                             <outlet property="delegate" destination="3tk-4H-92J" id="fKd-Qa-0hm"/>
                         </connections>
                     </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="88"/>
+                    <size key="freeformSize" width="375" height="667"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pvJ-j2-ShY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

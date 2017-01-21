@@ -16,8 +16,12 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     var raw = true
     var processed = true
     var record = recorder()
-    
+    var timeRemaining = 0.0
+    var totalTime = 0.0
+
+    @IBOutlet var recordButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var progressBar: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +49,10 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     }
     @IBAction func recordPressed(_ sender: UIButton) {
         print("press")
-        let recordTimeSecs = (minuteSelection * 60) + secondSelection
-
-        if recordTimeSecs == 0.0{
+        timeRemaining = (minuteSelection * 60) + secondSelection
+        totalTime = timeRemaining
+        NotificationCenter.default.addObserver(self, selector: #selector(self.completeUpdate), name: Notification.Name("recordingComplete"), object: nil)
+        if timeRemaining == 0.0{
             
             let alert = alertBuilder().build(title: "Invalid time", message: "Select a valid time for recording.", buttonText: "OK")
             self.present(alert, animated: true, completion: nil)
@@ -59,9 +64,24 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
 
         }else{
             
-            record.beginRecording(raw:self.raw, processed:self.processed, time:recordTimeSecs, complete:{
-            sender.isEnabled = false
+            record.beginRecording(raw:self.raw, processed:self.processed, time:Double(timeRemaining))
+            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+                if(self.timeRemaining > 0){
+                    self.timeRemaining -= 1
+
+                    self.progressBar.setProgress(Float(1.0 - (self.timeRemaining/self.totalTime)), animated: false)
+                }else{
+                    Timer.invalidate()
+                }
             })
+            
+            func update(){
+                
+                
+                
+            }
+            
+            allowTable(modification: false)
         }
         
     }
@@ -69,6 +89,26 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         return 4
     }
 
+    
+   
+   
+    
+    func allowTable(modification:Bool){
+        print("called")
+        self.tableView.allowsSelection = false
+        self.pickerView.isUserInteractionEnabled = false
+        for cell in self.tableView.visibleCells{
+            print("disabling")
+            cell.isUserInteractionEnabled = false
+        }
+        recordButton.isUserInteractionEnabled = false
+    }
+    
+    
+    func completeUpdate(notifcation:NSNotification){
+        print("notified")
+        NotificationCenter.default.removeObserver(self)
+    }
     
     func numberOfComponents(in: UIPickerView) -> Int {
         return 2

@@ -26,7 +26,7 @@ extension Double {
 
 var persistentContainer: NSPersistentContainer = {
     
-    let container = NSPersistentContainer(name: "you_model_file_name")
+    let container = NSPersistentContainer(name: "Model")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
         if let error = error {
             

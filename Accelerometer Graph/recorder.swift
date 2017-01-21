@@ -15,7 +15,7 @@ class recorder{
     var rawData = [accelPoint]()
     var processedData = [accelPoint]()
     let triggerTime = NSDate()
-    func beginRecording(raw: Bool, processed: Bool, time: Double, complete: () -> Void){
+    func beginRecording(raw: Bool, processed: Bool, time: Double){
 
         if raw{
             NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRawData"), object: nil)
@@ -39,13 +39,12 @@ class recorder{
     }
     
     func stopRecording(){
-        print("stopping")
-        print(rawData.count)
-        print(processedData.count)
+
         NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.post(name: Notification.Name("recordingComplete"), object: nil)
         
-        let outputHeader = formatJSONheader()
-        let outputData = formatJSONdata(header: outputHeader)
+        let outputData = formatJSONdata(header: formatJSONheader())
+        storage().saveRecording(json: outputData, triggerTime: triggerTime as Date)
     }
     
     @objc func newProcessedData(notification: NSNotification){
@@ -57,8 +56,7 @@ class recorder{
 }
     
     func formatJSONheader()-> JSON{
-        
-        let today = NSDate()
+
         
         let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .full
@@ -111,31 +109,13 @@ class recorder{
         
         workingJSON["raw"] = JSON(rawPoints)
         workingJSON["processed"] = JSON(processedPoints)
-        
-        print(workingJSON)
+
         return workingJSON
   
         
     }
     
-    func saveRecording(json: JSON, triggerTime:Date){
-        
-        let jsonString = json.string
-        let managedContext = persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Recording", in: managedContext)
-        let recording = NSManagedObject(entity: entity!, insertInto: managedContext)
-       
-        recording.setValue(triggerTime, forKeyPath: "triggerTime")
-        recording.setValue(jsonString, forKeyPath: "jsonString")
-        
-        do {
-         try managedContext.save()
-        }catch{
-            print("save filed")
-        }
-        
-
-    }
+   
     
   deinit{
         //clean up observers
