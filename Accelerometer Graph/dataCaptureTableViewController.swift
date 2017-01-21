@@ -19,6 +19,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     var timeRemaining = 0.0
     var totalTime = 0.0
 
+    @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet var recordButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet var progressBar: UIProgressView!
@@ -63,14 +64,17 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
             self.present(alert, animated: true, completion: nil)
 
         }else{
-            
+            spinner.startAnimating()
+            recordButton.isHidden = true
             record.beginRecording(raw:self.raw, processed:self.processed, time:Double(timeRemaining))
             let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
                 if(self.timeRemaining > 0){
                     self.timeRemaining -= 1
 
-                    self.progressBar.setProgress(Float(1.0 - (self.timeRemaining/self.totalTime)), animated: false)
+                    self.progressBar.setProgress(Float(1.0 - (self.timeRemaining/self.totalTime)), animated: true)
                 }else{
+                    self.spinner.stopAnimating()
+                    self.recordButton.isHidden = false
                     Timer.invalidate()
                 }
             })

@@ -169,13 +169,18 @@
                                         <action selector="recordPressed:" destination="76H-1W-O64" eventType="touchUpInside" id="YKG-ow-sI4"/>
                                     </connections>
                                 </button>
-                                <progressView contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-qt-Heg"/>
+                                <progressView contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-qt-Heg"/>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gPe-fD-Sv7">
+                                    <color key="color" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="m3a-wG-dF5" firstAttribute="leading" secondItem="pis-b0-oUF" secondAttribute="leading" id="E73-sQ-eI0"/>
                                 <constraint firstAttribute="bottom" secondItem="m3a-wG-dF5" secondAttribute="bottom" id="HSh-GD-oua"/>
                                 <constraint firstItem="MAP-qt-Heg" firstAttribute="top" secondItem="m3a-wG-dF5" secondAttribute="top" id="MtT-aH-S8U"/>
+                                <constraint firstItem="gPe-fD-Sv7" firstAttribute="centerY" secondItem="pis-b0-oUF" secondAttribute="centerY" id="Z8x-27-eQQ"/>
+                                <constraint firstItem="gPe-fD-Sv7" firstAttribute="centerX" secondItem="pis-b0-oUF" secondAttribute="centerX" id="j0s-du-LtI"/>
                                 <constraint firstItem="m3a-wG-dF5" firstAttribute="top" secondItem="pis-b0-oUF" secondAttribute="top" id="oIK-4L-S7G"/>
                                 <constraint firstItem="MAP-qt-Heg" firstAttribute="leading" secondItem="m3a-wG-dF5" secondAttribute="leading" id="q2X-Eu-93i"/>
                                 <constraint firstItem="MAP-qt-Heg" firstAttribute="trailing" secondItem="m3a-wG-dF5" secondAttribute="trailing" id="t0P-nt-BmV"/>
@@ -290,6 +295,7 @@
                         <outlet property="pickerView" destination="qz3-xk-GFg" id="PnF-Tz-Giw"/>
                         <outlet property="progressBar" destination="MAP-qt-Heg" id="xhw-aU-tSp"/>
                         <outlet property="recordButton" destination="m3a-wG-dF5" id="pp2-ME-XVt"/>
+                        <outlet property="spinner" destination="gPe-fD-Sv7" id="1wh-Hv-2Vh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JW-Je-OSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
