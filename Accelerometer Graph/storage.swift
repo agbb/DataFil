@@ -12,7 +12,7 @@ import CoreData
 class storage{
     
     
-    func retreiveRecordings() -> [(Date: Date,String: String)]{
+    func fetchRecordings() -> [(Date: Date,String: String)]{
     
         var recordings = [(Date,String)]()
         
@@ -33,7 +33,6 @@ class storage{
         }catch{
             print("error fetching")
         }
-        print(recordings)
         return recordings
     }
     
@@ -52,12 +51,47 @@ class storage{
 
         do {
             try managedContext.save()
-           
-            print("saved")
         }catch{
             print("save failed")
         }
         
         
     }
+    
+    func fetchRecordingWithDate(date:Date) -> (Date: Date,String: String){
+        
+        
+        let managedContext = persistentContainer.viewContext
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Recording")
+        fetch.predicate = NSPredicate(format: "triggerTime == %@", date as CVarArg)
+        fetch.fetchLimit = 1
+        do{
+            let recordingArrayFromPersistent = try managedContext.fetch(fetch)
+            let record = recordingArrayFromPersistent[0]
+            
+            let triggerData = record.value(forKey: "triggerTime") as! Date
+            let jsonData = record.value(forKey: "jsonString") as! String
+            return (Date:triggerData , String:jsonData)
+        }catch{
+            print("error fetching")
+        }
+        return (Date:Date() , String:"NO DATA")
+    }
+    
+    
+    func removeRecordingWithDate(date:Date) {
+        
+        let managedContext = persistentContainer.viewContext
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Recording")
+        fetch.predicate = NSPredicate(format: "triggerTime == %@", date as CVarArg)
+        fetch.fetchLimit = 1
+        do{
+            let recordingArrayFromPersistent = try managedContext.fetch(fetch)
+            let record = recordingArrayFromPersistent[0]
+            managedContext.delete(record)
+        }catch{
+            print("error fetching")
+        }
+    }
+
 }

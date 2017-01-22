@@ -73,6 +73,10 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
 
                     self.progressBar.setProgress(Float(1.0 - (self.timeRemaining/self.totalTime)), animated: true)
                 }else{
+                    
+                    let alert = alertBuilder().build(title:"Recording Complete", message:"The capture has been saved in the \"Saved Captures\" section.", buttonText:"OK")
+                    self.present(alert, animated: true, completion: nil)
+                    self.progressBar.setProgress(Float(0.0), animated: false)
                     self.spinner.stopAnimating()
                     self.recordButton.isHidden = false
                     Timer.invalidate()

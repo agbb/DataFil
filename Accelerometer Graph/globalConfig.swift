@@ -15,6 +15,14 @@ struct notificationManager{
     static let newRawDataNotification = Notification.Name("newRawData")
 }
 
+struct utilities{
+    static var dateFormatter = DateFormatter()
+   
+    init() {
+        utilities.dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss '+'ZZZZ"
+        utilities.dateFormatter.timeStyle = .full
+    }
+}
 
 extension Double {
     /// Rounds the double to decimal places value

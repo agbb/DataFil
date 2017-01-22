@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         //TODO fix this.
         _ = FilterManager.sharedInstance
+        _ = utilities.init()
         
         return true
     }

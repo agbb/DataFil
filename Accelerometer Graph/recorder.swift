@@ -58,9 +58,7 @@ class recorder{
     func formatJSONheader()-> JSON{
 
         
-        let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .full
-            dateFormatter.timeStyle = .full
+        let dateFormatter = utilities.dateFormatter
         
         let dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
         
