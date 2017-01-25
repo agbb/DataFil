@@ -20,7 +20,7 @@ class dataFormatter {
 
         
         for pair in paired{
-          csv = csv + "\n\(pair.0.count),\(pair.0.x),\(pair.0.y),\(pair.0.z),\(pair.1.count),\(pair.1.x),\(pair.1.y),\(pair.1.z)"
+          csv = csv + "\n\(pair.0.count),\(pair.0.x),\(pair.0.y),\(pair.0.z),\(pair.1.x),\(pair.1.y),\(pair.1.z)"
         }
     
         print(csv)
