@@ -10,14 +10,12 @@ import Foundation
 import UIKit
 import CoreData
 
-struct notificationManager{
-    static var nc = NotificationCenter.default
-    static let newRawDataNotification = Notification.Name("newRawData")
-}
 
 struct utilities{
     static var dateFormatter = DateFormatter()
-   
+    static var nc = NotificationCenter.default
+    static let newRawDataNotification = Notification.Name("newRawData")
+    
     init() {
         utilities.dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss '+'ZZZZ"
         utilities.dateFormatter.timeStyle = .full

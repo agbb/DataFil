@@ -13,7 +13,6 @@ import Foundation
 class FilterManager{
     
     static let sharedInstance = FilterManager()
-    
     var activeFilters = [FilteringProtocol]()
     var filteringAxis = "x"
     
@@ -62,6 +61,18 @@ class FilterManager{
             
             lowPass.addObserver(update: update)
             activeFilters.append(lowPass)
+            break
+        case "Bounded Average":
+            let boundedAvg = boundedAverage()
+            boundedAvg.id = activeFilters.count
+            
+            let update = {(data: [accelPoint])->Void in
+                
+                self.receiveData(data: data, id: boundedAvg.id)
+            }
+            
+            boundedAvg.addObserver(update: update)
+            activeFilters.append(boundedAvg)
             break
         default:
             print("No match in FilterManager")

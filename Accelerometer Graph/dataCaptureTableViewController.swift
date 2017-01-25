@@ -83,12 +83,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
                 }
             })
             
-            func update(){
-                
-                
-                
-            }
-            
+
             allowTable(modification: false)
         }
         
@@ -97,9 +92,6 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         return 4
     }
 
-    
-   
-   
     
     func allowTable(modification:Bool){
         print("called")

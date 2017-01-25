@@ -10,7 +10,7 @@ import UIKit
 
 class HighPassTableViewController: UITableViewController {
 
-    let fm = FilterManager.sharedInstance
+    private let fm = FilterManager.sharedInstance
     @IBOutlet weak var highPassSwitch: UISwitch!
     @IBOutlet weak var currentAlphaLabel: UILabel!
 

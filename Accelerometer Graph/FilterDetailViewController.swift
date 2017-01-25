@@ -10,8 +10,8 @@ import UIKit
 
 class FilterDetailViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    var filterName = String()
+   @IBOutlet weak var titleLabel: UILabel!
+   private var filterName = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()

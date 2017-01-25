@@ -12,9 +12,9 @@ import CoreData
 
 class recorder{
     
-    var rawData = [accelPoint]()
-    var processedData = [accelPoint]()
-    let triggerTime = NSDate()
+    private var rawData = [accelPoint]()
+    private var processedData = [accelPoint]()
+    private let triggerTime = NSDate()
     func beginRecording(raw: Bool, processed: Bool, time: Double){
 
         if raw{
@@ -38,7 +38,7 @@ class recorder{
         
     }
     
-    func stopRecording(){
+    private func stopRecording(){
 
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.post(name: Notification.Name("recordingComplete"), object: nil)
@@ -55,7 +55,7 @@ class recorder{
         }
 }
     
-    func formatJSONheader()-> JSON{
+    private func formatJSONheader()-> JSON{
 
         
         let dateFormatter = utilities.dateFormatter
@@ -77,7 +77,7 @@ class recorder{
         
     }
     
-    func formatJSONdata(header: JSON) -> JSON{
+    private func formatJSONdata(header: JSON) -> JSON{
         var workingJSON = header
 
         

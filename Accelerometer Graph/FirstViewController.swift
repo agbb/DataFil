@@ -18,8 +18,8 @@ class FirstViewController: UIViewController, ChartViewDelegate {
 
     @IBOutlet weak var BottomLineChartView: LineChartView!
     @IBOutlet weak var TopLineChartView: LineChartView!
-    var axis = "x"
-    var customAxisState = false
+    private var axis = "x"
+    private var customAxisState = false
 
     
     override func viewDidLoad() {

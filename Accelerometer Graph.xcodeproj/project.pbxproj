@@ -19,6 +19,7 @@
 		FA9B3B071E006D7E00873309 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3B021E006D7E00873309 /* Info.plist */; };
 		FA9B3B091E006D8A00873309 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3B081E006D8A00873309 /* LICENSE */; };
 		FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
+		FAA52CFF1E38A9DD006262A5 /* boundedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */; };
 		FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
@@ -115,6 +116,7 @@
 		FA9B3B021E006D7E00873309 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9B3B081E006D8A00873309 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighPassTableViewController.swift; path = ../HighPassTableViewController.swift; sourceTree = "<group>"; };
+		FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverage.swift; sourceTree = "<group>"; };
 		FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataCaptureTableViewController.swift; sourceTree = "<group>"; };
 		FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts.xcodeproj; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 			children = (
 				FA186CC51DF9BC8000835B7C /* HighPass.swift */,
 				FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */,
+				FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */,
 			);
 			name = Filters;
 			path = ..;
@@ -478,6 +481,7 @@
 				FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */,
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
+				FAA52CFF1E38A9DD006262A5 /* boundedAverage.swift in Sources */,
 				FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */,
 				FA9B3B031E006D7E00873309 /* Enum.swift in Sources */,
 				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
