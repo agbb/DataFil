@@ -20,6 +20,8 @@
 		FA9B3B091E006D8A00873309 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3B081E006D8A00873309 /* LICENSE */; };
 		FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
 		FAA52CFF1E38A9DD006262A5 /* boundedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */; };
+		FAA52D041E38B122006262A5 /* BoundedAverageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */; };
+		FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* dataFormatter.swift */; };
 		FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
@@ -117,6 +119,8 @@
 		FA9B3B081E006D8A00873309 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighPassTableViewController.swift; path = ../HighPassTableViewController.swift; sourceTree = "<group>"; };
 		FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverage.swift; sourceTree = "<group>"; };
+		FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundedAverageTableViewController.swift; sourceTree = "<group>"; };
+		FAA52D051E38C633006262A5 /* dataFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataFormatter.swift; sourceTree = "<group>"; };
 		FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataCaptureTableViewController.swift; sourceTree = "<group>"; };
 		FAABDB491E2E8CA00029ABE9 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts.xcodeproj; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +198,26 @@
 				FA9B3B021E006D7E00873309 /* Info.plist */,
 			);
 			path = FontAwesome;
+			sourceTree = "<group>";
+		};
+		FAA52D021E38B102006262A5 /* filterViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
+				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
+				FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */,
+			);
+			name = filterViewControllers;
+			sourceTree = "<group>";
+		};
+		FAA52D071E38C6EC006262A5 /* dataCapture */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */,
+				FA51377A1E2FCB9000C1D7B5 /* recorder.swift */,
+				FAA52D051E38C633006262A5 /* dataFormatter.swift */,
+			);
+			name = dataCapture;
 			sourceTree = "<group>";
 		};
 		FAD59C561DF880B000A7FD6A = {
@@ -281,13 +305,12 @@
 		FAEE087F1E30D88B00AEEDE0 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				FAA52D071E38C6EC006262A5 /* dataCapture */,
 				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
 				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
 				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
 				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
-				FA51377A1E2FCB9000C1D7B5 /* recorder.swift */,
 				FA186CC41DF9BC7200835B7C /* Filters */,
-				FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -295,13 +318,12 @@
 		FAEE08801E30D8A400AEEDE0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				FAA52D021E38B102006262A5 /* filterViewControllers */,
 				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
+				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
 				FAD59C641DF880B000A7FD6A /* FirstViewController.swift */,
 				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
 				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
-				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
-				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
-				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
 				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
 				FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */,
 			);
@@ -480,6 +502,7 @@
 			files = (
 				FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */,
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
+				FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */,
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
 				FAA52CFF1E38A9DD006262A5 /* boundedAverage.swift in Sources */,
 				FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */,
@@ -487,6 +510,7 @@
 				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
 				FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */,
 				FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */,
+				FAA52D041E38B122006262A5 /* BoundedAverageTableViewController.swift in Sources */,
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
 				FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */,
 				FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */,

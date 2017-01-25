@@ -59,8 +59,16 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Change the selected background view of the cell.
         let date = labelMappings[(tableView.cellForRow(at: indexPath)?.textLabel?.text)!]
-        let recording = storage().fetchRecordingWithDate(date:date!).String
-        displayEmailController(attachment: recording, date: date!)
+        let jsonRecording = storage().fetchRecordingWithDate(date:date!).json
+        if(jsonRecording.contains("NO DATA")){
+            let csvRecording = storage().fetchRecordingWithDate(date:date!).csv
+            displayEmailController(attachment: csvRecording, date: date!)
+        }else{
+            
+            displayEmailController(attachment: jsonRecording, date: date!)
+            
+        }
+        
         //Convert json string to data that can be sent.
         
         

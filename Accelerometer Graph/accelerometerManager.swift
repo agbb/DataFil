@@ -40,10 +40,11 @@ class accelerometerManager{
                                                     guard data != nil else{
                                                         return
                                                     }
-                                                    self.count += 1
+                                                    
                                                    
                                                    
                                                     DispatchQueue.main.async{
+                                                        self.count += 1
                                                         let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
                                                         
                                                         NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])

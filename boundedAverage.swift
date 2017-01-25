@@ -49,32 +49,51 @@ class boundedAverage: FilteringProtocol {
     }
     
     func boundedAverage(currentRaw: accelPoint){
-  
+        
+         let newPoint = accelPoint()
+        newPoint.count = currentRaw.count
+        
         if currentRaw.x > (currentCenterX + params["upperBound"]!){
+            
             currentCenterX = currentRaw.x
+            newPoint.x = currentCenterX
+            
         }else if currentRaw.x < (currentCenterX - params["upperBound"]!){
+            
             currentCenterX = currentRaw.x
+            newPoint.x = currentCenterX
+            
         }else{
-            currentRaw.x = currentCenterX
+            newPoint.x = currentCenterX
         }
+ 
         
         if currentRaw.y > (currentCenterY + params["upperBound"]!){
+            
             currentCenterY = currentRaw.y
+            newPoint.y = currentCenterY
+            
         }else if currentRaw.y < (currentCenterY - params["upperBound"]!){
+            
             currentCenterY = currentRaw.y
+            newPoint.y = currentCenterY
+            
         }else{
-            currentRaw.y = currentCenterY
+            newPoint.y = currentCenterY
         }
+        
         
         if currentRaw.z > (currentCenterZ + params["upperBound"]!){
             currentCenterZ = currentRaw.z
+            newPoint.z = currentCenterZ
         }else if currentRaw.z < (currentCenterZ - params["upperBound"]!){
             currentCenterZ = currentRaw.z
+            newPoint.z = currentCenterZ
         }else{
-            currentRaw.z = currentCenterZ
+            newPoint.z = currentCenterZ
         }
         
-        notifyObservers(data: [currentRaw])
+        notifyObservers(data: [newPoint])
     }
     
 }

@@ -10,8 +10,8 @@ import UIKit
 
 class FilterTableViewController: UITableViewController {
 
-    private let filterDisplayNames = ["High Pass","Low Pass"]
-    private let filterViewControllerNames = ["HighPassTableView","LowPassTableView"]
+    private let filterDisplayNames = ["High Pass","Low Pass","Bounded Average"]
+    private let filterViewControllerNames = ["HighPassTableView","LowPassTableView","BoundedAverageTableView"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

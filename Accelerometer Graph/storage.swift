@@ -12,9 +12,9 @@ import CoreData
 class storage{
     
     
-    func fetchRecordings() -> [(Date: Date,String: String)]{
+    func fetchRecordings() -> [(Date: Date,csv: String, json: String)]{
     
-        var recordings = [(Date,String)]()
+        var recordings = [(Date,String,String)]()
         
         let managedContext = persistentContainer.viewContext
         let fetch = NSFetchRequest<NSManagedObject>(entityName: "Recording")
@@ -25,8 +25,9 @@ class storage{
             for record in recordingArrayFromPersistent as [NSManagedObject]{
                 
                 let triggerData = record.value(forKey: "triggerTime") as! Date
-                let jsonData = record.value(forKey: "jsonString") as! String
-                let newTuple = (triggerData , jsonData)
+                let jsonData = record.value(forKey: "jsonString") as? String ?? "NO DATA"
+                let csvData = record.value(forKey: "csvString") as? String ?? "NO DATA"
+                let newTuple = (triggerData , csvData , jsonData )
                 
                 recordings.append(newTuple)
             }
@@ -37,7 +38,7 @@ class storage{
     }
     
     
-    func saveRecording(json: JSON, triggerTime:Date){
+    func saveRecordingJson(json: JSON, triggerTime:Date){
         
         
         let jsonString = json.rawString([.castNilToNSNull: true])
@@ -58,7 +59,24 @@ class storage{
         
     }
     
-    func fetchRecordingWithDate(date:Date) -> (Date: Date,String: String){
+    func saveRecordingCsv(csv: String, triggerTime:Date){
+        
+        let managedContext = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Recording", in: managedContext)
+        let recording = NSManagedObject(entity: entity!, insertInto: managedContext)
+        
+        recording.setValue(triggerTime, forKey: "triggerTime")
+        recording.setValue(csv, forKey: "csvString")
+
+        
+        do {
+            try managedContext.save()
+        }catch{
+            print("save failed")
+        }
+    }
+    
+    func fetchRecordingWithDate(date:Date) -> (date: Date,json: String, csv: String){
         
         
         let managedContext = persistentContainer.viewContext
@@ -70,12 +88,16 @@ class storage{
             let record = recordingArrayFromPersistent[0]
             
             let triggerData = record.value(forKey: "triggerTime") as! Date
-            let jsonData = record.value(forKey: "jsonString") as! String
-            return (Date:triggerData , String:jsonData)
+            
+            let jsonData = record.value(forKey: "jsonString") as? String ?? "NO DATA"
+            let csv = record.value(forKey: "csvString") as? String ?? "NO DATA"
+            
+            
+            return (date:triggerData, json:jsonData, csv:csv)
         }catch{
             print("error fetching")
         }
-        return (Date:Date() , String:"NO DATA")
+        return (date:Date(), json:"NO DATA", csv:"NO DATA")
     }
     
     

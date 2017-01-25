@@ -15,8 +15,15 @@ class recorder{
     private var rawData = [accelPoint]()
     private var processedData = [accelPoint]()
     private let triggerTime = NSDate()
-    func beginRecording(raw: Bool, processed: Bool, time: Double){
-
+    private var rawRecordingPoint = 0
+    private var processedRecordingPoint = 0
+    private var exportAsJson = true
+    private let formatter = dataFormatter()
+    
+    func beginRecording(raw: Bool, processed: Bool, time: Double, json: Bool){
+        
+        exportAsJson = json
+        
         if raw{
             NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRawData"), object: nil)
         }
@@ -34,6 +41,10 @@ class recorder{
      @objc func newRawData(notification: NSNotification){
        let data = notification.userInfo as! Dictionary<String,accelPoint>
        let accelData = data["data"]
+       
+        accelData?.count = rawRecordingPoint
+         rawRecordingPoint += 1
+        
         rawData.append(accelData!)
         
     }
@@ -41,77 +52,31 @@ class recorder{
     private func stopRecording(){
 
         NotificationCenter.default.removeObserver(self)
-        NotificationCenter.default.post(name: Notification.Name("recordingComplete"), object: nil)
+ 
+        if(exportAsJson){
+            
+            let jsonHeader = formatter.formatJSONheader(triggerTime: triggerTime as Date)
+            let outputData = formatter.formatJSONdata(header: jsonHeader, rawData: rawData, processedData: processedData)
+            storage().saveRecordingJson(json: outputData, triggerTime: triggerTime as Date)
+        }else{
+            
+            let csvString = formatter.formatCSV(rawData: rawData, processedData: processedData)
+            storage().saveRecordingCsv(csv: csvString, triggerTime: triggerTime as Date)
+            
+        }
         
-        let outputData = formatJSONdata(header: formatJSONheader())
-        storage().saveRecording(json: outputData, triggerTime: triggerTime as Date)
     }
     
     @objc func newProcessedData(notification: NSNotification){
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelData = data["data"]
         for point in accelData! {
+            
+            point.count = processedRecordingPoint
+            processedRecordingPoint += 1
             processedData.append(point)
         }
 }
-    
-    private func formatJSONheader()-> JSON{
-
-        
-        let dateFormatter = utilities.dateFormatter
-        
-        let dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
-        
-        let dateJson = dateString.data(using: .utf8, allowLossyConversion: false)
-        var json = JSON(data: dateJson!)
-        
-     
-        let filters = FilterManager.sharedInstance.activeFilters
-        var filterData = [String:[String:Double]]()
-        for filter in filters{
-            filterData[filter.filterName] = filter.params
-        }
-        json["filters"] = JSON(filterData)
-        
-        return json
-        
-    }
-    
-    private func formatJSONdata(header: JSON) -> JSON{
-        var workingJSON = header
-
-        
-        var rawPoints = [[String:Double]]()
-        var processedPoints = [[String:Double]]()
-        
-        for point in rawData{
-           var pointDict = [String:Double]()
-            pointDict["ID"] = Double(point.count)
-            pointDict["x"] = point.x
-            pointDict["y"] = point.y
-            pointDict["z"] = point.z
-            rawPoints.append(pointDict)
-
-        }
-        rawData.removeAll()
-        
-        for point in processedData{
-            var pointDict = [String:Double]()
-            pointDict["ID"] = Double(point.count)
-            pointDict["x"] = point.x
-            pointDict["y"] = point.y
-            pointDict["z"] = point.z
-            processedPoints.append(pointDict)
-        }
-        processedData.removeAll()
-        
-        workingJSON["raw"] = JSON(rawPoints)
-        workingJSON["processed"] = JSON(processedPoints)
-
-        return workingJSON
-  
-        
-    }
     
    
     

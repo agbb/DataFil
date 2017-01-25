@@ -23,6 +23,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet var recordButton: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet var progressBar: UIProgressView!
+    @IBOutlet var exportSelection: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +53,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         print("press")
         timeRemaining = (minuteSelection * 60) + secondSelection
         totalTime = timeRemaining
-        NotificationCenter.default.addObserver(self, selector: #selector(self.completeUpdate), name: Notification.Name("recordingComplete"), object: nil)
+        
         if timeRemaining == 0.0{
             
             let alert = alertBuilder().build(title: "Invalid time", message: "Select a valid time for recording.", buttonText: "OK")
@@ -64,10 +65,15 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
             self.present(alert, animated: true, completion: nil)
 
         }else{
+            
+            let exportJson = (exportSelection.selectedSegmentIndex == 0)
             spinner.startAnimating()
             recordButton.isHidden = true
-            record.beginRecording(raw:self.raw, processed:self.processed, time:Double(timeRemaining))
-            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+            record.beginRecording(raw:self.raw, processed:self.processed, time:Double(timeRemaining), json: exportJson)
+            
+            
+            
+            let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
                 if(self.timeRemaining > 0){
                     self.timeRemaining -= 1
 
@@ -80,6 +86,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
                     self.spinner.stopAnimating()
                     self.recordButton.isHidden = false
                     Timer.invalidate()
+                    self.allowTable(modification: true)
                 }
             })
             
@@ -89,26 +96,19 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
 
     
     func allowTable(modification:Bool){
-        print("called")
-        self.tableView.allowsSelection = false
-        self.pickerView.isUserInteractionEnabled = false
+        self.tableView.allowsSelection = modification
+        self.pickerView.isUserInteractionEnabled = modification
         for cell in self.tableView.visibleCells{
-            print("disabling")
-            cell.isUserInteractionEnabled = false
+            cell.isUserInteractionEnabled = modification
         }
-        recordButton.isUserInteractionEnabled = false
+        recordButton.isUserInteractionEnabled = modification
     }
     
-    
-    func completeUpdate(notifcation:NSNotification){
-        print("notified")
-        NotificationCenter.default.removeObserver(self)
-    }
     
     func numberOfComponents(in: UIPickerView) -> Int {
         return 2
