@@ -14,14 +14,14 @@ class recorder{
     
     private var rawData = [accelPoint]()
     private var processedData = [accelPoint]()
-    private let triggerTime = NSDate()
+    private var triggerTime = NSDate()
     private var rawRecordingPoint = 0
     private var processedRecordingPoint = 0
     private var exportAsJson = true
     private let formatter = dataFormatter()
     
     func beginRecording(raw: Bool, processed: Bool, time: Double, json: Bool){
-        
+        triggerTime = NSDate()
         exportAsJson = json
         
         if raw{
