@@ -16,17 +16,20 @@ import Charts
 
 class FirstViewController: UIViewController, ChartViewDelegate {
 
+    
+    
     @IBOutlet weak var BottomLineChartView: LineChartView!
     @IBOutlet weak var TopLineChartView: LineChartView!
     private var axis = "x"
     private var customAxisState = false
+    private var singleView = true
+    private var pointsCount = 300
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
         
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
@@ -35,10 +38,74 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         self.BottomLineChartView.delegate = self
         self.BottomLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
         self.BottomLineChartView.noDataText = "No Data"
-       
-        setTopChartData(values: [0])
+       setTopChartData(values: [0])
+        
+        if !singleView{
+            
+        }else{
+            TopLineChartView.isHidden = true
+            
+                for const in self.view.constraints{
+                    if const.identifier == "heightLimit"{
+                        const.priority = 1
+                    }else if const.identifier == "override"{
+                        const.constant = 22
+                        const.priority = 999
+                    }
+                }
+            }
         setBottomChartData(values: [0])
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    func newGraphSettings(notification:NSNotification){
+        print("data")
+        if notification.userInfo?["singleView"] as! Bool == false{
+            utilities.singleView = false
+            TopLineChartView.isHidden = false
+
+           BottomLineChartView.data?.getDataSetByIndex(0).visible = false
+            for const in self.view.constraints{
+                if const.identifier == "heightLimit"{
+                    const.priority = 999
+                }else if const.identifier == "override"{
+                    const.constant = 212
+                    const.priority = 1
+                }
+            }
+            singleView = false
+            
+        }else{
+
+            utilities.singleView = true
+            TopLineChartView.isHidden = true
+            
+            BottomLineChartView.data?.getDataSetByIndex(0).visible = true
+            for const in self.view.constraints{
+                if const.identifier == "heightLimit"{
+                    const.priority = 1
+                }else if const.identifier == "override"{
+                    const.constant = 22
+                    const.priority = 999
+                }
+            }
+            singleView = true
+        }
+        
+        pointsCount = notification.userInfo?["pointsCount"] as! Int
+        print(pointsCount)
+         print((TopLineChartView.lineData?.dataSets[0].entryCount)!)
+        while((TopLineChartView.lineData?.dataSets[0].entryCount)! > pointsCount+1){
+            
+           print((TopLineChartView.lineData?.dataSets[0].entryCount)!)
+            _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+            _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
+            _ = TopLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+        }
+        utilities.pointCount = pointsCount
+        
+        self.view.updateConstraints()
+        self.view.layoutSubviews()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,16 +118,35 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         let accelData = data["data"]
 
         let newEntry = ChartDataEntry(x: Double((accelData?.count)!), y: (accelData?.x)!)
+        
+        
         TopLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
-        if((accelData?.count)! > 300){
-            TopLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+        BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
+        
+        if((TopLineChartView.lineData?.dataSets[0].entryCount)! > pointsCount+1){
+            
+           _ =  TopLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+            _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
         }
+        
         TopLineChartView.notifyDataSetChanged()
         TopLineChartView.data?.notifyDataChanged()
-       
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             // your code here
             self.TopLineChartView.setNeedsDisplay()
+        }
+        
+        if singleView{
+
+            BottomLineChartView.notifyDataSetChanged()
+            BottomLineChartView.data?.notifyDataChanged()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                // your code here
+                self.BottomLineChartView.setNeedsDisplay()
+            }
+    
         }
         
     }
@@ -72,40 +158,49 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         
         for accelData in accelDataArray!{
             let newEntry = ChartDataEntry(x: Double(accelData.count), y: accelData.x)
-            BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
-            if(accelData.count > 300){
-                BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+            
+             BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 1)
+            
+            
+            if((BottomLineChartView.lineData?.dataSets[1].entryCount)! > pointsCount+1){
+                
+                _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
             }
             
-            let yAxisBottom = BottomLineChartView.getAxis(YAxis.AxisDependency.left)
-            let yAxisTop = TopLineChartView.getAxis(YAxis.AxisDependency.left)
+            if singleView{
+             
+                
+            }else{
 
-            if Double((BottomLineChartView.lineData?.yMax)!) >= Double((TopLineChartView.lineData?.yMax)!){
-                //Bottom chart is higher, Make top chart max slave
-                
-                yAxisTop.axisMaximum = Double(yAxisBottom.axisMaximum)
-                yAxisBottom.resetCustomAxisMax()
-                
-            }else{
-                //Top chart is higher, make bottom chart max slave
-                yAxisBottom.axisMaximum = Double(yAxisTop.axisMaximum)
-                yAxisTop.resetCustomAxisMax()
+                let yAxisBottom = BottomLineChartView.getAxis(YAxis.AxisDependency.left)
+                let yAxisTop = TopLineChartView.getAxis(YAxis.AxisDependency.left)
+
+                if Double((BottomLineChartView.lineData?.yMax)!) >= Double((TopLineChartView.lineData?.yMax)!){
+                    //Bottom chart is higher, Make top chart max slave
+                    
+                    yAxisTop.axisMaximum = Double(yAxisBottom.axisMaximum)
+                    yAxisBottom.resetCustomAxisMax()
+                    
+                }else{
+                    //Top chart is higher, make bottom chart max slave
+                    yAxisBottom.axisMaximum = Double(yAxisTop.axisMaximum)
+                    yAxisTop.resetCustomAxisMax()
+                }
+                if Double((BottomLineChartView.lineData?.yMin)!) <= Double((TopLineChartView.lineData?.yMin)!){
+                    //Bottom chart is lower, Make top chart min slave
+                    
+                     yAxisTop.axisMinimum = Double(yAxisBottom.axisMinimum)
+                     yAxisBottom.resetCustomAxisMin()
+                    
+                }else{
+                    //Top chart is lower, Make bottom chart min slave
+                    yAxisBottom.axisMinimum = Double(yAxisTop.axisMinimum)
+                    yAxisTop.resetCustomAxisMin()
+                }
             }
-            if Double((BottomLineChartView.lineData?.yMin)!) <= Double((TopLineChartView.lineData?.yMin)!){
-                //Bottom chart is lower, Make top chart min slave
-                
-                 yAxisTop.axisMinimum = Double(yAxisBottom.axisMinimum)
-                 yAxisBottom.resetCustomAxisMin()
-                
-            }else{
-                //Top chart is lower, Make bottom chart min slave
-                yAxisBottom.axisMinimum = Double(yAxisTop.axisMinimum)
-                yAxisTop.resetCustomAxisMin()
-            }
-            
             BottomLineChartView.notifyDataSetChanged()
             BottomLineChartView.data?.notifyDataChanged()
-            
+ 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 // your code here
                 self.BottomLineChartView.setNeedsDisplay()
@@ -123,25 +218,30 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
-        set1.setColor(#colorLiteral(red: 0.2726118863, green: 0.6989091039, blue: 0.6175016761, alpha: 1))
+        set1.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
         
         self.TopLineChartView.legend.enabled = false
         TopLineChartView.dragEnabled = false
-        self.TopLineChartView.data = configureDataSet(set: set1)
+        self.TopLineChartView.data = configureDataSet(sets: [set1])
         
     }
     
-    func configureDataSet(set: LineChartDataSet)->LineChartData{
-        set.axisDependency = .left
-        set.lineWidth = 1.0
-        set.fillColor = UIColor.blue
-        set.highlightColor = UIColor.white
-        set.drawCirclesEnabled = false
-        set.drawValuesEnabled = false
+    func configureDataSet(sets: [LineChartDataSet])->LineChartData{
         
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-        dataSets.append(set)
         
+        for set in sets{
+            set.axisDependency = .left
+            set.lineWidth = 1.0
+            set.fillColor = UIColor.blue
+            set.highlightColor = UIColor.white
+            set.drawCirclesEnabled = false
+            set.drawValuesEnabled = false
+            
+            dataSets.append(set)
+        }
+   
+
         let data: LineChartData = LineChartData(dataSets: dataSets)
         return  data
     }
@@ -150,17 +250,32 @@ class FirstViewController: UIViewController, ChartViewDelegate {
 
 
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
+        var yVals2 : [ChartDataEntry] = [ChartDataEntry]()
         
         for i in 0 ..< values.count {
             yVals1.append(ChartDataEntry(x: Double(i), y: values[i]))
+            yVals2.append(ChartDataEntry(x: Double(i), y: values[i]))
+        }
+        if singleView{
+            let rawDataLine: LineChartDataSet = LineChartDataSet(values: yVals1, label: "0")
+            rawDataLine.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
+            let processedDataLine: LineChartDataSet = LineChartDataSet(values: yVals2, label: "1")
+            processedDataLine.setColor(#colorLiteral(red: 0.2726118863, green: 0.6989091039, blue: 0.6175016761, alpha: 1))
+        
+            let dataSets = configureDataSet(sets: [rawDataLine,processedDataLine])
+            self.BottomLineChartView.data = dataSets
+        }else{
+            let processedDataLine: LineChartDataSet = LineChartDataSet(values: yVals2, label: "1")
+            processedDataLine.setColor(#colorLiteral(red: 0.2726118863, green: 0.6989091039, blue: 0.6175016761, alpha: 1))
+            let dataSets = configureDataSet(sets: [processedDataLine])
+            self.BottomLineChartView.data = dataSets
         }
         
-        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
-        set1.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
-
         self.BottomLineChartView.legend.enabled = false
-        BottomLineChartView.dragEnabled = false
-        self.BottomLineChartView.data = configureDataSet(set: set1)
+        self.BottomLineChartView.dragEnabled = false
+        
+
+       
     }
     
 }

@@ -22,29 +22,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-bq-7T2" customClass="LineChartView" customModule="Charts">
                                 <color key="backgroundColor" red="0.29408180713653564" green="0.29413825273513794" blue="0.29407823085784912" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQt-RS-Vui" customClass="LineChartView" customModule="Charts">
-                                <frame key="frameInset" minY="213" width="1024" height="286"/>
-                                <color key="backgroundColor" red="0.29452592129999999" green="0.29477626089999998" blue="0.294564724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9kj-Ex-arW">
-                                <frame key="frameInset" minY="499" width="1024" height="220"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kj-Ex-arW">
                                 <connections>
                                     <segue destination="Sgl-nZ-LU9" kind="embed" id="Bzu-Lk-Lhc"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQt-RS-Vui" customClass="LineChartView" customModule="Charts">
+                                <color key="backgroundColor" red="0.29452592129999999" green="0.29477626089999998" blue="0.294564724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="6wO-QS-GUa"/>
                             <constraint firstItem="9kj-Ex-arW" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="9Nn-E1-Eug"/>
-                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="213" id="RVO-28-pBk"/>
-                            <constraint firstAttribute="bottom" secondItem="VQt-RS-Vui" secondAttribute="bottom" constant="269" id="RkW-Lb-XHI"/>
+                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" priority="1" constant="216" identifier="override" id="RVO-28-pBk"/>
+                            <constraint firstAttribute="bottom" secondItem="VQt-RS-Vui" secondAttribute="bottom" constant="241" id="RkW-Lb-XHI"/>
                             <constraint firstItem="VQt-RS-Vui" firstAttribute="leading" secondItem="9kj-Ex-arW" secondAttribute="leading" id="U8I-t0-All"/>
                             <constraint firstItem="9kj-Ex-arW" firstAttribute="top" secondItem="VQt-RS-Vui" secondAttribute="bottom" id="VI6-I0-edt"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="trailing" secondItem="VQt-RS-Vui" secondAttribute="trailing" id="Wmf-Z4-X6h"/>
                             <constraint firstItem="tGS-bq-7T2" firstAttribute="leading" secondItem="VQt-RS-Vui" secondAttribute="leading" id="cl1-9N-y6P"/>
-                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tGS-bq-7T2" secondAttribute="bottom" constant="8" symbolic="YES" id="fFX-WJ-lpI"/>
+                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tGS-bq-7T2" secondAttribute="bottom" constant="-14" identifier="heightLimit" id="fFX-WJ-lpI"/>
                             <constraint firstItem="VQt-RS-Vui" firstAttribute="trailing" secondItem="9kj-Ex-arW" secondAttribute="trailing" id="hGV-Pp-eHO"/>
+                            <constraint firstItem="VQt-RS-Vui" firstAttribute="top" secondItem="tGS-bq-7T2" secondAttribute="bottom" constant="-14" id="iCq-ap-OIE"/>
                             <constraint firstItem="9kj-Ex-arW" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="quM-hm-SLh"/>
                             <constraint firstAttribute="trailing" secondItem="9kj-Ex-arW" secondAttribute="trailing" id="yZF-my-3iy"/>
                         </constraints>
@@ -59,16 +58,109 @@
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
         </scene>
+        <!--Graph Settings Table View Controller-->
+        <scene sceneID="b99-Dy-NWs">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="ez7-5b-Yts" customClass="graphSettingsTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PGC-Sh-EEF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="separatorColor" red="0.3203026652" green="0.32052165269999999" blue="0.3330616951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <sections>
+                            <tableViewSection id="wKW-Q0-qN9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="none" indentationWidth="10" id="bLW-3X-rXT">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="bLW-3X-rXT" id="2Hq-qe-NAI">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Single Raw &amp; Filtered Graph" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS8-ao-sSY">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HCv-S6-SlZ">
+                                                    <connections>
+                                                        <action selector="graphLayoutSwitched:" destination="ez7-5b-Yts" eventType="valueChanged" id="R6Z-Gt-6ZB"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BS8-ao-sSY" secondAttribute="bottom" constant="3" id="5KN-hN-rS9"/>
+                                                <constraint firstItem="BS8-ao-sSY" firstAttribute="top" secondItem="2Hq-qe-NAI" secondAttribute="topMargin" constant="3" id="Ia2-qq-Y47"/>
+                                                <constraint firstAttribute="bottom" secondItem="HCv-S6-SlZ" secondAttribute="bottom" constant="6" id="NiH-Nv-nOR"/>
+                                                <constraint firstItem="HCv-S6-SlZ" firstAttribute="top" secondItem="2Hq-qe-NAI" secondAttribute="top" constant="6" id="W8R-mK-OD8"/>
+                                                <constraint firstItem="BS8-ao-sSY" firstAttribute="leading" secondItem="2Hq-qe-NAI" secondAttribute="leadingMargin" constant="10" id="YVH-0z-CbX"/>
+                                                <constraint firstAttribute="trailing" secondItem="HCv-S6-SlZ" secondAttribute="trailing" constant="12" id="sPk-7E-RlT"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.29452592129999999" green="0.29477626089999998" blue="0.294564724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="JFv-LQ-bjN" style="IBUITableViewCellStyleDefault" id="0XL-P6-J7t">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0XL-P6-J7t" id="XB4-bj-OUP">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Graph Data Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JFv-LQ-bjN">
+                                                    <frame key="frameInset" minX="15" width="345" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <color key="textColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-mt-aVO">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="169" id="mxZ-27-h0b"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="100"/>
+                                                        <segment title="200"/>
+                                                        <segment title="300"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="graphPointsChanged:" destination="ez7-5b-Yts" eventType="valueChanged" id="uke-yy-0ae"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Td8-mt-aVO" firstAttribute="centerY" secondItem="JFv-LQ-bjN" secondAttribute="centerY" id="UBP-P4-pA4"/>
+                                                <constraint firstItem="Td8-mt-aVO" firstAttribute="trailing" secondItem="JFv-LQ-bjN" secondAttribute="trailing" id="gBQ-ZF-1Ph"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.29408180709999998" green="0.29413825269999999" blue="0.29407823090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ez7-5b-Yts" id="dq4-bf-JDf"/>
+                            <outlet property="delegate" destination="ez7-5b-Yts" id="blN-T3-Jl2"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="pointCountSelector" destination="Td8-mt-aVO" id="gjx-MV-JF2"/>
+                        <outlet property="singleGraphSelection" destination="HCv-S6-SlZ" id="ghG-xj-I2f"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1y1-9a-Y0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4220" y="-1226"/>
+        </scene>
         <!--Filters-->
         <scene sceneID="zaE-hc-69D">
             <objects>
                 <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="5FN-Xc-xDN" customClass="FilterTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Md-3E-8U9">
-                        <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.3203026652" green="0.32052165269999999" blue="0.3330616951" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.20060706140000001" green="0.20079019670000001" blue="0.20063543319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="filterCell" textLabel="IhU-Sp-qdw" style="IBUITableViewCellStyleDefault" id="fq9-3k-cxF">
                                 <rect key="frame" x="0.0" y="28" width="375" height="40"/>
@@ -96,7 +188,13 @@
                         </connections>
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" title="Filters" id="b1I-mf-no6"/>
+                    <navigationItem key="navigationItem" title="Filters" id="b1I-mf-no6">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="cTn-Xa-col">
+                            <connections>
+                                <segue destination="ez7-5b-Yts" kind="show" id="oG8-06-Ios"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yOs-m5-TME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -502,7 +600,7 @@
         <!--High Pass Table View Controller-->
         <scene sceneID="8qD-dA-Ete">
             <objects>
-                <tableViewController storyboardIdentifier="HighPassTableView" automaticallyAdjustsScrollViewInsets="NO" id="6Gl-ky-23d" customClass="HighPassTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HighPassTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="6Gl-ky-23d" customClass="HighPassTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="23" sectionFooterHeight="18" id="oNI-xF-HMi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -596,7 +694,7 @@
         <!--Low Pass Table View Controller-->
         <scene sceneID="z27-DK-jR2">
             <objects>
-                <tableViewController storyboardIdentifier="LowPassTableView" automaticallyAdjustsScrollViewInsets="NO" id="rv9-26-qUJ" customClass="LowPassTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LowPassTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="rv9-26-qUJ" customClass="LowPassTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="18" sectionFooterHeight="18" id="H4M-ae-QHT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -880,6 +978,6 @@
         <image name="upIcon" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hgm-kn-kDJ"/>
+        <segue reference="MFj-lY-4zg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,8 @@ struct utilities{
     static var dateFormatter = DateFormatter()
     static var nc = NotificationCenter.default
     static let newRawDataNotification = Notification.Name("newRawData")
+    static var singleView = true
+    static var pointCount = 300
     
     init() {
         utilities.dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss '+'ZZZZ"
