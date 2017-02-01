@@ -10,17 +10,18 @@ import Foundation
 
 class fortranMatrixOps {
     
-    func luBacksubstitute(a: [[Double]], n: Int, np: Int, index: [Int], b:[Double]) -> (a:[[Double]],index:[Int],b:[Double]) {
+    func luBacksubstitute(a: [[Double]], n: Int, np: Int, index: [Int], b:[Double]) -> [Double]{
         
         var wB = b
         var wA = a
         var wIndex = index
-        
+        print(b)
+        var sum = 0.0
         var ii = 0
         
         for i in 1...n{
             let ll = wIndex[i]
-            var sum = wB[ll]
+            sum = wB[ll]
             wB[ll] = wB[i]
             if ii != 0{
                 for j in ii...i-1{
@@ -33,7 +34,7 @@ class fortranMatrixOps {
         }
         
         for i in stride(from:n, to:1, by:-1){
-           var sum = wB[i]
+            sum = wB[i]
             
             if (i < n ){
                 for j in i+1...n{
@@ -43,7 +44,7 @@ class fortranMatrixOps {
             wB[i] = sum/wA[i][i]
         }
         
-        return (wA,wIndex,wB)
+        return wB
     }
     
     
@@ -77,30 +78,28 @@ class fortranMatrixOps {
             if aamax == 0{
                 print("singular matrix")
             }
-            vv[i] = 1/aamax
+            vv[i] = 1.0/aamax
         }
         for j in 1...n{
-            if j > 1 {
-                for i in 1...j-1{
-                    sum = wA[i][j]
-                    if i > 1 {
-                        for k in 1...i-1{
-                            sum = sum - wA[i][k] * wA[k][j]
-                        }
-                        wA[i][j] = sum
-                    }
+
+            for i in 1...j-1{
+                sum = wA[i][j]
+
+                for k in 1...i-1{
+                    sum = sum - wA[i][k] * wA[k][j]
                 }
+                wA[i][j] = sum
+                
             }
             aamax = 0.0
             
             for i in j...n{
-                sum = wA[i][j]
-                if j > 1 {
-                    for k in 1...j-1{
-                        sum = sum - wA[i][k] * wA[k][j]
-                    }
-                    wA[i][j] = sum
+                 sum = wA[i][j]
+                 for k in 1...j-1{
+                    sum = sum - wA[i][k] * wA[k][j]
                 }
+                wA[i][j] = sum
+
                 dum = vv[i] * abs(sum)
                 if dum >= aamax {
                     imax = i
@@ -129,9 +128,9 @@ class fortranMatrixOps {
                 }
             }
         }
-        if wA[n][n] == 0{
+       /* if wA[n][n] == 0{
             wA[n][n] = tiny
-        }
+        } */
         
         return (wA, wIndex, wD)
     }

@@ -49,10 +49,11 @@ class SavitzkyGolay: FilteringProtocol {
         notifyObservers(data: [newPoint])
     }
     
-    func calculateCoeffs(np: Int, nl: Int, nr: Int, ld: Int, m: Int) -> [Double]{
+    func calculateCoeffs(np1: Int, nl: Int, nr: Int, ld: Int, m: Int) -> [Double]{
         
-        var c = Array(repeating: 0.0, count: np)
-        var matrix = fortranMatrixOps()
+        let np = np1
+        var c = Array(repeating: 0.0, count: np + 2)
+        let matrix = fortranMatrixOps()
         
         let max = 6
         
@@ -69,7 +70,7 @@ class SavitzkyGolay: FilteringProtocol {
             fac = 0.0,
             sum = 0.0
         
-        var a = Array(repeating: Array(repeating: 0.0, count: max+1), count: max+1)
+        var a = Array(repeating: Array(repeating: 0.0, count: max+2), count: max+1)
         var b = Array(repeating: 0.0, count: max+1)
         
         
@@ -86,11 +87,14 @@ class SavitzkyGolay: FilteringProtocol {
             }
             
             for k in 1...nr{ //11
-                sum += (Double(k)^^Double(ipj))
+                //print(sum)
+                
+                sum = sum + (Double(k)^^Double(ipj))
+                //print("sum: \(sum), \(k), \(ipj)")
             }
             
             for k in 1...nl{ //12
-                sum += (Double(-k)^^Double(ipj))
+                sum = sum + (Double(k)^^Double(ipj))
             }
             
             let maxMipj = 2 * m - ipj
@@ -101,8 +105,9 @@ class SavitzkyGolay: FilteringProtocol {
                 mm = maxMipj
             }
             
+     
             for imj in stride(from:-mm, to: mm, by: 2){ //13
-                
+               // print(imj)
                 let i = 1+(ipj+imj)/2
                 let j = 1+(ipj-imj)/2
                 
@@ -111,6 +116,7 @@ class SavitzkyGolay: FilteringProtocol {
             }
         }
         
+        //print(a)
         let decompRsult = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
         
         a = decompRsult.a
@@ -122,11 +128,8 @@ class SavitzkyGolay: FilteringProtocol {
         }
         b[ld+1] = 1
         
-        let backSubResult = matrix.luBacksubstitute(a:a, n:m+1, np:max+1, index:index, b: b)
+        b = matrix.luBacksubstitute(a:a, n:m+1, np:max+1, index:index, b: b)
         
-        a = backSubResult.a
-        index = backSubResult.index
-        b = backSubResult.b
         
         
         for kk in 1...np{ //16
@@ -139,10 +142,13 @@ class SavitzkyGolay: FilteringProtocol {
             for mm in 1...m{ //17
                 fac = fac*Double(k)
                 sum = sum + b[mm+1] * fac
+                
+               // print(fac)
             }
             kk = ((np-k) % np) + 1
             c[kk] = sum
         }
+   
         return c
     }
   

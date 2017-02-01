@@ -26,8 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = utilities.init()
         
         let test = SavitzkyGolay()
-        let coeffs = test.calculateCoeffs(np: 5, nl: 4, nr: 1, ld: 0, m: 2)
-        print(coeffs.count)
+        let coeffs = test.calculateCoeffs(np1: 5, nl: 2, nr: 2, ld: 0, m: 2)
+        
+        for i in 0...coeffs.count-1{
+            //print(coeffs[i])
+        }
         return true
     }
    
