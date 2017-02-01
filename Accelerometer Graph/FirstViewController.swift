@@ -93,11 +93,9 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         
         pointsCount = notification.userInfo?["pointsCount"] as! Int
-        print(pointsCount)
-         print((TopLineChartView.lineData?.dataSets[0].entryCount)!)
+ 
         while((TopLineChartView.lineData?.dataSets[0].entryCount)! > pointsCount+1){
-            
-           print((TopLineChartView.lineData?.dataSets[0].entryCount)!)
+       
             _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
             _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
             _ = TopLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
@@ -137,17 +135,6 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             self.TopLineChartView.setNeedsDisplay()
         }
         
-        if singleView{
-
-            BottomLineChartView.notifyDataSetChanged()
-            BottomLineChartView.data?.notifyDataChanged()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                // your code here
-                self.BottomLineChartView.setNeedsDisplay()
-            }
-    
-        }
         
     }
     

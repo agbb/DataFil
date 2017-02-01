@@ -13,6 +13,8 @@
 		FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
 		FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* recorder.swift */; };
 		FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */; };
+		FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
+		FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
 		FA9B3B031E006D7E00873309 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3AFD1E006D7E00873309 /* Enum.swift */; };
 		FA9B3B041E006D7E00873309 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */; };
 		FA9B3B051E006D7E00873309 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B001E006D7E00873309 /* FontAwesome.swift */; };
@@ -112,6 +114,8 @@
 		FA186CC51DF9BC8000835B7C /* HighPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPass.swift; sourceTree = "<group>"; };
 		FA51377A1E2FCB9000C1D7B5 /* recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recorder.swift; sourceTree = "<group>"; };
 		FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graphSettingsTableViewController.swift; sourceTree = "<group>"; };
+		FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavitzkyGolay.swift; sourceTree = "<group>"; };
+		FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fortranMatrixOps.swift; sourceTree = "<group>"; };
 		FA9B3AFD1E006D7E00873309 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		FA9B3AFE1E006D7E00873309 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesome.h; sourceTree = "<group>"; };
 		FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -180,12 +184,22 @@
 		FA186CC41DF9BC7200835B7C /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				FA76DD391E42107100189217 /* Savitzky-Golay */,
 				FA186CC51DF9BC8000835B7C /* HighPass.swift */,
 				FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */,
 				FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */,
 			);
 			name = Filters;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		FA76DD391E42107100189217 /* Savitzky-Golay */ = {
+			isa = PBXGroup;
+			children = (
+				FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */,
+				FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */,
+			);
+			name = "Savitzky-Golay";
 			sourceTree = "<group>";
 		};
 		FA9B3AFC1E006D7E00873309 /* FontAwesome */ = {
@@ -504,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */,
+				FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */,
 				FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */,
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
 				FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */,
@@ -518,6 +533,7 @@
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
 				FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */,
 				FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */,
+				FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */,
 				FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */,
 				FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */,
 				FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */,
