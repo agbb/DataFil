@@ -47,7 +47,7 @@ class fortranMatrixOps {
     }
     
     
-    func luDecomposition(a: [[Double]], n: Int, np: Int, index: [Int], d:Double) {
+    func luDecomposition(a: [[Double]], n: Int, index: [Int], d:Double) -> (a:[[Double]], index:[Int], d:Double){
         
         let nmax = 100, tiny = 1.0e-20
         
@@ -132,6 +132,8 @@ class fortranMatrixOps {
         if wA[n][n] == 0{
             wA[n][n] = tiny
         }
+        
+        return (wA, wIndex, wD)
     }
     
     

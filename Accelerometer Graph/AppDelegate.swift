@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = FilterManager.sharedInstance
         _ = utilities.init()
         
+        let test = SavitzkyGolay()
+        let coeffs = test.calculateCoeffs(np: 5, nl: 4, nr: 1, ld: 0, m: 2)
+        print(coeffs.count)
         return true
     }
    

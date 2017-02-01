@@ -49,9 +49,9 @@ class SavitzkyGolay: FilteringProtocol {
         notifyObservers(data: [newPoint])
     }
     
-    func calculateCoeffs(outputSize: Int, leftScan: Int, rightScan: Int, order: Int, smoothingPolynomialOrder: Int) -> [Double]{
+    func calculateCoeffs(np: Int, nl: Int, nr: Int, ld: Int, m: Int) -> [Double]{
         
-        var outputArray = Array(repeating: 0.0, count: outputSize)
+        var c = Array(repeating: 0.0, count: np)
         var matrix = fortranMatrixOps()
         
         let max = 6
@@ -74,27 +74,26 @@ class SavitzkyGolay: FilteringProtocol {
         
         
         
-        if (outputSize < (leftScan+rightScan+1)) || (leftScan < 0) || (rightScan < 0) || (order > smoothingPolynomialOrder) || (smoothingPolynomialOrder > max){
+        if (np < (nl+nr+1)) || (nl < 0) || (nr < 0) || (ld > m) || (m > max) || (nl + nr < m){
             print("Invalid arguments passed into coeff calc.")
             //TODO: seperate for more meaningful errors.
         }
         
-        let loopOrder = order * 2
-        for ipj in 0...(loopOrder) { //14
+        for ipj in 0...(m * 2) { //14
             sum = 0
             if ipj == 0{
                 sum = 1
             }
             
-            for k in 1...rightScan{ //11
+            for k in 1...nr{ //11
                 sum += (Double(k)^^Double(ipj))
             }
             
-            for k in 1...leftScan{ //12
+            for k in 1...nl{ //12
                 sum += (Double(-k)^^Double(ipj))
             }
             
-            let maxMipj = 2 * max - ipj
+            let maxMipj = 2 * m - ipj
             
             if(ipj<maxMipj){
                 mm = ipj
@@ -112,35 +111,39 @@ class SavitzkyGolay: FilteringProtocol {
             }
         }
         
-        //a = luDecomposition(a, smoothingPolynomialOrder+1, index, d)
+        let decompRsult = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
         
-        for j in 1...(smoothingPolynomialOrder+1){ //15
+        a = decompRsult.a
+        index = decompRsult.index
+        d = decompRsult.d
+        
+        for j in 1...(m+1){ //15
             b[j] = 0
         }
-        b[order+1] = 1
+        b[ld+1] = 1
         
-        let backSubResult = matrix.luBacksubstitute(a:a, n:order, np:max+1, index:index, b: b)
+        let backSubResult = matrix.luBacksubstitute(a:a, n:m+1, np:max+1, index:index, b: b)
         
         a = backSubResult.a
         index = backSubResult.index
         b = backSubResult.b
         
         
-        for kk in 1...outputSize{ //16
-            outputArray[kk] = 0.0
+        for kk in 1...np{ //16
+            c[kk] = 0.0
         }
         
-        for k in -leftScan...rightScan{ //18
+        for k in -nl...nr{ //18
             sum = b[1]
             fac = 1
-            for mm in 1...smoothingPolynomialOrder{ //17
+            for mm in 1...m{ //17
                 fac = fac*Double(k)
                 sum = sum + b[mm+1] * fac
             }
-            kk = ((outputSize-k) % outputSize) + 1
-            outputArray[kk] = sum
+            kk = ((np-k) % np) + 1
+            c[kk] = sum
         }
-        return outputArray
+        return c
     }
   
 }
