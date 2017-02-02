@@ -48,7 +48,7 @@ class fortranMatrixOps {
     }
     
     
-    func luDecomposition(a: [[Double]], n: Int, index: [Int], d:Double) -> (a:[[Double]], index:[Int], d:Double){
+    func luDecomposition(a: [[Double]], n: Int, index: [Int], d:Double) -> [Int]{
         
         let nmax = 100, tiny = 1.0e-20
         
@@ -81,25 +81,27 @@ class fortranMatrixOps {
             vv[i] = 1.0/aamax
         }
         for j in 1...n{
-
-            for i in 1...j-1{
-                sum = wA[i][j]
-
-                for k in 1...i-1{
-                    sum = sum - wA[i][k] * wA[k][j]
+            if j > 1 {
+                for i in 1...j-1{
+                    sum = wA[i][j]
+                    if i > 1 {
+                        for k in 1...i-1{
+                            sum = sum - wA[i][k] * wA[k][j]
+                        }
+                        wA[i][j] = sum
+                    }
                 }
-                wA[i][j] = sum
-                
             }
             aamax = 0.0
             
             for i in j...n{
-                 sum = wA[i][j]
-                 for k in 1...j-1{
-                    sum = sum - wA[i][k] * wA[k][j]
+                sum = wA[i][j]
+                if j > 1 {
+                    for k in 1...j-1{
+                        sum = sum - wA[i][k] * wA[k][j]
+                    }
+                    wA[i][j] = sum
                 }
-                wA[i][j] = sum
-
                 dum = vv[i] * abs(sum)
                 if dum >= aamax {
                     imax = i
@@ -128,11 +130,11 @@ class fortranMatrixOps {
                 }
             }
         }
-       /* if wA[n][n] == 0{
+        if wA[n][n] == 0{
             wA[n][n] = tiny
-        } */
+        }
         
-        return (wA, wIndex, wD)
+        return wIndex
     }
     
     

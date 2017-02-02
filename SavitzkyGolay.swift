@@ -70,7 +70,7 @@ class SavitzkyGolay: FilteringProtocol {
             fac = 0.0,
             sum = 0.0
         
-        var a = Array(repeating: Array(repeating: 0.0, count: max+2), count: max+1)
+        var a = Array(repeating: Array(repeating: 0.0, count: max+1), count: max+1)
         var b = Array(repeating: 0.0, count: max+1)
         
         
@@ -81,9 +81,9 @@ class SavitzkyGolay: FilteringProtocol {
         }
         
         for ipj in 0...(m * 2) { //14
-            sum = 0
+            sum = 0.0
             if ipj == 0{
-                sum = 1
+                sum = 1.0
             }
             
             for k in 1...nr{ //11
@@ -94,34 +94,24 @@ class SavitzkyGolay: FilteringProtocol {
             }
             
             for k in 1...nl{ //12
-                sum = sum + (Double(k)^^Double(ipj))
+                sum = sum + (Double((-k))^^Double(ipj))
             }
             
-            let maxMipj = 2 * m - ipj
             
-            if(ipj<maxMipj){
-                mm = ipj
-                }else{
-                mm = maxMipj
-            }
+            mm = min(ipj, 2 * m - ipj)
             
      
             for imj in stride(from:-mm, to: mm, by: 2){ //13
                // print(imj)
-                let i = 1+(ipj+imj)/2
-                let j = 1+(ipj-imj)/2
-                
-                a[i][j] = sum
+
+                a[1+(ipj+imj)/2][1+(ipj-imj)/2] = sum
                 
             }
         }
         
         //print(a)
-        let decompRsult = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
+        index = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
         
-        a = decompRsult.a
-        index = decompRsult.index
-        d = decompRsult.d
         
         for j in 1...(m+1){ //15
             b[j] = 0
