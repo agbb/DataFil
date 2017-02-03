@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let test = SavitzkyGolay()
         let coeffs = test.calculateCoeffs(np: 2+2+1, nl: 2, nr: 2, ld: 0, m: 2)
-        
+        print("-----")
         for i in 0...coeffs.count-1{
             print(coeffs[i])
         }

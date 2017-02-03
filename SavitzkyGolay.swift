@@ -63,7 +63,7 @@ class SavitzkyGolay: FilteringProtocol {
             kk = 0,
             mm = 0
         
-        var index = Array(repeating: 0, count:max+1)
+        var index = Array(repeating: 0, count:max+2)
         
       //  index[1] = 0
        // j = 3
@@ -81,8 +81,8 @@ class SavitzkyGolay: FilteringProtocol {
             fac = 0.0,
             sum = 0.0
         
-        var a = Array(repeating: Array(repeating: 0.0, count: max+1), count: max+1)
-        var b = Array(repeating: 0.0, count: max+1)
+        var a = Array(repeating: Array(repeating: 0.0, count: max+2), count: max+2)
+        var b = Array(repeating: 0.0, count: max+2)
         
         
         
@@ -112,22 +112,23 @@ class SavitzkyGolay: FilteringProtocol {
             mm = min(ipj, 2 * m - ipj)
 
             for imj in stride(from:-mm, to: mm+1, by: 2){ //13
-
-                a[1+(ipj+imj)/2][1+(ipj-imj)/2] = sum
                 
+                a[1+(ipj+imj)/2][1+(ipj-imj)/2] = sum
+
             }
         }
-        
-        index = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
-        
+
+        let decompOutput = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
+        index = decompOutput.index
+        a = decompOutput.a
         
         for j in 1...(m+1){ //15
             b[j] = 0
         }
         b[ld+1] = 1
-        
+       // print(b)
         b = matrix.luBacksubstitute(a:a, n:m+1, np:max+1, index:index, b: b)
-        
+       // print(b)
         
         
         for kk in 1...np{ //16
