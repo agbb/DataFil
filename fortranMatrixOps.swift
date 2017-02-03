@@ -18,7 +18,6 @@ class fortranMatrixOps {
         var sum = 0.0
         var ii = 0
         
-        print(a)
         for i in 1...n{
             let ll = wIndex[i]
             sum = wB[ll]
@@ -28,18 +27,13 @@ class fortranMatrixOps {
 
                 for j in ii...i-1{
                    sum = sum - wA[i][j] * wB[j]
-                    print("I: \(i)")
-                    print("J: \(j)")
-                    print("a: \(wA[i][j])")
-                    print("b: \(wB[j])")
-                    print("sum: \(sum)")
+
                 }
             }else if sum != 0{
                 ii = i
             }
             wB[i] = sum
         }
-        print("b:\(wB)")
         for i in stride(from:n, to:0, by:-1){
 
             sum = wB[i]
@@ -143,24 +137,8 @@ class fortranMatrixOps {
         }
         
          //shift(shiftIndex: 1, input: wIndex) as! [Int]
-        print(wA)
+
         return (wIndex,wA)
     }
-    
-    func shift(shiftIndex: Int, input: [Any?]) -> [Any?]{
-
-        var output = input[shiftIndex..<input.count]
-        output += input[0..<shiftIndex]
-        return Array(output)
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
 }

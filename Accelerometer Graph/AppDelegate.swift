@@ -22,15 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         acm.initaliseAccelerometer()
        
         //TODO fix this.
-        _ = FilterManager.sharedInstance
+        var fm = FilterManager.sharedInstance
+        fm.addNewFilter(filterName: "Savitzky Golay")
         _ = utilities.init()
         
-        let test = SavitzkyGolay()
-        let coeffs = test.calculateCoeffs(np: 2+2+1, nl: 2, nr: 2, ld: 0, m: 2)
-        print("-----")
-        for i in 0...coeffs.count-1{
-            print(coeffs[i])
-        }
+        
+
         return true
     }
    

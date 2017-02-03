@@ -74,6 +74,14 @@ class FilterManager{
             boundedAvg.addObserver(update: update)
             activeFilters.append(boundedAvg)
             break
+        case "Savitzky Golay":
+            let savgolay = SavitzkyGolay()
+            let update = {(data: [accelPoint])->Void in
+                
+                self.receiveData(data: data, id: savgolay.id)
+            }
+            savgolay.addObserver(update: update)
+            activeFilters.append(savgolay)
         default:
             print("No match in FilterManager")
         }
