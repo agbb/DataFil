@@ -17,6 +17,7 @@
 		FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */; };
 		FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
 		FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
+		FA7AFBD71E450B7100A4D6D1 /* SavGolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */; };
 		FA9B3B031E006D7E00873309 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3AFD1E006D7E00873309 /* Enum.swift */; };
 		FA9B3B041E006D7E00873309 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */; };
 		FA9B3B051E006D7E00873309 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B001E006D7E00873309 /* FontAwesome.swift */; };
@@ -117,6 +118,7 @@
 		FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graphSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavitzkyGolay.swift; sourceTree = "<group>"; };
 		FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fortranMatrixOps.swift; sourceTree = "<group>"; };
+		FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavGolTableViewController.swift; sourceTree = "<group>"; };
 		FA9B3AFD1E006D7E00873309 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		FA9B3AFE1E006D7E00873309 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesome.h; sourceTree = "<group>"; };
 		FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
 				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
 				FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */,
+				FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */,
 			);
 			name = filterViewControllers;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
 				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,
 				FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */,
+				FA7AFBD71E450B7100A4D6D1 /* SavGolTableViewController.swift in Sources */,
 				FAEE08891E31317700AEEDE0 /* Model.xcdatamodeld in Sources */,
 				FA9B3B061E006D7E00873309 /* FontAwesomeView.swift in Sources */,
 				FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */,

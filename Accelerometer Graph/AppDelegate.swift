@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         acm.initaliseAccelerometer()
        
         //TODO fix this.
-        var fm = FilterManager.sharedInstance
-        fm.addNewFilter(filterName: "Savitzky Golay")
+        _ = FilterManager.sharedInstance
         _ = utilities.init()
         
         

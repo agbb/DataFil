@@ -29,30 +29,9 @@ class SavitzkyGolay: FilteringProtocol {
         params["filterPolynomial"] = 2
         observers = []
         coeffs = calculateCoeffs(nl: Int(params["leftScan"]!), nr: Int(params["rightScan"]!), m: Int(params["filterPolynomial"]!))
-        setUpWraparoundArray()
      
     }
-    
-    func setUpWraparoundArray(){
-        
-        let nl = Int(params["leftScan"]!)
-        let nr = Int(params["rightScan"]!)
-        
-        var j = 3
-        
-        index[0] = 0
-        index[1] = 0
-        
-        for i in 2...nl+1{
-            index[i] = i - j
-            j = j + 2
-        }
-        j = 2
-        for i in nl+1...nl+nr+1{
-            index[i] = i - j
-            j = j + 2
-        }
-    }
+ 
     
     func getFilterName() -> String{
         return filterName
@@ -60,18 +39,19 @@ class SavitzkyGolay: FilteringProtocol {
     
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
+        coeffs = calculateCoeffs(nl: Int(params["leftScan"]!), nr: Int(params["rightScan"]!), m: Int(params["filterPolynomial"]!))
+         size = Int(params["leftScan"]!) + Int(params["rightScan"]!) + 1
+ 
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
         
-        
-        
-        
+      
         buffer.append(dataPoint)
         
         if buffer.count < Int(params["leftScan"]!){
             
-            for i in 0...Int(params["leftScan"]!)-1{ // initally fill history with 0s.
+            for i in 0...Int(params["leftScan"]!){ // initally fill history with 0s.
                 buffer.append(accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count))
             }
         }
@@ -110,25 +90,39 @@ class SavitzkyGolay: FilteringProtocol {
         let size = nl + nr + 1
 
         var tempX = 0.0
+        var tempY = 0.0
+        var tempZ = 0.0
+        
         for i in 1...nl{
             let coeff = coeffs[i]
             tempX = tempX + (buffer[i].x * coeff)
+            tempY = tempY + (buffer[i].y * coeff)
+            tempZ = tempZ + (buffer[i].z * coeff)
         }
+        
         let currentMidPointCoeff = coeffs[size-nr]
         tempX = tempX + (pointToProcess.x * currentMidPointCoeff)
+        tempY = tempY + (pointToProcess.y * currentMidPointCoeff)
+        tempZ = tempZ + (pointToProcess.z * currentMidPointCoeff)
         
         for i in nl+1...size{
              let coeff = coeffs[i]
             tempX = tempX + (buffer[i].x * coeff)
+            tempY = tempY + (buffer[i].y * coeff)
+            tempZ = tempZ + (buffer[i].z * coeff)
         }
+        
         newPoint.x = tempX
+        newPoint.y = tempY
+        newPoint.z = tempZ
+        
         return newPoint
         
     }
     
     func calculateCoeffs(nl: Int, nr: Int, m: Int) -> [Double]{
         
-        
+        print("\(nl) \(nr)")
         let ld = 0
         let np = nl + nr + 1
         var c = Array(repeating: 0.0, count: np + 2)
