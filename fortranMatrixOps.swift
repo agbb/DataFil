@@ -15,7 +15,6 @@ class fortranMatrixOps {
         var wB = b
         var wA = a
         var wIndex = index
-        print(b)
         var sum = 0.0
         var ii = 0
         
@@ -33,7 +32,8 @@ class fortranMatrixOps {
             wB[i] = sum
         }
         
-        for i in stride(from:n, to:1, by:-1){
+        for i in stride(from:n, to:0, by:-1){
+            print("---i: \(i)")
             sum = wB[i]
             
             if (i < n ){

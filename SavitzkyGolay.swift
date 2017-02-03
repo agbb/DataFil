@@ -49,9 +49,8 @@ class SavitzkyGolay: FilteringProtocol {
         notifyObservers(data: [newPoint])
     }
     
-    func calculateCoeffs(np1: Int, nl: Int, nr: Int, ld: Int, m: Int) -> [Double]{
+    func calculateCoeffs(np: Int, nl: Int, nr: Int, ld: Int, m: Int) -> [Double]{
         
-        let np = np1
         var c = Array(repeating: 0.0, count: np + 2)
         let matrix = fortranMatrixOps()
         
@@ -64,8 +63,20 @@ class SavitzkyGolay: FilteringProtocol {
             kk = 0,
             mm = 0
         
-        var index = Array(repeating: 0, count: max+1)
+        var index = Array(repeating: 0, count:max+1)
         
+      //  index[1] = 0
+       // j = 3
+        
+        /* for i in 2...nl+1{
+            index[i] = i - j
+            j = j + 2
+        }
+        j = 2
+        for i in nl+1...nl+nr+1{
+            index[i] = i - j
+            j = j + 2
+        } */
         var d = 0.0,
             fac = 0.0,
             sum = 0.0
@@ -87,29 +98,26 @@ class SavitzkyGolay: FilteringProtocol {
             }
             
             for k in 1...nr{ //11
-                //print(sum)
                 
                 sum = sum + (Double(k)^^Double(ipj))
-                //print("sum: \(sum), \(k), \(ipj)")
+
             }
             
             for k in 1...nl{ //12
                 sum = sum + (Double((-k))^^Double(ipj))
+
             }
             
             
             mm = min(ipj, 2 * m - ipj)
-            
-     
-            for imj in stride(from:-mm, to: mm, by: 2){ //13
-               // print(imj)
+
+            for imj in stride(from:-mm, to: mm+1, by: 2){ //13
 
                 a[1+(ipj+imj)/2][1+(ipj-imj)/2] = sum
                 
             }
         }
         
-        //print(a)
         index = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
         
         
@@ -133,7 +141,6 @@ class SavitzkyGolay: FilteringProtocol {
                 fac = fac*Double(k)
                 sum = sum + b[mm+1] * fac
                 
-               // print(fac)
             }
             kk = ((np-k) % np) + 1
             c[kk] = sum
