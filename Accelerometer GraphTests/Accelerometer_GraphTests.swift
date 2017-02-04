@@ -24,7 +24,7 @@ class Accelerometer_GraphTests: XCTestCase {
     
     //MARK: Test coefficients generation against canonical examples.
     func testCoeffs222(){
-        let expectedCoeffs222 = [0.48571428571428565, 0.3428571428571428, -0.085714285714285743, -0.085714285714285743, 0.3428571428571428]
+        let expectedCoeffs222 = [-0.085714285714285743, 0.3428571428571428, 0.48571428571428565, 0.3428571428571428, -0.085714285714285743]
         let savgol = SavitzkyGolay()
         let coeffs = savgol.calculateCoeffs(nl: 2, nr: 2, m: 2)
         var sum = 0.0
@@ -37,7 +37,7 @@ class Accelerometer_GraphTests: XCTestCase {
     }
     
     func testCoeffs552(){
-      let expectedCoeffs552 = [0.20745920745920746, 0.19580419580419581, 0.16083916083916083, 0.10256410256410256, 0.020979020979020963, -0.083916083916083933, -0.083916083916083933, 0.020979020979020963, 0.10256410256410256, 0.16083916083916083, 0.19580419580419581]
+      let expectedCoeffs552 = [-0.083916083916083933, 0.020979020979020963, 0.10256410256410256, 0.16083916083916083, 0.19580419580419581, 0.20745920745920746, 0.19580419580419581, 0.16083916083916083, 0.10256410256410256, 0.020979020979020963, -0.083916083916083933]
     let savgol = SavitzkyGolay()
     let coeffs = savgol.calculateCoeffs(nl: 5, nr: 5, m: 2)
     
@@ -79,9 +79,9 @@ class Accelerometer_GraphTests: XCTestCase {
         
         let output2 = savgol.applyFilter(pointToProcess: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 6), buffer: buffer)
         XCTAssertEqual(output2.count, 8) //count should equal the input + the forward scan lag (2 here)
-        XCTAssertEqualWithAccuracy(output2.x, 0.257, accuracy: 0.001)//confirm manual calulation for output.
-        XCTAssertEqualWithAccuracy(output2.y, 0.257, accuracy: 0.001)
-        XCTAssertEqualWithAccuracy(output2.z, 0.257, accuracy: 0.001)//check for all axes
+        XCTAssertEqualWithAccuracy(output2.x, 0.685, accuracy: 0.001)//confirm manual calulation for output.
+        XCTAssertEqualWithAccuracy(output2.y, 0.685, accuracy: 0.001)
+        XCTAssertEqualWithAccuracy(output2.z, 0.685, accuracy: 0.001)//check for all axes
 
     }
     

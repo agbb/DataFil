@@ -106,41 +106,15 @@ class SavitzkyGolay: FilteringProtocol {
         var tempY = 0.0
         var tempZ = 0.0
         
-            print(coeffs)
-        /* for i in 0...nr-1{
-
-            let coeff = coeffs[i]
-             print("apply nl: \(i) * \(coeff) ")
-            tempX = tempX + (buffer[i].x * coeff)
-            tempY = tempY + (buffer[i].y * coeff)
-            tempZ = tempZ + (buffer[i].z * coeff)
-        }
-        
-        let currentMidPointCoeff = coeffs[0]
-        tempX = tempX + (buffer[(size-nr)].x * currentMidPointCoeff)
-        tempY = tempY + (buffer[(size-nr)].y * currentMidPointCoeff)
-        tempZ = tempZ + (buffer[(size-nr)].z * currentMidPointCoeff)
-         print("apply mid: \(size-nr) * \(currentMidPointCoeff)")
-        for i in nr+1...size-1{
-            
-             let coeff = coeffs[i]
-             print("apply nr: \(i) * \(coeff) ")
-            tempX = tempX + (buffer[i].x * coeff)
-            tempY = tempY + (buffer[i].y * coeff)
-            tempZ = tempZ + (buffer[i].z * coeff)
-        }
- 
-       */
         
         for i in 0...size-1{
             let coeff = coeffs[i]
-            print("apply nr: \(i) * \(coeff) ")
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
         }
         
-        print("--------")
+        print(coeffs)
         newPoint.x = tempX
         newPoint.y = tempY
         newPoint.z = tempZ
