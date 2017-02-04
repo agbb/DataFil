@@ -114,7 +114,7 @@ class SavitzkyGolay: FilteringProtocol {
             tempZ = tempZ + (buffer[i].z * coeff)
         }
         
-        print(coeffs)
+    
         newPoint.x = tempX
         newPoint.y = tempY
         newPoint.z = tempZ
@@ -178,11 +178,25 @@ class SavitzkyGolay: FilteringProtocol {
                 
             }
         }
+        print("---")
+             print("---")
+        print(a)
+        print("---")
+        print(index)
+             print("---")
+        print(d)
+             print("---")
         
         let decompOutput = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
         index = decompOutput.index
         a = decompOutput.a
-        
+             print("---")
+            print("---")
+        print(index)
+        print("---")
+        print(a)
+        print("---")
+        print("---")
         for j in 1...(m+1){ //15
             b[j] = 0
         }

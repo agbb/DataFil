@@ -68,6 +68,29 @@ class Accelerometer_GraphTests: XCTestCase {
         
     }
     
+    func testLuDecomp(){
+        let aIn = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 5.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 10.0, 0.0, 34.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+        
+        let indexIn = [0, 0, 0, 0, 0, 0, 0, 0]
+        
+        let dIn = 0.0
+        let n = 3
+        
+        let indexOut = [0, 1, 2, 3, 0, 0, 0, 0]
+        let aOut = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 5.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 2.0, 0.0, 14.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+        
+        let matrixFunc = fortranMatrixOps()
+        
+        let output = matrixFunc.luDecomposition(a: aIn, n: n, index: indexIn, d: dIn)
+        
+        XCTAssertEqual(output.a.count, aOut.count)
+        for i in 0...output.a.count-1{
+            XCTAssertEqual(output.a[i], aOut[i])
+        }
+        
+        XCTAssertEqual(output.index, indexOut)
+    }
+    
     func testCoeffApplicationExample(){
         
         let savgol = SavitzkyGolay() //implictly sets up with nl=nr=2, m=2
