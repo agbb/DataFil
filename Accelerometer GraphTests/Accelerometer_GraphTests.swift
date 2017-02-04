@@ -2,12 +2,12 @@
 //  Accelerometer_GraphTests.swift
 //  Accelerometer GraphTests
 //
-//  Created by Alex Gubbay on 07/12/2016.
-//  Copyright © 2016 Alex Gubbay. All rights reserved.
+//  Created by Alex Gubbay on 04/02/2017.
+//  Copyright © 2017 Alex Gubbay. All rights reserved.
 //
 
 import XCTest
-@testable import Accelerometer_Graph
+@testable import Accelerometer Graph
 
 class Accelerometer_GraphTests: XCTestCase {
     

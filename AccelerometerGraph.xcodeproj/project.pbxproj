@@ -18,6 +18,7 @@
 		FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
 		FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
 		FA7AFBD71E450B7100A4D6D1 /* SavGolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */; };
+		FA7AFBF11E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBF01E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift */; };
 		FA9B3B031E006D7E00873309 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3AFD1E006D7E00873309 /* Enum.swift */; };
 		FA9B3B041E006D7E00873309 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */; };
 		FA9B3B051E006D7E00873309 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B001E006D7E00873309 /* FontAwesome.swift */; };
@@ -35,8 +36,6 @@
 		FAD59C6A1DF880B000A7FD6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C681DF880B000A7FD6A /* Main.storyboard */; };
 		FAD59C6C1DF880B000A7FD6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */; };
 		FAD59C6F1DF880B000A7FD6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */; };
-		FAD59C7A1DF880B000A7FD6A /* Accelerometer_GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C791DF880B000A7FD6A /* Accelerometer_GraphTests.swift */; };
-		FAD59C851DF880B000A7FD6A /* Accelerometer_GraphUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */; };
 		FAE34B3E1DFB509B00962F61 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B3D1DFB509B00962F61 /* FilterManager.swift */; };
 		FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B421DFB526100962F61 /* FilteringProtocol.swift */; };
 		FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
@@ -78,14 +77,7 @@
 			remoteGlobalIDString = 06165F231D8110E600722320;
 			remoteInfo = Charts;
 		};
-		FAD59C761DF880B000A7FD6A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAD59C571DF880B000A7FD6A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAD59C5E1DF880B000A7FD6A;
-			remoteInfo = "Accelerometer Graph";
-		};
-		FAD59C811DF880B000A7FD6A /* PBXContainerItemProxy */ = {
+		FA7AFBF31E45F9B000A4D6D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAD59C571DF880B000A7FD6A /* Project object */;
 			proxyType = 1;
@@ -119,6 +111,9 @@
 		FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavitzkyGolay.swift; sourceTree = "<group>"; };
 		FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fortranMatrixOps.swift; sourceTree = "<group>"; };
 		FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavGolTableViewController.swift; sourceTree = "<group>"; };
+		FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer GraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Accelerometer GraphTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7AFBF01E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer_GraphTests.swift; sourceTree = "<group>"; };
+		FA7AFBF21E45F9B000A4D6D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9B3AFD1E006D7E00873309 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		FA9B3AFE1E006D7E00873309 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesome.h; sourceTree = "<group>"; };
 		FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -139,12 +134,6 @@
 		FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD59C6E1DF880B000A7FD6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD59C701DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAD59C751DF880B000A7FD6A /* Accelerometer GraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Accelerometer GraphTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAD59C791DF880B000A7FD6A /* Accelerometer_GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer_GraphTests.swift; sourceTree = "<group>"; };
-		FAD59C7B1DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAD59C801DF880B000A7FD6A /* Accelerometer GraphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Accelerometer GraphUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer_GraphUITests.swift; sourceTree = "<group>"; };
-		FAD59C861DF880B000A7FD6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAE34B3D1DFB509B00962F61 /* FilterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		FAE34B421DFB526100962F61 /* FilteringProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilteringProtocol.swift; path = ../FilteringProtocol.swift; sourceTree = "<group>"; };
 		FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -158,25 +147,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA7AFBEB1E45F9B000A4D6D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAD59C5C1DF880B000A7FD6A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FA06B5041E449503002EE03D /* Charts.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAD59C721DF880B000A7FD6A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAD59C7D1DF880B000A7FD6A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +194,15 @@
 				FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */,
 			);
 			name = "Savitzky-Golay";
+			sourceTree = "<group>";
+		};
+		FA7AFBEF1E45F9B000A4D6D1 /* Accelerometer GraphTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA7AFBF01E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift */,
+				FA7AFBF21E45F9B000A4D6D1 /* Info.plist */,
+			);
+			path = "Accelerometer GraphTests";
 			sourceTree = "<group>";
 		};
 		FA9B3AFC1E006D7E00873309 /* FontAwesome */ = {
@@ -253,8 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD59C611DF880B000A7FD6A /* Accelerometer Graph */,
-				FAD59C781DF880B000A7FD6A /* Accelerometer GraphTests */,
-				FAD59C831DF880B000A7FD6A /* Accelerometer GraphUITests */,
+				FA7AFBEF1E45F9B000A4D6D1 /* Accelerometer GraphTests */,
 				FAD59C601DF880B000A7FD6A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -263,8 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */,
-				FAD59C751DF880B000A7FD6A /* Accelerometer GraphTests.xctest */,
-				FAD59C801DF880B000A7FD6A /* Accelerometer GraphUITests.xctest */,
+				FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer GraphTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,24 +269,6 @@
 				FAD59C701DF880B000A7FD6A /* Info.plist */,
 			);
 			path = "Accelerometer Graph";
-			sourceTree = "<group>";
-		};
-		FAD59C781DF880B000A7FD6A /* Accelerometer GraphTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAD59C791DF880B000A7FD6A /* Accelerometer_GraphTests.swift */,
-				FAD59C7B1DF880B000A7FD6A /* Info.plist */,
-			);
-			path = "Accelerometer GraphTests";
-			sourceTree = "<group>";
-		};
-		FAD59C831DF880B000A7FD6A /* Accelerometer GraphUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAD59C841DF880B000A7FD6A /* Accelerometer_GraphUITests.swift */,
-				FAD59C861DF880B000A7FD6A /* Info.plist */,
-			);
-			path = "Accelerometer GraphUITests";
 			sourceTree = "<group>";
 		};
 		FAEE08701E30D80300AEEDE0 /* lib */ = {
@@ -353,6 +324,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA7AFBED1E45F9B000A4D6D1 /* Accelerometer GraphTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */;
+			buildPhases = (
+				FA7AFBEA1E45F9B000A4D6D1 /* Sources */,
+				FA7AFBEB1E45F9B000A4D6D1 /* Frameworks */,
+				FA7AFBEC1E45F9B000A4D6D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA7AFBF41E45F9B000A4D6D1 /* PBXTargetDependency */,
+			);
+			name = "Accelerometer GraphTests";
+			productName = "Accelerometer GraphTests";
+			productReference = FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer GraphTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAD59C891DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer Graph" */;
@@ -372,70 +361,30 @@
 			productReference = FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FAD59C741DF880B000A7FD6A /* Accelerometer GraphTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAD59C8C1DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */;
-			buildPhases = (
-				FAD59C711DF880B000A7FD6A /* Sources */,
-				FAD59C721DF880B000A7FD6A /* Frameworks */,
-				FAD59C731DF880B000A7FD6A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAD59C771DF880B000A7FD6A /* PBXTargetDependency */,
-			);
-			name = "Accelerometer GraphTests";
-			productName = "Accelerometer GraphTests";
-			productReference = FAD59C751DF880B000A7FD6A /* Accelerometer GraphTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		FAD59C7F1DF880B000A7FD6A /* Accelerometer GraphUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAD59C8F1DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer GraphUITests" */;
-			buildPhases = (
-				FAD59C7C1DF880B000A7FD6A /* Sources */,
-				FAD59C7D1DF880B000A7FD6A /* Frameworks */,
-				FAD59C7E1DF880B000A7FD6A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAD59C821DF880B000A7FD6A /* PBXTargetDependency */,
-			);
-			name = "Accelerometer GraphUITests";
-			productName = "Accelerometer GraphUITests";
-			productReference = FAD59C801DF880B000A7FD6A /* Accelerometer GraphUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		FAD59C571DF880B000A7FD6A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Alex Gubbay";
 				TargetAttributes = {
+					FA7AFBED1E45F9B000A4D6D1 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 82V36U7G5D;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FAD59C5E1DF880B000A7FD6A;
+					};
 					FAD59C5E1DF880B000A7FD6A = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 82V36U7G5D;
 						ProvisioningStyle = Automatic;
 					};
-					FAD59C741DF880B000A7FD6A = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = FAD59C5E1DF880B000A7FD6A;
-					};
-					FAD59C7F1DF880B000A7FD6A = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = FAD59C5E1DF880B000A7FD6A;
-					};
 				};
 			};
-			buildConfigurationList = FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "Accelerometer Graph" */;
+			buildConfigurationList = FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "AccelerometerGraph" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -455,8 +404,7 @@
 			projectRoot = "";
 			targets = (
 				FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */,
-				FAD59C741DF880B000A7FD6A /* Accelerometer GraphTests */,
-				FAD59C7F1DF880B000A7FD6A /* Accelerometer GraphUITests */,
+				FA7AFBED1E45F9B000A4D6D1 /* Accelerometer GraphTests */,
 			);
 		};
 /* End PBXProject section */
@@ -486,6 +434,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA7AFBEC1E45F9B000A4D6D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAD59C5D1DF880B000A7FD6A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,23 +454,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAD59C731DF880B000A7FD6A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAD59C7E1DF880B000A7FD6A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA7AFBEA1E45F9B000A4D6D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7AFBF11E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAD59C5B1DF880B000A7FD6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -553,22 +502,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAD59C711DF880B000A7FD6A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAD59C7A1DF880B000A7FD6A /* Accelerometer_GraphTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAD59C7C1DF880B000A7FD6A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAD59C851DF880B000A7FD6A /* Accelerometer_GraphUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -577,15 +510,10 @@
 			name = Charts;
 			targetProxy = FA06B5061E449503002EE03D /* PBXContainerItemProxy */;
 		};
-		FAD59C771DF880B000A7FD6A /* PBXTargetDependency */ = {
+		FA7AFBF41E45F9B000A4D6D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */;
-			targetProxy = FAD59C761DF880B000A7FD6A /* PBXContainerItemProxy */;
-		};
-		FAD59C821DF880B000A7FD6A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */;
-			targetProxy = FAD59C811DF880B000A7FD6A /* PBXContainerItemProxy */;
+			targetProxy = FA7AFBF31E45F9B000A4D6D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -609,6 +537,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FA7AFBF61E45F9B000A4D6D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 82V36U7G5D;
+				INFOPLIST_FILE = "Accelerometer GraphTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "AlexGubbay.Accelerometer-GraphTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer Graph.app/Accelerometer Graph";
+			};
+			name = Debug;
+		};
+		FA7AFBF71E45F9B000A4D6D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 82V36U7G5D;
+				INFOPLIST_FILE = "Accelerometer GraphTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "AlexGubbay.Accelerometer-GraphTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer Graph.app/Accelerometer Graph";
+			};
+			name = Release;
+		};
 		FAD59C871DF880B000A7FD6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -732,64 +690,18 @@
 			};
 			name = Release;
 		};
-		FAD59C8D1DF880B000A7FD6A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Accelerometer GraphTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Gubbay.Accelerometer-GraphTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer Graph.app/Accelerometer Graph";
-			};
-			name = Debug;
-		};
-		FAD59C8E1DF880B000A7FD6A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Accelerometer GraphTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Gubbay.Accelerometer-GraphTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer Graph.app/Accelerometer Graph";
-			};
-			name = Release;
-		};
-		FAD59C901DF880B000A7FD6A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "Accelerometer GraphUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Gubbay.Accelerometer-GraphUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Accelerometer Graph";
-			};
-			name = Debug;
-		};
-		FAD59C911DF880B000A7FD6A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = "Accelerometer GraphUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Alex-Gubbay.Accelerometer-GraphUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Accelerometer Graph";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "Accelerometer Graph" */ = {
+		FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA7AFBF61E45F9B000A4D6D1 /* Debug */,
+				FA7AFBF71E45F9B000A4D6D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "AccelerometerGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAD59C871DF880B000A7FD6A /* Debug */,
@@ -803,24 +715,6 @@
 			buildConfigurations = (
 				FAD59C8A1DF880B000A7FD6A /* Debug */,
 				FAD59C8B1DF880B000A7FD6A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAD59C8C1DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAD59C8D1DF880B000A7FD6A /* Debug */,
-				FAD59C8E1DF880B000A7FD6A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAD59C8F1DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer GraphUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAD59C901DF880B000A7FD6A /* Debug */,
-				FAD59C911DF880B000A7FD6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

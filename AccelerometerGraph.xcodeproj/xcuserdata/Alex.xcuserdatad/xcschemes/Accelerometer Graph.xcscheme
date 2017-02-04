@@ -17,7 +17,7 @@
                BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
                BuildableName = "Accelerometer Graph.app"
                BlueprintName = "Accelerometer Graph"
-               ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+               ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FAD59C741DF880B000A7FD6A"
+               BlueprintIdentifier = "FA7AFBED1E45F9B000A4D6D1"
                BuildableName = "Accelerometer GraphTests.xctest"
                BlueprintName = "Accelerometer GraphTests"
-               ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+               ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,17 @@
                BlueprintIdentifier = "FAD59C7F1DF880B000A7FD6A"
                BuildableName = "Accelerometer GraphUITests.xctest"
                BlueprintName = "Accelerometer GraphUITests"
-               ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+               ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FA7AFBDF1E45F93B00A4D6D1"
+               BuildableName = "AccelerometerGraphTests.xctest"
+               BlueprintName = "AccelerometerGraphTests"
+               ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +65,7 @@
             BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
             BuildableName = "Accelerometer Graph.app"
             BlueprintName = "Accelerometer Graph"
-            ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+            ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +88,7 @@
             BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
             BuildableName = "Accelerometer Graph.app"
             BlueprintName = "Accelerometer Graph"
-            ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+            ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +107,7 @@
             BlueprintIdentifier = "FAD59C5E1DF880B000A7FD6A"
             BuildableName = "Accelerometer Graph.app"
             BlueprintName = "Accelerometer Graph"
-            ReferencedContainer = "container:Accelerometer Graph.xcodeproj">
+            ReferencedContainer = "container:AccelerometerGraph.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
