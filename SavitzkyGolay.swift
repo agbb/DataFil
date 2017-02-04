@@ -62,7 +62,6 @@ class SavitzkyGolay: FilteringProtocol {
         }else */
         
         if buffer.count < size+1{
-            print("returning blank point")
             buffer.append(dataPoint)
             notifyObservers(data:[dataPoint])
         }else{
@@ -94,8 +93,7 @@ class SavitzkyGolay: FilteringProtocol {
         
         let newPoint = accelPoint()
         newPoint.count = pointToProcess.count+nr
-     
-        print(coeffs)
+    
         
         let size = nl + nr + 1
 
@@ -119,7 +117,6 @@ class SavitzkyGolay: FilteringProtocol {
         for i in nr+1...size-1{
             
              let coeff = coeffs[i]
-             print("COEFF: \(coeff)")
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
@@ -134,8 +131,7 @@ class SavitzkyGolay: FilteringProtocol {
     }
     
     func calculateCoeffs(nl: Int, nr: Int, m: Int) -> [Double]{
-        
-        print("\(nl) \(nr)")
+
         let ld = 0
         let np = nl + nr + 1
         var c = Array(repeating: 0.0, count: np + 2)

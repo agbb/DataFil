@@ -754,6 +754,7 @@
 				FA7AFBF71E45F9B000A4D6D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "Accelerometer_Graph" */ = {
 			isa = XCConfigurationList;

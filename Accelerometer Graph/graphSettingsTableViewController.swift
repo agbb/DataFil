@@ -20,7 +20,6 @@ class graphSettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
-        print("called")
         singleGraphSelection.setOn(utilities.singleView, animated: false)
         pointCountSelector.selectedSegmentIndex = (utilities.pointCount/100)-1
     }

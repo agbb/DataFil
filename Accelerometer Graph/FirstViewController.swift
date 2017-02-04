@@ -59,7 +59,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     }
     
     func newGraphSettings(notification:NSNotification){
-        print("data")
+
         if notification.userInfo?["singleView"] as! Bool == false{
             utilities.singleView = false
             TopLineChartView.isHidden = false

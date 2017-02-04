@@ -65,12 +65,8 @@ class advancedLowPass: FilteringProtocol {
         a2 = a0
         b1 = 2.0 * a0 * (1.0 / k2 - 1.0)
         b2 = 1.0 - (a0 + a1 + a2 + b1)
-        print("coeffecients calulated")
-        print(a0)
-        print(a1)
-        print(a2)
-        print()
-        print()
+
+
         
     }
     

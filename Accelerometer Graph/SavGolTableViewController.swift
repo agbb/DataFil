@@ -26,9 +26,9 @@ class SavGolTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("here")
+
         for filter in fm.activeFilters{
-            print("here")
+
             if filter.filterName == "Savitzky Golay" {
                 savGolSwitch.isOn = true
                 forwardScanLabel.text = "Forward Scan: \(Int(filter.params["rightScan"]!))"
