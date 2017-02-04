@@ -46,21 +46,27 @@ class SavitzkyGolay: FilteringProtocol {
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
         
-      
-        buffer.append(dataPoint)
         
-        if buffer.count < Int(params["leftScan"]!){
+       /* if buffer.count < Int(params["leftScan"]!)+1{
             
-            for i in 0...Int(params["leftScan"]!){ // initally fill history with 0s.
-                buffer.append(accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count))
-            }
-        }
+           /* for i in 0...Int(params["leftScan"]!){ // initally fill history with 0s.
+                //let blankPoint = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
+                buffer.append(accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count+i))
+                let outputPoint = dataPoint
+                outputPoint.count = dataPoint.count+i
+                notifyObservers(data:[outputPoint])
+            } */
+
+            buffer.append(dataPoint)
+
+        }else */
         
         if buffer.count < size+1{
             print("returning blank point")
-            let blankPoint = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
-            notifyObservers(data: [blankPoint])
+            buffer.append(dataPoint)
+            notifyObservers(data:[dataPoint])
         }else{
+             buffer.append(dataPoint)
              let current = buffer[(size-Int(params["rightScan"]!))]
              let newPoint = applyFilter(pointToProcess: current, buffer: buffer)
              notifyObservers(data: [newPoint])
@@ -82,10 +88,13 @@ class SavitzkyGolay: FilteringProtocol {
     
     
     func applyFilter(pointToProcess: accelPoint, buffer: [accelPoint]) -> accelPoint{
-        let newPoint = accelPoint()
-        newPoint.count = pointToProcess.count
+        
         let nr = Int(params["rightScan"]!)
         let nl = Int(params["leftScan"]!)
+        
+        let newPoint = accelPoint()
+        newPoint.count = pointToProcess.count+nr
+     
         
         let size = nl + nr + 1
 
@@ -93,20 +102,24 @@ class SavitzkyGolay: FilteringProtocol {
         var tempY = 0.0
         var tempZ = 0.0
         
-        for i in 1...nl{
+        for i in nr+1...size{
             let coeff = coeffs[i]
+            print("COEFF: \(coeff)")
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
         }
         
-        let currentMidPointCoeff = coeffs[size-nr]
+        let currentMidPointCoeff = coeffs[1]
+         print("COEFF: \(currentMidPointCoeff)")
         tempX = tempX + (pointToProcess.x * currentMidPointCoeff)
         tempY = tempY + (pointToProcess.y * currentMidPointCoeff)
         tempZ = tempZ + (pointToProcess.z * currentMidPointCoeff)
         
-        for i in nl+1...size{
+        for i in 2...nr{
+            
              let coeff = coeffs[i]
+             print("COEFF: \(coeff)")
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
@@ -204,6 +217,8 @@ class SavitzkyGolay: FilteringProtocol {
             kk = ((np-k) % np) + 1
             c[kk] = sum
         }
+        
+        
         
         return c
     }

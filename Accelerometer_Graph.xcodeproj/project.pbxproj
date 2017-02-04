@@ -19,6 +19,32 @@
 		FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
 		FA7AFBD71E450B7100A4D6D1 /* SavGolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */; };
 		FA7AFBF11E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBF01E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift */; };
+		FA7AFBF81E45FB4B00A4D6D1 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
+		FA7AFBF91E45FB4E00A4D6D1 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
+		FA7AFBFA1E46007A00A4D6D1 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
+		FA7AFBFB1E46007A00A4D6D1 /* LowPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */; };
+		FA7AFBFC1E46007A00A4D6D1 /* BoundedAverageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */; };
+		FA7AFBFD1E46007A00A4D6D1 /* SavGolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */; };
+		FA7AFBFE1E46007A00A4D6D1 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B3D1DFB509B00962F61 /* FilterManager.swift */; };
+		FA7AFBFF1E46007A00A4D6D1 /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */; };
+		FA7AFC001E46007A00A4D6D1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* FirstViewController.swift */; };
+		FA7AFC011E46007A00A4D6D1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
+		FA7AFC021E46007A00A4D6D1 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */; };
+		FA7AFC031E46007A00A4D6D1 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
+		FA7AFC041E46007A00A4D6D1 /* SavedRecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */; };
+		FA7AFC051E46007A00A4D6D1 /* graphSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */; };
+		FA7AFC061E46008000A4D6D1 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */; };
+		FA7AFC071E46008000A4D6D1 /* recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* recorder.swift */; };
+		FA7AFC081E46008000A4D6D1 /* dataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* dataFormatter.swift */; };
+		FA7AFC091E46008000A4D6D1 /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
+		FA7AFC0A1E46008000A4D6D1 /* FilteringProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B421DFB526100962F61 /* FilteringProtocol.swift */; };
+		FA7AFC0B1E46008000A4D6D1 /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
+		FA7AFC0C1E46008000A4D6D1 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
+		FA7AFC0D1E46008500A4D6D1 /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
+		FA7AFC0E1E46008500A4D6D1 /* advancedLowPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */; };
+		FA7AFC0F1E46008500A4D6D1 /* boundedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */; };
+		FA7AFC101E46008B00A4D6D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
+		FA7AFC111E46009000A4D6D1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
 		FA9B3B031E006D7E00873309 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3AFD1E006D7E00873309 /* Enum.swift */; };
 		FA9B3B041E006D7E00873309 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */; };
 		FA9B3B051E006D7E00873309 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B001E006D7E00873309 /* FontAwesome.swift */; };
@@ -111,7 +137,7 @@
 		FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavitzkyGolay.swift; sourceTree = "<group>"; };
 		FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fortranMatrixOps.swift; sourceTree = "<group>"; };
 		FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavGolTableViewController.swift; sourceTree = "<group>"; };
-		FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer GraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Accelerometer GraphTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer_GraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Accelerometer_GraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7AFBF01E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accelerometer_GraphTests.swift; sourceTree = "<group>"; };
 		FA7AFBF21E45F9B000A4D6D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9B3AFD1E006D7E00873309 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
@@ -126,7 +152,7 @@
 		FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundedAverageTableViewController.swift; sourceTree = "<group>"; };
 		FAA52D051E38C633006262A5 /* dataFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataFormatter.swift; sourceTree = "<group>"; };
 		FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataCaptureTableViewController.swift; sourceTree = "<group>"; };
-		FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Accelerometer Graph.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD59C5F1DF880B000A7FD6A /* Accelerometer_Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accelerometer_Graph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		FAD59C661DF880B000A7FD6A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -252,8 +278,8 @@
 		FAD59C601DF880B000A7FD6A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */,
-				FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer GraphTests.xctest */,
+				FAD59C5F1DF880B000A7FD6A /* Accelerometer_Graph.app */,
+				FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer_GraphTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,9 +350,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FA7AFBED1E45F9B000A4D6D1 /* Accelerometer GraphTests */ = {
+		FA7AFBED1E45F9B000A4D6D1 /* Accelerometer_GraphTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */;
+			buildConfigurationList = FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "Accelerometer_GraphTests" */;
 			buildPhases = (
 				FA7AFBEA1E45F9B000A4D6D1 /* Sources */,
 				FA7AFBEB1E45F9B000A4D6D1 /* Frameworks */,
@@ -337,14 +363,14 @@
 			dependencies = (
 				FA7AFBF41E45F9B000A4D6D1 /* PBXTargetDependency */,
 			);
-			name = "Accelerometer GraphTests";
+			name = Accelerometer_GraphTests;
 			productName = "Accelerometer GraphTests";
-			productReference = FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer GraphTests.xctest */;
+			productReference = FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer_GraphTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */ = {
+		FAD59C5E1DF880B000A7FD6A /* Accelerometer_Graph */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAD59C891DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer Graph" */;
+			buildConfigurationList = FAD59C891DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer_Graph" */;
 			buildPhases = (
 				FAD59C5B1DF880B000A7FD6A /* Sources */,
 				FAD59C5C1DF880B000A7FD6A /* Frameworks */,
@@ -356,9 +382,9 @@
 			dependencies = (
 				FA06B5071E449503002EE03D /* PBXTargetDependency */,
 			);
-			name = "Accelerometer Graph";
+			name = Accelerometer_Graph;
 			productName = "Accelerometer Graph";
-			productReference = FAD59C5F1DF880B000A7FD6A /* Accelerometer Graph.app */;
+			productReference = FAD59C5F1DF880B000A7FD6A /* Accelerometer_Graph.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -384,7 +410,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "AccelerometerGraph" */;
+			buildConfigurationList = FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "Accelerometer_Graph" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -403,8 +429,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */,
-				FA7AFBED1E45F9B000A4D6D1 /* Accelerometer GraphTests */,
+				FAD59C5E1DF880B000A7FD6A /* Accelerometer_Graph */,
+				FA7AFBED1E45F9B000A4D6D1 /* Accelerometer_GraphTests */,
 			);
 		};
 /* End PBXProject section */
@@ -461,7 +487,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7AFC0A1E46008000A4D6D1 /* FilteringProtocol.swift in Sources */,
+				FA7AFC011E46007A00A4D6D1 /* SecondViewController.swift in Sources */,
+				FA7AFBFD1E46007A00A4D6D1 /* SavGolTableViewController.swift in Sources */,
+				FA7AFBFB1E46007A00A4D6D1 /* LowPassTableViewController.swift in Sources */,
+				FA7AFC041E46007A00A4D6D1 /* SavedRecordingsTableViewController.swift in Sources */,
+				FA7AFC031E46007A00A4D6D1 /* dataCaptureTableViewController.swift in Sources */,
+				FA7AFC071E46008000A4D6D1 /* recorder.swift in Sources */,
+				FA7AFC091E46008000A4D6D1 /* accelerometerManager.swift in Sources */,
+				FA7AFC101E46008B00A4D6D1 /* AppDelegate.swift in Sources */,
 				FA7AFBF11E45F9B000A4D6D1 /* Accelerometer_GraphTests.swift in Sources */,
+				FA7AFBFF1E46007A00A4D6D1 /* FilterDetailViewController.swift in Sources */,
+				FA7AFBF81E45FB4B00A4D6D1 /* SavitzkyGolay.swift in Sources */,
+				FA7AFC001E46007A00A4D6D1 /* FirstViewController.swift in Sources */,
+				FA7AFC081E46008000A4D6D1 /* dataFormatter.swift in Sources */,
+				FA7AFC051E46007A00A4D6D1 /* graphSettingsTableViewController.swift in Sources */,
+				FA7AFC111E46009000A4D6D1 /* SwiftyJSON.swift in Sources */,
+				FA7AFC0C1E46008000A4D6D1 /* globalConfig.swift in Sources */,
+				FA7AFC021E46007A00A4D6D1 /* FilterTableViewController.swift in Sources */,
+				FA7AFBFA1E46007A00A4D6D1 /* HighPassTableViewController.swift in Sources */,
+				FA7AFBF91E45FB4E00A4D6D1 /* fortranMatrixOps.swift in Sources */,
+				FA7AFC0F1E46008500A4D6D1 /* boundedAverage.swift in Sources */,
+				FA7AFC0B1E46008000A4D6D1 /* accelPoint.swift in Sources */,
+				FA7AFC061E46008000A4D6D1 /* storage.swift in Sources */,
+				FA7AFBFC1E46007A00A4D6D1 /* BoundedAverageTableViewController.swift in Sources */,
+				FA7AFBFE1E46007A00A4D6D1 /* FilterManager.swift in Sources */,
+				FA7AFC0D1E46008500A4D6D1 /* HighPass.swift in Sources */,
+				FA7AFC0E1E46008500A4D6D1 /* advancedLowPass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +564,7 @@
 		};
 		FA7AFBF41E45F9B000A4D6D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer Graph */;
+			target = FAD59C5E1DF880B000A7FD6A /* Accelerometer_Graph */;
 			targetProxy = FA7AFBF31E45F9B000A4D6D1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -548,7 +600,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AlexGubbay.Accelerometer-GraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer Graph.app/Accelerometer Graph";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer_Graph.app/Accelerometer_Graph";
 			};
 			name = Debug;
 		};
@@ -563,7 +615,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "AlexGubbay.Accelerometer-GraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer Graph.app/Accelerometer Graph";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Accelerometer_Graph.app/Accelerometer_Graph";
 			};
 			name = Release;
 		};
@@ -611,6 +663,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_MODULE_NAME = Accelerometer_Graph;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -655,6 +708,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_MODULE_NAME = Accelerometer_Graph;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -693,7 +747,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "Accelerometer GraphTests" */ = {
+		FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "Accelerometer_GraphTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA7AFBF61E45F9B000A4D6D1 /* Debug */,
@@ -701,7 +755,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "AccelerometerGraph" */ = {
+		FAD59C5A1DF880B000A7FD6A /* Build configuration list for PBXProject "Accelerometer_Graph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAD59C871DF880B000A7FD6A /* Debug */,
@@ -710,7 +764,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAD59C891DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer Graph" */ = {
+		FAD59C891DF880B000A7FD6A /* Build configuration list for PBXNativeTarget "Accelerometer_Graph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAD59C8A1DF880B000A7FD6A /* Debug */,
