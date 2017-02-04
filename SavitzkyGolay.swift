@@ -61,7 +61,8 @@ class SavitzkyGolay: FilteringProtocol {
 
         }else */
         
-        if buffer.count < size+1{
+        if buffer.count < size{
+           // print(buffer.count)
             buffer.append(dataPoint)
             notifyObservers(data:[dataPoint])
         }else{
@@ -85,7 +86,11 @@ class SavitzkyGolay: FilteringProtocol {
     
     
     
-    
+    /*
+     Applies the filter to the given point and buffer.
+     
+     
+     */
     func applyFilter(pointToProcess: accelPoint, buffer: [accelPoint]) -> accelPoint{
         
         let nr = Int(params["rightScan"]!)
@@ -101,27 +106,41 @@ class SavitzkyGolay: FilteringProtocol {
         var tempY = 0.0
         var tempZ = 0.0
         
-        for i in 1...nr{
-            let coeff = coeffs[i]
+            print(coeffs)
+        /* for i in 0...nr-1{
 
+            let coeff = coeffs[i]
+             print("apply nl: \(i) * \(coeff) ")
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
         }
         
         let currentMidPointCoeff = coeffs[0]
-        tempX = tempX + (pointToProcess.x * currentMidPointCoeff)
-        tempY = tempY + (pointToProcess.y * currentMidPointCoeff)
-        tempZ = tempZ + (pointToProcess.z * currentMidPointCoeff)
-        
+        tempX = tempX + (buffer[(size-nr)].x * currentMidPointCoeff)
+        tempY = tempY + (buffer[(size-nr)].y * currentMidPointCoeff)
+        tempZ = tempZ + (buffer[(size-nr)].z * currentMidPointCoeff)
+         print("apply mid: \(size-nr) * \(currentMidPointCoeff)")
         for i in nr+1...size-1{
             
              let coeff = coeffs[i]
+             print("apply nr: \(i) * \(coeff) ")
+            tempX = tempX + (buffer[i].x * coeff)
+            tempY = tempY + (buffer[i].y * coeff)
+            tempZ = tempZ + (buffer[i].z * coeff)
+        }
+ 
+       */
+        
+        for i in 0...size-1{
+            let coeff = coeffs[i]
+            print("apply nr: \(i) * \(coeff) ")
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
         }
         
+        print("--------")
         newPoint.x = tempX
         newPoint.y = tempY
         newPoint.z = tempZ
@@ -217,10 +236,15 @@ class SavitzkyGolay: FilteringProtocol {
         c.removeFirst()
         c.removeLast()
         
-        return c
+        return shift(index:nr+1, input: c)
     }
     
-    
+    func shift(index: Int, input: [Double]) -> [Double]{
+       
+        var output = input[index..<input.count]
+        output += input[0..<index]
+        return Array(output)
+    }
     
     
 }
