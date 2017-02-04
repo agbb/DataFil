@@ -95,6 +95,7 @@ class SavitzkyGolay: FilteringProtocol {
         let newPoint = accelPoint()
         newPoint.count = pointToProcess.count+nr
      
+        print(coeffs)
         
         let size = nl + nr + 1
 
@@ -102,21 +103,20 @@ class SavitzkyGolay: FilteringProtocol {
         var tempY = 0.0
         var tempZ = 0.0
         
-        for i in nr+1...size{
+        for i in 1...nr{
             let coeff = coeffs[i]
-            print("COEFF: \(coeff)")
+
             tempX = tempX + (buffer[i].x * coeff)
             tempY = tempY + (buffer[i].y * coeff)
             tempZ = tempZ + (buffer[i].z * coeff)
         }
         
-        let currentMidPointCoeff = coeffs[1]
-         print("COEFF: \(currentMidPointCoeff)")
+        let currentMidPointCoeff = coeffs[0]
         tempX = tempX + (pointToProcess.x * currentMidPointCoeff)
         tempY = tempY + (pointToProcess.y * currentMidPointCoeff)
         tempZ = tempZ + (pointToProcess.z * currentMidPointCoeff)
         
-        for i in 2...nr{
+        for i in nr+1...size-1{
             
              let coeff = coeffs[i]
              print("COEFF: \(coeff)")
@@ -218,9 +218,13 @@ class SavitzkyGolay: FilteringProtocol {
             c[kk] = sum
         }
         
-        
+        c.removeFirst()
+        c.removeLast()
         
         return c
     }
+    
+    
+    
     
 }
