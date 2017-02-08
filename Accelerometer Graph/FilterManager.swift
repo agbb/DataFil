@@ -82,6 +82,16 @@ class FilterManager{
             }
             savgolay.addObserver(update: update)
             activeFilters.append(savgolay)
+            break
+        case "TVDenoising":
+           let tvd = TVDenoising()
+           let update = {(data: [accelPoint])->Void in
+            
+            self.receiveData(data: data, id: tvd.id)
+           }
+           tvd.addObserver(update: update)
+           activeFilters.append(tvd)
+            break
         default:
             print("No match in FilterManager")
         }

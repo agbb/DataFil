@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         acm.initaliseAccelerometer()
        
         //TODO fix this.
-        _ = FilterManager.sharedInstance
+        let fm = FilterManager.sharedInstance
         _ = utilities.init()
-        
+        fm.addNewFilter(filterName: "TVDenoising")
         
 
         return true
