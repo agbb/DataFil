@@ -15,8 +15,30 @@ class LowPassTableViewController: UITableViewController {
     
     @IBOutlet weak var pLabel: UILabel!
     @IBOutlet weak var gLabel: UILabel!
+    @IBOutlet weak var pStepper: UIStepper!
+    @IBOutlet weak var gStepper: UIStepper!
+    @IBOutlet weak var passesSegment: UISegmentedControl!
     
     @IBOutlet weak var lowPassSwitch: UISwitch!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        for filter in fm.activeFilters{
+            
+            if filter.filterName == "Low Pass" {
+                lowPassSwitch.isOn = true
+                pLabel.text = "P: \(Double(filter.params["p"]!).roundTo(places: 2))"
+                gLabel.text = "G: \(Double(filter.params["g"]!).roundTo(places: 2))"
+                passesSegment.selectedSegmentIndex = (Int(filter.params["n"]!)-1)
+               
+            }
+        }
+        
+    }
+    
+    
+    
     
     @IBAction func pValueChanged(_ sender: UIStepper) {
         pLabel.text = "P: \(sender.value)"
@@ -41,15 +63,7 @@ class LowPassTableViewController: UITableViewController {
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

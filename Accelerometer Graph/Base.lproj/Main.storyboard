@@ -869,8 +869,11 @@
                     </tableView>
                     <connections>
                         <outlet property="gLabel" destination="FOu-vd-lMQ" id="c3k-a4-mT5"/>
+                        <outlet property="gStepper" destination="ZWY-Io-RHs" id="iiM-Ur-KG2"/>
                         <outlet property="lowPassSwitch" destination="CkF-ay-3Vw" id="xaz-SI-Nw0"/>
                         <outlet property="pLabel" destination="Y19-D7-o9d" id="Hwk-jP-smt"/>
+                        <outlet property="pStepper" destination="8Xi-LA-Xja" id="Rnv-HL-NBR"/>
+                        <outlet property="passesSegment" destination="AaC-ea-rU5" id="TgK-2y-unH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbA-06-glv" userLabel="First Responder" sceneMemberID="firstResponder"/>
