@@ -13,6 +13,7 @@ class HighPassTableViewController: UITableViewController {
     private let fm = FilterManager.sharedInstance
     @IBOutlet weak var highPassSwitch: UISwitch!
     @IBOutlet weak var currentAlphaLabel: UILabel!
+    @IBOutlet weak var currentAlphaSlider: UISlider!
 
     
    
@@ -21,6 +22,15 @@ class HighPassTableViewController: UITableViewController {
         
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
+        
+        for filter in fm.activeFilters{
+            
+            if filter.filterName == "High Pass" {
+                highPassSwitch.isOn = true
+                currentAlphaLabel.text = "\(Double(filter.params["alpha"]!).roundTo(places: 2))"
+                currentAlphaSlider.value = Float(filter.params["alpha"]!)
+            }
+        }
 
     }
 

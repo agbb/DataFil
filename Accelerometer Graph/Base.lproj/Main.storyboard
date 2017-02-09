@@ -702,6 +702,7 @@
                     </tableView>
                     <connections>
                         <outlet property="currentAlphaLabel" destination="Db3-Dg-ssi" id="U6O-jw-9az"/>
+                        <outlet property="currentAlphaSlider" destination="J9G-xn-oCT" id="goE-h4-8Mi"/>
                         <outlet property="highPassSwitch" destination="gFO-N4-QsK" id="BGi-XV-eJ6"/>
                     </connections>
                 </tableViewController>
@@ -1293,7 +1294,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WU-Me-Xdh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4937" y="-1191"/>
+            <point key="canvasLocation" x="7146" y="-522"/>
         </scene>
     </scenes>
     <resources>

@@ -209,6 +209,39 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		FA38AF3D1E4CE3B500199FB0 /* mainInterfaceControl */ = {
+			isa = PBXGroup;
+			children = (
+				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
+				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
+				FAD59C641DF880B000A7FD6A /* FirstViewController.swift */,
+				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
+				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
+				FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */,
+				FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */,
+			);
+			name = mainInterfaceControl;
+			sourceTree = "<group>";
+		};
+		FA38AF3E1E4CE42D00199FB0 /* dataControl */ = {
+			isa = PBXGroup;
+			children = (
+				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
+				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
+			);
+			name = dataControl;
+			sourceTree = "<group>";
+		};
+		FA38AF3F1E4CE44000199FB0 /* globalModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
+				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
+				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
+			);
+			name = globalModel;
+			sourceTree = "<group>";
+		};
 		FA76DD391E42107100189217 /* Savitzky-Golay */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +274,7 @@
 			path = FontAwesome;
 			sourceTree = "<group>";
 		};
-		FAA52D021E38B102006262A5 /* filterViewControllers */ = {
+		FAA52D021E38B102006262A5 /* filterControl */ = {
 			isa = PBXGroup;
 			children = (
 				FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */,
@@ -250,7 +283,7 @@
 				FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */,
 				FA38AF391E4CD92800199FB0 /* tvdTableViewController.swift */,
 			);
-			name = filterViewControllers;
+			name = filterControl;
 			sourceTree = "<group>";
 		};
 		FAA52D071E38C6EC006262A5 /* dataCapture */ = {
@@ -328,11 +361,8 @@
 		FAEE087F1E30D88B00AEEDE0 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				FA38AF3F1E4CE44000199FB0 /* globalModel */,
 				FAA52D071E38C6EC006262A5 /* dataCapture */,
-				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
-				FAE34B421DFB526100962F61 /* FilteringProtocol.swift */,
-				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
-				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
 				FA186CC41DF9BC7200835B7C /* Filters */,
 			);
 			name = model;
@@ -341,15 +371,9 @@
 		FAEE08801E30D8A400AEEDE0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				FAA52D021E38B102006262A5 /* filterViewControllers */,
-				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
-				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
-				FAD59C641DF880B000A7FD6A /* FirstViewController.swift */,
-				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
-				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
-				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
-				FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */,
-				FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */,
+				FA38AF3E1E4CE42D00199FB0 /* dataControl */,
+				FA38AF3D1E4CE3B500199FB0 /* mainInterfaceControl */,
+				FAA52D021E38B102006262A5 /* filterControl */,
 			);
 			name = controller;
 			sourceTree = "<group>";
