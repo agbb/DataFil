@@ -21,10 +21,10 @@ class TVDenoising: FilteringProtocol{
     var vMax = 0.0
     var uMin = 0.0
     var uMax = 0.0
-    var lambda = 0.8
+    var lambda = 0.5
     var id = 0
     var params = [String:Double]()
-    var filterName = "TVDenoising"
+    var filterName = "Total Variation Denoising"
     var observers: [([accelPoint]) -> Void]
     
     var update: (([accelPoint])->Void)?
@@ -44,6 +44,8 @@ class TVDenoising: FilteringProtocol{
     
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
+        lambda = params["lambda"]!
+        print(params["lambda"]!)
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {

@@ -83,7 +83,7 @@ class FilterManager{
             savgolay.addObserver(update: update)
             activeFilters.append(savgolay)
             break
-        case "TVDenoising":
+        case "Total Variation Denoising":
            let tvd = TVDenoising()
            let update = {(data: [accelPoint])->Void in
             

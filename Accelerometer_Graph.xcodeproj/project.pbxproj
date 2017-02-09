@@ -11,6 +11,7 @@
 		FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
 		FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
 		FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
+		FA38AF3A1E4CD92800199FB0 /* tvdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38AF391E4CD92800199FB0 /* tvdTableViewController.swift */; };
 		FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* recorder.swift */; };
 		FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */; };
 		FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
@@ -133,6 +134,7 @@
 		FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelerometerManager.swift; sourceTree = "<group>"; };
 		FA186CC21DF98C7300835B7C /* accelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelPoint.swift; sourceTree = "<group>"; };
 		FA186CC51DF9BC8000835B7C /* HighPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPass.swift; sourceTree = "<group>"; };
+		FA38AF391E4CD92800199FB0 /* tvdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvdTableViewController.swift; sourceTree = "<group>"; };
 		FA51377A1E2FCB9000C1D7B5 /* recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recorder.swift; sourceTree = "<group>"; };
 		FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graphSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavitzkyGolay.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */,
 				FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */,
 				FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */,
+				FA38AF391E4CD92800199FB0 /* tvdTableViewController.swift */,
 			);
 			name = filterViewControllers;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
 				FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */,
 				FAE34B431DFB526100962F61 /* FilteringProtocol.swift in Sources */,
+				FA38AF3A1E4CD92800199FB0 /* tvdTableViewController.swift in Sources */,
 				FAA52D041E38B122006262A5 /* BoundedAverageTableViewController.swift in Sources */,
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
 				FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */,
