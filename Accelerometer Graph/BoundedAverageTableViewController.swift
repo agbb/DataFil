@@ -13,6 +13,7 @@ class BoundedAverageTableViewController: UITableViewController {
     
     private let fm = FilterManager.sharedInstance
     
+    @IBOutlet weak var currentBandSlider: UISlider!
     @IBOutlet var boundedAverageSwitch: UISwitch!
     @IBOutlet var currentBandSizeLabel: UILabel!
     
@@ -20,11 +21,14 @@ class BoundedAverageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        for filter in fm.activeFilters{
+            
+            if filter.filterName == "Bounded Average" {
+                boundedAverageSwitch.isOn = true
+                currentBandSizeLabel.text = "\(Double(filter.params["upperBound"]!).roundTo(places: 2))"
+                currentBandSlider.value = Float(filter.params["upperBound"]!)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

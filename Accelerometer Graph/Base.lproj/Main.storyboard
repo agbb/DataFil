@@ -681,7 +681,7 @@
                                                         <action selector="highPassSliderAdjusted:" destination="6Gl-ky-23d" eventType="valueChanged" id="gcz-le-CV4"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Db3-Dg-ssi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Db3-Dg-ssi">
                                                     <rect key="frame" x="331" y="0.0" width="44" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -968,7 +968,7 @@
                                                         <action selector="bandsizeSliderAdjusted:" destination="25r-7L-FL6" eventType="valueChanged" id="UE9-I5-5nv"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-yV-i19">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrM-yV-i19">
                                                     <rect key="frame" x="331" y="0.0" width="44" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -990,6 +990,7 @@
                     <connections>
                         <outlet property="boundedAverageSwitch" destination="0Qc-J3-uPN" id="wbK-dF-a0j"/>
                         <outlet property="currentBandSizeLabel" destination="zrM-yV-i19" id="acU-Wl-4vY"/>
+                        <outlet property="currentBandSlider" destination="KXW-gv-QOa" id="Mgt-PF-OKJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9en-bn-4Ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
