@@ -21,14 +21,15 @@ class TVDenoising: FilteringProtocol{
     var vMax = 0.0
     var uMin = 0.0
     var uMax = 0.0
-    var lambda = 0.0
+    var lambda = 0.8
     var id = 0
     var params = [String:Double]()
-    var filterName = "High Pass"
+    var filterName = "TVDenoising"
     var observers: [([accelPoint]) -> Void]
     
     var update: (([accelPoint])->Void)?
     var input = [accelPoint]()
+    var buffer = [accelPoint]()
     var output = [accelPoint]()
     let backgroundQueue = DispatchQueue(label: "com.app.queue",
                                         qos: .background,
@@ -46,10 +47,15 @@ class TVDenoising: FilteringProtocol{
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
-        if input.count == 0{
-            denoise(inputData: [dataPoint])
+        if buffer.count < Int(params["bufferSize"]!){
+            buffer.append(dataPoint)
         }else{
-        addDataPointsGroup(points: [dataPoint])
+            if input.count == 0{
+                denoise(inputData: buffer)
+            }else{
+                addDataPoint(point: buffer)
+            }
+            buffer.removeAll()
         }
     }
     
@@ -58,62 +64,54 @@ class TVDenoising: FilteringProtocol{
     }
     func notifyObservers(data: [accelPoint]) {
         
-        for i in observers {
-            i(data)
+        DispatchQueue.main.async {
+            
+            for i in self.observers {
+                i(data)
+            }
         }
+        
     }
 
     init(){
+        
         observers = []
         params["lambda"] = 0.5
+        params["bufferSize"] = 100
 
-        
     }
     
-    func addDataPointsGroup(points: [accelPoint]){
-
+    func addDataPoint(point: [accelPoint]){
+        
         currentPoint = output.count
-        
-        
-        for point in points{
-            let point1 = accelPoint(dataX: point.x, dataY: point.y, dataZ: point.z, count: point.count)
-            output.append(point1)
-            let point2 = accelPoint(dataX: point.x, dataY: point.y, dataZ: point.z, count: point.count)
-            input.append(point2)
-        }
-        
+        input.append(contentsOf: point)
+        output.append(contentsOf: point)
         semaphore.signal()
         
     }
     
     func setOuputPoint(position: Int, data: Double){
         
-        
         if(position > proceccedPoint){
             proceccedPoint = position
         }
-         output[position].x = data
-     
-    }
-    
-    func outputData(data: [accelPoint]){
         
-        for d in data{
-           // print(d.x)
-        }
+        output[position].x = data
     }
 
-    
     func denoise(inputData: [accelPoint]){
+        
         self.input = inputData
         self.output = inputData
         
-        vMin = abs(input[0].x) - lambda
-        vMax = abs(input[0].x) + lambda
+        vMin = input[0].getAbs() - lambda
+        vMax = input[0].getAbs() + lambda
         uMin = lambda
         uMax = -lambda
         
         backgroundQueue.async {
+            
+            
             
             outerLoop: while true {
                 
@@ -147,7 +145,7 @@ class TVDenoising: FilteringProtocol{
                             
                             //LINE 3
                             
-                            if(abs(self.input[self.k+1].x) + self.uMin < self.vMin - self.lambda){
+                            if(self.input[self.k+1].getAbs() + self.uMin < self.vMin - self.lambda){
                                 
                                 for i in self.kZero ... self.kMinus{
                                     //output[i].setProcessed(data: vMin)
@@ -159,15 +157,15 @@ class TVDenoising: FilteringProtocol{
                                 self.kMinus = self.kMinus + 1
                                 self.kPlus = self.kMinus + 1
                                 
-                                self.vMin = abs(self.input[self.k].x)
-                                self.vMax = abs(self.input[self.k].x) + 2 * self.lambda
+                                self.vMin = self.input[self.k].getAbs()
+                                self.vMax = self.input[self.k].getAbs() + 2 * self.lambda
                                 
                                 self.uMin = self.lambda
                                 self.uMax = -self.lambda
                                 
                                 //LINE 4
                                 
-                            }else if abs(self.input[self.k+1].x) + self.uMax > self.vMax + self.lambda {
+                            }else if self.input[self.k+1].getAbs() + self.uMax > self.vMax + self.lambda {
                                 
                                 for i in self.kZero ... self.kPlus{
                                     //output[i].setProcessed(data: vMax)
@@ -179,8 +177,8 @@ class TVDenoising: FilteringProtocol{
                                 self.kMinus = self.kPlus + 1
                                 self.kPlus = self.kPlus + 1
                                 
-                                self.vMin = abs(self.input[self.k].x) - 2 * self.lambda
-                                self.vMax = abs(self.input[self.k].x)
+                                self.vMin = self.input[self.k].getAbs() - 2 * self.lambda
+                                self.vMax = self.input[self.k].getAbs()
                                 self.uMin = self.lambda
                                 self.uMax = -self.lambda
                                 
@@ -189,8 +187,8 @@ class TVDenoising: FilteringProtocol{
                             }else{
                                 
                                 self.k = self.k + 1
-                                self.uMin = self.uMin + abs(self.input[self.k].x) - self.vMin
-                                self.uMax = self.uMax + abs(self.input[self.k].x) - self.vMax
+                                self.uMin = self.uMin + self.input[self.k].getAbs() - self.vMin
+                                self.uMax = self.uMax + self.input[self.k].getAbs() - self.vMax
                                 
                                 //LINE 6 PART ONE & PART 2
                                 
@@ -225,9 +223,9 @@ class TVDenoising: FilteringProtocol{
                             self.kZero = self.kMinus + 1
                             self.kMinus = self.kMinus + 1
                             
-                            self.vMin = abs(self.input[self.k].x)
+                            self.vMin = self.input[self.k].getAbs()
                             self.uMin = self.lambda
-                            self.uMax = abs(self.input[self.k].x) + self.lambda - self.vMax
+                            self.uMax = self.input[self.k].getAbs() + self.lambda - self.vMax
                             
                             //break
                             
@@ -246,9 +244,9 @@ class TVDenoising: FilteringProtocol{
                             self.kZero = self.kPlus + 1
                             self.kPlus = self.kPlus + 1
                             
-                            self.vMax = abs(self.input[self.k].x)
+                            self.vMax = self.input[self.k].getAbs()
                             self.uMax = -self.lambda
-                            self.uMin = abs(self.input[self.k].x) - self.lambda - self.vMin
+                            self.uMin = self.input[self.k].getAbs() - self.lambda - self.vMin
                             
                             //break
                             
@@ -265,11 +263,12 @@ class TVDenoising: FilteringProtocol{
                         self.setOuputPoint(position: i, data: data)
                         
                     }
-                    self.notifyObservers(data:Array(self.output.suffix(from: self.currentPoint)))
+                    self.notifyObservers(data: Array(self.output.suffix(from: self.currentPoint)))
                     self.semaphore.signal()
                     //return output
                 }
             }
         }
     }
+    
 }
