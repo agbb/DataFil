@@ -14,14 +14,22 @@ class HighPass: FilteringProtocol{
     var filterName = "High Pass"
     var observers: [([accelPoint]) -> Void]
     var previousValue: accelPoint
-    
+    var previousRaw: accelPoint
+    var sampleGap = 0.0
+    var cutoff = 0.0
+    var filterVal = 0.0
     var id = 0
     
     init(){
 
-        params["alpha"] = 0.5
-        
+        params["cutPoint"] = 5.0
+        params["freq"] = 10.0
+        sampleGap = 1.0/(params["freq"]!)
+        cutoff = 1.0/(params["cutPoint"]!)
+        filterVal = cutoff / (sampleGap+cutoff)
+            
         self.previousValue = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
+        self.previousRaw = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
         observers = []
     }
     
@@ -48,11 +56,13 @@ class HighPass: FilteringProtocol{
     
     func highPass(currentRaw: accelPoint){
         let newPoint = accelPoint()
-        newPoint.x = (params["alpha"]! * currentRaw.x) + (previousValue.x * (1.0 - params["alpha"]!))
-        newPoint.y = params["alpha"]! * currentRaw.y + previousValue.y * (1.0 - params["alpha"]!)
-        newPoint.z = params["alpha"]! * currentRaw.z + previousValue.z * (1.0 - params["alpha"]!)
+        newPoint.x = filterVal * (previousValue.x + currentRaw.x -  previousRaw.x)
+        newPoint.y = filterVal * (previousValue.y + currentRaw.y -  previousRaw.y)
+        newPoint.z = filterVal * (previousValue.z + currentRaw.z -  previousRaw.z)
+        
         newPoint.count = currentRaw.count
         previousValue = newPoint
+        previousRaw = currentRaw
         notifyObservers(data: [newPoint])
     }
 }

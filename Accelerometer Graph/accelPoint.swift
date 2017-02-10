@@ -14,16 +14,13 @@ class accelPoint {
     var x = 0.0
     var y = 0.0
     var z = 0.0
-    var processed = 0.0
     var count = 0
-    var negative = false
     init(dataX: Double, dataY: Double, dataZ: Double, count: Int) {
         
-        
+
         self.x = dataX
         self.y = dataY
         self.z = dataZ
-        self.negative = dataX < 0
         self.count = count
         
     }
@@ -33,7 +30,6 @@ class accelPoint {
         self.x = 0
         self.y = 0
         self.z = 0
-        self.processed = 0
         self.count = 0
         
     }

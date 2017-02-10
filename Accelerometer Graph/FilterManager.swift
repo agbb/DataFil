@@ -14,7 +14,6 @@ class FilterManager{
     
     static let sharedInstance = FilterManager()
     var activeFilters = [FilteringProtocol]()
-    var filteringAxis = "x"
     
     init(){
 
