@@ -8,7 +8,7 @@
 
 import XCTest
 
-class Accelerometer_GraphTests: XCTestCase {
+class savGolTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -37,23 +37,23 @@ class Accelerometer_GraphTests: XCTestCase {
     }
     
     func testCoeffs552(){
-      let expectedCoeffs552 = [-0.083916083916083933, 0.020979020979020963, 0.10256410256410256, 0.16083916083916083, 0.19580419580419581, 0.20745920745920746, 0.19580419580419581, 0.16083916083916083, 0.10256410256410256, 0.020979020979020963, -0.083916083916083933]
-    let savgol = SavitzkyGolay()
-    let coeffs = savgol.calculateCoeffs(nl: 5, nr: 5, m: 2)
-    
-    var sum = 0.0
+        let expectedCoeffs552 = [-0.083916083916083933, 0.020979020979020963, 0.10256410256410256, 0.16083916083916083, 0.19580419580419581, 0.20745920745920746, 0.19580419580419581, 0.16083916083916083, 0.10256410256410256, 0.020979020979020963, -0.083916083916083933]
+        let savgol = SavitzkyGolay()
+        let coeffs = savgol.calculateCoeffs(nl: 5, nr: 5, m: 2)
+        
+        var sum = 0.0
         for element in coeffs{
             sum += element
         }
-    XCTAssertEqualWithAccuracy(sum, 1.0, accuracy: 0.000001) // correctly calculated coeffs should add up to 1, with precisison error.
-    XCTAssertEqual(coeffs.count, 11)
-    XCTAssertEqual(expectedCoeffs552, coeffs)
+        XCTAssertEqualWithAccuracy(sum, 1.0, accuracy: 0.000001) // correctly calculated coeffs should add up to 1, with precisison error.
+        XCTAssertEqual(coeffs.count, 11)
+        XCTAssertEqual(expectedCoeffs552, coeffs)
     }
     
     func testCoeffApplicationBaseCase(){
         let savgol = SavitzkyGolay()//implictly sets up with nl=nr=2, m=2
         var buffer = [accelPoint]()
-
+        
         for i in 0...5{
             buffer.append(accelPoint(dataX: 1.0, dataY: 1.0, dataZ: 1.0, count: i))
         }
@@ -95,7 +95,7 @@ class Accelerometer_GraphTests: XCTestCase {
         
         let savgol = SavitzkyGolay() //implictly sets up with nl=nr=2, m=2
         var buffer = [accelPoint]()
-    
+        
         for i in 0...5{
             buffer.append(accelPoint(dataX: Double(i % 2), dataY: Double(i % 2), dataZ: Double(i % 2), count: i))
         }
@@ -105,8 +105,12 @@ class Accelerometer_GraphTests: XCTestCase {
         XCTAssertEqualWithAccuracy(output2.x, 0.685, accuracy: 0.001)//confirm manual calulation for output.
         XCTAssertEqualWithAccuracy(output2.y, 0.685, accuracy: 0.001)
         XCTAssertEqualWithAccuracy(output2.z, 0.685, accuracy: 0.001)//check for all axes
-
+        
     }
-
+    
+    func testNameCorrect(){
+        
+        XCTAssertEqual(SavitzkyGolay().getFilterName(), "Savitzky Golay")
+    }
     
 }

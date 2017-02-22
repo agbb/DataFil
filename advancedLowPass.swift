@@ -41,23 +41,34 @@ class advancedLowPass: FilteringProtocol {
     
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
+        c = 0.0
+        fStar = 0.0
+        w0 = 0.0
+        k1 = 0.0
+        k2 = 0.0
+        a0 = 0.0
+        a1 = 0.0
+        a2 = 0.0
+        b1 = 0.0
+        b2 = 0.0
         calculateCoeffcients()
     }
     
-    private func calculateCoeffcients(){
+    func calculateCoeffcients(){
         
         let n = params["n"]!
         let p = params["p"]!
         let g = params["g"]!
-        
-        c = (2.0^^(1/n)-1.0)^^(-0.25)
+
+        //c = (2.0^^(1/n)-1.0)^^(-0.25)
+        c  = 1/sqrt((2.0*g - p*p + sqrt((2.0*g-p*p)^^2.0 - 4.0*g*g*(1.0 - 2.0^^(1.0/1.0))))/2.0)
         fStar = c * params["f0"]! / params["fs"]!
         
         if(fStar < 0 || fStar > 0.125 ){
             print("WARNING: Invalid value for fStar coefficient")
         }
         
-        w0 = tan(Double.pi*c*params["f0"]!)
+        w0 = tan(Double.pi*fStar)
         k1 = p * w0
         k2 = g * w0^^2.0
         a0 = k2/(1.0 + k1 + k2)
@@ -66,9 +77,8 @@ class advancedLowPass: FilteringProtocol {
         b1 = 2.0 * a0 * (1.0 / k2 - 1.0)
         b2 = 1.0 - (a0 + a1 + a2 + b1)
 
-
-        
     }
+
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
 

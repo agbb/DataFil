@@ -18,7 +18,6 @@
 		FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
 		FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
 		FA7AFBD71E450B7100A4D6D1 /* SavGolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */; };
-		FA7AFBF11E45F9B000A4D6D1 /* savGolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7AFBF01E45F9B000A4D6D1 /* savGolTests.swift */; };
 		FA7AFBF81E45FB4B00A4D6D1 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
 		FA7AFBF91E45FB4E00A4D6D1 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
 		FA7AFBFA1E46007A00A4D6D1 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
@@ -57,6 +56,9 @@
 		FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* dataFormatter.swift */; };
 		FAAA73CB1E5DA30500E6BD00 /* savGolPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA73CA1E5DA30500E6BD00 /* savGolPerformance.swift */; };
 		FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
+		FAB451081E5E102900A0205A /* advancedLowPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB451071E5E102900A0205A /* advancedLowPassTests.swift */; };
+		FABCDE5D1E5DBFA500F8B5CA /* boundedAverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */; };
+		FABCDE611E5DE41B00F8B5CA /* savGolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */; };
 		FAD062D91E4B526600877100 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD062D41E4B522000877100 /* Charts.framework */; };
 		FAD062DA1E4B526600877100 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD062D41E4B522000877100 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAD062DF1E4B9D0700877100 /* TVDenoising.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD062DD1E4B953F00877100 /* TVDenoising.swift */; };
@@ -144,7 +146,6 @@
 		FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fortranMatrixOps.swift; sourceTree = "<group>"; };
 		FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavGolTableViewController.swift; sourceTree = "<group>"; };
 		FA7AFBEE1E45F9B000A4D6D1 /* Accelerometer_GraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Accelerometer_GraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA7AFBF01E45F9B000A4D6D1 /* savGolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savGolTests.swift; sourceTree = "<group>"; };
 		FA7AFBF21E45F9B000A4D6D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA9B3AFD1E006D7E00873309 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		FA9B3AFE1E006D7E00873309 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesome.h; sourceTree = "<group>"; };
@@ -159,6 +160,9 @@
 		FAA52D051E38C633006262A5 /* dataFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataFormatter.swift; sourceTree = "<group>"; };
 		FAAA73CA1E5DA30500E6BD00 /* savGolPerformance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savGolPerformance.swift; sourceTree = "<group>"; };
 		FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataCaptureTableViewController.swift; sourceTree = "<group>"; };
+		FAB451071E5E102900A0205A /* advancedLowPassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPassTests.swift; sourceTree = "<group>"; };
+		FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverageTests.swift; sourceTree = "<group>"; };
+		FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savGolTests.swift; sourceTree = "<group>"; };
 		FAD062CD1E4B522000877100 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		FAD062DD1E4B953F00877100 /* TVDenoising.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVDenoising.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* Accelerometer_Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accelerometer_Graph.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,10 +262,12 @@
 		FA7AFBEF1E45F9B000A4D6D1 /* Accelerometer GraphTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA7AFBF01E45F9B000A4D6D1 /* savGolTests.swift */,
 				FAAA73CA1E5DA30500E6BD00 /* savGolPerformance.swift */,
 				FA7AFBF21E45F9B000A4D6D1 /* Info.plist */,
 				FA4586421E5C9F0100EF50AA /* highPassTests.swift */,
+				FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */,
+				FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */,
+				FAB451071E5E102900A0205A /* advancedLowPassTests.swift */,
 			);
 			path = "Accelerometer GraphTests";
 			sourceTree = "<group>";
@@ -530,10 +536,12 @@
 				FA7AFBFB1E46007A00A4D6D1 /* LowPassTableViewController.swift in Sources */,
 				FA7AFC041E46007A00A4D6D1 /* SavedRecordingsTableViewController.swift in Sources */,
 				FA7AFC031E46007A00A4D6D1 /* dataCaptureTableViewController.swift in Sources */,
+				FABCDE611E5DE41B00F8B5CA /* savGolTests.swift in Sources */,
+				FAB451081E5E102900A0205A /* advancedLowPassTests.swift in Sources */,
 				FA7AFC071E46008000A4D6D1 /* recorder.swift in Sources */,
 				FA7AFC091E46008000A4D6D1 /* accelerometerManager.swift in Sources */,
+				FABCDE5D1E5DBFA500F8B5CA /* boundedAverageTests.swift in Sources */,
 				FA7AFC101E46008B00A4D6D1 /* AppDelegate.swift in Sources */,
-				FA7AFBF11E45F9B000A4D6D1 /* savGolTests.swift in Sources */,
 				FA7AFBFF1E46007A00A4D6D1 /* FilterDetailViewController.swift in Sources */,
 				FA7AFBF81E45FB4B00A4D6D1 /* SavitzkyGolay.swift in Sources */,
 				FA4586431E5C9F0100EF50AA /* highPassTests.swift in Sources */,

@@ -135,8 +135,6 @@ class fortranMatrixOps {
         if wA[n][n] == 0{
             wA[n][n] = tiny
         }
-        
-         //shift(shiftIndex: 1, input: wIndex) as! [Int]
 
         return (wIndex,wA)
     }

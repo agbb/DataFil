@@ -84,13 +84,9 @@ class highPassTests: XCTestCase {
         let highPss = HighPass()
         highPss.setParameter(parameterName: "cutoffFrequency", parameterValue: 0.5) // cut off set to level below that of signal
         var outputData = [accelPoint]()
-        
-        let output = {(data: [accelPoint])->Void in
-            
+        highPss.addObserver(update: {(data: [accelPoint])->Void in
             outputData.append(contentsOf: data)
-        }
-        
-        highPss.addObserver(update: output)
+        })
         
         for i in 0...1000{
             
@@ -113,32 +109,20 @@ class highPassTests: XCTestCase {
             if i % 10 == 0{
                 
                 raw = 1.0
-                
                 var min = current.x
                 var max = current.x
                 for j in -2...2{
-                    
                     if outputData[i+j].x < min {
                         min = outputData[i+j].x
                     }
                     if outputData[i+j].x > max {
                         max = outputData[i+j].x
                     }
-                    
                 }
-                print("max: \(max), min\(min)")
                 let amplitude = abs(max)+abs(min);
                 XCTAssertEqualWithAccuracy(amplitude, 1.0, accuracy: 0.001) //Due to precisison in variables, small amount of amplitude may be lost.
             }
-            
-            
-           print("\(current.x),\(raw)")
-            
-        
-        
         }
-        
-        
     }
     
     // For regression testing purposes.

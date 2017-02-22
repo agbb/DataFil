@@ -9,7 +9,7 @@
 import Foundation
 
 class boundedAverage: FilteringProtocol {
-
+    
     
     var params = [String:Double]()
     var filterName = "Bounded Average"
@@ -19,12 +19,12 @@ class boundedAverage: FilteringProtocol {
     var currentCenterY = 0.0
     var currentCenterZ = 0.0
     var inital = true
+    
     init(){
-        
         params["upperBound"] = 0.1
         params["lowerBound"] = 0.1
-        
         observers = []
+        
     }
     
     func getFilterName() -> String{
@@ -42,6 +42,7 @@ class boundedAverage: FilteringProtocol {
     func addObserver(update: @escaping ([accelPoint]) -> Void) {
         observers.append(update)
     }
+    
     func notifyObservers(data: [accelPoint]) {
         for i in observers {
             i(data)
@@ -49,51 +50,35 @@ class boundedAverage: FilteringProtocol {
     }
     
     func boundedAverage(currentRaw: accelPoint){
-        
-         let newPoint = accelPoint()
+        let newPoint = accelPoint()
         newPoint.count = currentRaw.count
-        
         if currentRaw.x > (currentCenterX + params["upperBound"]!){
-            
             currentCenterX = currentRaw.x
             newPoint.x = currentCenterX
-            
-        }else if currentRaw.x < (currentCenterX - params["upperBound"]!){
-            
+        }else if currentRaw.x < (currentCenterX - params["lowerBound"]!){
             currentCenterX = currentRaw.x
             newPoint.x = currentCenterX
-            
         }else{
             newPoint.x = currentCenterX
         }
- 
-        
         if currentRaw.y > (currentCenterY + params["upperBound"]!){
-            
             currentCenterY = currentRaw.y
             newPoint.y = currentCenterY
-            
-        }else if currentRaw.y < (currentCenterY - params["upperBound"]!){
-            
+        }else if currentRaw.y < (currentCenterY - params["lowerBound"]!){
             currentCenterY = currentRaw.y
             newPoint.y = currentCenterY
-            
         }else{
             newPoint.y = currentCenterY
         }
-        
-        
         if currentRaw.z > (currentCenterZ + params["upperBound"]!){
             currentCenterZ = currentRaw.z
             newPoint.z = currentCenterZ
-        }else if currentRaw.z < (currentCenterZ - params["upperBound"]!){
+        }else if currentRaw.z < (currentCenterZ - params["lowerBound"]!){
             currentCenterZ = currentRaw.z
             newPoint.z = currentCenterZ
         }else{
             newPoint.z = currentCenterZ
         }
-        
         notifyObservers(data: [newPoint])
     }
-    
 }
