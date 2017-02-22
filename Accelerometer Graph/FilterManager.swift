@@ -122,7 +122,7 @@ class FilterManager{
     func receiveData(data: [accelPoint], id:Int){
 
         
-        if(id == activeFilters.count-1){
+        if(id >= activeFilters.count-1){ //Possible for data from dedacitvated filters to arrive asynchronusly
 
             NotificationCenter.default.post(name: Notification.Name("newProcessedData"), object: nil, userInfo:["data":data])
         }else{

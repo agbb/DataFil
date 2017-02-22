@@ -27,8 +27,8 @@ class HighPassTableViewController: UITableViewController {
             
             if filter.filterName == "High Pass" {
                 highPassSwitch.isOn = true
-                currentAlphaLabel.text = "\(Double(filter.params["alpha"]!).roundTo(places: 2))"
-                currentAlphaSlider.value = Float(filter.params["alpha"]!)
+                currentAlphaLabel.text = "\(Double(filter.params["cutPoint"]!).roundTo(places: 2))"
+                currentAlphaSlider.value = Float(filter.params["cutPoint"]!)
             }
         }
 
@@ -48,7 +48,7 @@ class HighPassTableViewController: UITableViewController {
     @IBAction func highPassSliderAdjusted(_ sender: UISlider) {
         
         if highPassSwitch.isOn {
-            fm.setFilterParameter(filterName: "High Pass", parameterName: "alpha", parameterValue: Double(sender.value))
+            fm.setFilterParameter(filterName: "High Pass", parameterName: "cutPoint", parameterValue: Double(sender.value))
             currentAlphaLabel.text = String(Double(sender.value).roundTo(places: 2))
         }
     }

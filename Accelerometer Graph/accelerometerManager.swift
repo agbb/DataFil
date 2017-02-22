@@ -16,13 +16,14 @@ class accelerometerManager{
     lazy var manager = CMMotionManager()
     lazy var queue = OperationQueue()
     var count = 0
+    var updateRate = 60.0
     func initaliseAccelerometer(){
         
         if manager.isAccelerometerAvailable{
             
             if manager.isAccelerometerActive == false{
                 
-                manager.accelerometerUpdateInterval = 1.0/10.0
+                manager.accelerometerUpdateInterval = 1.0/updateRate
                 
             }else{
                 print("accelerometer busy")

@@ -17,8 +17,6 @@ class SavitzkyGolay: FilteringProtocol {
     var coeffs = [Double]()
     var index =  Array(repeating: 0, count: 50)
     var id = 0
-    var leftBuffer = [accelPoint]()
-    var rightBuffer = [accelPoint]()
     var buffer = [accelPoint]()
     var size =  0
     init(){
@@ -47,32 +45,21 @@ class SavitzkyGolay: FilteringProtocol {
     func addDataPoint(dataPoint: accelPoint) -> Void {
         
         
-       /* if buffer.count < Int(params["leftScan"]!)+1{
-            
-           /* for i in 0...Int(params["leftScan"]!){ // initally fill history with 0s.
-                //let blankPoint = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
-                buffer.append(accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count+i))
-                let outputPoint = dataPoint
-                outputPoint.count = dataPoint.count+i
-                notifyObservers(data:[outputPoint])
-            } */
-
-            buffer.append(dataPoint)
-
-        }else */
-        
-        if buffer.count < size{
-           // print(buffer.count)
-            buffer.append(dataPoint)
-            notifyObservers(data:[dataPoint])
+        if self.buffer.count < self.size{
+            self.buffer.append(dataPoint)
+            self.notifyObservers(data:[dataPoint])
         }else{
-             buffer.append(dataPoint)
-             let current = buffer[(size-Int(params["rightScan"]!))]
-             let newPoint = applyFilter(pointToProcess: current, buffer: buffer)
-             notifyObservers(data: [newPoint])
-            buffer.removeFirst()
+            self.buffer.append(dataPoint)
+            let current = self.buffer[(self.size-Int(self.params["rightScan"]!))]
+            DispatchQueue.global().async {
+                let newPoint = self.applyFilter(pointToProcess: current, buffer: self.buffer)
+                
+                DispatchQueue.main.sync {
+                    self.notifyObservers(data: [newPoint])
+                }
+            }
+            self.buffer.removeFirst()
         }
-
     }
     
     func addObserver(update: @escaping ([accelPoint]) -> Void) {
@@ -122,6 +109,10 @@ class SavitzkyGolay: FilteringProtocol {
         return newPoint
         
     }
+    
+    
+    
+    
     
     func calculateCoeffs(nl: Int, nr: Int, m: Int) -> [Double]{
 
@@ -178,25 +169,12 @@ class SavitzkyGolay: FilteringProtocol {
                 
             }
         }
-        print("---")
-             print("---")
-        print(a)
-        print("---")
-        print(index)
-             print("---")
-        print(d)
-             print("---")
+     
         
         let decompOutput = matrix.luDecomposition(a: a, n: m+1, index: index, d: d)
         index = decompOutput.index
         a = decompOutput.a
-             print("---")
-            print("---")
-        print(index)
-        print("---")
-        print(a)
-        print("---")
-        print("---")
+        
         for j in 1...(m+1){ //15
             b[j] = 0
         }
@@ -224,7 +202,8 @@ class SavitzkyGolay: FilteringProtocol {
         c.removeFirst()
         c.removeLast()
         
-        return shift(index:nr+1, input: c)
+        let output = shift(index:nr+1, input: c)
+        return output
     }
     
     func shift(index: Int, input: [Double]) -> [Double]{

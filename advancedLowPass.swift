@@ -85,25 +85,29 @@ class advancedLowPass: FilteringProtocol {
     }
     
     func lowPass(currentRaw: accelPoint){
+        
+        var xCurrent = currentRaw.x
+        var yCurrent = currentRaw.y
+        var zCurrent = currentRaw.z
+        
+        for _ in 0...Int(params["n"]!)-1{
 
-        let xCurrentProcessed = a0 * currentRaw.x + a1 * rawMinusOne.x + a2 * rawMinusTwo.x + b1 * processedMinusOne.x + b2 * processedMinusTwo.x
+         xCurrent = a0 * xCurrent + a1 * rawMinusOne.x + a2 * rawMinusTwo.x + b1 * processedMinusOne.x + b2 * processedMinusTwo.x
 
         
-        let yCurrentProcessed = a0 * currentRaw.y + a1 * rawMinusOne.y + a2 * rawMinusTwo.y + b1 * processedMinusOne.y + b2 * processedMinusTwo.y
+         yCurrent = a0 * yCurrent + a1 * rawMinusOne.y + a2 * rawMinusTwo.y + b1 * processedMinusOne.y + b2 * processedMinusTwo.y
         
-        let zCurrentProcessed = a0 * currentRaw.z + a1 * rawMinusOne.z + a2 * rawMinusTwo.z + b1 * processedMinusOne.z + b2 * processedMinusTwo.z
-        
-        
-        
+         zCurrent = a0 * zCurrent + a1 * rawMinusOne.z + a2 * rawMinusTwo.z + b1 * processedMinusOne.z + b2 * processedMinusTwo.z
+        }
         rawMinusTwo = accelPoint(dataX:rawMinusOne.x, dataY:rawMinusOne.y, dataZ:rawMinusOne.z, count : currentRaw.count)
         rawMinusOne = accelPoint(dataX:currentRaw.x, dataY:currentRaw.y, dataZ:currentRaw.z, count : currentRaw.count)
         
-        let newPoint = accelPoint(dataX:xCurrentProcessed, dataY:yCurrentProcessed, dataZ:zCurrentProcessed, count : currentRaw.count)
+        let newPoint = accelPoint(dataX:xCurrent, dataY:yCurrent, dataZ:zCurrent, count : currentRaw.count)
         
         processedMinusTwo = accelPoint(
             dataX:processedMinusOne.x,dataY:processedMinusOne.y, dataZ: processedMinusOne.z, count:currentRaw.count)
         processedMinusOne = accelPoint(
-            dataX:xCurrentProcessed, dataY:yCurrentProcessed, dataZ:zCurrentProcessed, count : currentRaw.count)
+            dataX:xCurrent, dataY:yCurrent, dataZ:zCurrent, count : currentRaw.count)
 
         notifyObservers(data: [newPoint])
     }

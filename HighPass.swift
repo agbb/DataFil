@@ -22,12 +22,13 @@ class HighPass: FilteringProtocol{
     
     init(){
 
-        params["cutPoint"] = 5.0
-        params["freq"] = 10.0
-        sampleGap = 1.0/(params["freq"]!)
-        cutoff = 1.0/(params["cutPoint"]!)
-        filterVal = cutoff / (sampleGap+cutoff)
-            
+        params["sampleRate"] = 60.0
+        params["cutoffFrequency"] = 40.0
+        
+        sampleGap = 1.0/(params["sampleRate"]!)
+        cutoff = 1.0/(params["cutoffFrequency"]!)
+
+        filterVal = cutoff/(sampleGap+cutoff)
         self.previousValue = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
         self.previousRaw = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
         observers = []
@@ -38,7 +39,15 @@ class HighPass: FilteringProtocol{
     }
 
     func setParameter(parameterName: String, parameterValue: Double) {
+        
         params[parameterName] = parameterValue
+        
+        
+        sampleGap = 1.0/(params["sampleRate"]!)
+        cutoff = 1.0/(params["cutoffFrequency"]!)
+        
+        filterVal = cutoff/(sampleGap+cutoff)
+
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
