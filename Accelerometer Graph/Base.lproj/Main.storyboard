@@ -143,6 +143,73 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.29408180709999998" green="0.29413825269999999" blue="0.29407823090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="none" indentationWidth="10" id="gzw-nj-bXe">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="gzw-nj-bXe" id="grb-ob-vkC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto Scale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvp-tk-4le">
+                                                    <rect key="frame" x="18" y="11" width="82" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4y-vA-XgO">
+                                                    <rect key="frame" x="314" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="graphLayoutSwitched:" destination="ez7-5b-Yts" eventType="valueChanged" id="ySm-3a-CHj"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tvp-tk-4le" firstAttribute="leading" secondItem="grb-ob-vkC" secondAttribute="leadingMargin" constant="10" id="PfW-eb-Zkc"/>
+                                                <constraint firstAttribute="trailing" secondItem="j4y-vA-XgO" secondAttribute="trailing" constant="12" id="QWB-dm-T2s"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Tvp-tk-4le" secondAttribute="bottom" constant="3" id="Rx7-rd-w0V"/>
+                                                <constraint firstItem="j4y-vA-XgO" firstAttribute="top" secondItem="grb-ob-vkC" secondAttribute="top" constant="6" id="WYD-Tx-h8U"/>
+                                                <constraint firstItem="Tvp-tk-4le" firstAttribute="top" secondItem="grb-ob-vkC" secondAttribute="topMargin" constant="3" id="b03-r3-hC6"/>
+                                                <constraint firstAttribute="bottom" secondItem="j4y-vA-XgO" secondAttribute="bottom" constant="6" id="zzm-MF-YeA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.29452592129999999" green="0.29477626089999998" blue="0.294564724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="bZp-gL-PRC" style="IBUITableViewCellStyleDefault" id="UXg-rM-XpL">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UXg-rM-XpL" id="mgi-Ra-Q5S">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Rate (Hz)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bZp-gL-PRC">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <color key="textColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="trP-ET-y3x">
+                                                    <rect key="frame" x="191" y="8" width="169" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="169" id="gac-Ff-i7f"/>
+                                                    </constraints>
+                                                    <segments>
+                                                        <segment title="10"/>
+                                                        <segment title="50"/>
+                                                        <segment title="100"/>
+                                                    </segments>
+                                                    <connections>
+                                                        <action selector="graphPointsChanged:" destination="ez7-5b-Yts" eventType="valueChanged" id="Vl7-wF-2Cr"/>
+                                                    </connections>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="trP-ET-y3x" firstAttribute="centerY" secondItem="bZp-gL-PRC" secondAttribute="centerY" id="oX4-Dx-J2R"/>
+                                                <constraint firstItem="trP-ET-y3x" firstAttribute="trailing" secondItem="bZp-gL-PRC" secondAttribute="trailing" id="q5t-7b-8hp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.29408180709999998" green="0.29413825269999999" blue="0.29407823090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -591,7 +658,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ivR-er-zeX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ivR-er-zeX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -886,7 +953,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bBN-W0-qVv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z9w-Tr-7V1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z9w-Tr-7V1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.29408180709999998" green="0.29413825269999999" blue="0.29407823090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -30,6 +30,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
@@ -69,6 +70,21 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         setBottomChartData(values: [0])
         
     }
+    func rotated(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
+            // Put your code which should be executed with a delay here
+            if utilities.singleView == false {
+                for const in self.view.constraints{
+                    if const.identifier == "override"{
+                        let height = (self.view.frame.height - 210)/2
+                        const.constant = height
+                    }
+                }
+                self.view.updateConstraints()
+                self.view.layoutSubviews()
+            }
+        })
+    }
     
     func newGraphSettings(notification:NSNotification){
 
@@ -81,7 +97,9 @@ class FirstViewController: UIViewController, ChartViewDelegate {
                 if const.identifier == "heightLimit"{
                     const.priority = 999
                 }else if const.identifier == "override"{
-                    const.constant = 212
+                    let height = (self.view.frame.height - 210)/2
+                    print(self.view.frame.height)
+                    const.constant = height
                     const.priority = 1
                 }
             }
@@ -96,6 +114,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             for const in self.view.constraints{
                 if const.identifier == "heightLimit"{
                     const.priority = 1
+                    
                 }else if const.identifier == "override"{
                     const.constant = 22
                     const.priority = 999
