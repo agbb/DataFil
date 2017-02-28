@@ -33,11 +33,23 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
+        self.TopLineChartView.xAxis.labelTextColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
+        self.TopLineChartView.leftAxis.labelTextColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
+        self.TopLineChartView.rightAxis.labelTextColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
         self.TopLineChartView.noDataText = "No Data"
+        self.TopLineChartView.chartDescription?.text = ""
+        self.TopLineChartView.legend.textColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
         
         self.BottomLineChartView.delegate = self
         self.BottomLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
         self.BottomLineChartView.noDataText = "No Data"
+        self.BottomLineChartView.chartDescription?.text = ""
+        self.BottomLineChartView.xAxis.labelTextColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
+        self.BottomLineChartView.leftAxis.labelTextColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
+        self.BottomLineChartView.rightAxis.labelTextColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
+        self.BottomLineChartView.legend.textColor = #colorLiteral(red: 0.8940202594, green: 0.8941736817, blue: 0.8940106034, alpha: 1)
+
+        
        setTopChartData(values: [0])
         
         if !singleView{
@@ -204,10 +216,12 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             yVals1.append(ChartDataEntry(x: Double(i), y: values[i]))
         }
         
-        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "")
+        let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Raw X-Axis")
         set1.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
         
+        
         self.TopLineChartView.legend.enabled = false
+
         TopLineChartView.dragEnabled = false
         self.TopLineChartView.data = configureDataSet(sets: [set1])
         
@@ -244,21 +258,22 @@ class FirstViewController: UIViewController, ChartViewDelegate {
             yVals2.append(ChartDataEntry(x: Double(i), y: values[i]))
         }
         if singleView{
-            let rawDataLine: LineChartDataSet = LineChartDataSet(values: yVals1, label: "0")
+            
+            let rawDataLine: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Raw X-Axis")
             rawDataLine.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
-            let processedDataLine: LineChartDataSet = LineChartDataSet(values: yVals2, label: "1")
+            let processedDataLine: LineChartDataSet = LineChartDataSet(values: yVals2, label: "Processed X-Axis")
             processedDataLine.setColor(#colorLiteral(red: 0.2726118863, green: 0.6989091039, blue: 0.6175016761, alpha: 1))
         
             let dataSets = configureDataSet(sets: [rawDataLine,processedDataLine])
             self.BottomLineChartView.data = dataSets
         }else{
-            let processedDataLine: LineChartDataSet = LineChartDataSet(values: yVals2, label: "1")
+            let processedDataLine: LineChartDataSet = LineChartDataSet(values: yVals2, label: "Processed")
             processedDataLine.setColor(#colorLiteral(red: 0.2726118863, green: 0.6989091039, blue: 0.6175016761, alpha: 1))
             let dataSets = configureDataSet(sets: [processedDataLine])
             self.BottomLineChartView.data = dataSets
         }
         
-        self.BottomLineChartView.legend.enabled = false
+        self.BottomLineChartView.legend.enabled = true
         self.BottomLineChartView.dragEnabled = false
         
 
