@@ -15,6 +15,8 @@ class graphSettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var pointCountSelector: UISegmentedControl!
     @IBOutlet weak var singleGraphSelection: UISwitch!
+    @IBOutlet weak var sampeRate: UISegmentedControl!
+    @IBOutlet weak var autoScale: UISwitch!
    
     
     override func viewDidLoad() {
