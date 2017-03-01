@@ -16,7 +16,7 @@ class accelerometerManager{
     lazy var manager = CMMotionManager()
     lazy var queue = OperationQueue()
     var count = 0
-    var sampleRate = 50.0
+    var sampleRate = 30.0
     
     init(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.newDatasourceSettings), name: Notification.Name("newDatasourceSettings"), object: nil)

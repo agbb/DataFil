@@ -1055,6 +1055,35 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Average Count" id="sPI-pc-b5E">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GZW-9y-9HI">
+                                        <rect key="frame" x="0.0" y="238" width="375" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GZW-9y-9HI" id="Uhl-EZ-hxx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="39"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="100" minimumValueImage="downIcon" maximumValueImage="upIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Y2O-nN-Gb3">
+                                                    <rect key="frame" x="17" y="5" width="314" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="movingAverageSliderAdjusted:" destination="25r-7L-FL6" eventType="valueChanged" id="bdn-T3-61w"/>
+                                                    </connections>
+                                                </slider>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8V-9G-ts0">
+                                                    <rect key="frame" x="331" y="0.0" width="44" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.89402025939999996" green="0.8941736817" blue="0.89401060340000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.29452592129999999" green="0.29477626089999998" blue="0.294564724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="25r-7L-FL6" id="CxA-NM-Fz8"/>
@@ -1065,6 +1094,8 @@
                         <outlet property="boundedAverageSwitch" destination="0Qc-J3-uPN" id="wbK-dF-a0j"/>
                         <outlet property="currentBandSizeLabel" destination="zrM-yV-i19" id="acU-Wl-4vY"/>
                         <outlet property="currentBandSlider" destination="KXW-gv-QOa" id="Mgt-PF-OKJ"/>
+                        <outlet property="movingAverageLabel" destination="Y8V-9G-ts0" id="cIL-Zc-IVJ"/>
+                        <outlet property="movingAverageSlider" destination="Y2O-nN-Gb3" id="m0c-e3-jyi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9en-bn-4Ah" userLabel="First Responder" sceneMemberID="firstResponder"/>

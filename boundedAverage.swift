@@ -19,10 +19,12 @@ class boundedAverage: FilteringProtocol {
     var currentCenterY = 0.0
     var currentCenterZ = 0.0
     var inital = true
+    var currentAvg = accelPoint.init(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
     
     init(){
         params["upperBound"] = 0.1
         params["lowerBound"] = 0.1
+        params["points"] = 1
         observers = []
         
     }
@@ -36,16 +38,34 @@ class boundedAverage: FilteringProtocol {
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
-        boundedAverage(currentRaw: dataPoint)
+        let averagePoint = movingAverage(dataPoint: dataPoint)
+        boundedAverage(currentRaw: averagePoint)
     }
     
     func addObserver(update: @escaping ([accelPoint]) -> Void) {
         observers.append(update)
+    
     }
     
     func notifyObservers(data: [accelPoint]) {
         for i in observers {
             i(data)
+        }
+    }
+    
+    func movingAverage(dataPoint:accelPoint)->accelPoint{
+        let points = Double(params["points"]!).roundTo(places: 0)
+        if points > 1.0 {
+            let points = params["points"]
+            let outputPoint = accelPoint.init(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
+            outputPoint.x = currentAvg.x * (points!-1)/points! + dataPoint.x / points!
+            outputPoint.y = currentAvg.y * (points!-1)/points! + dataPoint.y / points!
+            outputPoint.z = currentAvg.z * (points!-1)/points! + dataPoint.z / points!
+            currentAvg = outputPoint
+            return outputPoint
+        }else{
+            currentAvg = dataPoint
+            return dataPoint
         }
     }
     

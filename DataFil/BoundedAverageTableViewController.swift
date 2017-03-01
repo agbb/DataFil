@@ -16,6 +16,8 @@ class BoundedAverageTableViewController: UITableViewController {
     @IBOutlet weak var currentBandSlider: UISlider!
     @IBOutlet var boundedAverageSwitch: UISwitch!
     @IBOutlet var currentBandSizeLabel: UILabel!
+    @IBOutlet weak var movingAverageSlider: UISlider!
+    @IBOutlet weak var movingAverageLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -27,6 +29,8 @@ class BoundedAverageTableViewController: UITableViewController {
                 boundedAverageSwitch.isOn = true
                 currentBandSizeLabel.text = "\(Double(filter.params["upperBound"]!).roundTo(places: 2))"
                 currentBandSlider.value = Float(filter.params["upperBound"]!)
+                movingAverageLabel.text = "\(Int(filter.params["points"]!))"
+                movingAverageSlider.value = Float(filter.params["points"]!)
             }
         }
     }
@@ -45,6 +49,12 @@ class BoundedAverageTableViewController: UITableViewController {
             fm.removeFilter(filterName: "Bounded Average")
         }
         
+    }
+    @IBAction func movingAverageSliderAdjusted(_ sender: UISlider){
+        if boundedAverageSwitch.isOn {
+            fm.setFilterParameter(filterName: "Bounded Average", parameterName: "points", parameterValue: Double(sender.value).roundTo(places: 0))
+            movingAverageLabel.text = String(Int(sender.value))
+        }
     }
  
     @IBAction func bandsizeSliderAdjusted(_ sender: UISlider) {

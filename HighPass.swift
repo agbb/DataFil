@@ -22,7 +22,7 @@ class HighPass: FilteringProtocol{
     
     init(){
 
-        params["sampleRate"] = 60.0
+        params["sampleRate"] = 30.0
         params["cutoffFrequency"] = 40.0
         
         sampleGap = 1.0/(params["sampleRate"]!)
