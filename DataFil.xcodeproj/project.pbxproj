@@ -59,8 +59,8 @@
 		FAB451081E5E102900A0205A /* advancedLowPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB451071E5E102900A0205A /* advancedLowPassTests.swift */; };
 		FABCDE5D1E5DBFA500F8B5CA /* boundedAverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */; };
 		FABCDE611E5DE41B00F8B5CA /* savGolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */; };
-		FAD062D91E4B526600877100 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD062D41E4B522000877100 /* Charts.framework */; };
-		FAD062DA1E4B526600877100 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAD062D41E4B522000877100 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAC6364B1E66E7D300893A03 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC636461E66E7C200893A03 /* Charts.framework */; };
+		FAC6364C1E66E7D300893A03 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAC636461E66E7C200893A03 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAD062DF1E4B9D0700877100 /* TVDenoising.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD062DD1E4B953F00877100 /* TVDenoising.swift */; };
 		FAD062E01E4B9D0C00877100 /* TVDenoising.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD062DD1E4B953F00877100 /* TVDenoising.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
@@ -89,30 +89,30 @@
 			remoteGlobalIDString = FAD59C5E1DF880B000A7FD6A;
 			remoteInfo = "Accelerometer Graph";
 		};
-		FAD062D31E4B522000877100 /* PBXContainerItemProxy */ = {
+		FAC636451E66E7C200893A03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAD062CD1E4B522000877100 /* Charts.xcodeproj */;
+			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F241D8110E600722320;
 			remoteInfo = Charts;
 		};
-		FAD062D51E4B522000877100 /* PBXContainerItemProxy */ = {
+		FAC636471E66E7C200893A03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAD062CD1E4B522000877100 /* Charts.xcodeproj */;
+			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06B120D51D811E6200D14B02;
 			remoteInfo = ChartsRealm;
 		};
-		FAD062D71E4B522000877100 /* PBXContainerItemProxy */ = {
+		FAC636491E66E7C200893A03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAD062CD1E4B522000877100 /* Charts.xcodeproj */;
+			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F2E1D8110E600722320;
 			remoteInfo = ChartsTests;
 		};
-		FAD062DB1E4B526600877100 /* PBXContainerItemProxy */ = {
+		FAC6364D1E66E7D300893A03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAD062CD1E4B522000877100 /* Charts.xcodeproj */;
+			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 06165F231D8110E600722320;
 			remoteInfo = Charts;
@@ -126,7 +126,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAD062DA1E4B526600877100 /* Charts.framework in Embed Frameworks */,
+				FAC6364C1E66E7D300893A03 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,7 +163,7 @@
 		FAB451071E5E102900A0205A /* advancedLowPassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPassTests.swift; sourceTree = "<group>"; };
 		FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverageTests.swift; sourceTree = "<group>"; };
 		FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savGolTests.swift; sourceTree = "<group>"; };
-		FAD062CD1E4B522000877100 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master 3/Charts.xcodeproj"; sourceTree = "<group>"; };
 		FAD062DD1E4B953F00877100 /* TVDenoising.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVDenoising.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* DataFil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataFil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD062D91E4B526600877100 /* Charts.framework in Frameworks */,
+				FAC6364B1E66E7D300893A03 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,12 +308,12 @@
 			name = dataCapture;
 			sourceTree = "<group>";
 		};
-		FAD062CE1E4B522000877100 /* Products */ = {
+		FAC636401E66E7C200893A03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAD062D41E4B522000877100 /* Charts.framework */,
-				FAD062D61E4B522000877100 /* ChartsRealm.framework */,
-				FAD062D81E4B522000877100 /* ChartsTests.xctest */,
+				FAC636461E66E7C200893A03 /* Charts.framework */,
+				FAC636481E66E7C200893A03 /* ChartsRealm.framework */,
+				FAC6364A1E66E7C200893A03 /* ChartsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */,
-				FAD062CD1E4B522000877100 /* Charts.xcodeproj */,
+				FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */,
 				FA9B3AFC1E006D7E00873309 /* FontAwesome */,
 			);
 			name = lib;
@@ -423,7 +423,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FAD062DC1E4B526600877100 /* PBXTargetDependency */,
+				FAC6364E1E66E7D300893A03 /* PBXTargetDependency */,
 			);
 			name = DataFil;
 			productName = "Accelerometer Graph";
@@ -466,8 +466,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = FAD062CE1E4B522000877100 /* Products */;
-					ProjectRef = FAD062CD1E4B522000877100 /* Charts.xcodeproj */;
+					ProductGroup = FAC636401E66E7C200893A03 /* Products */;
+					ProjectRef = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -479,25 +479,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		FAD062D41E4B522000877100 /* Charts.framework */ = {
+		FAC636461E66E7C200893A03 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = FAD062D31E4B522000877100 /* PBXContainerItemProxy */;
+			remoteRef = FAC636451E66E7C200893A03 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FAD062D61E4B522000877100 /* ChartsRealm.framework */ = {
+		FAC636481E66E7C200893A03 /* ChartsRealm.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ChartsRealm.framework;
-			remoteRef = FAD062D51E4B522000877100 /* PBXContainerItemProxy */;
+			remoteRef = FAC636471E66E7C200893A03 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FAD062D81E4B522000877100 /* ChartsTests.xctest */ = {
+		FAC6364A1E66E7C200893A03 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = FAD062D71E4B522000877100 /* PBXContainerItemProxy */;
+			remoteRef = FAC636491E66E7C200893A03 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -612,10 +612,10 @@
 			target = FAD59C5E1DF880B000A7FD6A /* DataFil */;
 			targetProxy = FA7AFBF31E45F9B000A4D6D1 /* PBXContainerItemProxy */;
 		};
-		FAD062DC1E4B526600877100 /* PBXTargetDependency */ = {
+		FAC6364E1E66E7D300893A03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;
-			targetProxy = FAD062DB1E4B526600877100 /* PBXContainerItemProxy */;
+			targetProxy = FAC6364D1E66E7D300893A03 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

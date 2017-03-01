@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -67,7 +67,7 @@
         <!--Graph Settings Table View Controller-->
         <scene sceneID="b99-Dy-NWs">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="ez7-5b-Yts" customClass="graphSettingsTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="ez7-5b-Yts" customClass="graphSettingsTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PGC-Sh-EEF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,11 +195,13 @@
                                                     </constraints>
                                                     <segments>
                                                         <segment title="10"/>
-                                                        <segment title="50"/>
+                                                        <segment title="30"/>
+                                                        <segment title="60"/>
                                                         <segment title="100"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="graphPointsChanged:" destination="ez7-5b-Yts" eventType="valueChanged" id="Vl7-wF-2Cr"/>
+                                                        <action selector="sampleRateChanged:" destination="ez7-5b-Yts" eventType="valueChanged" id="dTp-WR-5F2"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -221,7 +223,7 @@
                     <connections>
                         <outlet property="autoScale" destination="j4y-vA-XgO" id="Jhf-yB-sJl"/>
                         <outlet property="pointCountSelector" destination="Td8-mt-aVO" id="gjx-MV-JF2"/>
-                        <outlet property="sampeRate" destination="trP-ET-y3x" id="2Bv-p1-Vym"/>
+                        <outlet property="sampleRateSelection" destination="trP-ET-y3x" id="BA6-Tn-OJs"/>
                         <outlet property="singleGraphSelection" destination="HCv-S6-SlZ" id="ghG-xj-I2f"/>
                     </connections>
                 </tableViewController>
@@ -232,7 +234,7 @@
         <!--Filters-->
         <scene sceneID="zaE-hc-69D">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="5FN-Xc-xDN" customClass="FilterTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="5FN-Xc-xDN" customClass="FilterTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Md-3E-8U9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,7 +283,7 @@
         <!--Data Capture-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Data Capture" modalPresentationStyle="currentContext" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Data Capture" modalPresentationStyle="currentContext" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -334,7 +336,7 @@
         <!--Data Capture Table View Controller-->
         <scene sceneID="p2e-0J-PAj">
             <objects>
-                <tableViewController id="76H-1W-O64" customClass="dataCaptureTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="76H-1W-O64" customClass="dataCaptureTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="I2O-Zf-MHV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="482"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,7 +357,7 @@
                                     </connections>
                                 </button>
                                 <progressView contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="MAP-qt-Heg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="3"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="2.5"/>
                                 </progressView>
                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gPe-fD-Sv7">
                                     <rect key="frame" x="178" y="20" width="20" height="20"/>
@@ -572,7 +574,7 @@
         <!--Saved-->
         <scene sceneID="hZQ-0X-oIB">
             <objects>
-                <tableViewController title="Saved" id="3tk-4H-92J" customClass="SavedRecordingsTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Saved" id="3tk-4H-92J" customClass="SavedRecordingsTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vza-Q8-EFo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -660,7 +662,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ivR-er-zeX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ivR-er-zeX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1482854784" green="0.1484311223" blue="0.1483080685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -685,7 +687,7 @@
         <!--High Pass Table View Controller-->
         <scene sceneID="8qD-dA-Ete">
             <objects>
-                <tableViewController storyboardIdentifier="HighPassTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="6Gl-ky-23d" customClass="HighPassTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HighPassTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="6Gl-ky-23d" customClass="HighPassTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="23" sectionFooterHeight="18" id="oNI-xF-HMi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -715,7 +717,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gFO-N4-QsK">
-                                                    <rect key="frame" x="314" y="6" width="51" height="27"/>
+                                                    <rect key="frame" x="314" y="6" width="51" height="27.5"/>
                                                     <connections>
                                                         <action selector="highPassSwitchTapped:" destination="6Gl-ky-23d" eventType="valueChanged" id="VvH-0m-FXd"/>
                                                     </connections>
@@ -782,7 +784,7 @@
         <!--Low Pass Table View Controller-->
         <scene sceneID="z27-DK-jR2">
             <objects>
-                <tableViewController storyboardIdentifier="LowPassTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="rv9-26-qUJ" customClass="LowPassTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LowPassTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="rv9-26-qUJ" customClass="LowPassTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="18" sectionFooterHeight="18" id="H4M-ae-QHT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -955,7 +957,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bBN-W0-qVv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z9w-Tr-7V1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Z9w-Tr-7V1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.29408180709999998" green="0.29413825269999999" blue="0.29407823090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -975,7 +977,7 @@
         <!--Bounded Average-->
         <scene sceneID="OEZ-Gn-aeg">
             <objects>
-                <tableViewController storyboardIdentifier="BoundedAverageTableView" title="Bounded Average" automaticallyAdjustsScrollViewInsets="NO" id="25r-7L-FL6" customClass="BoundedAverageTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="BoundedAverageTableView" title="Bounded Average" automaticallyAdjustsScrollViewInsets="NO" id="25r-7L-FL6" customClass="BoundedAverageTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="23" sectionFooterHeight="18" id="z3Q-gT-pD7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1005,7 +1007,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-J3-uPN">
-                                                    <rect key="frame" x="314" y="6" width="51" height="27"/>
+                                                    <rect key="frame" x="314" y="6" width="51" height="27.5"/>
                                                     <connections>
                                                         <action selector="boundedAverageTapped:" destination="25r-7L-FL6" eventType="valueChanged" id="AtY-5u-Ok4"/>
                                                     </connections>
@@ -1072,7 +1074,7 @@
         <!--Sav Gol Table View Controller-->
         <scene sceneID="ian-sz-Gzn">
             <objects>
-                <tableViewController storyboardIdentifier="SavGolTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="WBu-sy-Bjq" customClass="SavGolTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SavGolTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="WBu-sy-Bjq" customClass="SavGolTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="18" sectionFooterHeight="18" id="XNi-bP-BQR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1241,7 +1243,7 @@
         <!--Tvd Table View Controller-->
         <scene sceneID="pKE-Vx-ipk">
             <objects>
-                <tableViewController storyboardIdentifier="tvdTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="XKY-r9-Bxh" customClass="tvdTableViewController" customModule="Accelerometer_Graph" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tvdTableView" automaticallyAdjustsScrollViewInsets="NO" clearsSelectionOnViewWillAppear="NO" id="XKY-r9-Bxh" customClass="tvdTableViewController" customModule="DataFil" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" rowHeight="40" sectionHeaderHeight="23" sectionFooterHeight="18" id="sRa-A5-MDG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1271,7 +1273,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vD4-UV-WiE">
-                                                    <rect key="frame" x="314" y="6" width="51" height="27"/>
+                                                    <rect key="frame" x="314" y="6" width="51" height="27.5"/>
                                                     <connections>
                                                         <action selector="tvdSwitchTapped:" destination="XKY-r9-Bxh" eventType="valueChanged" id="RYy-YL-gaP"/>
                                                     </connections>
