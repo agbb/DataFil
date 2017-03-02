@@ -21,6 +21,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var BottomLineChartView: LineChartView!
     @IBOutlet weak var TopLineChartView: LineChartView!
     private var axis = "x"
+    private var autoScale = true
     private var customAxisState = false
     private var singleView = true
     private var pointsCount = 300
@@ -133,6 +134,10 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         }
         utilities.pointCount = pointsCount
         
+        autoScale = notification.userInfo?["autoScale"] as! Bool
+        if(!autoScale){
+              //  TopLineChartView
+        }
         self.view.updateConstraints()
         self.view.layoutSubviews()
     }
@@ -162,7 +167,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         TopLineChartView.data?.notifyDataChanged()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            // your code here
+            
             self.TopLineChartView.setNeedsDisplay()
         }
         

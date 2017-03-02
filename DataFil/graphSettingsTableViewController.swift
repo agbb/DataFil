@@ -52,6 +52,11 @@ class graphSettingsTableViewController: UITableViewController {
         
     }
     
+    @IBAction func autoScaleSwitched(_ sender: UISwitch) {
+        
+        notifyGraphSettings()
+    }
+    
     @IBAction func sampleRateChanged(_ sender: UISegmentedControl) {
         
         notifyDatasourceSettings()
@@ -59,7 +64,7 @@ class graphSettingsTableViewController: UITableViewController {
    
     func notifyGraphSettings(){
         let number = (pointCountSelector.selectedSegmentIndex + 1) * 100
-        NotificationCenter.default.post(name: Notification.Name("newGraphSettings"), object: nil, userInfo:["singleView":singleGraphSelection.isOn,"pointsCount":number])
+        NotificationCenter.default.post(name: Notification.Name("newGraphSettings"), object: nil, userInfo:["singleView":singleGraphSelection.isOn,"pointsCount":number,"autoScale":autoScale.isOn])
     }
     
     func notifyDatasourceSettings(){
