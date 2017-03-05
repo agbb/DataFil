@@ -83,7 +83,7 @@ class FilterManager{
             activeFilters.append(savgolay)
             break
         case "Total Variation Denoising":
-           let tvd = TVDenoising()
+           let tvd = TotalVariationWrapper()
            let update = {(data: [accelPoint])->Void in
             
             self.receiveData(data: data, id: tvd.id)

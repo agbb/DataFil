@@ -22,6 +22,14 @@ struct utilities{
         utilities.dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss '+'ZZZZ"
         utilities.dateFormatter.timeStyle = .full
     }
+    
+    static func duplicateAccelData(data: [accelPoint])-> [accelPoint]{
+        var outputArray = [accelPoint]()
+        for d in data{
+            outputArray.append(accelPoint(dataX: d.x, dataY: d.y, dataZ: d.z, count: d.count))
+        }
+        return outputArray
+    }
 }
 
 extension Double {

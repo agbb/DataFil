@@ -35,10 +35,6 @@ class accelPoint {
     }
     
     
-    func getAbs() -> Double{
-        return x
-    }
-    
     func getAxis(axis: String) -> Double{
         
         switch axis {
@@ -49,8 +45,25 @@ class accelPoint {
         case "z":
             return z
         default:
-            return x
+            print("cant get value, axis not valid")
+            return -100
         }
         
     }
+    func setAxis(axis: String, data: Double){
+        
+        switch axis {
+        case "x":
+             x = data
+        case "y":
+             y = data
+        case "z":
+             z = data
+        default:
+             print("cant set value, axis not valid")
+        }
+        
+    }
+    
+    
 }

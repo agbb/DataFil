@@ -83,7 +83,7 @@ class SavitzkyGolay: FilteringProtocol {
         let nr = Int(params["rightScan"]!)
         let nl = Int(params["leftScan"]!)
         
-        let newPoint = accelPoint()
+        var newPoint = accelPoint()
         newPoint.count = pointToProcess.count+nr
     
         

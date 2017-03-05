@@ -64,7 +64,7 @@ class HighPass: FilteringProtocol{
     }
     
     func highPass(currentRaw: accelPoint){
-        let newPoint = accelPoint()
+        var newPoint = accelPoint()
         newPoint.x = filterVal * (previousValue.x + currentRaw.x -  previousRaw.x)
         newPoint.y = filterVal * (previousValue.y + currentRaw.y -  previousRaw.y)
         newPoint.z = filterVal * (previousValue.z + currentRaw.z -  previousRaw.z)

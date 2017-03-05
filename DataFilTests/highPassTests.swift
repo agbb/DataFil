@@ -120,7 +120,7 @@ class highPassTests: XCTestCase {
                     }
                 }
                 let amplitude = abs(max)+abs(min);
-                XCTAssertEqualWithAccuracy(amplitude, 1.0, accuracy: 0.001) //Due to precisison in variables, small amount of amplitude may be lost.
+                XCTAssertEqualWithAccuracy(amplitude, 1.0, accuracy: 0.01) //Due to precisison in variables, small amount of amplitude may be lost.
             }
         }
     }

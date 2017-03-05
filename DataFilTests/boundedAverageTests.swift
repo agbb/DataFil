@@ -50,6 +50,31 @@ class boundedAverageTests: XCTestCase {
         }
     }
     
+    func testAverage(){
+        
+        let boundAvg = boundedAverage()
+        boundAvg.setParameter(parameterName: "points", parameterValue: 100)
+        var outputData = [accelPoint]()
+        
+        boundAvg.addObserver(update: {(data: [accelPoint])->Void in
+            outputData.append(contentsOf: data)
+        })
+        
+        for i in 0...100{
+            
+            let input = accelPoint(dataX: Double(i), dataY: Double(i), dataZ: Double(i), count: i)
+            boundAvg.addDataPoint(dataPoint: input)
+        }
+        XCTAssertEqual(outputData[50].x, 25)
+        XCTAssertEqual(outputData[50].y, 25)
+        XCTAssertEqual(outputData[50].z, 25)
+        
+        XCTAssertEqual(outputData[100].x, 50)
+        XCTAssertEqual(outputData[100].y, 50)
+        XCTAssertEqual(outputData[100].z, 50)
+
+    }
+    
     func testMinimumJumpPass(){
         
         let boundAvg = boundedAverage()

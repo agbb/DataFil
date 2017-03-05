@@ -19,6 +19,9 @@ class boundedAverage: FilteringProtocol {
     var currentCenterY = 0.0
     var currentCenterZ = 0.0
     var inital = true
+    var xAvg = 0.0
+    var yAvg = 0.0
+    var zAvg = 0.0
     var currentAvg = accelPoint.init(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
     
     init(){
@@ -54,23 +57,21 @@ class boundedAverage: FilteringProtocol {
     }
     
     func movingAverage(dataPoint:accelPoint)->accelPoint{
-        let points = Double(params["points"]!).roundTo(places: 0)
+        let points = (Double(params["points"]!).roundTo(places: 0))
+        
         if points > 1.0 {
-            let points = params["points"]
-            let outputPoint = accelPoint.init(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
-            outputPoint.x = currentAvg.x * (points!-1)/points! + dataPoint.x / points!
-            outputPoint.y = currentAvg.y * (points!-1)/points! + dataPoint.y / points!
-            outputPoint.z = currentAvg.z * (points!-1)/points! + dataPoint.z / points!
-            currentAvg = outputPoint
-            return outputPoint
+            xAvg = xAvg + (dataPoint.x - xAvg) / Double(dataPoint.count+1)
+            yAvg = yAvg + (dataPoint.y - yAvg) / Double(dataPoint.count+1)
+            zAvg = zAvg + (dataPoint.z - zAvg) / Double(dataPoint.count+1)
+            let newPoint = accelPoint(dataX: xAvg, dataY: yAvg, dataZ: zAvg, count: dataPoint.count)
+            return newPoint
         }else{
-            currentAvg = dataPoint
             return dataPoint
         }
     }
     
     func boundedAverage(currentRaw: accelPoint){
-        let newPoint = accelPoint()
+        var newPoint = accelPoint()
         newPoint.count = currentRaw.count
         if currentRaw.x > (currentCenterX + params["upperBound"]!){
             currentCenterX = currentRaw.x

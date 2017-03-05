@@ -44,6 +44,8 @@
 		FA7AFC0F1E46008500A4D6D1 /* boundedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */; };
 		FA7AFC101E46008B00A4D6D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FA7AFC111E46009000A4D6D1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
+		FA88F51E1E6AF2D300FA197D /* totalVariationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA88F51D1E6AF2D300FA197D /* totalVariationTests.swift */; };
+		FA88F51F1E6AF33500FA197D /* TotalVariationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8D0701E69D14000A843FD /* TotalVariationWrapper.swift */; };
 		FA9B3B031E006D7E00873309 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3AFD1E006D7E00873309 /* Enum.swift */; };
 		FA9B3B041E006D7E00873309 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */; };
 		FA9B3B051E006D7E00873309 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B001E006D7E00873309 /* FontAwesome.swift */; };
@@ -59,8 +61,11 @@
 		FAB451081E5E102900A0205A /* advancedLowPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB451071E5E102900A0205A /* advancedLowPassTests.swift */; };
 		FABCDE5D1E5DBFA500F8B5CA /* boundedAverageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */; };
 		FABCDE611E5DE41B00F8B5CA /* savGolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */; };
-		FAC6364B1E66E7D300893A03 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC636461E66E7C200893A03 /* Charts.framework */; };
-		FAC6364C1E66E7D300893A03 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAC636461E66E7C200893A03 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FABF961D1E688CD400F16B58 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABF96181E688C9200F16B58 /* Charts.framework */; };
+		FABF961E1E688CD400F16B58 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FABF96181E688C9200F16B58 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAC648EF1E6B250500C1AB6C /* testData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC648EE1E6B250500C1AB6C /* testData.txt */; };
+		FAC648F11E6B313200C1AB6C /* testOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC648F01E6B313200C1AB6C /* testOutput.txt */; };
+		FAC8D0711E69D14000A843FD /* TotalVariationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8D0701E69D14000A843FD /* TotalVariationWrapper.swift */; };
 		FAD062DF1E4B9D0700877100 /* TVDenoising.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD062DD1E4B953F00877100 /* TVDenoising.swift */; };
 		FAD062E01E4B9D0C00877100 /* TVDenoising.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD062DD1E4B953F00877100 /* TVDenoising.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
@@ -89,30 +94,30 @@
 			remoteGlobalIDString = FAD59C5E1DF880B000A7FD6A;
 			remoteInfo = "Accelerometer Graph";
 		};
-		FAC636451E66E7C200893A03 /* PBXContainerItemProxy */ = {
+		FABF96171E688C9200F16B58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
+			containerPortal = FABF96111E688C9200F16B58 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F241D8110E600722320;
 			remoteInfo = Charts;
 		};
-		FAC636471E66E7C200893A03 /* PBXContainerItemProxy */ = {
+		FABF96191E688C9200F16B58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
+			containerPortal = FABF96111E688C9200F16B58 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06B120D51D811E6200D14B02;
 			remoteInfo = ChartsRealm;
 		};
-		FAC636491E66E7C200893A03 /* PBXContainerItemProxy */ = {
+		FABF961B1E688C9200F16B58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
+			containerPortal = FABF96111E688C9200F16B58 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F2E1D8110E600722320;
 			remoteInfo = ChartsTests;
 		};
-		FAC6364D1E66E7D300893A03 /* PBXContainerItemProxy */ = {
+		FABF961F1E688CD400F16B58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
+			containerPortal = FABF96111E688C9200F16B58 /* Charts.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 06165F231D8110E600722320;
 			remoteInfo = Charts;
@@ -126,7 +131,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FAC6364C1E66E7D300893A03 /* Charts.framework in Embed Frameworks */,
+				FABF961E1E688CD400F16B58 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +152,7 @@
 		FA7AFBD61E450B7100A4D6D1 /* SavGolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavGolTableViewController.swift; sourceTree = "<group>"; };
 		FA7AFBEE1E45F9B000A4D6D1 /* DataFilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataFilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7AFBF21E45F9B000A4D6D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA88F51D1E6AF2D300FA197D /* totalVariationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = totalVariationTests.swift; sourceTree = "<group>"; };
 		FA9B3AFD1E006D7E00873309 /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		FA9B3AFE1E006D7E00873309 /* FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontAwesome.h; sourceTree = "<group>"; };
 		FA9B3AFF1E006D7E00873309 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -163,7 +169,10 @@
 		FAB451071E5E102900A0205A /* advancedLowPassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPassTests.swift; sourceTree = "<group>"; };
 		FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverageTests.swift; sourceTree = "<group>"; };
 		FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savGolTests.swift; sourceTree = "<group>"; };
-		FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master 3/Charts.xcodeproj"; sourceTree = "<group>"; };
+		FABF96111E688C9200F16B58 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master-3/Charts.xcodeproj"; sourceTree = "<group>"; };
+		FAC648EE1E6B250500C1AB6C /* testData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testData.txt; sourceTree = "<group>"; };
+		FAC648F01E6B313200C1AB6C /* testOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testOutput.txt; sourceTree = "<group>"; };
+		FAC8D0701E69D14000A843FD /* TotalVariationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalVariationWrapper.swift; sourceTree = "<group>"; };
 		FAD062DD1E4B953F00877100 /* TVDenoising.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVDenoising.swift; sourceTree = "<group>"; };
 		FAD59C5F1DF880B000A7FD6A /* DataFil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataFil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC6364B1E66E7D300893A03 /* Charts.framework in Frameworks */,
+				FABF961D1E688CD400F16B58 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +216,9 @@
 		FA186CC41DF9BC7200835B7C /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				FAC648EB1E6B203200C1AB6C /* Total Variation Denoising */,
 				FA76DD391E42107100189217 /* Savitzky-Golay */,
 				FA186CC51DF9BC8000835B7C /* HighPass.swift */,
-				FAD062DD1E4B953F00877100 /* TVDenoising.swift */,
 				FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */,
 				FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */,
 			);
@@ -268,8 +277,12 @@
 				FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */,
 				FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */,
 				FAB451071E5E102900A0205A /* advancedLowPassTests.swift */,
+				FA88F51D1E6AF2D300FA197D /* totalVariationTests.swift */,
+				FAC648EE1E6B250500C1AB6C /* testData.txt */,
+				FAC648F01E6B313200C1AB6C /* testOutput.txt */,
 			);
-			path = "Accelerometer GraphTests";
+			name = "Accelerometer GraphTests";
+			path = DataFilTests;
 			sourceTree = "<group>";
 		};
 		FA9B3AFC1E006D7E00873309 /* FontAwesome */ = {
@@ -308,14 +321,23 @@
 			name = dataCapture;
 			sourceTree = "<group>";
 		};
-		FAC636401E66E7C200893A03 /* Products */ = {
+		FABF96121E688C9200F16B58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAC636461E66E7C200893A03 /* Charts.framework */,
-				FAC636481E66E7C200893A03 /* ChartsRealm.framework */,
-				FAC6364A1E66E7C200893A03 /* ChartsTests.xctest */,
+				FABF96181E688C9200F16B58 /* Charts.framework */,
+				FABF961A1E688C9200F16B58 /* ChartsRealm.framework */,
+				FABF961C1E688C9200F16B58 /* ChartsTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FAC648EB1E6B203200C1AB6C /* Total Variation Denoising */ = {
+			isa = PBXGroup;
+			children = (
+				FAC8D0701E69D14000A843FD /* TotalVariationWrapper.swift */,
+				FAD062DD1E4B953F00877100 /* TVDenoising.swift */,
+			);
+			name = "Total Variation Denoising";
 			sourceTree = "<group>";
 		};
 		FAD59C561DF880B000A7FD6A = {
@@ -353,7 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */,
-				FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */,
+				FABF96111E688C9200F16B58 /* Charts.xcodeproj */,
 				FA9B3AFC1E006D7E00873309 /* FontAwesome */,
 			);
 			name = lib;
@@ -423,7 +445,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FAC6364E1E66E7D300893A03 /* PBXTargetDependency */,
+				FABF96201E688CD400F16B58 /* PBXTargetDependency */,
 			);
 			name = DataFil;
 			productName = "Accelerometer Graph";
@@ -466,8 +488,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = FAC636401E66E7C200893A03 /* Products */;
-					ProjectRef = FAC6363F1E66E7C200893A03 /* Charts.xcodeproj */;
+					ProductGroup = FABF96121E688C9200F16B58 /* Products */;
+					ProjectRef = FABF96111E688C9200F16B58 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -479,25 +501,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		FAC636461E66E7C200893A03 /* Charts.framework */ = {
+		FABF96181E688C9200F16B58 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = FAC636451E66E7C200893A03 /* PBXContainerItemProxy */;
+			remoteRef = FABF96171E688C9200F16B58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FAC636481E66E7C200893A03 /* ChartsRealm.framework */ = {
+		FABF961A1E688C9200F16B58 /* ChartsRealm.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ChartsRealm.framework;
-			remoteRef = FAC636471E66E7C200893A03 /* PBXContainerItemProxy */;
+			remoteRef = FABF96191E688C9200F16B58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FAC6364A1E66E7C200893A03 /* ChartsTests.xctest */ = {
+		FABF961C1E688C9200F16B58 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = FAC636491E66E7C200893A03 /* PBXContainerItemProxy */;
+			remoteRef = FABF961B1E688C9200F16B58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -517,9 +539,11 @@
 				FA9B3B091E006D8A00873309 /* LICENSE in Resources */,
 				FAD59C6F1DF880B000A7FD6A /* LaunchScreen.storyboard in Resources */,
 				FAD59C6C1DF880B000A7FD6A /* Assets.xcassets in Resources */,
+				FAC648F11E6B313200C1AB6C /* testOutput.txt in Resources */,
 				FA9B3B041E006D7E00873309 /* FontAwesome.otf in Resources */,
 				FA9B3B071E006D7E00873309 /* Info.plist in Resources */,
 				FAD59C6A1DF880B000A7FD6A /* Main.storyboard in Resources */,
+				FAC648EF1E6B250500C1AB6C /* testData.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7AFC0A1E46008000A4D6D1 /* FilteringProtocol.swift in Sources */,
+				FA88F51E1E6AF2D300FA197D /* totalVariationTests.swift in Sources */,
 				FA7AFC011E46007A00A4D6D1 /* SecondViewController.swift in Sources */,
 				FA7AFBFD1E46007A00A4D6D1 /* SavGolTableViewController.swift in Sources */,
 				FA7AFBFB1E46007A00A4D6D1 /* LowPassTableViewController.swift in Sources */,
@@ -551,6 +576,7 @@
 				FA7AFC111E46009000A4D6D1 /* SwiftyJSON.swift in Sources */,
 				FA7AFC0C1E46008000A4D6D1 /* globalConfig.swift in Sources */,
 				FA7AFC021E46007A00A4D6D1 /* FilterTableViewController.swift in Sources */,
+				FA88F51F1E6AF33500FA197D /* TotalVariationWrapper.swift in Sources */,
 				FAD062DF1E4B9D0700877100 /* TVDenoising.swift in Sources */,
 				FA7AFBFA1E46007A00A4D6D1 /* HighPassTableViewController.swift in Sources */,
 				FA7AFBF91E45FB4E00A4D6D1 /* fortranMatrixOps.swift in Sources */,
@@ -571,6 +597,7 @@
 			files = (
 				FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */,
 				FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */,
+				FAC8D0711E69D14000A843FD /* TotalVariationWrapper.swift in Sources */,
 				FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */,
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
 				FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */,
@@ -612,10 +639,10 @@
 			target = FAD59C5E1DF880B000A7FD6A /* DataFil */;
 			targetProxy = FA7AFBF31E45F9B000A4D6D1 /* PBXContainerItemProxy */;
 		};
-		FAC6364E1E66E7D300893A03 /* PBXTargetDependency */ = {
+		FABF96201E688CD400F16B58 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;
-			targetProxy = FAC6364D1E66E7D300893A03 /* PBXContainerItemProxy */;
+			targetProxy = FABF961F1E688CD400F16B58 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -644,7 +671,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 82V36U7G5D;
-				INFOPLIST_FILE = "Accelerometer GraphTests/Info.plist";
+				INFOPLIST_FILE = DataFilTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AlexGubbay.Accelerometer-GraphTests";
@@ -659,7 +686,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 82V36U7G5D;
-				INFOPLIST_FILE = "Accelerometer GraphTests/Info.plist";
+				INFOPLIST_FILE = DataFilTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AlexGubbay.Accelerometer-GraphTests";
