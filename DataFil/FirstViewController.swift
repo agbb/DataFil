@@ -9,10 +9,6 @@
 import UIKit
 import Charts
 
-//struct notificationManager{
- //   static var nc = NotificationCenter.default
- //   static let newRawDataNotification = Notification.Name("newRawData")
-//}
 
 class FirstViewController: UIViewController, ChartViewDelegate {
 
@@ -29,7 +25,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newRemoteData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         

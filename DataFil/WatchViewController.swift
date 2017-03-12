@@ -11,19 +11,31 @@ import UIKit
 class WatchViewController: UIViewController {
 
 
-    let comms = watchCommunicator.sharedInstance
+    var i = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        comms.start()
+
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func sendPushed(_ sender: Any) {
-        comms.sendMessage(key: "hello", value: "hi")
-        print("sent")
+    @IBAction func startButtonTapped(_ sender: Any) {
+        remoteCommunicator.sharedInstance.start(deviceId: "device")
+        remoteDataInterface.sharedInstance.subscribeIncomingData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newRemoteData), name: Notification.Name("newRemoteData"), object: nil)
     }
+
+
+    func newRemoteData(notification: NSNotification){
+        //print(i)
+        i += 1
+
+        let data = notification.userInfo as! Dictionary<String,accelPoint>
+        let accelData = data["data"]
+        print(accelData?.count)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

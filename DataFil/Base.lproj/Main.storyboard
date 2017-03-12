@@ -646,11 +646,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MJ-zm-Cbw">
-                                <rect key="frame" x="169" y="28" width="36" height="30"/>
+                                <rect key="frame" x="172" y="28" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Send"/>
+                                <state key="normal" title="Pair"/>
                                 <connections>
-                                    <action selector="sendPushed:" destination="foo-ih-el0" eventType="touchUpInside" id="neH-E0-RvX"/>
+                                    <action selector="startButtonTapped:" destination="foo-ih-el0" eventType="touchUpInside" id="l1a-Mp-oHj"/>
                                 </connections>
                             </button>
                         </subviews>

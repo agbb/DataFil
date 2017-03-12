@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import WatchKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,15 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
  
         
-        let acm = accelerometerManager()
+        let acm = accelerometerManager(sourceId: "device")
         acm.initaliseAccelerometer()
+
        
         //TODO fix this.
         _ = FilterManager.sharedInstance
         _ = utilities.init()
-
         
-
+        
+        
         return true
     }
    

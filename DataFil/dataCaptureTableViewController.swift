@@ -56,12 +56,12 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         
         if timeRemaining == 0.0{
             
-            let alert = alertBuilder().build(title: "Invalid time", message: "Select a valid time for recording.", buttonText: "OK")
+            let alert = build(title: "Invalid time", message: "Select a valid time for recording.", buttonText: "OK")
             self.present(alert, animated: true, completion: nil)
             
         }else if raw == false && processed == false{
             
-            let alert = alertBuilder().build(title:"No data selected", message:"Select at least one data type for recording.", buttonText:"OK")
+            let alert = build(title:"No data selected", message:"Select at least one data type for recording.", buttonText:"OK")
             self.present(alert, animated: true, completion: nil)
 
         }else{
@@ -80,7 +80,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
                     self.progressBar.setProgress(Float(1.0 - (self.timeRemaining/self.totalTime)), animated: true)
                 }else{
                     
-                    let alert = alertBuilder().build(title:"Recording Complete", message:"The capture has been saved in the \"Saved Captures\" section.", buttonText:"OK")
+                    let alert = self.build(title:"Recording Complete", message:"The capture has been saved in the \"Saved Captures\" section.", buttonText:"OK")
                     self.present(alert, animated: true, completion: nil)
                     self.progressBar.setProgress(Float(0.0), animated: false)
                     self.spinner.stopAnimating()
@@ -197,5 +197,9 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         tableView.deselectRow(at: tableView.indexPath(for: (sender as! UITableViewCell))!, animated: true)
     }
     
-
+    func build(title: String,  message:String, buttonText:String)-> UIAlertController{
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        return alert
+    }
 }

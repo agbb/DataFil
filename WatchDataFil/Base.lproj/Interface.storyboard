@@ -14,6 +14,7 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="DataFil">
                     <items>
+                        <label alignment="left" text="Data Streaming" id="iM4-1k-cgT"/>
                         <button width="1" alignment="left" title="Start" id="7LY-Tt-SCc">
                             <connections>
                                 <segue destination="l5Y-Iv-cut" kind="push" id="gb3-2L-mkt"/>
@@ -29,12 +30,15 @@
             <objects>
                 <controller id="l5Y-Iv-cut" customClass="MainInterfaceController" customModule="DataFil">
                     <items>
-                        <button width="1" alignment="left" title="Send" id="NN9-7P-3p8">
-                            <connections>
-                                <action selector="buttonTapped" destination="l5Y-Iv-cut" id="8zd-7b-kHy"/>
-                            </connections>
-                        </button>
+                        <label alignment="left" text="X:" id="N8A-8M-y8e"/>
+                        <label alignment="left" text="Y:" id="hOb-l4-zat"/>
+                        <label alignment="left" text="Z:" id="6S4-Y9-bNC"/>
                     </items>
+                    <connections>
+                        <outlet property="xAccelLabel" destination="N8A-8M-y8e" id="jfs-UZ-lr1"/>
+                        <outlet property="yAccelLabel" destination="hOb-l4-zat" id="Tlx-Rn-50F"/>
+                        <outlet property="zAccelLabel" destination="6S4-Y9-bNC" id="4Kz-MM-iGw"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="566" y="345"/>
