@@ -12,6 +12,7 @@ import WatchKit
 
 class deviceCommunicator: NSObject, WCSessionDelegate {
 
+    var deviceObservers: [String: [(Any) -> Void]]
     static let sharedInstance = deviceCommunicator()
     let session = WCSession.default()
 
@@ -22,6 +23,7 @@ class deviceCommunicator: NSObject, WCSessionDelegate {
     }
 
     override init(){
+        deviceObservers = [:]
         print("comms live on watch")
     }
 
@@ -30,7 +32,10 @@ class deviceCommunicator: NSObject, WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("\(message.keys.first) from device > watch")
+        for k in message.keys{
+            print("\(k) from watch > device")
+            notifyObservers(key: k, data: message[k] as Any)
+        }
         WKInterfaceDevice().play(.click)
     }
 
@@ -42,6 +47,26 @@ class deviceCommunicator: NSObject, WCSessionDelegate {
             WCSession.default().sendMessage(message, replyHandler: nil)
         }
         
+    }
+
+    func addObserver(key: String, update: @escaping (Any) -> Void) {
+
+        if var value = deviceObservers[key]{
+            value.append(update)
+        }else{
+            deviceObservers[key] = [update]
+        }
+
+    }
+
+    func notifyObservers(key: String, data: Any) {
+
+        if let registeredObservers = deviceObservers[key]{
+
+            for i in registeredObservers {
+                i(data)
+            }
+        }
     }
 
 }

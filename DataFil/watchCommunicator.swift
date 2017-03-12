@@ -13,6 +13,7 @@ import WatchConnectivity
 class watchCommunicator: NSObject, WCSessionDelegate {
 
     static let sharedInstance = watchCommunicator()
+    var watchObservers: [String: [(Any) -> Void]]
     var delegates = [AnyObject]()
     var session: WCSession?
 
@@ -24,6 +25,10 @@ class watchCommunicator: NSObject, WCSessionDelegate {
             print("comms live on device")
 
         }
+    }
+    override init(){
+
+        watchObservers = [:]
     }
 
     func session(_ session: WCSession,
@@ -44,8 +49,10 @@ class watchCommunicator: NSObject, WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
-        print("\(message.keys.first) from watch > device")
-        
+        for k in message.keys{
+            print("\(k) from watch > device")
+            notifyObservers(key: k, data: message[k] as Any)
+        }
     }
 
     func sendMessage(key: String, value: Any){
@@ -55,6 +62,25 @@ class watchCommunicator: NSObject, WCSessionDelegate {
             let message = [key: value]
             WCSession.default().sendMessage(message, replyHandler: nil)
         }
+    }
 
+    func addObserver(key: String, update: @escaping (Any) -> Void) {
+
+        if var value = watchObservers[key]{
+            value.append(update)
+        }else{
+            watchObservers[key] = [update]
+        }
+
+    }
+
+    func notifyObservers(key: String, data: Any) {
+
+        if let registeredObservers = watchObservers[key]{
+
+            for i in registeredObservers {
+                i(data)
+            }
+        }
     }
 }
