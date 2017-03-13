@@ -9,8 +9,6 @@
 import Foundation
 import CoreMotion
 
-
-
 class accelerometerManager{
 
     lazy var manager = CMMotionManager()
@@ -44,8 +42,11 @@ class accelerometerManager{
                 print("accelerometer busy")
             }
         }
+    }
 
+    func deinitAccelerometer(){
 
+        manager.stopAccelerometerUpdates()
     }
 
     @objc func newDatasourceSettings(notification: NSNotification) {

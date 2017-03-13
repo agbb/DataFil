@@ -19,7 +19,6 @@
 		FA230E941E75741900AE58E4 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230E931E75741900AE58E4 /* NotificationController.swift */; };
 		FA230E961E75741900AE58E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA230E951E75741900AE58E4 /* Assets.xcassets */; };
 		FA230E9A1E75741900AE58E4 /* WatchDataFil.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FA230E7C1E75741900AE58E4 /* WatchDataFil.app */; };
-		FA230EAA1E7586C600AE58E4 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EA41E757D4700AE58E4 /* MainInterfaceController.swift */; };
 		FA230EAC1E75893300AE58E4 /* WatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EAB1E75893300AE58E4 /* WatchViewController.swift */; };
 		FA230EAF1E75AAE900AE58E4 /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
 		FA230EB01E75AD0200AE58E4 /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
@@ -210,7 +209,6 @@
 		FA230E951E75741900AE58E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA230E971E75741900AE58E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA230EA31E7574A500AE58E4 /* DataFil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DataFil.entitlements; sourceTree = "<group>"; };
-		FA230EA41E757D4700AE58E4 /* MainInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainInterfaceController.swift; path = ../WatchDataFil/MainInterfaceController.swift; sourceTree = "<group>"; };
 		FA230EA61E75802A00AE58E4 /* remoteCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = remoteCommunicator.swift; sourceTree = "<group>"; };
 		FA230EAB1E75893300AE58E4 /* WatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchViewController.swift; sourceTree = "<group>"; };
 		FA230EB11E75AEE300AE58E4 /* remoteDataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = remoteDataInterface.swift; path = "../WatchDataFil Extension/remoteDataInterface.swift"; sourceTree = "<group>"; };
@@ -318,7 +316,6 @@
 		FA230E8C1E75741900AE58E4 /* WatchDataFil Extension */ = {
 			isa = PBXGroup;
 			children = (
-				FA230EA41E757D4700AE58E4 /* MainInterfaceController.swift */,
 				FA230E8F1E75741900AE58E4 /* InterfaceController.swift */,
 				FA230E911E75741900AE58E4 /* ExtensionDelegate.swift */,
 				FA230E931E75741900AE58E4 /* NotificationController.swift */,
@@ -746,7 +743,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA230EBB1E75C97C00AE58E4 /* remoteCommunicator.swift in Sources */,
-				FA230EAA1E7586C600AE58E4 /* MainInterfaceController.swift in Sources */,
 				FA230EAF1E75AAE900AE58E4 /* accelerometerManager.swift in Sources */,
 				FA230EB61E75BFA900AE58E4 /* serialiser.swift in Sources */,
 				FA230EB31E75B50A00AE58E4 /* globalConfig.swift in Sources */,
@@ -1135,6 +1131,7 @@
 				FA230E9E1E75741900AE58E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA230EA11E75741900AE58E4 /* Build configuration list for PBXNativeTarget "WatchDataFil" */ = {
 			isa = XCConfigurationList;
@@ -1143,6 +1140,7 @@
 				FA230E9C1E75741900AE58E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA7AFBF51E45F9B000A4D6D1 /* Build configuration list for PBXNativeTarget "DataFilTests" */ = {
 			isa = XCConfigurationList;

@@ -12,10 +12,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-        remoteCommunicator.sharedInstance.start(deviceId: "watch")
-        let accel = accelerometerManager.init(sourceId: "watch")
-        accel.initaliseAccelerometer()
-        remoteDataInterface.sharedInstance.publishOutgoingData()
+       
     }
 
     func applicationDidBecomeActive() {

@@ -25,7 +25,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newRemoteData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
@@ -67,6 +67,10 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         setBottomChartData(values: [0])
         
     }
+
+
+    
+
     func rotated(){
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
             // Put your code which should be executed with a delay here

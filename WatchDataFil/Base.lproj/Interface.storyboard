@@ -14,34 +14,23 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="DataFil">
                     <items>
-                        <label alignment="left" text="Data Streaming" id="iM4-1k-cgT"/>
+                        <label alignment="left" text="Data Streaming" id="iM4-1k-cgT">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
                         <button width="1" alignment="left" title="Start" id="7LY-Tt-SCc">
                             <connections>
-                                <segue destination="l5Y-Iv-cut" kind="push" id="gb3-2L-mkt"/>
+                                <action selector="startButtonPressed" destination="AgC-eL-Hgc" id="d15-Kg-KNE"/>
                             </connections>
                         </button>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="220" y="345"/>
-        </scene>
-        <!--Main Interface Controller-->
-        <scene sceneID="bcb-yq-pSQ">
-            <objects>
-                <controller id="l5Y-Iv-cut" customClass="MainInterfaceController" customModule="DataFil">
-                    <items>
-                        <label alignment="left" text="X:" id="N8A-8M-y8e"/>
-                        <label alignment="left" text="Y:" id="hOb-l4-zat"/>
-                        <label alignment="left" text="Z:" id="6S4-Y9-bNC"/>
+                        <label alignment="left" text="Label" id="2V6-TN-NEc"/>
                     </items>
                     <connections>
-                        <outlet property="xAccelLabel" destination="N8A-8M-y8e" id="jfs-UZ-lr1"/>
-                        <outlet property="yAccelLabel" destination="hOb-l4-zat" id="Tlx-Rn-50F"/>
-                        <outlet property="zAccelLabel" destination="6S4-Y9-bNC" id="4Kz-MM-iGw"/>
+                        <outlet property="infoLabel" destination="2V6-TN-NEc" id="qM8-V2-nTU"/>
+                        <outlet property="startButton" destination="7LY-Tt-SCc" id="fQU-wJ-rnz"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="566" y="345"/>
+            <point key="canvasLocation" x="220" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
