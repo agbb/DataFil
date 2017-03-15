@@ -21,19 +21,20 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
     func start(deviceId: String){
         self.deviceId = deviceId
         if WCSession.isSupported() {
+            if WCSession.default().hasContentPending{
+                print("may have old data")
+            }
             WCSession.default().delegate = self
             WCSession.default().activate()
             print("comms live on \(deviceId)")
-
         }else{
-            print("unable to enable coms on \(deviceId)")
+            print("coms not supported on \(deviceId)")
         }
     }
     override init(){
 
         watchObservers = [:]
     }
-
     func session(_ session: WCSession,
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?){
@@ -67,6 +68,12 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
         }else{
             print("remote unreachable from \(deviceId)")
         }
+    }
+    
+    func watchIsConnected() -> Bool{
+        
+        return !WCSession.default().isReachable
+      
     }
 
     func addObserver(key: String, update: @escaping (Any) -> Void) {

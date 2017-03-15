@@ -14,7 +14,8 @@ class remoteDataInterface {
     let srl = serialiser()
     let observerKey = "watchAccelRaw"
     var buffer = [String]()
-
+    var isListening = false
+    var isSending = false
 
     func publishOutgoingData(){
         print("publishing enabled")
@@ -35,8 +36,19 @@ class remoteDataInterface {
         }
 
         remoteCommunicator.sharedInstance.addObserver(key: observerKey, update: incoming)
+        isListening = true
     }
 
+    func teardown(){
+        
+         NotificationCenter.default.removeObserver(self)
+        isListening = false
+        isSending = false
+        
+    }
+    deinit {
+         NotificationCenter.default.removeObserver(self)
+    }
 
     @objc private func newOutgoingData(notification: NSNotification){
         let data = notification.userInfo as! Dictionary<String,accelPoint>
@@ -49,7 +61,7 @@ class remoteDataInterface {
             remoteCommunicator.sharedInstance.sendMessage(key: "watchAccelRaw", value: buffer)
             buffer.removeAll()
         }
-
+        isSending = true
     }
 
 }

@@ -14,26 +14,33 @@ class recorder{
     
     private var rawData = [accelPoint]()
     private var processedData = [accelPoint]()
-    private var triggerTime = NSDate()
     private var rawRecordingPoint = 0
     private var processedRecordingPoint = 0
     private var exportAsJson = true
     private let formatter = dataFormatter()
     
-    func beginRecording(raw: Bool, processed: Bool, time: Double, json: Bool){
-        triggerTime = NSDate()
+    func beginRecording(raw: Bool, processed: Bool, time: Double, json: Bool, fromWatch: Bool){
+        let triggerTime = NSDate()
         exportAsJson = json
-        
-        if raw{
-            NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRawData"), object: nil)
+        if !fromWatch{
+            if raw{
+                NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRawData"), object: nil)
+            }
+            if processed {
+                NotificationCenter.default.addObserver(self, selector: #selector(self.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
+            }
+        }else{
+            if raw{
+                print("got raw")
+                NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRemoteData"), object: nil)
+            }
+            if processed {
+                NotificationCenter.default.addObserver(self, selector: #selector(self.newProcessedData), name: Notification.Name("newRemoteProcessedData"), object: nil)
+            }
         }
-        if processed {
-            NotificationCenter.default.addObserver(self, selector: #selector(self.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
-        }
-        
         Timer.scheduledTimer(withTimeInterval: time, repeats: false, block: {_ in
             //fire stopRecording method at end of time period
-            self.stopRecording()
+            self.stopRecording(triggerTime: triggerTime, fromWatch: fromWatch)
             
             })
     }
@@ -49,13 +56,13 @@ class recorder{
         
     }
     
-    private func stopRecording(){
+    private func stopRecording(triggerTime: NSDate, fromWatch: Bool){
 
         NotificationCenter.default.removeObserver(self)
  
         if(exportAsJson){
             
-            let jsonHeader = formatter.formatJSONheader(triggerTime: triggerTime as Date)
+            let jsonHeader = formatter.formatJSONheader(triggerTime: triggerTime as Date, fromWatch: fromWatch)
             let outputData = formatter.formatJSONdata(header: jsonHeader, rawData: rawData, processedData: processedData)
             storage().saveRecordingJson(json: outputData, triggerTime: triggerTime as Date)
         }else{
@@ -77,8 +84,6 @@ class recorder{
             processedData.append(point)
         }
 }
-    
-   
     
   deinit{
         //clean up observers

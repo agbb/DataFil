@@ -52,7 +52,6 @@ class accelerometerManager{
     @objc func newDatasourceSettings(notification: NSNotification) {
         let data = notification.userInfo as! Dictionary<String,Double>
         sampleRate = data["sampleRate"]!
-        print(sampleRate)
         if manager.isAccelerometerAvailable{
             if manager.isAccelerometerActive != false{
                 manager.accelerometerUpdateInterval = 1.0/sampleRate

@@ -24,6 +24,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var exportSelection: UISegmentedControl!
+    @IBOutlet weak var dataSourceSelection: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +38,14 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && remoteDataInterface.sharedInstance.isListening
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        print("checking\(remoteCommunicator.sharedInstance.watchIsConnected()) \(remoteDataInterface.sharedInstance.isListening)")
+        
+        dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && remoteDataInterface.sharedInstance.isListening
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,7 +57,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         return 1
     }
     @IBAction func recordPressed(_ sender: UIButton) {
-        print("press")
+
         timeRemaining = (minuteSelection * 60) + secondSelection
         totalTime = timeRemaining
         
@@ -66,13 +73,17 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
 
         }else{
             
+            let fromWatch = dataSourceSelection.selectedSegmentIndex == 1
+            if(fromWatch){
+                let alert = self.build(title:"Recording From Apple Watch", message:"Open the streaming app on Apple Watch and tap \"Start\" to transmit data.", buttonText:"OK")
+                self.present(alert, animated: true, completion: nil)
+            }
+            
             let exportJson = (exportSelection.selectedSegmentIndex == 0)
             spinner.startAnimating()
             recordButton.isHidden = true
-            record.beginRecording(raw:self.raw, processed:self.processed, time:Double(timeRemaining), json: exportJson)
-            
-            
-            
+            record.beginRecording(raw:self.raw, processed:self.processed, time:Double(timeRemaining), json: exportJson, fromWatch: fromWatch)
+ 
             let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
                 if(self.timeRemaining > 0){
                     self.timeRemaining -= 1
@@ -96,7 +107,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
 
     
@@ -116,7 +127,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Change the selected background view of the cell.
-        if indexPath.row==3 {
+        if indexPath.row==4 {
             let cell = tableView.cellForRow(at: indexPath)
             if processed {
                 cell?.accessoryType = .none
@@ -126,7 +137,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
                 processed = true
             }
         }
-        if indexPath.row == 2 {
+        if indexPath.row == 3 {
             let cell = tableView.cellForRow(at: indexPath)
             if raw {
                 cell?.accessoryType = .none
@@ -142,7 +153,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         //Change the selected background view of the cell.
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.row == 3 {
+        if indexPath.row == 4 {
             let cell = tableView.cellForRow(at: indexPath)
             if processed {
                 cell?.accessoryType = .none
@@ -152,7 +163,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
                 processed = true
             }
         }
-        if indexPath.row == 2 {
+        if indexPath.row == 3 {
             let cell = tableView.cellForRow(at: indexPath)
             if raw {
                 cell?.accessoryType = .none

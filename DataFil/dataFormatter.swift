@@ -23,28 +23,34 @@ class dataFormatter {
           csv = csv + "\n\(pair.0.count),\(pair.0.x),\(pair.0.y),\(pair.0.z),\(pair.1.x),\(pair.1.y),\(pair.1.z)"
         }
     
-        print(csv)
         return csv
     }
     
-    func formatJSONheader(triggerTime: Date)-> JSON{
+    func formatJSONheader(triggerTime: Date, fromWatch: Bool)-> JSON{
         
         
         let dateFormatter = utilities.dateFormatter
         
-        let dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
-        
+        var dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
+        if fromWatch{
+            dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
+        }
         let dateJson = dateString.data(using: .utf8, allowLossyConversion: false)
+    
+        
         var json = JSON(data: dateJson!)
-        
-        
         let filters = FilterManager.sharedInstance.activeFilters
         var filterData = [String:[String:Double]]()
         for filter in filters{
             filterData[filter.filterName] = filter.params
         }
         json["filters"] = JSON(filterData)
-        
+        if fromWatch {
+            json["source"] = JSON("Watch")
+        }else{
+            json["source"] = JSON("iPhone or iPad")
+        }
+        print(json)
         return json
         
     }

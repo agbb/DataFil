@@ -23,14 +23,16 @@ class WatchViewController: UIViewController {
     @IBAction func startButtonTapped(_ sender: Any) {
         remoteCommunicator.sharedInstance.start(deviceId: "device")
         remoteDataInterface.sharedInstance.subscribeIncomingData()
+        i = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.newRemoteData), name: Notification.Name("newRemoteData"), object: nil)
+        i = 0
     }
 
 
     func newRemoteData(notification: NSNotification){
         //print(i)
         i += 1
-
+        
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
         print(accelData?.count)
