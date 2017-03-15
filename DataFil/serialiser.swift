@@ -16,7 +16,7 @@ class serialiser {
 
     func serialise(input: accelPoint) -> String{
 
-        return "\(input.count),\(input.x),\(input.y),\(input.z)"
+        return "\(input.count),\(input.xAccel),\(input.yAccel),\(input.zAccel)"
     }
 
     func deserialise(input: String) -> accelPoint{
@@ -28,9 +28,9 @@ class serialiser {
             return outputPoint
         }else{
             outputPoint.count = Int(parts[0])!
-            outputPoint.x = Double(parts[1])!
-            outputPoint.y = Double(parts[2])!
-            outputPoint.z = Double(parts[3])!
+            outputPoint.xAccel = Double(parts[1])!
+            outputPoint.yAccel = Double(parts[2])!
+            outputPoint.zAccel = Double(parts[3])!
             return outputPoint
         }
 

@@ -22,7 +22,6 @@ class FilterManager{
     }
 
     @objc func newRawData(notification: NSNotification){
-        
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
         //let currentData = accelData?.getAxis(axis: "x")

@@ -96,15 +96,15 @@ class SavitzkyGolay: FilteringProtocol {
         
         for i in 0...size-1{
             let coeff = coeffs[i]
-            tempX = tempX + (buffer[i].x * coeff)
-            tempY = tempY + (buffer[i].y * coeff)
-            tempZ = tempZ + (buffer[i].z * coeff)
+            tempX = tempX + (buffer[i].xAccel * coeff)
+            tempY = tempY + (buffer[i].yAccel * coeff)
+            tempZ = tempZ + (buffer[i].zAccel * coeff)
         }
         
     
-        newPoint.x = tempX
-        newPoint.y = tempY
-        newPoint.z = tempZ
+        newPoint.xAccel = tempX
+        newPoint.yAccel = tempY
+        newPoint.zAccel = tempZ
         
         return newPoint
         

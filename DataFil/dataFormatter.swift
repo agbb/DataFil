@@ -13,17 +13,13 @@ class dataFormatter {
     func formatCSV(rawData: [accelPoint], processedData: [accelPoint]) -> String{
         var outputRaw = rawData
         var outputProcessed = processedData
-        
-        print(outputRaw.count)
-        print("____")
-        print(outputProcessed.count)
-        print("____")
-        
+
         var point = 0
         if rawData.count > 0 {
             point = rawData[rawData.count - 1].count
         }
         while outputRaw.count < outputProcessed.count{
+            print("adding raw")
             point += 1
             outputRaw.append(accelPoint(dataX: 0, dataY: 0, dataZ: 0, count: point))
         }
@@ -33,16 +29,12 @@ class dataFormatter {
             point = processedData[processedData.count - 1].count
         }
         while outputProcessed.count < outputRaw.count{
+            print("adding processed")
             point += 1
             outputProcessed.append(accelPoint(dataX: 0, dataY: 0, dataZ: 0, count: point))
         }
-        
-        print(outputRaw.count)
-        print("____")
-        print(outputProcessed.count)
-        print("____")
-        
-        var csv = "ID,rawX,rawY,rawZ,processedX,processedY,processedZ"
+ 
+        var csv = "ID,rawXAccel,rawYAccel,rawZAccel,rawXGyro,rawYGyro,rawZGyro,rawXMag,rawYMag,rawZMag,processedXAccel,processedYAccel,processedZAccel,processedXGyro,processedYGyro,processedZGyro,processedXMag,processedYMag,processedZMag"
         if(outputRaw.count != outputProcessed.count){
             print("RECORDINGS NOT SAME LENGTH: CLIPPING TO SHORTEST")
         }
@@ -50,7 +42,9 @@ class dataFormatter {
 
         
         for pair in paired{
-          csv = csv + "\n\(pair.0.count),\(pair.0.x),\(pair.0.y),\(pair.0.z),\(pair.1.x),\(pair.1.y),\(pair.1.z)"
+            csv = csv + "\n\(pair.0.count),\(pair.0.xAccel),\(pair.0.yAccel),\(pair.0.zAccel),\(pair.0.xGyro),\(pair.0.yGyro),\(pair.0.zGyro),\(pair.0.xMag),\(pair.0.yMag),\(pair.0.zMag),"
+            
+            csv = csv + "\(pair.1.xAccel),\(pair.1.yAccel),\(pair.1.zAccel),\(pair.1.xGyro),\(pair.1.yGyro),\(pair.1.zGyro),\(pair.1.xMag),\(pair.1.yMag),\(pair.1.zMag)"
         }
     
         return csv
@@ -94,9 +88,16 @@ class dataFormatter {
         for point in rawData{
             var pointDict = [String:Double]()
             pointDict["ID"] = Double(point.count)
-            pointDict["x"] = point.x
-            pointDict["y"] = point.y
-            pointDict["z"] = point.z
+            pointDict["xAccel"] = point.xAccel
+            pointDict["yAccel"] = point.yAccel
+            pointDict["zAccel"] = point.zAccel
+            pointDict["xGyro"] = point.xGyro
+            pointDict["yGyro"] = point.yGyro
+            pointDict["zGyro"] = point.zGyro
+            pointDict["xMag"] = point.xMag
+            pointDict["yMag"] = point.yMag
+            pointDict["zMag"] = point.zMag
+            
             rawPoints.append(pointDict)
             
         }
@@ -104,9 +105,15 @@ class dataFormatter {
         for point in processedData{
             var pointDict = [String:Double]()
             pointDict["ID"] = Double(point.count)
-            pointDict["x"] = point.x
-            pointDict["y"] = point.y
-            pointDict["z"] = point.z
+            pointDict["xAccel"] = point.xAccel
+            pointDict["yAccel"] = point.yAccel
+            pointDict["zAccel"] = point.zAccel
+            pointDict["xGyro"] = point.xGyro
+            pointDict["yGyro"] = point.yGyro
+            pointDict["zGyro"] = point.zGyro
+            pointDict["xMag"] = point.xMag
+            pointDict["yMag"] = point.yMag
+            pointDict["zMag"] = point.zMag
             processedPoints.append(pointDict)
         }
         

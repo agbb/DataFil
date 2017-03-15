@@ -60,9 +60,9 @@ class boundedAverage: FilteringProtocol {
         let points = (Double(params["points"]!).roundTo(places: 0))
         
         if points > 1.0 {
-            xAvg = xAvg + (dataPoint.x - xAvg) / Double(dataPoint.count+1)
-            yAvg = yAvg + (dataPoint.y - yAvg) / Double(dataPoint.count+1)
-            zAvg = zAvg + (dataPoint.z - zAvg) / Double(dataPoint.count+1)
+            xAvg = xAvg + (dataPoint.xAccel - xAvg) / Double(dataPoint.count+1)
+            yAvg = yAvg + (dataPoint.yAccel - yAvg) / Double(dataPoint.count+1)
+            zAvg = zAvg + (dataPoint.zAccel - zAvg) / Double(dataPoint.count+1)
             let newPoint = accelPoint(dataX: xAvg, dataY: yAvg, dataZ: zAvg, count: dataPoint.count)
             return newPoint
         }else{
@@ -73,32 +73,32 @@ class boundedAverage: FilteringProtocol {
     func boundedAverage(currentRaw: accelPoint){
         var newPoint = accelPoint()
         newPoint.count = currentRaw.count
-        if currentRaw.x > (currentCenterX + params["upperBound"]!){
-            currentCenterX = currentRaw.x
-            newPoint.x = currentCenterX
-        }else if currentRaw.x < (currentCenterX - params["lowerBound"]!){
-            currentCenterX = currentRaw.x
-            newPoint.x = currentCenterX
+        if currentRaw.xAccel > (currentCenterX + params["upperBound"]!){
+            currentCenterX = currentRaw.xAccel
+            newPoint.xAccel = currentCenterX
+        }else if currentRaw.xAccel < (currentCenterX - params["lowerBound"]!){
+            currentCenterX = currentRaw.xAccel
+            newPoint.xAccel = currentCenterX
         }else{
-            newPoint.x = currentCenterX
+            newPoint.xAccel = currentCenterX
         }
-        if currentRaw.y > (currentCenterY + params["upperBound"]!){
-            currentCenterY = currentRaw.y
-            newPoint.y = currentCenterY
-        }else if currentRaw.y < (currentCenterY - params["lowerBound"]!){
-            currentCenterY = currentRaw.y
-            newPoint.y = currentCenterY
+        if currentRaw.yAccel > (currentCenterY + params["upperBound"]!){
+            currentCenterY = currentRaw.yAccel
+            newPoint.yAccel = currentCenterY
+        }else if currentRaw.yAccel < (currentCenterY - params["lowerBound"]!){
+            currentCenterY = currentRaw.yAccel
+            newPoint.yAccel = currentCenterY
         }else{
-            newPoint.y = currentCenterY
+            newPoint.yAccel = currentCenterY
         }
-        if currentRaw.z > (currentCenterZ + params["upperBound"]!){
-            currentCenterZ = currentRaw.z
-            newPoint.z = currentCenterZ
-        }else if currentRaw.z < (currentCenterZ - params["lowerBound"]!){
-            currentCenterZ = currentRaw.z
-            newPoint.z = currentCenterZ
+        if currentRaw.zAccel > (currentCenterZ + params["upperBound"]!){
+            currentCenterZ = currentRaw.zAccel
+            newPoint.zAccel = currentCenterZ
+        }else if currentRaw.zAccel < (currentCenterZ - params["lowerBound"]!){
+            currentCenterZ = currentRaw.zAccel
+            newPoint.zAccel = currentCenterZ
         }else{
-            newPoint.z = currentCenterZ
+            newPoint.zAccel = currentCenterZ
         }
         notifyObservers(data: [newPoint])
     }

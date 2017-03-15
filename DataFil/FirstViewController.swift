@@ -150,7 +150,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
 
-        let newEntry = ChartDataEntry(x: Double((accelData?.count)!), y: (accelData?.x)!)
+        let newEntry = ChartDataEntry(x: Double((accelData?.count)!), y: (accelData?.xAccel)!)
         
         
         TopLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
@@ -179,7 +179,7 @@ class FirstViewController: UIViewController, ChartViewDelegate {
         let accelDataArray = data["data"]
         
         for accelData in accelDataArray!{
-            let newEntry = ChartDataEntry(x: Double(accelData.count), y: accelData.x)
+            let newEntry = ChartDataEntry(x: Double(accelData.count), y: accelData.xAccel)
             
              BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 1)
             

@@ -26,7 +26,7 @@ struct utilities{
     static func duplicateAccelData(data: [accelPoint])-> [accelPoint]{
         var outputArray = [accelPoint]()
         for d in data{
-            outputArray.append(accelPoint(dataX: d.x, dataY: d.y, dataZ: d.z, count: d.count))
+            outputArray.append(accelPoint(dataX: d.xAccel, dataY: d.yAccel, dataZ: d.zAccel, count: d.count))
         }
         return outputArray
     }

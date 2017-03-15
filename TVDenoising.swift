@@ -43,7 +43,7 @@ class TVDenoising{
         var outputArray = [accelPoint]()
         outputArray.append(accelPoint(dataX: -1.0, dataY: -1.0, dataZ: -1.0, count: -1))
         for d in 0..<data.count{
-            outputArray.append(accelPoint(dataX: data[d].x, dataY: data[d].y, dataZ: data[d].z, count: d))
+            outputArray.append(accelPoint(dataX: data[d].xAccel, dataY: data[d].yAccel, dataZ: data[d].zAccel, count: d))
         }
         outputArray.append(accelPoint(dataX: -1.0, dataY: -1.0, dataZ: -1.0, count: -1))
         return outputArray
@@ -55,7 +55,7 @@ class TVDenoising{
             proceccedPoint = position
         }
         
-        output[position].x = data
+        output[position].xAccel = data
     }
 
     func calibrateOutputData(data: [accelPoint]) -> [accelPoint]{
@@ -80,8 +80,8 @@ class TVDenoising{
             return output
         }
         
-        vMin = input[1].getAxis(axis: axis) - lambda
-        vMax = input[1].getAxis(axis: axis) + lambda
+        vMin = input[1].getAccelAxis(axis: axis) - lambda
+        vMax = input[1].getAccelAxis(axis: axis) + lambda
         uMin = lambda
         uMax = -lambda
         var returnToTop = false
@@ -94,17 +94,17 @@ class TVDenoising{
             
             if(k == N){
 
-                output[N].setAxis(axis: axis, data:(vMin + uMin))
+                output[N].setAccelAxis(axis: axis, data:(vMin + uMin))
                 return calibrateOutputData(data: output)
             }
             
             //LINE 3
             
-            if(input[k+1].getAxis(axis: axis) + uMin < vMin - lambda){
+            if(input[k+1].getAccelAxis(axis: axis) + uMin < vMin - lambda){
                 
                 for i in kZero ... kMinus{
 
-                    output[i].setAxis(axis: axis, data: vMin)
+                    output[i].setAccelAxis(axis: axis, data: vMin)
                 }
                 
                 k = kMinus + 1
@@ -113,19 +113,19 @@ class TVDenoising{
                 kMinus = kMinus + 1
                 
                 
-                vMin = input[k].getAxis(axis: axis)
-                vMax = input[k].getAxis(axis: axis) + (2 * lambda)
+                vMin = input[k].getAccelAxis(axis: axis)
+                vMax = input[k].getAccelAxis(axis: axis) + (2 * lambda)
                 
                 uMin = lambda
                 uMax = -lambda
                 
                 //LINE 4
                 
-            }else if input[k+1].getAxis(axis: axis) + uMax > vMax + lambda {
+            }else if input[k+1].getAccelAxis(axis: axis) + uMax > vMax + lambda {
                 
                 for i in kZero ... kPlus{
 
-                    output[i].setAxis(axis: axis, data: vMax)
+                    output[i].setAccelAxis(axis: axis, data: vMax)
                 }
                 
                 k = kPlus + 1
@@ -133,8 +133,8 @@ class TVDenoising{
                 kMinus = kPlus + 1
                 kPlus = kPlus + 1
                 
-                vMin = input[k].getAxis(axis: axis) - 2 * lambda
-                vMax = input[k].getAxis(axis: axis)
+                vMin = input[k].getAccelAxis(axis: axis) - 2 * lambda
+                vMax = input[k].getAccelAxis(axis: axis)
                 uMin = lambda
                 uMax = -lambda
                 
@@ -143,8 +143,8 @@ class TVDenoising{
             }else{
                 
                 k = k + 1
-                uMin = uMin + input[k].getAxis(axis: axis) - vMin
-                uMax = uMax + input[k].getAxis(axis: axis) - vMax
+                uMin = uMin + input[k].getAccelAxis(axis: axis) - vMin
+                uMax = uMax + input[k].getAccelAxis(axis: axis) - vMax
                 
                 //LINE 6 PART ONE & PART 2
                 
@@ -174,23 +174,23 @@ class TVDenoising{
                 if uMin < 0 {
                     
                     for i in kZero ... kMinus{
-                        output[i].setAxis(axis: axis, data: vMin)
+                        output[i].setAccelAxis(axis: axis, data: vMin)
                     }
                     
                     k = kMinus + 1
                     kZero = kMinus + 1
                     kMinus = kMinus + 1
                     
-                    vMin = input[k].getAxis(axis: axis)
+                    vMin = input[k].getAccelAxis(axis: axis)
                     uMin = lambda
-                    uMax = input[k].getAxis(axis: axis) + lambda - vMax
+                    uMax = input[k].getAccelAxis(axis: axis) + lambda - vMax
                     
                     //LINE 9
                     
                 }else if uMax > 0 {
                     
                     for i in kZero ... kPlus{
-                        output[i].setAxis(axis: axis, data: vMax)
+                        output[i].setAccelAxis(axis: axis, data: vMax)
                         
                     }
                     
@@ -198,16 +198,16 @@ class TVDenoising{
                     kZero = kPlus + 1
                     kPlus = kPlus + 1
                     
-                    vMax = input[k].getAxis(axis: axis)
+                    vMax = input[k].getAccelAxis(axis: axis)
                     uMax = -lambda
-                    uMin = input[k].getAxis(axis: axis) - lambda - vMin
+                    uMin = input[k].getAccelAxis(axis: axis) - lambda - vMin
                     
                 }else{
                     
                     //LINE 10
                     
                     for i in kZero ... output.count - 1{
-                        output[i].setAxis(axis: axis, data: (vMin + uMin)/Double(k - kZero + 1))
+                        output[i].setAccelAxis(axis: axis, data: (vMin + uMin)/Double(k - kZero + 1))
                     }
                     
                     return calibrateOutputData(data: output)

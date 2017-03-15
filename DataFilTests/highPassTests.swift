@@ -43,7 +43,7 @@ class highPassTests: XCTestCase {
             let current = outputData[i]
             let raw = Double(i) * 0.01
             
-            XCTAssertLessThanOrEqual(current.x, raw) //ensure no ringing is present
+            XCTAssertLessThanOrEqual(current.xAccel, raw) //ensure no ringing is present
 
         }
     }
@@ -74,7 +74,7 @@ class highPassTests: XCTestCase {
             let current = outputData[i]
 
             //The filtered signal should never be greater than this.
-            XCTAssertLessThan(current.x, 0.021)
+            XCTAssertLessThan(current.xAccel, 0.021)
         }
         
     }
@@ -109,14 +109,14 @@ class highPassTests: XCTestCase {
             if i % 10 == 0{
                 
                 raw = 1.0
-                var min = current.x
-                var max = current.x
+                var min = current.xAccel
+                var max = current.xAccel
                 for j in -2...2{
-                    if outputData[i+j].x < min {
-                        min = outputData[i+j].x
+                    if outputData[i+j].xAccel < min {
+                        min = outputData[i+j].xAccel
                     }
-                    if outputData[i+j].x > max {
-                        max = outputData[i+j].x
+                    if outputData[i+j].xAccel > max {
+                        max = outputData[i+j].xAccel
                     }
                 }
                 let amplitude = abs(max)+abs(min);

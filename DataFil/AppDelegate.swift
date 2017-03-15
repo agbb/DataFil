@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
         
         let acm = accelerometerManager(sourceId: "device")
-        acm.initaliseAccelerometer()
+        acm.initaliseDatasources()
 
        
         //TODO fix this.

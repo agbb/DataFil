@@ -46,7 +46,7 @@ class totalVariationTests: XCTestCase {
             let slope1 = Double(i).truncatingRemainder(dividingBy: 3)
             let slope2 = Double(i).truncatingRemainder(dividingBy: 2)
             let slopeValue = slope1 + slope2
-            //XCTAssertLessThanOrEqual(current.x, slopeValue) //ensure no ringing is present
+            //XCTAssertLessThanOrEqual(current.xAccel, slopeValue) //ensure no ringing is present
             
         }
     }
@@ -87,7 +87,7 @@ class totalVariationTests: XCTestCase {
             }
             
             
-            XCTAssertEqualWithAccuracy(current.x, slopeValue, accuracy: 1.5)
+            XCTAssertEqualWithAccuracy(current.xAccel, slopeValue, accuracy: 1.5)
             
         }
     }
@@ -147,7 +147,7 @@ class totalVariationTests: XCTestCase {
                 for i in 0..<outputData.count{
                     
                     
-                    XCTAssertEqualWithAccuracy(outputData[i].x, outputPoints[i].x,accuracy: 0.001)
+                    XCTAssertEqualWithAccuracy(outputData[i].xAccel, outputPoints[i].xAccel,accuracy: 0.001)
                 }
             }catch {
                 print("File Read Error for file \(outputPath)")

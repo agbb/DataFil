@@ -16,14 +16,28 @@ class accelerometerManager{
     var count = 0
     var sampleRate = 30.0
     var sourceId = ""
-
+    var gyroSelected = true
+    var magSelected = true
+    var accelSelcted = true
     init(sourceId: String){
         self.sourceId = sourceId
         NotificationCenter.default.addObserver(self, selector: #selector(self.newDatasourceSettings), name: Notification.Name("newDatasourceSettings"), object: nil)
     }
-    func initaliseAccelerometer(){
-
-        if manager.isAccelerometerAvailable{
+    func initaliseDatasources(){
+        print("hello")
+        if manager.isGyroAvailable && gyroSelected{
+            if manager.isGyroActive == false{
+                manager.gyroUpdateInterval = 1.0/sampleRate
+                manager.startGyroUpdates()
+            }
+        }
+        if manager.isMagnetometerAvailable{
+            if manager.isMagnetometerActive == false{
+                manager.magnetometerUpdateInterval = 1.0/sampleRate
+                manager.startMagnetometerUpdates()
+            }
+        } 
+        if manager.isAccelerometerAvailable && magSelected{
             if manager.isAccelerometerActive == false{
                 manager.accelerometerUpdateInterval = 1.0/sampleRate
                 manager.startAccelerometerUpdates(to: queue,
@@ -33,8 +47,37 @@ class accelerometerManager{
                         }
                         DispatchQueue.main.async{
                             self.count += 1
-                            let accel = accelPoint(dataX: (data?.acceleration.x)!, dataY:(data?.acceleration.y)!, dataZ:(data?.acceleration.z)!, count:self.count)
-
+                            let accel = accelPoint()
+                            accel.count = self.count
+                            if self.accelSelcted{
+                                accel.xAccel = (data?.acceleration.x)!
+                                accel.yAccel = (data?.acceleration.y)!
+                                accel.zAccel = (data?.acceleration.z)!
+                            }
+                            if self.manager.isGyroActive {
+                                let gyro = self.manager.gyroData?.rotationRate
+                                if gyro?.x != nil && gyro?.y != nil && gyro?.z != nil {
+                                    accel.xGyro = (self.manager.gyroData?.rotationRate.x)!
+                                    accel.yGyro = (self.manager.gyroData?.rotationRate.y)!
+                                    accel.zGyro = (self.manager.gyroData?.rotationRate.z)!
+                                }else{
+                                    accel.xGyro = 0.0
+                                    accel.yGyro = 0.0
+                                    accel.zGyro = 0.0
+                                }
+                            }
+                            if self.manager.isMagnetometerActive{
+                                let mag = self.manager.magnetometerData?.magneticField
+                                if mag?.x != nil && mag?.y != nil && mag?.z != nil{
+                                    accel.xMag = (self.manager.magnetometerData?.magneticField.x)!
+                                    accel.yMag = (self.manager.magnetometerData?.magneticField.y)!
+                                    accel.zMag = (self.manager.magnetometerData?.magneticField.z)!
+                                }else{
+                                    accel.xGyro = 0.0
+                                    accel.yGyro = 0.0
+                                    accel.zGyro = 0.0
+                                }
+                            }
                             NotificationCenter.default.post(name: Notification.Name("newRawData"), object: nil, userInfo:["data":accel])
                         }
                 })
@@ -44,9 +87,11 @@ class accelerometerManager{
         }
     }
 
-    func deinitAccelerometer(){
+    func deinitDatasources(){
 
         manager.stopAccelerometerUpdates()
+        manager.startGyroUpdates()
+        manager.startMagnetometerUpdates()
     }
 
     @objc func newDatasourceSettings(notification: NSNotification) {

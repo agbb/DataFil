@@ -29,12 +29,12 @@ class InterfaceController: WKInterfaceController {
         if !active{
             remoteCommunicator.sharedInstance.start(deviceId: "watch")
 
-            accel.initaliseAccelerometer()
+            accel.initaliseDatasources()
             remoteDataInterface.sharedInstance.publishOutgoingData()
             startButton.setTitle("Stop")
             active = true
         }else{
-            accel.deinitAccelerometer()
+            accel.initaliseDatasources()
             startButton.setTitle("Start")
             active = false
         }

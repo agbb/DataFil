@@ -46,9 +46,9 @@ class recorder{
     }
     
      @objc func newRawData(notification: NSNotification){
+        print(notification.name)
        let data = notification.userInfo as! Dictionary<String,accelPoint>
        let accelData = data["data"]
-       print("got raw")
         accelData?.count = rawRecordingPoint
          rawRecordingPoint += 1
         
@@ -77,6 +77,8 @@ class recorder{
     }
     
     @objc func newProcessedData(notification: NSNotification){
+        
+        print(notification.name)
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelData = data["data"]
         for point in accelData! {
@@ -85,7 +87,7 @@ class recorder{
             processedRecordingPoint += 1
             processedData.append(point)
         }
-}
+    }
     
   deinit{
         //clean up observers
