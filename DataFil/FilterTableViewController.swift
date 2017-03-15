@@ -42,7 +42,6 @@ class FilterTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filterCell", for: indexPath)
     
         // Configure the cell...
-        print(indexPath.row)
         cell.textLabel?.text = filterDisplayNames[indexPath.row]
         return cell
     }

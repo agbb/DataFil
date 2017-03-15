@@ -103,14 +103,16 @@ class storage{
     
     func removeRecordingWithDate(date:Date) {
         
-        let managedContext = persistentContainer.viewContext
-        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Recording")
-        fetch.predicate = NSPredicate(format: "triggerTime == %@", date as CVarArg)
-        fetch.fetchLimit = 1
         do{
+            let managedContext = persistentContainer.viewContext
+            let fetch = NSFetchRequest<NSManagedObject>(entityName: "Recording")
+            fetch.predicate = NSPredicate(format: "triggerTime == %@", date as CVarArg)
+            fetch.fetchLimit = 1
             let recordingArrayFromPersistent = try managedContext.fetch(fetch)
+            print(recordingArrayFromPersistent.count)
             let record = recordingArrayFromPersistent[0]
             managedContext.delete(record)
+            try managedContext.save()
         }catch{
             print("error fetching")
         }

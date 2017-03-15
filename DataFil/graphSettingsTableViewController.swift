@@ -77,7 +77,6 @@ class graphSettingsTableViewController: UITableViewController {
         }else if  sampleRateSelection.selectedSegmentIndex == 3{
             sampleRate = 100.0
         }
-        print("psoting")
         NotificationCenter.default.post(name: Notification.Name("newDatasourceSettings"), object: nil, userInfo:["sampleRate":sampleRate])
         
     }

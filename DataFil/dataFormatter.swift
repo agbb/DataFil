@@ -11,12 +11,42 @@ import Foundation
 class dataFormatter {
     
     func formatCSV(rawData: [accelPoint], processedData: [accelPoint]) -> String{
+        var outputRaw = rawData
+        var outputProcessed = processedData
+        
+        print(outputRaw.count)
+        print("____")
+        print(outputProcessed.count)
+        print("____")
+        
+        var point = 0
+        if rawData.count > 0 {
+            point = rawData[rawData.count - 1].count
+        }
+        while outputRaw.count < outputProcessed.count{
+            point += 1
+            outputRaw.append(accelPoint(dataX: 0, dataY: 0, dataZ: 0, count: point))
+        }
+        
+        point = 0 
+        if processedData.count > 0 {
+            point = processedData[processedData.count - 1].count
+        }
+        while outputProcessed.count < outputRaw.count{
+            point += 1
+            outputProcessed.append(accelPoint(dataX: 0, dataY: 0, dataZ: 0, count: point))
+        }
+        
+        print(outputRaw.count)
+        print("____")
+        print(outputProcessed.count)
+        print("____")
         
         var csv = "ID,rawX,rawY,rawZ,processedX,processedY,processedZ"
-        if(rawData.count != processedData.count){
+        if(outputRaw.count != outputProcessed.count){
             print("RECORDINGS NOT SAME LENGTH: CLIPPING TO SHORTEST")
         }
-        let paired = zip(rawData, processedData)
+        let paired = zip(outputRaw, outputProcessed)
 
         
         for pair in paired{
@@ -50,7 +80,6 @@ class dataFormatter {
         }else{
             json["source"] = JSON("iPhone or iPad")
         }
-        print(json)
         return json
         
     }

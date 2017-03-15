@@ -18,7 +18,6 @@ class remoteDataInterface {
     var isSending = false
 
     func publishOutgoingData(){
-        print("publishing enabled")
         NotificationCenter.default.addObserver(self, selector: #selector(self.newOutgoingData), name: Notification.Name("newRawData"), object: nil)
     }
 

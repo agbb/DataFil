@@ -15,17 +15,18 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
     static let sharedInstance = remoteCommunicator()
     var watchObservers: [String: [(Any) -> Void]]
     var delegates = [AnyObject]()
-    var session: WCSession?
+    var session = WCSession.default()
     var deviceId = "unknown"
 
     func start(deviceId: String){
         self.deviceId = deviceId
         if WCSession.isSupported() {
-            if WCSession.default().hasContentPending{
+            if session.hasContentPending{
                 print("may have old data")
             }
-            WCSession.default().delegate = self
-            WCSession.default().activate()
+            session.delegate = self
+            session.activate()
+            session = WCSession.default()
             print("comms live on \(deviceId)")
         }else{
             print("coms not supported on \(deviceId)")
@@ -39,6 +40,11 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?){
     }
+    
+    func isSupported() -> Bool{
+        return WCSession.isSupported()
+    }
+    
 
     #if os(iOS)
     func sessionDidDeactivate(_ session: WCSession) {
@@ -62,9 +68,9 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
 
     func sendMessage(key: String, value: Any){
 
-        if (WCSession.default().isReachable) {
+        if (session.isReachable) {
             let message = [key: value]
-            WCSession.default().sendMessage(message, replyHandler: nil)
+            session.sendMessage(message, replyHandler: nil)
         }else{
             print("remote unreachable from \(deviceId)")
         }
@@ -72,7 +78,7 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
     
     func watchIsConnected() -> Bool{
         
-        return !WCSession.default().isReachable
+        return !session.isReachable
       
     }
 

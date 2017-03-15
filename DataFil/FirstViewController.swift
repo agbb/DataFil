@@ -99,7 +99,6 @@ class FirstViewController: UIViewController, ChartViewDelegate {
                     const.priority = 999
                 }else if const.identifier == "override"{
                     let height = (self.view.frame.height - 210)/2
-                    print(self.view.frame.height)
                     const.constant = height
                     const.priority = 1
                 }

@@ -21,6 +21,7 @@ class recorder{
     
     func beginRecording(raw: Bool, processed: Bool, time: Double, json: Bool, fromWatch: Bool){
         let triggerTime = NSDate()
+        print("starting")
         exportAsJson = json
         if !fromWatch{
             if raw{
@@ -31,7 +32,6 @@ class recorder{
             }
         }else{
             if raw{
-                print("got raw")
                 NotificationCenter.default.addObserver(self, selector: #selector(self.newRawData), name: Notification.Name("newRemoteData"), object: nil)
             }
             if processed {
@@ -48,7 +48,7 @@ class recorder{
      @objc func newRawData(notification: NSNotification){
        let data = notification.userInfo as! Dictionary<String,accelPoint>
        let accelData = data["data"]
-       
+       print("got raw")
         accelData?.count = rawRecordingPoint
          rawRecordingPoint += 1
         
@@ -59,7 +59,7 @@ class recorder{
     private func stopRecording(triggerTime: NSDate, fromWatch: Bool){
 
         NotificationCenter.default.removeObserver(self)
- 
+        print(rawData.count)
         if(exportAsJson){
             
             let jsonHeader = formatter.formatJSONheader(triggerTime: triggerTime as Date, fromWatch: fromWatch)
@@ -71,7 +71,9 @@ class recorder{
             storage().saveRecordingCsv(csv: csvString, triggerTime: triggerTime as Date)
             
         }
-        
+       rawData.removeAll(keepingCapacity: false)
+        rawRecordingPoint = 0
+        processedRecordingPoint = 0
     }
     
     @objc func newProcessedData(notification: NSNotification){

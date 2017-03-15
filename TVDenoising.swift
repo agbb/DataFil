@@ -32,7 +32,6 @@ class TVDenoising{
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
         lambda = params["lambda"]!
-        print(params["lambda"]!)
     }
 
     init(setup: [String:Double]){

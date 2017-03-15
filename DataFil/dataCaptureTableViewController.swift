@@ -42,7 +42,6 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        print("checking\(remoteCommunicator.sharedInstance.watchIsConnected()) \(remoteDataInterface.sharedInstance.isListening)")
         
         dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && remoteDataInterface.sharedInstance.isListening
     }

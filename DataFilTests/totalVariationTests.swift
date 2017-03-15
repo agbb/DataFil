@@ -46,7 +46,6 @@ class totalVariationTests: XCTestCase {
             let slope1 = Double(i).truncatingRemainder(dividingBy: 3)
             let slope2 = Double(i).truncatingRemainder(dividingBy: 2)
             let slopeValue = slope1 + slope2
-            print("\(slopeValue),\(current.x)")
             //XCTAssertLessThanOrEqual(current.x, slopeValue) //ensure no ringing is present
             
         }
