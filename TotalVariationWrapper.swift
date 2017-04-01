@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TotalVariationWrapper: FilteringProtocol {
+class TotalVariationWrapper: Filter {
     
     
     

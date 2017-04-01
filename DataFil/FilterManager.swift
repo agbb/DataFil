@@ -13,7 +13,7 @@ import Foundation
 class FilterManager{
     
     static let sharedInstance = FilterManager()
-    var activeFilters = [FilteringProtocol]()
+    var activeFilters = [Filter]()
     
     init(){
 
@@ -105,7 +105,7 @@ class FilterManager{
         }
     }
     
-    private func getFilterByName(name: String) -> FilteringProtocol?{
+    private func getFilterByName(name: String) -> Filter?{
         for filter in activeFilters{
             if filter.filterName == name{
             return filter

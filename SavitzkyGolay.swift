@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SavitzkyGolay: FilteringProtocol {
+class SavitzkyGolay: Filter {
     
     
     var params = [String:Double]()

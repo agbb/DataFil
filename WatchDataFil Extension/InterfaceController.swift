@@ -30,7 +30,7 @@ class InterfaceController: WKInterfaceController {
             remoteCommunicator.sharedInstance.start(deviceId: "watch")
 
             accel.initaliseDatasources()
-            remoteDataInterface.sharedInstance.publishOutgoingData()
+            RemoteDataInterface.sharedInstance.publishOutgoingData()
             startButton.setTitle("Stop")
             active = true
         }else{

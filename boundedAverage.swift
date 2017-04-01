@@ -8,7 +8,7 @@
 
 import Foundation
 
-class boundedAverage: FilteringProtocol {
+class boundedAverage: Filter {
     
     
     var params = [String:Double]()

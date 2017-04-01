@@ -8,17 +8,29 @@
 
 import Foundation
 
-class serialiser {
+class Serialiser {
 
     init() {
 
     }
 
+    /**
+     Takes accelPoint object and returns a serialised String.
+     - parameter input: The accelPoint object to be serialised.
+     - returns: Serialised version of input accelPoint.
+     - complexity: O(1) Time
+     */
     func serialise(input: accelPoint) -> String{
 
         return "\(input.count),\(input.xAccel),\(input.yAccel),\(input.zAccel)"
     }
 
+    /**
+     Takes serialised accelPoint string and returns accelPoint object with same information.
+     - parameter input: String to be deserialised.
+     - returns: accelPoint object deserialised from the String.
+     - complexity: O(1) Time
+     */
     func deserialise(input: String) -> accelPoint{
 
         let parts = input.components(separatedBy: ",")

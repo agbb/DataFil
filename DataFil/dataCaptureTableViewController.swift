@@ -38,12 +38,12 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && remoteDataInterface.sharedInstance.isListening
+        dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
     }
 
     override func viewDidAppear(_ animated: Bool) {
         
-        dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && remoteDataInterface.sharedInstance.isListening
+        dataSourceSelection.isEnabled = remoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

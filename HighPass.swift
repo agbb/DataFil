@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HighPass: FilteringProtocol{
+class HighPass: Filter{
     
     var params = [String:Double]()
     var filterName = "High Pass"

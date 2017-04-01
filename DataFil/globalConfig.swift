@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 import CoreData
 
-
+/**
+ Contains various functions an variables required at a global level in the main application. NOT in the filter algorithms.
+ */
 struct utilities{
     static var dateFormatter = DateFormatter()
     static var nc = NotificationCenter.default
@@ -22,7 +24,8 @@ struct utilities{
         utilities.dateFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss '+'ZZZZ"
         utilities.dateFormatter.timeStyle = .full
     }
-    
+ 
+ 
     static func duplicateAccelData(data: [accelPoint])-> [accelPoint]{
         var outputArray = [accelPoint]()
         for d in data{
@@ -32,14 +35,20 @@ struct utilities{
     }
 }
 
+
 extension Double {
-    /// Rounds the double to decimal places value
+    /**
+     Utility function for rounding doubles to a specified number of places.
+     */
     func roundTo(places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
 }
 
+/**
+ Wapper to ease use of persistent container for CoreData.
+ */
 var persistentContainer: NSPersistentContainer = {
     
     let container = NSPersistentContainer(name: "Model")
@@ -55,6 +64,9 @@ var persistentContainer: NSPersistentContainer = {
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ^^ : PowerPrecedence
 
+/**
+ Utility function to ease raising a number to the power. Allows for `x^^y` to denote rasing x to y.
+ */
 func ^^ (first: Double, second: Double) -> Double {
     return pow(Double(first), Double(second))
 }

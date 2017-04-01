@@ -9,7 +9,9 @@
 import Foundation
 import WatchConnectivity
 
-
+/**
+ Creates and manages sessions with a remote Watch or iPhone. Sends messages as key value pairs and notifies subscibers of a particular key of an incoming message under that key. Singleton.
+ */
 class remoteCommunicator: NSObject, WCSessionDelegate {
 
     static let sharedInstance = remoteCommunicator()
@@ -18,6 +20,10 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
     var session = WCSession.default()
     var deviceId = "unknown"
 
+    /**
+     Starts a new session with the remote device. Will print error to console if not possible.
+     - parameter deviceId: ID for communication printed alongside debug messages to help trace source.
+     */
     func start(deviceId: String){
         self.deviceId = deviceId
         if WCSession.isSupported() {
@@ -40,7 +46,10 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
                  activationDidCompleteWith activationState: WCSessionActivationState,
                  error: Error?){
     }
-    
+    /**
+     Checks if device supports Apple Watch communication.
+     - returns: True if device supports Apple Watch communication.
+     */
     func isSupported() -> Bool{
         return WCSession.isSupported()
     }
@@ -66,6 +75,11 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
         }
     }
 
+    /**
+     Sends message to remote device if possible. Will print to console if not.
+     - paramter key: Identifies which subscibrers on the remote device to notify. 
+     - parameter value: The message
+     */
     func sendMessage(key: String, value: Any){
 
         if (session.isReachable) {
@@ -75,13 +89,20 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
             print("remote unreachable from \(deviceId)")
         }
     }
-    
+    /**
+     - returns: True if an Apple Watch is connected.
+    */
     func watchIsConnected() -> Bool{
         
         return !session.isReachable
       
     }
 
+    /**
+     Adds an observer under a key. If a message arrives with that key, the message will be passed into the callback and executed.
+     - parameter key: Key of message to listen for.
+     - parameter update: Cllback function to pass message into. 
+     */
     func addObserver(key: String, update: @escaping (Any) -> Void) {
         DispatchQueue.main.async {
             if var value = self.watchObservers[key]{

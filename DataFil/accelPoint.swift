@@ -7,60 +7,156 @@
 //
 
 import Foundation
-
+/**
+ Data object representing a set of sensor readings from a single point in time.
+ */
 class accelPoint {
     
     
-    var x = 0.0
-    var y = 0.0
-    var z = 0.0
+    var xAccel = 0.0
+    var yAccel = 0.0
+    var zAccel = 0.0
+    var xGyro = 0.0
+    var yGyro = 0.0
+    var zGyro = 0.0
+    var xMag = 0.0
+    var yMag = 0.0
+    var zMag = 0.0
+    
     var count = 0
     init(dataX: Double, dataY: Double, dataZ: Double, count: Int) {
         
 
-        self.x = dataX
-        self.y = dataY
-        self.z = dataZ
+        self.xAccel = dataX
+        self.yAccel = dataY
+        self.zAccel = dataZ
         self.count = count
         
     }
     
     init() {
         
-        self.x = 0
-        self.y = 0
-        self.z = 0
+        self.xAccel = 0
+        self.yAccel = 0
+        self.zAccel = 0
         self.count = 0
         
     }
     
-    
-    func getAxis(axis: String) -> Double{
+    /**
+     Allows for dynamic runtime selction of a the axis to return.
+     - parameter axis: x,y,z the axis of acceleration to return.
+     - returns: The value of the axis passed in, or -100.
+     */
+    func getAccelAxis(axis: String) -> Double{
         
         switch axis {
         case "x":
-            return x
+            return xAccel
         case "y":
-            return y
+            return yAccel
         case "z":
-            return z
+            return zAccel
         default:
             print("cant get value, axis not valid")
             return -100
         }
         
     }
-    func setAxis(axis: String, data: Double){
+    /**
+     Allows for dynamic runtime selction of a the axis to return.
+     - parameter axis: x,y,z the axis of rotational velocity  to return.
+     - returns: The value of the axis passed in, or -100.
+     */
+    func getGyroAxis(axis: String) -> Double{
         
         switch axis {
         case "x":
-             x = data
+            return xGyro
         case "y":
-             y = data
+            return yGyro
         case "z":
-             z = data
+            return zGyro
+        default:
+            print("cant get value, axis not valid")
+            return -100
+        }
+        
+    }
+    /**
+     Allows for dynamic runtime selction of a the axis to return.
+     - parameter axis: x,y,z the axis of magnetic field to return.
+     - returns: The value of the axis passed in, or -100.
+     */
+    func getMagAxis(axis: String) -> Double{
+        
+        switch axis {
+        case "x":
+            return xMag
+        case "y":
+            return yMag
+        case "z":
+            return zMag
+        default:
+            print("cant get value, axis not valid")
+            return -100
+        }
+        
+    }
+    /**
+     Allows for dynamic runtime selction of a the axis to set.
+     - parameter axis: x,y,z the axis of acceleration to set.
+     - parameter data: The value to set.
+     */
+    func setAccelAxis(axis: String, data: Double){
+        
+        switch axis {
+        case "x":
+             xAccel = data
+        case "y":
+             yAccel = data
+        case "z":
+             zAccel = data
         default:
              print("cant set value, axis not valid")
+        }
+        
+    }
+    /**
+     Allows for dynamic runtime selction of a the axis to set.
+     - parameter axis: x,y,z the axis of rotational velcoity to set.
+     - parameter data: The value to set.
+     */
+    func setGyroAxis(axis: String, data: Double){
+        
+        switch axis {
+        case "x":
+            xGyro = data
+        case "y":
+            yGyro = data
+        case "z":
+            zGyro = data
+        default:
+            print("cant set value, axis not valid")
+        }
+        
+    }
+    /**
+     Allows for dynamic runtime selction of a the axis to set.
+     - parameter axis: x,y,z the axis of magnetic field to set.
+     - parameter data: The value to set.
+     */
+    func setMagAxis(axis: String, data: Double){
+        
+        switch axis {
+        case "x":
+            xMag = data
+        case "y":
+            yMag = data
+        case "z":
+            zMag = data
+        default:
+            print("cant set value, axis not valid")
         }
         
     }

@@ -43,7 +43,7 @@ class WatchViewController: UIViewController {
                 connectionLabel.text = "NO"
                 connectionLabel.textColor = #colorLiteral(red: 0.8941736817, green: 0.2608122561, blue: 0.2661629297, alpha: 1)
             }
-            if remoteDataInterface.sharedInstance.isListening{
+            if RemoteDataInterface.sharedInstance.isListening{
                 listeningLabel.text = "YES"
                 listeningLabel.textColor = #colorLiteral(red: 0.3221009754, green: 0.8941736817, blue: 0.4154235909, alpha: 1)
             }else{
@@ -55,7 +55,7 @@ class WatchViewController: UIViewController {
     
     @IBAction func startButtonTapped(_ sender: Any) {
         
-        remoteDataInterface.sharedInstance.subscribeIncomingData()
+        RemoteDataInterface.sharedInstance.subscribeIncomingData()
         i = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.newRemoteData), name: Notification.Name("newRemoteData"), object: nil)
         i = 0

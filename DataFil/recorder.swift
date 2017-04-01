@@ -76,6 +76,10 @@ class recorder{
         processedRecordingPoint = 0
     }
     
+    
+    
+    
+    
     @objc func newProcessedData(notification: NSNotification){
         
         print(notification.name)

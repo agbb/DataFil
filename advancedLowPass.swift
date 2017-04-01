@@ -8,7 +8,7 @@
 
 import Foundation
 
-class advancedLowPass: FilteringProtocol {
+class advancedLowPass: Filter {
     
     var params = [String:Double]()
     var filterName = "Low Pass"
