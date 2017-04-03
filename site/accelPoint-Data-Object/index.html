@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>accelPoint Data Object - DataFil Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "accelPoint Data Object";
+    var mkdocs_page_input_path = "accelPoint-Data-Object.md";
+    var mkdocs_page_url = "/accelPoint-Data-Object/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DataFil Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Library-Organisation/">Library Organisation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../How-to-Use-the-Showcase-App/">How to Use the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-An-Apple-Watch-With-the-Showcase-App/">Using An Apple Watch With the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-the-Data-Source-Manager/">Using the Data Source Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-the-Filter-Manager/">Using the Filter Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Implementing-Apple-Watch-Sensor-Communication/">Implementing Apple Watch Sensor Communication</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">accelPoint Data Object</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#variable-summary">Variable Summary</a></li>
+    
+
+    <li class="toctree-l2"><a href="#function-summary">Function Summary</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#getaxis">get$Axis</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Filter-Implementation/">Filter Implementation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Filter-Protocol/">Filter Protocol</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Bounded-Average-Filter/">Bounded Average Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Savitzky-Golay-Filter/">Savitzky Golay Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Low-Pass-Filter/">Low Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../High-Pass-Filter/">High Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Total-Variation-Denoising-Filter/">Total Variation Denoising Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../_Sidebar/">Index</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DataFil Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>accelPoint Data Object</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>An <code>accelPoint</code> object represents an instantaneous sensor reading, with X Y and Z values. Distinct points should be given unique IDs. This ID may be for example a sequence number or a timestamp of the reading. Initialisation using the default initialiser will set all values, including ID to 0. accelPoints are used as the data model input and output for the filter algorithms, and is designed to be similar in function to Apple’s implementation.</p>
+<h1 id="variable-summary">Variable Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xAccel:Double</code></td>
+<td>Acceleration in the x axis in ms2</td>
+</tr>
+<tr>
+<td><code>yAccel:Double</code></td>
+<td>Acceleration in the y axis in ms2</td>
+</tr>
+<tr>
+<td><code>zAccel:Double</code></td>
+<td>Acceleration in the z axis in ms2</td>
+</tr>
+<tr>
+<td><code>xGyro:Double</code></td>
+<td>Rotational velocity in x axis in rad/sec</td>
+</tr>
+<tr>
+<td><code>yGyro:Double</code></td>
+<td>Rotational velocity in y axis in rad/sec</td>
+</tr>
+<tr>
+<td><code>zGyro:Double</code></td>
+<td>Rotational velocity in z axis in rad/sec</td>
+</tr>
+<tr>
+<td><code>xMag:Double</code></td>
+<td>Magnetic field in x axis in militeslas</td>
+</tr>
+<tr>
+<td><code>yMag:Double</code></td>
+<td>Magnetic field in y axis in militeslas</td>
+</tr>
+<tr>
+<td><code>zMagDouble</code></td>
+<td>Magnetic field in z axis in militeslas</td>
+</tr>
+<tr>
+<td><code>Count:Int</code></td>
+<td>The identification number of the acceleration point</td>
+</tr>
+</tbody>
+</table>
+<h1 id="function-summary">Function Summary</h1>
+<h3 id="getaxis">get$Axis</h3>
+<p><code>func getAccelAxis(axis: String) -&gt; Double</code></p>
+<p><code>func getGyroAxis(axis: String) -&gt; Double</code></p>
+<p><code>func getMagAxis(axis: String) -&gt; Double</code></p>
+<p>Utility function used to allow data access to be configured by a string, in a similar fashion to the parameter stinging functionality provided in accelPoint. Allows for runtime changes to the axis of data that is being filtered or accessed.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Filter-Implementation/" class="btn btn-neutral float-right" title="Filter Implementation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Implementing-Apple-Watch-Sensor-Communication/" class="btn btn-neutral" title="Implementing Apple Watch Sensor Communication"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Implementing-Apple-Watch-Sensor-Communication/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Filter-Implementation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

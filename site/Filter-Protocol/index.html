@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Filter Protocol - DataFil Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Filter Protocol";
+    var mkdocs_page_input_path = "Filter-Protocol.md";
+    var mkdocs_page_url = "/Filter-Protocol/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DataFil Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Library-Organisation/">Library Organisation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../How-to-Use-the-Showcase-App/">How to Use the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-An-Apple-Watch-With-the-Showcase-App/">Using An Apple Watch With the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-the-Data-Source-Manager/">Using the Data Source Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-the-Filter-Manager/">Using the Filter Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Implementing-Apple-Watch-Sensor-Communication/">Implementing Apple Watch Sensor Communication</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../accelPoint-Data-Object/">accelPoint Data Object</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Filter-Implementation/">Filter Implementation</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Filter Protocol</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#variable-summary">Variable Summary</a></li>
+    
+
+    <li class="toctree-l2"><a href="#function-summary">Function Summary</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#adddatapoint">addDataPoint</a></li>
+        
+            <li><a class="toctree-l3" href="#addobserver">addObserver</a></li>
+        
+            <li><a class="toctree-l3" href="#notifysubscribers">notifySubscribers</a></li>
+        
+            <li><a class="toctree-l3" href="#setparameter">setParameter</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Bounded-Average-Filter/">Bounded Average Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Savitzky-Golay-Filter/">Savitzky Golay Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Low-Pass-Filter/">Low Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../High-Pass-Filter/">High Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Total-Variation-Denoising-Filter/">Total Variation Denoising Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../_Sidebar/">Index</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DataFil Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Filter Protocol</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Every filter implements this protocol, and as such it should be included in any project utilising them. It defines a standard interface that each filter will conform to. Below is a list of function definitions and their description.</p>
+<h1 id="variable-summary">Variable Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filterName:String</code></td>
+<td>Get only. The full English name of the filter</td>
+</tr>
+<tr>
+<td><code>Params: [String:Double]</code></td>
+<td>Get only. A dictionary with parameter name and values as key value pairs.</td>
+</tr>
+<tr>
+<td><code>Observers:[(_:[accelPoint])-&gt;Void]</code></td>
+<td>Get only. A list of callbacks that should be executed when new data is available.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="function-summary">Function Summary</h1>
+<h3 id="adddatapoint">addDataPoint</h3>
+<p><code>func addDataPoint(dataPoint:accelPoint) -&gt; Void</code></p>
+<p>Void function used to add a data point to the filter to be processed. Filter expects a unique ID, and all values to be set. </p>
+<h3 id="addobserver">addObserver</h3>
+<p><code>func addSubscriberCallback(update: @escaping (_: [accelPoint])-&gt; Void)</code></p>
+<p>Void function used to add a callback closure to the filter as an observer. The added observer will be executed when new processed data is available. This call will always be made on the main thread, but may be made at any time after adding a data point. It may contain any number of <code>accelPoint</code>s as an array, that contain the same ID as their raw counterpart but the processed values for x, y, z. The returned <code>accelPoint</code> object will not be same as the last one passed in, and may have a different ID, as some filters buffer values. 
+The closure has the <code>@escaping</code> attribute as it will be executed after the <code>addSubscriberCallback</code> function has returned. It must accept an argument named <code>data:[accelPoint]</code> and return <code>void</code>.</p>
+<h3 id="notifysubscribers">notifySubscribers</h3>
+<p><code>func notifySubscribers(data: [accelPoint])</code></p>
+<p>Function called by the algorithm in the filter class to signal that new data is ready. The function should be implemented to execute all closures stored in the observers property of the filter. 
+It will pass through a non-empty array of <code>accelPoint</code> objects into the closures. Each <code>accelPoint</code> will contain the filtered data with the matching ID of the raw data counterpart.</p>
+<h3 id="setparameter">setParameter</h3>
+<p><code>func setParameter(parameterName:String, parameterValue:Double) -&gt; Void</code></p>
+<p>Used to modify the parameters of the filtering algorithm. This can be done at any time during the filter’s lifetime to override the default values. A list of the parameters each filter contains can be found their section of this document.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Bounded-Average-Filter/" class="btn btn-neutral float-right" title="Bounded Average Filter">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Filter-Implementation/" class="btn btn-neutral" title="Filter Implementation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Filter-Implementation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Bounded-Average-Filter/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
