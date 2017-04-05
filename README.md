@@ -105,7 +105,7 @@ To stream data from the Apple Watch to a paried iPhone:
 
 Both devices must have a copy of the `GlobalModel` group available to them. Ensure this by checking the Targets of the group in the attributes inspector. 
 
-** On the Apple Watch: **
+**On the Apple Watch:**
 
 Start the data sources:
 
@@ -120,7 +120,7 @@ Begin pushing sensor data to the iPhone:
 
     RemoteDataInterface.sharedInstance.publishOutgoingData()
     
- ** On the iPhone: ** 
+ **On the iPhone:** 
  
  Start listening for incoming data:
  
@@ -138,7 +138,7 @@ The Apple Watch communication shown here is extremely powerful, and allows for t
 
 # Showcase App and Example Code
 
-Included in this proejct is a showcase app which can be used to experiment with the filters to find the right one for your needs.
+Included in this project is a showcase app which can be used to experiment with the filters to find the right one for your needs. It also serves as example code of all the features detailed above. 
 
 ### Instalation
 
@@ -151,4 +151,7 @@ Requires Xcode 8.3 or later and a ** real ** iPhone or iPad running iOS 10 or la
 * Data recording and exporting as CSV or JSON
 * Apple Watch sensor data streaming for visualisation or recording.
 
+A full user guide on all of the features of the showcase app can be found in the `How to Use the Showcase App` and 
+
+`Using an Apple Watch with the Showcase App` pages of the Wiki.
 ## See the Wiki for more information on how to use this repo 
