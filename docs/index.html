@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>Home - DataFil Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> DataFil Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Library-Organisation/">Library Organisation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="How-to-Use-the-Showcase-App/">How to Use the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Using-An-Apple-Watch-With-the-Showcase-App/">Using An Apple Watch With the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Using-the-Data-Source-Manager/">Using the Data Source Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Using-the-Filter-Manager/">Using the Filter Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Implementing-Apple-Watch-Sensor-Communication/">Implementing Apple Watch Sensor Communication</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="accelPoint-Data-Object/">accelPoint Data Object</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Filter-Implementation/">Filter Implementation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Filter-Protocol/">Filter Protocol</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Bounded-Average-Filter/">Bounded Average Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Savitzky-Golay-Filter/">Savitzky Golay Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Low-Pass-Filter/">Low Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="High-Pass-Filter/">High Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Total-Variation-Denoising-Filter/">Total Variation Denoising Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="_Sidebar/">Index</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">DataFil Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong>Welcome to the Wiki for this project.</strong></p>
+<p>The purpose of this software is to provide a convenient and reliable set of signal processing tools for developers to integrate into their project to better utilise the suite of sensors provided on an iPhone. While these sensors are powerful, the data they produce is often noisy and in need of cleaning before it can be integrated into any user-facing feature. Creating a filter to this that has the right characteristics for your application can be an extremely time consuming task, and often requires knowledge of digital signal processing to be effective. </p>
+<p>This library provides an alternative to that, with ready to use filters that can be customised and integrated into your application quickly. The filters can be applied to almost any data source from iOS or elsewhere, and have been designed to maximise ease of use for someone with little or no signal processing experience. With this in mind, the key features of the filters include:</p>
+<ul>
+<li>A consistent, easy to use interface and simple data model</li>
+<li>“Drag and drop” functionality. Each filter can operate as a standalone class. No project imports or external dependencies required.</li>
+<li>The latest Swift 3 syntax.</li>
+<li>Concurrent calculations where necessary. This document will lay out the characteristics, parameters and performance of each filter, along with usage guidance and testing information. Also available is a showcase app that demonstrates each filter in real time, compatible with iPhone and iPad. If you are looking to implement one of these filters, the code for this project can be used to assist in that process</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Library-Organisation/" class="btn btn-neutral float-right" title="Library Organisation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="Library-Organisation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="./js/theme.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.16.2
+Build Date UTC : 2017-04-03 16:56:32
+-->

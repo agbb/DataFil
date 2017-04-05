@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Implementing Apple Watch Sensor Communication - DataFil Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Implementing Apple Watch Sensor Communication";
+    var mkdocs_page_input_path = "Implementing-Apple-Watch-Sensor-Communication.md";
+    var mkdocs_page_url = "/Implementing-Apple-Watch-Sensor-Communication/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DataFil Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Library-Organisation/">Library Organisation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../How-to-Use-the-Showcase-App/">How to Use the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-An-Apple-Watch-With-the-Showcase-App/">Using An Apple Watch With the Showcase App</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-the-Data-Source-Manager/">Using the Data Source Manager</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Using-the-Filter-Manager/">Using the Filter Manager</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Implementing Apple Watch Sensor Communication</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#remote-communicator">Remote Communicator</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#function-summary">Function Summary</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#remote-data-interface">Remote Data Interface</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#function-summary_1">Function Summary</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#serialiser">Serialiser</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#function-summary_2">Function Summary</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../accelPoint-Data-Object/">accelPoint Data Object</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Filter-Implementation/">Filter Implementation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Filter-Protocol/">Filter Protocol</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Bounded-Average-Filter/">Bounded Average Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Savitzky-Golay-Filter/">Savitzky Golay Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Low-Pass-Filter/">Low Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../High-Pass-Filter/">High Pass Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../Total-Variation-Denoising-Filter/">Total Variation Denoising Filter</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../_Sidebar/">Index</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DataFil Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Implementing Apple Watch Sensor Communication</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>The communication of data to and from the Apple Watch is handled using the following classes, found in the globalModel group:</p>
+<ul>
+<li><code>RemoteDataInterface</code></li>
+<li><code>Serialiser</code></li>
+<li><code>RemoteCommunicator</code></li>
+</ul>
+<p>The stack is symmetrical, meaning that the same code can be used to start a session from both devices. In the following sections, each class in the stack is described. </p>
+<h1 id="remote-communicator">Remote Communicator</h1>
+<p>The <code>RemoteCommunicator</code> class is the lowest level in this process, used to manage the communication session with the remote device, and is independent of any other part of the application, meaning it can be used to send any arbitrary message to and from the watch. Messages are sent as a key value pair, and observers can subscribe to be notified when a message with a matching key arrives. This allows messages of different types to be sent and received to specific parts of the application without the need to determine if a specific message is relevant in the main logic of the application. Each observing communicator can assume that if it is notified of a message that it was intended for them. </p>
+<p>The class is instantiated with a <code>deviceId</code>, for debugging purposes, allowing the source devices of console messages to be traced. It also contains several methods for checking if the remote partner is connected and reachable. </p>
+<h2 id="function-summary">Function Summary</h2>
+<h3 id="start">Start</h3>
+<p><code>func start(deviceId: String)</code></p>
+<p>Attempts to start a session with the remote device. Should this not be possible an error message will be printed to the console. This method must be called before attempting communication.</p>
+<h3 id="issupported">isSupported</h3>
+<p><code>func isSupported() -&gt; Bool</code></p>
+<p>Returns a Boolean detailing if Apple Watch communication is supported by the device.</p>
+<h3 id="watchisconnected">watchIsConnected</h3>
+<p><code>func watchIsConnected() -&gt; Bool</code></p>
+<p>Returns a Boolean detailing if an Apple Watch is connected and can be reached for communication.</p>
+<h3 id="sendmessage">sendMessage</h3>
+<p><code>func sendMessage(key: String, value: Any)</code></p>
+<p>Attempts to send a message with key and value passed into the function to the remote device. If this fails, a message will be printed to the console. On the remote device, any observer subscribed to messages with the matching key will be notified of the contents.</p>
+<h3 id="addobserver">addObserver</h3>
+<p><code>func addObserver(key: String, update: @escaping (Any) -&gt; Void)</code></p>
+<p>Adds a callback from an observing class that will be called when a message with a matching key arrives from the remote device. It must accept any object as this is what can be passed into the <code>sendMessage</code> function on the remote partner.</p>
+<h1 id="remote-data-interface">Remote Data Interface</h1>
+<p>Next in the stack is the logic specific to sending and receiving sensor data. This is the responsibility of the <code>remoteDataInterface</code>. It can be used to send outgoing sensor data to the remote partner, by observing for new local data though the same observer system used for all consumers. The <code>remoteDataInterface</code> can observe to the <code>remoteCommunicator</code> class to listen for new incoming remote data, which will arrive under a specific key. When listening, it will notify other consumers of sensor data using the same notification format as local sensor data notifications, meaning that any consumer of local data can be trivially switched to listen for remote data. This symmetry of the communication hierarchy and uniform processing of remote and local data means that if desired, the watch could listen for sensor data from the iPhone, or even another watch. There is no pre-defined rigid data flow. </p>
+<p>Note that remoteDataInterface is a singleton.</p>
+<h2 id="function-summary_1">Function Summary</h2>
+<h3 id="publishoutgoingdata">publishOutgoingData</h3>
+<p><code>func publishOutgoingData()</code></p>
+<p>When called the class will begin attempting to send new raw data published by the <code>dataSourceManager</code> to the remote device. Can be used to send raw data from the Apple Watch to the iPhone.</p>
+<h3 id="subscribeincomingdata">subscribeIncomingData</h3>
+<p><code>func subscribeIncomingData()</code></p>
+<p>Will cause the device to start listening to messages sent from the <code>publishOutgoingData</code> function on the remote device. When received, the data will be published globally under a notification named <code>newRemoteData</code>. </p>
+<h1 id="serialiser">Serialiser</h1>
+<p>It is important to note that it is not possible simply to send <code>accelPoint</code> objects to a remote device. The communication protocol defined by Apple can only accept primitive objects such as Strings, Doubles and Integers. For this reason, the <code>remoteDataInterface</code> will serialise each <code>accelPoint</code>, using the <code>Serialiser</code> class before sending. When receiving, it will de-serialise the incoming primitive back into an <code>accelPoint</code> object before notifying consumers of this data. This process is transparent to the sender and receiver of the sensor data, and part of the hierarchical design of the communication. These functions do not need to be called directly, they are used as required by the <code>remoteDataInterface</code> for sending and receiving.</p>
+<h2 id="function-summary_2">Function Summary</h2>
+<h3 id="serialise">serialise</h3>
+<p><code>serialise(input: accelPoint) -&gt; String</code></p>
+<p>Will convert a valid <code>accelPoint</code> object into a <code>String</code> for sending. Reversed with <code>deserialise</code>.</p>
+<h3 id="deserialise">deserialise</h3>
+<p><code>deserialise(input: String) -&gt; accelPoint</code></p>
+<p>Will convert a valid <code>String</code> into an <code>accelPoint</code> object. Reverse of <code>serialise</code> function.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../accelPoint-Data-Object/" class="btn btn-neutral float-right" title="accelPoint Data Object">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../Using-the-Filter-Manager/" class="btn btn-neutral" title="Using the Filter Manager"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../Using-the-Filter-Manager/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../accelPoint-Data-Object/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
