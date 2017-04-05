@@ -8,7 +8,9 @@
 
 import Foundation
 
-
+/**
+ Class that controls the data flow through filters. When initalised, it will begin listening for data from the DataSourceManager class, published under the `newRawData` notifcation.
+ */
 
 class FilterManager{
     
@@ -20,7 +22,10 @@ class FilterManager{
         NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRawData"), object: nil)
 
     }
-
+    
+    /**
+     Called when a notification under "newRawData" key arrives, as registered in the constructor.
+     */
     @objc func newRawData(notification: NSNotification){
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
@@ -33,10 +38,15 @@ class FilterManager{
         
     }
     
-    func addNewFilter(filterName: String){
+    /**
+     Enables the filter algorithm passed into the method, causing the "newProcessesData" notification to begin posting the output of the raw data after convoultion with this filter and any others enabled.
+     
+     - parameter algorithmToEnable: Value of the Algorithm enum, which will be one of the included filter algorithms.
+     */
+    func addNewFilter(algorithmToEnable: Algorithm){
         
-        switch filterName {
-        case "High Pass":
+        switch algorithmToEnable {
+        case .HighPass:
             let highPass = HighPass()
             highPass.id = activeFilters.count
             
@@ -48,7 +58,7 @@ class FilterManager{
             highPass.addObserver(update: update)
             activeFilters.append(highPass)
             break
-        case "Low Pass":
+        case .LowPass:
             let lowPass = advancedLowPass()
             lowPass.id = activeFilters.count
             
@@ -60,7 +70,7 @@ class FilterManager{
             lowPass.addObserver(update: update)
             activeFilters.append(lowPass)
             break
-        case "Bounded Average":
+        case .BoundedAverage:
             let boundedAvg = boundedAverage()
             boundedAvg.id = activeFilters.count
             
@@ -72,7 +82,7 @@ class FilterManager{
             boundedAvg.addObserver(update: update)
             activeFilters.append(boundedAvg)
             break
-        case "Savitzky Golay":
+        case .SavitzkyGolay:
             let savgolay = SavitzkyGolay()
             let update = {(data: [accelPoint])->Void in
                 
@@ -81,7 +91,7 @@ class FilterManager{
             savgolay.addObserver(update: update)
             activeFilters.append(savgolay)
             break
-        case "Total Variation Denoising":
+        case .TotalVariation:
            let tvd = TotalVariationWrapper()
            let update = {(data: [accelPoint])->Void in
             
@@ -90,12 +100,14 @@ class FilterManager{
            tvd.addObserver(update: update)
            activeFilters.append(tvd)
             break
-        default:
-            print("No match in FilterManager")
         }
         
     }
     
+    /**
+     Removes the fitler from the data flow, causing the output of "newProcessedData" to be the convoluted output of the raw data and any remaining filters. If none, then the raw data will be outputted.
+     - parameter filterName: Name of the filter algorithm to remove.
+     */
     func removeFilter(filterName: String){
         for i in 0 ..< activeFilters.count{
             if activeFilters[i].filterName == filterName{
@@ -104,7 +116,12 @@ class FilterManager{
             }
         }
     }
-    
+
+    /**
+     Function to retreive a filter object that with the matching name.
+     - parameter name: Name of the filter to return.
+     - returns: The named filter, if it is enabled. Nill if not.
+     */
     private func getFilterByName(name: String) -> Filter?{
         for filter in activeFilters{
             if filter.filterName == name{
@@ -114,11 +131,20 @@ class FilterManager{
         return nil
     }
     
+    /**
+     Function for setting a parameter of an enabled filter.
+     - parameter filterName: Name of the filter whos parameter to set.
+     - parameter parameterName: Name of the parameter to set.
+     - parameter parameterValue: Value of the parameter to set.
+     */
     func setFilterParameter(filterName: String, parameterName: String, parameterValue: Double){
         getFilterByName(name: filterName)?.setParameter(parameterName: parameterName, parameterValue: parameterValue)
     }
     
-    func receiveData(data: [accelPoint], id:Int){
+    /**
+     Function called by each active filter to deliver its output. Will decide if the output data needs to be passed onto another filter, or outputted through the "newProcessedData" notification.
+     */
+    private func receiveData(data: [accelPoint], id:Int){
 
         
         if(id >= activeFilters.count-1){ //Possible for data from dedacitvated filters to arrive asynchronusly

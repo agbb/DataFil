@@ -8,10 +8,17 @@
 
 import Foundation
 import CoreData
-
-class storage{
+/**
+ Manages the storage and retreival of recorded captures from disk. Utilises CoreStorage.
+ */
+class Storage{
     
     
+    /**
+        Retrives all records from disk.
+        - returns: An array of tuples: `(Date: Date,csv: String, json: String)`
+     
+     */
     func fetchRecordings() -> [(Date: Date,csv: String, json: String)]{
     
         var recordings = [(Date,String,String)]()
@@ -37,7 +44,11 @@ class storage{
         return recordings
     }
     
-    
+    /**
+        Saves JSON recording to disk.
+        - parameter json: JSON object to save
+        - parameter triggerTime: Date object created at the start of the recording. Used to idntify.
+     */
     func saveRecordingJson(json: JSON, triggerTime:Date){
         
         
@@ -59,6 +70,11 @@ class storage{
         
     }
     
+    /**
+     Saves csv recording to disk.
+     - parameter csv: csv object to save
+     - parameter triggerTime: Date object created at the start of the recording. Used to idntify.
+     */
     func saveRecordingCsv(csv: String, triggerTime:Date){
         
         let managedContext = persistentContainer.viewContext
@@ -76,6 +92,11 @@ class storage{
         }
     }
     
+    /**
+        Returns a recording with a matching triggerTime, as set using `saveRecordingJson` or `saveRecordingCsv` when persisting to disk.
+        - parameter date: TriggerTime of the recording to return.
+        - returns: A tuple: `(date: Date,json: String, csv: String)` if the recording exists, will be of the format: `(date:Date(), json:"NO DATA", csv:"NO DATA")` if not.
+     */
     func fetchRecordingWithDate(date:Date) -> (date: Date,json: String, csv: String){
         
         
@@ -100,7 +121,10 @@ class storage{
         return (date:Date(), json:"NO DATA", csv:"NO DATA")
     }
     
-    
+    /**
+     Deletes a recording for persistent storage.
+     - parameter date: The triggerTime of the recording to delete.
+     */
     func removeRecordingWithDate(date:Date) {
         
         do{

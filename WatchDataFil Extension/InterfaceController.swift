@@ -13,7 +13,7 @@ import Foundation
 class InterfaceController: WKInterfaceController {
 
     var active = false
-    let accel = accelerometerManager.init(sourceId: "watch")
+    let accel = DataSourceManager.init(sourceId: "watch")
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)

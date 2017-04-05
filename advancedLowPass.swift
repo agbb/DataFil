@@ -56,11 +56,10 @@ class advancedLowPass: Filter {
     
     func calculateCoeffcients(){
         
-        let n = params["n"]!
+   
         let p = params["p"]!
         let g = params["g"]!
 
-        // c = (2.0^^(1/n)-1.0)^^(-0.25)
         c  = 1/sqrt((2.0*g - p*p + sqrt((2.0*g-p*p)^^2.0 - 4.0*g*g*(1.0 - 2.0^^(1.0/1.0))))/2.0)
         fStar = c * params["f0"]! / params["fs"]!
         

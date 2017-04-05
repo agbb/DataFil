@@ -40,7 +40,7 @@ class tvdTableViewController: UITableViewController {
     @IBAction func tvdSwitchTapped(_ sender: UISwitch) {
         
         if sender.isOn{
-            fm.addNewFilter(filterName: "Total Variation Denoising")
+            fm.addNewFilter(algorithmToEnable: Algorithm.TotalVariation)
         }else{
             fm.removeFilter(filterName: "Total Variation Denoising")
         }

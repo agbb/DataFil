@@ -44,7 +44,7 @@ class SavGolTableViewController: UITableViewController {
 
     @IBAction func savGolSwitchTapped(_ sender: UISwitch) {
         if sender.isOn{
-            fm.addNewFilter(filterName: "Savitzky Golay")
+            fm.addNewFilter(algorithmToEnable: Algorithm.SavitzkyGolay)
         }else{
             fm.removeFilter(filterName: "Savitzky Golay")
         }

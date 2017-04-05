@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA186CBE1DF97EB800835B7C /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */; };
-		FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
+		FA186CC01DF983CF00835B7C /* DataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */; };
 		FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
 		FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
 		FA230E801E75741900AE58E4 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA230E7E1E75741900AE58E4 /* Interface.storyboard */; };
@@ -20,10 +20,10 @@
 		FA230E961E75741900AE58E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA230E951E75741900AE58E4 /* Assets.xcassets */; };
 		FA230E9A1E75741900AE58E4 /* WatchDataFil.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FA230E7C1E75741900AE58E4 /* WatchDataFil.app */; };
 		FA230EAC1E75893300AE58E4 /* WatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EAB1E75893300AE58E4 /* WatchViewController.swift */; };
-		FA230EAF1E75AAE900AE58E4 /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
+		FA230EAF1E75AAE900AE58E4 /* DataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */; };
 		FA230EB01E75AD0200AE58E4 /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
 		FA230EB21E75AEE300AE58E4 /* RemoteDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EB11E75AEE300AE58E4 /* RemoteDataInterface.swift */; };
-		FA230EB31E75B50A00AE58E4 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
+		FA230EB31E75B50A00AE58E4 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* GlobalConfig.swift */; };
 		FA230EB51E75BCAD00AE58E4 /* Serialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EB41E75BCAD00AE58E4 /* Serialiser.swift */; };
 		FA230EB61E75BFA900AE58E4 /* Serialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EB41E75BCAD00AE58E4 /* Serialiser.swift */; };
 		FA230EBB1E75C97C00AE58E4 /* remoteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EA61E75802A00AE58E4 /* remoteCommunicator.swift */; };
@@ -31,7 +31,7 @@
 		FA230EBD1E75CD3600AE58E4 /* remoteCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA230EA61E75802A00AE58E4 /* remoteCommunicator.swift */; };
 		FA38AF3A1E4CD92800199FB0 /* tvdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38AF391E4CD92800199FB0 /* tvdTableViewController.swift */; };
 		FA4586431E5C9F0100EF50AA /* highPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4586421E5C9F0100EF50AA /* highPassTests.swift */; };
-		FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* recorder.swift */; };
+		FA51377B1E2FCB9000C1D7B5 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* Recorder.swift */; };
 		FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */; };
 		FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */; };
 		FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */; };
@@ -50,13 +50,13 @@
 		FA7AFC031E46007A00A4D6D1 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
 		FA7AFC041E46007A00A4D6D1 /* SavedRecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */; };
 		FA7AFC051E46007A00A4D6D1 /* graphSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */; };
-		FA7AFC061E46008000A4D6D1 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */; };
-		FA7AFC071E46008000A4D6D1 /* recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* recorder.swift */; };
-		FA7AFC081E46008000A4D6D1 /* dataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* dataFormatter.swift */; };
-		FA7AFC091E46008000A4D6D1 /* accelerometerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */; };
+		FA7AFC061E46008000A4D6D1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CC1E33AE3B00AEEDE0 /* Storage.swift */; };
+		FA7AFC071E46008000A4D6D1 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51377A1E2FCB9000C1D7B5 /* Recorder.swift */; };
+		FA7AFC081E46008000A4D6D1 /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* DataFormatter.swift */; };
+		FA7AFC091E46008000A4D6D1 /* DataSourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */; };
 		FA7AFC0A1E46008000A4D6D1 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B421DFB526100962F61 /* Filter.swift */; };
 		FA7AFC0B1E46008000A4D6D1 /* accelPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC21DF98C7300835B7C /* accelPoint.swift */; };
-		FA7AFC0C1E46008000A4D6D1 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
+		FA7AFC0C1E46008000A4D6D1 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* GlobalConfig.swift */; };
 		FA7AFC0D1E46008500A4D6D1 /* HighPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CC51DF9BC8000835B7C /* HighPass.swift */; };
 		FA7AFC0E1E46008500A4D6D1 /* advancedLowPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */; };
 		FA7AFC0F1E46008500A4D6D1 /* boundedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */; };
@@ -73,7 +73,7 @@
 		FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */; };
 		FAA52CFF1E38A9DD006262A5 /* boundedAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */; };
 		FAA52D041E38B122006262A5 /* BoundedAverageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */; };
-		FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* dataFormatter.swift */; };
+		FAA52D061E38C633006262A5 /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA52D051E38C633006262A5 /* DataFormatter.swift */; };
 		FAAA73CB1E5DA30500E6BD00 /* savGolPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA73CA1E5DA30500E6BD00 /* savGolPerformance.swift */; };
 		FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
 		FAB451081E5E102900A0205A /* advancedLowPassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB451071E5E102900A0205A /* advancedLowPassTests.swift */; };
@@ -81,6 +81,7 @@
 		FABCDE611E5DE41B00F8B5CA /* savGolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */; };
 		FABF961D1E688CD400F16B58 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FABF96181E688C9200F16B58 /* Charts.framework */; };
 		FABF961E1E688CD400F16B58 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FABF96181E688C9200F16B58 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAC611FC1E94FFD100B9606F /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC611FB1E94FFD100B9606F /* Enumerations.swift */; };
 		FAC648EF1E6B250500C1AB6C /* testData.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC648EE1E6B250500C1AB6C /* testData.txt */; };
 		FAC648F11E6B313200C1AB6C /* testOutput.txt in Resources */ = {isa = PBXBuildFile; fileRef = FAC648F01E6B313200C1AB6C /* testOutput.txt */; };
 		FAC8D0711E69D14000A843FD /* TotalVariationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8D0701E69D14000A843FD /* TotalVariationWrapper.swift */; };
@@ -96,11 +97,11 @@
 		FAE34B431DFB526100962F61 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B421DFB526100962F61 /* Filter.swift */; };
 		FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */; };
 		FAEE08891E31317700AEEDE0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08871E31317700AEEDE0 /* Model.xcdatamodeld */; };
-		FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */; };
+		FAEE08CD1E33AE3B00AEEDE0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CC1E33AE3B00AEEDE0 /* Storage.swift */; };
 		FAEE08CF1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */; };
 		FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */; };
 		FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */; };
-		FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* globalConfig.swift */; };
+		FAF398D21E0963C700021CD6 /* GlobalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D11E0963C700021CD6 /* GlobalConfig.swift */; };
 		FAF398D41E09753E00021CD6 /* LowPassTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -194,7 +195,7 @@
 
 /* Begin PBXFileReference section */
 		FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
-		FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelerometerManager.swift; sourceTree = "<group>"; };
+		FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceManager.swift; sourceTree = "<group>"; };
 		FA186CC21DF98C7300835B7C /* accelPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accelPoint.swift; sourceTree = "<group>"; };
 		FA186CC51DF9BC8000835B7C /* HighPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighPass.swift; sourceTree = "<group>"; };
 		FA230E7C1E75741900AE58E4 /* WatchDataFil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchDataFil.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +216,7 @@
 		FA230EB41E75BCAD00AE58E4 /* Serialiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serialiser.swift; sourceTree = "<group>"; };
 		FA38AF391E4CD92800199FB0 /* tvdTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tvdTableViewController.swift; sourceTree = "<group>"; };
 		FA4586421E5C9F0100EF50AA /* highPassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highPassTests.swift; sourceTree = "<group>"; };
-		FA51377A1E2FCB9000C1D7B5 /* recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = recorder.swift; sourceTree = "<group>"; };
+		FA51377A1E2FCB9000C1D7B5 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = graphSettingsTableViewController.swift; sourceTree = "<group>"; };
 		FA76DD3A1E42109900189217 /* SavitzkyGolay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavitzkyGolay.swift; sourceTree = "<group>"; };
 		FA76DD3C1E421FF700189217 /* fortranMatrixOps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fortranMatrixOps.swift; sourceTree = "<group>"; };
@@ -233,13 +234,14 @@
 		FA9B3B0A1E0070A300873309 /* HighPassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HighPassTableViewController.swift; path = ../HighPassTableViewController.swift; sourceTree = "<group>"; };
 		FAA52CFE1E38A9DD006262A5 /* boundedAverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverage.swift; sourceTree = "<group>"; };
 		FAA52D031E38B122006262A5 /* BoundedAverageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundedAverageTableViewController.swift; sourceTree = "<group>"; };
-		FAA52D051E38C633006262A5 /* dataFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataFormatter.swift; sourceTree = "<group>"; };
+		FAA52D051E38C633006262A5 /* DataFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 		FAAA73CA1E5DA30500E6BD00 /* savGolPerformance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savGolPerformance.swift; sourceTree = "<group>"; };
 		FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dataCaptureTableViewController.swift; sourceTree = "<group>"; };
 		FAB451071E5E102900A0205A /* advancedLowPassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPassTests.swift; sourceTree = "<group>"; };
 		FABCDE5C1E5DBFA500F8B5CA /* boundedAverageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boundedAverageTests.swift; sourceTree = "<group>"; };
 		FABCDE601E5DE41B00F8B5CA /* savGolTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = savGolTests.swift; sourceTree = "<group>"; };
 		FABF96111E688C9200F16B58 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master-3/Charts.xcodeproj"; sourceTree = "<group>"; };
+		FAC611FB1E94FFD100B9606F /* Enumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		FAC648EE1E6B250500C1AB6C /* testData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testData.txt; sourceTree = "<group>"; };
 		FAC648F01E6B313200C1AB6C /* testOutput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testOutput.txt; sourceTree = "<group>"; };
 		FAC8D0701E69D14000A843FD /* TotalVariationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalVariationWrapper.swift; sourceTree = "<group>"; };
@@ -256,11 +258,11 @@
 		FAE34B421DFB526100962F61 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = ../Filter.swift; sourceTree = "<group>"; };
 		FAEE08851E30E61D00AEEDE0 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		FAEE08881E31317700AEEDE0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storage.swift; sourceTree = "<group>"; };
+		FAEE08CC1E33AE3B00AEEDE0 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedRecordingsTableViewController.swift; sourceTree = "<group>"; };
 		FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterDetailViewController.swift; sourceTree = "<group>"; };
 		FAF398CD1E094B7D00021CD6 /* advancedLowPass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = advancedLowPass.swift; sourceTree = "<group>"; };
-		FAF398D11E0963C700021CD6 /* globalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalConfig.swift; sourceTree = "<group>"; };
+		FAF398D11E0963C700021CD6 /* GlobalConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConfig.swift; sourceTree = "<group>"; };
 		FAF398D31E09753E00021CD6 /* LowPassTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowPassTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,24 +352,18 @@
 			name = mainInterfaceControl;
 			sourceTree = "<group>";
 		};
-		FA38AF3E1E4CE42D00199FB0 /* dataControl */ = {
-			isa = PBXGroup;
-			children = (
-				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
-			);
-			name = dataControl;
-			sourceTree = "<group>";
-		};
 		FA38AF3F1E4CE44000199FB0 /* globalModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA186CBF1DF983CF00835B7C /* accelerometerManager.swift */,
+				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
+				FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */,
 				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
 				FA230EA61E75802A00AE58E4 /* remoteCommunicator.swift */,
 				FAE34B421DFB526100962F61 /* Filter.swift */,
-				FAF398D11E0963C700021CD6 /* globalConfig.swift */,
+				FAF398D11E0963C700021CD6 /* GlobalConfig.swift */,
 				FA230EB41E75BCAD00AE58E4 /* Serialiser.swift */,
 				FA230EB11E75AEE300AE58E4 /* RemoteDataInterface.swift */,
+				FAC611FB1E94FFD100B9606F /* Enumerations.swift */,
 			);
 			name = globalModel;
 			sourceTree = "<group>";
@@ -427,9 +423,9 @@
 		FAA52D071E38C6EC006262A5 /* dataCapture */ = {
 			isa = PBXGroup;
 			children = (
-				FAEE08CC1E33AE3B00AEEDE0 /* storage.swift */,
-				FA51377A1E2FCB9000C1D7B5 /* recorder.swift */,
-				FAA52D051E38C633006262A5 /* dataFormatter.swift */,
+				FAEE08CC1E33AE3B00AEEDE0 /* Storage.swift */,
+				FA51377A1E2FCB9000C1D7B5 /* Recorder.swift */,
+				FAA52D051E38C633006262A5 /* DataFormatter.swift */,
 			);
 			name = dataCapture;
 			sourceTree = "<group>";
@@ -523,7 +519,6 @@
 		FAEE08801E30D8A400AEEDE0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				FA38AF3E1E4CE42D00199FB0 /* dataControl */,
 				FA38AF3D1E4CE3B500199FB0 /* mainInterfaceControl */,
 				FAA52D021E38B102006262A5 /* filterControl */,
 			);
@@ -743,9 +738,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA230EBB1E75C97C00AE58E4 /* remoteCommunicator.swift in Sources */,
-				FA230EAF1E75AAE900AE58E4 /* accelerometerManager.swift in Sources */,
+				FA230EAF1E75AAE900AE58E4 /* DataSourceManager.swift in Sources */,
 				FA230EB61E75BFA900AE58E4 /* Serialiser.swift in Sources */,
-				FA230EB31E75B50A00AE58E4 /* globalConfig.swift in Sources */,
+				FA230EB31E75B50A00AE58E4 /* GlobalConfig.swift in Sources */,
 				FA230E941E75741900AE58E4 /* NotificationController.swift in Sources */,
 				FA230EB01E75AD0200AE58E4 /* accelPoint.swift in Sources */,
 				FA230E921E75741900AE58E4 /* ExtensionDelegate.swift in Sources */,
@@ -767,18 +762,18 @@
 				FA7AFC031E46007A00A4D6D1 /* dataCaptureTableViewController.swift in Sources */,
 				FABCDE611E5DE41B00F8B5CA /* savGolTests.swift in Sources */,
 				FAB451081E5E102900A0205A /* advancedLowPassTests.swift in Sources */,
-				FA7AFC071E46008000A4D6D1 /* recorder.swift in Sources */,
-				FA7AFC091E46008000A4D6D1 /* accelerometerManager.swift in Sources */,
+				FA7AFC071E46008000A4D6D1 /* Recorder.swift in Sources */,
+				FA7AFC091E46008000A4D6D1 /* DataSourceManager.swift in Sources */,
 				FABCDE5D1E5DBFA500F8B5CA /* boundedAverageTests.swift in Sources */,
 				FA7AFC101E46008B00A4D6D1 /* AppDelegate.swift in Sources */,
 				FA7AFBFF1E46007A00A4D6D1 /* FilterDetailViewController.swift in Sources */,
 				FA7AFBF81E45FB4B00A4D6D1 /* SavitzkyGolay.swift in Sources */,
 				FA4586431E5C9F0100EF50AA /* highPassTests.swift in Sources */,
 				FA7AFC001E46007A00A4D6D1 /* FirstViewController.swift in Sources */,
-				FA7AFC081E46008000A4D6D1 /* dataFormatter.swift in Sources */,
+				FA7AFC081E46008000A4D6D1 /* DataFormatter.swift in Sources */,
 				FA7AFC051E46007A00A4D6D1 /* graphSettingsTableViewController.swift in Sources */,
 				FA7AFC111E46009000A4D6D1 /* SwiftyJSON.swift in Sources */,
-				FA7AFC0C1E46008000A4D6D1 /* globalConfig.swift in Sources */,
+				FA7AFC0C1E46008000A4D6D1 /* GlobalConfig.swift in Sources */,
 				FA7AFC021E46007A00A4D6D1 /* FilterTableViewController.swift in Sources */,
 				FA88F51F1E6AF33500FA197D /* TotalVariationWrapper.swift in Sources */,
 				FAD062DF1E4B9D0700877100 /* TVDenoising.swift in Sources */,
@@ -786,7 +781,7 @@
 				FA7AFBF91E45FB4E00A4D6D1 /* fortranMatrixOps.swift in Sources */,
 				FA7AFC0F1E46008500A4D6D1 /* boundedAverage.swift in Sources */,
 				FA7AFC0B1E46008000A4D6D1 /* accelPoint.swift in Sources */,
-				FA7AFC061E46008000A4D6D1 /* storage.swift in Sources */,
+				FA7AFC061E46008000A4D6D1 /* Storage.swift in Sources */,
 				FA7AFBFC1E46007A00A4D6D1 /* BoundedAverageTableViewController.swift in Sources */,
 				FA7AFBFE1E46007A00A4D6D1 /* FilterManager.swift in Sources */,
 				FA7AFC0D1E46008500A4D6D1 /* HighPass.swift in Sources */,
@@ -803,9 +798,9 @@
 				FA76DD361E3B6E7F00189217 /* graphSettingsTableViewController.swift in Sources */,
 				FA76DD3B1E42109A00189217 /* SavitzkyGolay.swift in Sources */,
 				FAC8D0711E69D14000A843FD /* TotalVariationWrapper.swift in Sources */,
-				FA51377B1E2FCB9000C1D7B5 /* recorder.swift in Sources */,
+				FA51377B1E2FCB9000C1D7B5 /* Recorder.swift in Sources */,
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
-				FAA52D061E38C633006262A5 /* dataFormatter.swift in Sources */,
+				FAA52D061E38C633006262A5 /* DataFormatter.swift in Sources */,
 				FA230EAC1E75893300AE58E4 /* WatchViewController.swift in Sources */,
 				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
 				FAA52CFF1E38A9DD006262A5 /* boundedAverage.swift in Sources */,
@@ -813,13 +808,14 @@
 				FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */,
 				FA9B3B031E006D7E00873309 /* Enum.swift in Sources */,
 				FA186CC61DF9BC8000835B7C /* HighPass.swift in Sources */,
-				FAF398D21E0963C700021CD6 /* globalConfig.swift in Sources */,
+				FAF398D21E0963C700021CD6 /* GlobalConfig.swift in Sources */,
 				FAE34B431DFB526100962F61 /* Filter.swift in Sources */,
 				FA38AF3A1E4CD92800199FB0 /* tvdTableViewController.swift in Sources */,
 				FAA52D041E38B122006262A5 /* BoundedAverageTableViewController.swift in Sources */,
 				FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */,
-				FAEE08CD1E33AE3B00AEEDE0 /* storage.swift in Sources */,
+				FAEE08CD1E33AE3B00AEEDE0 /* Storage.swift in Sources */,
 				FAD59C651DF880B000A7FD6A /* FirstViewController.swift in Sources */,
+				FAC611FC1E94FFD100B9606F /* Enumerations.swift in Sources */,
 				FA76DD3D1E421FF700189217 /* fortranMatrixOps.swift in Sources */,
 				FAD062E01E4B9D0C00877100 /* TVDenoising.swift in Sources */,
 				FAAAC0141E2E912A003FF8B6 /* dataCaptureTableViewController.swift in Sources */,
@@ -828,7 +824,7 @@
 				FAF078781DFC8251009BBB00 /* FilterDetailViewController.swift in Sources */,
 				FAEE08CF1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift in Sources */,
 				FAF398D41E09753E00021CD6 /* LowPassTableViewController.swift in Sources */,
-				FA186CC01DF983CF00835B7C /* accelerometerManager.swift in Sources */,
+				FA186CC01DF983CF00835B7C /* DataSourceManager.swift in Sources */,
 				FA186CC31DF98C7300835B7C /* accelPoint.swift in Sources */,
 				FAF398CE1E094B7D00021CD6 /* advancedLowPass.swift in Sources */,
 				FA7AFBD71E450B7100A4D6D1 /* SavGolTableViewController.swift in Sources */,

@@ -15,7 +15,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     var secondSelection = 30.0
     var raw = true
     var processed = true
-    var record = recorder()
+    var record = Recorder()
     var timeRemaining = 0.0
     var totalTime = 0.0
 

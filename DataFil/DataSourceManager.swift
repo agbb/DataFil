@@ -9,7 +9,7 @@
 import Foundation
 import CoreMotion
 
-class accelerometerManager{
+class DataSourceManager{
 
     lazy var manager = CMMotionManager()
     lazy var queue = OperationQueue()

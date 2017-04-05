@@ -75,7 +75,7 @@ class LowPassTableViewController: UITableViewController {
     @IBAction func LowPassSwitchTapped(_ sender: UISwitch) {
         
         if sender.isOn{
-            fm.addNewFilter(filterName: "Low Pass")
+            fm.addNewFilter(algorithmToEnable: Algorithm.LowPass)
         }else{
             
             fm.removeFilter(filterName: "Low Pass")

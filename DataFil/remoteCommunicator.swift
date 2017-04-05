@@ -113,7 +113,7 @@ class remoteCommunicator: NSObject, WCSessionDelegate {
         }
     }
 
-    func notifyObservers(key: String, data: Any) {
+    private func notifyObservers(key: String, data: Any) {
 
         if let registeredObservers = watchObservers[key]{
 

@@ -43,7 +43,7 @@ class BoundedAverageTableViewController: UITableViewController {
     @IBAction func boundedAverageTapped(_ sender: UISwitch) {
         
         if sender.isOn{
-            fm.addNewFilter(filterName: "Bounded Average")
+            fm.addNewFilter(algorithmToEnable: Algorithm.BoundedAverage)
         }else{
             
             fm.removeFilter(filterName: "Bounded Average")

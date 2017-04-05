@@ -8,8 +8,16 @@
 
 import Foundation
 
-class dataFormatter {
+/**
+ Formats the recorded data in `accalPoint` format into a structure for persisting to disk. Either JSON or CSV.
+ */
+class DataFormatter {
     
+    /**
+     Converts passed `accelPoint`s intoa csv string.
+     - parameter rawData: Raw data to convert.
+     - parameter processedData: Processed data to convert.
+     */
     func formatCSV(rawData: [accelPoint], processedData: [accelPoint]) -> String{
         var outputRaw = rawData
         var outputProcessed = processedData
@@ -49,8 +57,13 @@ class dataFormatter {
     
         return csv
     }
-    
-    func formatJSONheader(triggerTime: Date, fromWatch: Bool)-> JSON{
+    /**
+     Creates the header of teh JSON object to be persisted, including date and filter information.
+     - parameter triggerTime: Date object spcifiying the start time of the recording.
+     - parameter fromWatch: Specifies fi the data came froma remote watch.
+     - returns: JSON object header.
+     */
+     func formatJSONheader(triggerTime: Date, fromWatch: Bool)-> JSON{
         
         
         let dateFormatter = utilities.dateFormatter
@@ -78,6 +91,13 @@ class dataFormatter {
         
     }
     
+    /**
+     Formats teh accelPoints provided into a JSON object to be attached to the header, for persistent storage.
+     - parameter header: The previiously created header JSON object
+     - parameter rawData: The raw data to be formatted.
+     - parameter processedData: The processed data to be formatted.
+     - returns: A JSON object with the header information and the raw and processed data.
+     */
     func formatJSONdata(header: JSON, rawData: [accelPoint], processedData: [accelPoint]) -> JSON{
         var workingJSON = header
         

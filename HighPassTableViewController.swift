@@ -38,7 +38,7 @@ class HighPassTableViewController: UITableViewController {
         
         
         if sender.isOn{
-            fm.addNewFilter(filterName: "High Pass")
+            fm.addNewFilter(algorithmToEnable: Algorithm.HighPass)
         }else{
             
             fm.removeFilter(filterName: "High Pass")

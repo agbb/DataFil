@@ -10,15 +10,26 @@ import Foundation
 import UIKit
 import CoreData
 
-class recorder{
+/**
+ Responsible for capturing raw, filtered and remote data from the data publishers. 
+ */
+class Recorder{
     
     private var rawData = [accelPoint]()
     private var processedData = [accelPoint]()
     private var rawRecordingPoint = 0
     private var processedRecordingPoint = 0
     private var exportAsJson = true
-    private let formatter = dataFormatter()
+    private let formatter = DataFormatter()
     
+    /**
+     starts recording data published from data sources.
+     - parameter raw: Should capture raw data.
+     - parameter processed: Should capture processed data.
+     - parameter time: Duration of recording.
+     - parameter json: Should save as JSON.
+     - parameter fromWatch: Capture data from remote watch.
+     */
     func beginRecording(raw: Bool, processed: Bool, time: Double, json: Bool, fromWatch: Bool){
         let triggerTime = NSDate()
         print("starting")
@@ -45,7 +56,7 @@ class recorder{
             })
     }
     
-     @objc func newRawData(notification: NSNotification){
+     @objc private func newRawData(notification: NSNotification){
         print(notification.name)
        let data = notification.userInfo as! Dictionary<String,accelPoint>
        let accelData = data["data"]
@@ -55,7 +66,11 @@ class recorder{
         rawData.append(accelData!)
         
     }
-    
+    /**
+     Called to end the recording. Triggers the process of writing to disk.
+     - parameter triggerTime: The time under which to save the recording
+     - parameter fromWatch: Defines if the recorded data came from the watch.
+     */
     private func stopRecording(triggerTime: NSDate, fromWatch: Bool){
 
         NotificationCenter.default.removeObserver(self)
@@ -64,11 +79,11 @@ class recorder{
             
             let jsonHeader = formatter.formatJSONheader(triggerTime: triggerTime as Date, fromWatch: fromWatch)
             let outputData = formatter.formatJSONdata(header: jsonHeader, rawData: rawData, processedData: processedData)
-            storage().saveRecordingJson(json: outputData, triggerTime: triggerTime as Date)
+            Storage().saveRecordingJson(json: outputData, triggerTime: triggerTime as Date)
         }else{
             
             let csvString = formatter.formatCSV(rawData: rawData, processedData: processedData)
-            storage().saveRecordingCsv(csv: csvString, triggerTime: triggerTime as Date)
+            Storage().saveRecordingCsv(csv: csvString, triggerTime: triggerTime as Date)
             
         }
        rawData.removeAll(keepingCapacity: false)
@@ -80,7 +95,7 @@ class recorder{
     
     
     
-    @objc func newProcessedData(notification: NSNotification){
+    @objc private func newProcessedData(notification: NSNotification){
         
         print(notification.name)
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
