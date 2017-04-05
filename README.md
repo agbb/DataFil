@@ -11,4 +11,51 @@ This library provides an alternative to that, with ready to use filters that can
 * The latest Swift 3 syntax.
 * Concurrent calculations where necessary. 
 
+## Usage
+
+### Standalone Filter
+
+In addition to the chosen filter add the following files to your project:
+
+* `accelPoint`
+* `Enumerations`
+
+Here we will use the *high pass* filter.
+
+Initalise the filter:
+
+    let highPass = highPass()
+    
+(Optional) Adust parameters as desired:
+
+    highPass.setParameter(parameterName: "SampleRate", parameterValue: 30.0)
+    
+Register a callback:
+
+    let update = {(data: [accelPoint])->Void in {
+       for dataItem in data{
+          print("Filtered acceleration in X is: \(dataItem.xAccel)")
+        }
+    }   
+    highPass.addObserver(update: update)
+
+Finally, to pass data to the filter to process:
+    
+    let exampleDataPoint = accelPoint()
+    exampleDataPoint.xAccel = 10.0
+    highPass.addDataPoint(dataPoint: exampleDataPoint)
+    
+The filter will now execute the callback registered earlier when it has completed processing the passed in data.
+
+### With Data Source and Filter Manager
+
+Initalise the data source manager, filter manager and start up data sources:
+
+    let dcm = dataSourceManage(sourceId: "John's iPhone")
+    
+    = FilterManager.sharedInstance()
+    dcm.initaliseDatasources()
+
+
+
 ## See the Wiki for information on how to use this repo 
