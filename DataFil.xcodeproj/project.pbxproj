@@ -355,15 +355,11 @@
 		FA38AF3F1E4CE44000199FB0 /* globalModel */ = {
 			isa = PBXGroup;
 			children = (
-				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
-				FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */,
-				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
+				FAE1B0A81E9531D40029E5DB /* FilterModel */,
 				FA230EA61E75802A00AE58E4 /* remoteCommunicator.swift */,
-				FAE34B421DFB526100962F61 /* Filter.swift */,
 				FAF398D11E0963C700021CD6 /* GlobalConfig.swift */,
 				FA230EB41E75BCAD00AE58E4 /* Serialiser.swift */,
 				FA230EB11E75AEE300AE58E4 /* RemoteDataInterface.swift */,
-				FAC611FB1E94FFD100B9606F /* Enumerations.swift */,
 			);
 			name = globalModel;
 			sourceTree = "<group>";
@@ -485,6 +481,19 @@
 			path = DataFil;
 			sourceTree = "<group>";
 		};
+		FAE1B0A81E9531D40029E5DB /* FilterModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAE34B3D1DFB509B00962F61 /* FilterManager.swift */,
+				FA186CBF1DF983CF00835B7C /* DataSourceManager.swift */,
+				FA186CC21DF98C7300835B7C /* accelPoint.swift */,
+				FAE34B421DFB526100962F61 /* Filter.swift */,
+				FAC611FB1E94FFD100B9606F /* Enumerations.swift */,
+				FA186CC41DF9BC7200835B7C /* Filters */,
+			);
+			name = FilterModel;
+			sourceTree = "<group>";
+		};
 		FAEE08701E30D80300AEEDE0 /* lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,7 +520,6 @@
 			children = (
 				FA38AF3F1E4CE44000199FB0 /* globalModel */,
 				FAA52D071E38C6EC006262A5 /* dataCapture */,
-				FA186CC41DF9BC7200835B7C /* Filters */,
 			);
 			name = model;
 			sourceTree = "<group>";

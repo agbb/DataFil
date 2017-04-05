@@ -5,7 +5,10 @@
 //  Created by Alex Gubbay on 20/12/2016.
 //  Copyright © 2016 Alex Gubbay. All rights reserved.
 //
-
+/*
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ The software implementation below is NOT designed to be used in any situation where the failure of the algorithms code on which they rely or mathematical assumptions made therin could lead to the harm of the user or others, property or the environment. It is NOT designed to prevent silent failures or fail safe.
+ */
 import UIKit
 
 class LowPassTableViewController: UITableViewController {
@@ -26,7 +29,7 @@ class LowPassTableViewController: UITableViewController {
         
         for filter in fm.activeFilters{
             
-            if filter.filterName == "Low Pass" {
+            if filter.filterName == Algorithm.LowPass{
                 lowPassSwitch.isOn = true
                 pLabel.text = "P: \(Double(filter.params["p"]!).roundTo(places: 2))"
                 gLabel.text = "G: \(Double(filter.params["g"]!).roundTo(places: 2))"
@@ -43,7 +46,7 @@ class LowPassTableViewController: UITableViewController {
     @IBAction func pValueChanged(_ sender: UIStepper) {
         pLabel.text = "P: \(sender.value)"
         if lowPassSwitch.isOn{
-            fm.setFilterParameter(filterName: "Low Pass", parameterName: "p", parameterValue: sender.value)
+            fm.setFilterParameter(filterName: Algorithm.LowPass, parameterName: "p", parameterValue: sender.value)
         }
     }
    
@@ -51,13 +54,13 @@ class LowPassTableViewController: UITableViewController {
     @IBAction func gValueChanged(_ sender: UIStepper) {
         gLabel.text = "G: \(sender.value)"
         if lowPassSwitch.isOn{
-            fm.setFilterParameter(filterName: "Low Pass", parameterName: "g", parameterValue: sender.value)
+            fm.setFilterParameter(filterName: Algorithm.LowPass, parameterName: "g", parameterValue: sender.value)
         }
     }
     
     @IBAction func passesValueChanged(_ sender: UISegmentedControl) {
         if lowPassSwitch.isOn{
-            fm.setFilterParameter(filterName: "Low Pass", parameterName: "n", parameterValue: Double(sender.selectedSegmentIndex+1))
+            fm.setFilterParameter(filterName: Algorithm.LowPass, parameterName: "n", parameterValue: Double(sender.selectedSegmentIndex+1))
         }
     }
     
@@ -78,7 +81,7 @@ class LowPassTableViewController: UITableViewController {
             fm.addNewFilter(algorithmToEnable: Algorithm.LowPass)
         }else{
             
-            fm.removeFilter(filterName: "Low Pass")
+            fm.removeFilter(name: Algorithm.LowPass)
         }
         
     }

@@ -5,7 +5,10 @@
 //  Created by Alex Gubbay on 09/12/2016.
 //  Copyright © 2016 Alex Gubbay. All rights reserved.
 //
-
+/*
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ The software implementation below is NOT designed to be used in any situation where the failure of the algorithms code on which they rely or mathematical assumptions made therin could lead to the harm of the user or others, property or the environment. It is NOT designed to prevent silent failures or fail safe.
+ */
 import Foundation
 
 /**
@@ -108,9 +111,9 @@ class FilterManager{
      Removes the fitler from the data flow, causing the output of "newProcessedData" to be the convoluted output of the raw data and any remaining filters. If none, then the raw data will be outputted.
      - parameter filterName: Name of the filter algorithm to remove.
      */
-    func removeFilter(filterName: String){
+    func removeFilter(name: Algorithm){
         for i in 0 ..< activeFilters.count{
-            if activeFilters[i].filterName == filterName{
+            if activeFilters[i].filterName == name{
                 activeFilters.remove(at: i)
                 break;
             }
@@ -122,7 +125,7 @@ class FilterManager{
      - parameter name: Name of the filter to return.
      - returns: The named filter, if it is enabled. Nill if not.
      */
-    private func getFilterByName(name: String) -> Filter?{
+    private func getFilterByName(name: Algorithm) -> Filter?{
         for filter in activeFilters{
             if filter.filterName == name{
             return filter
@@ -137,7 +140,7 @@ class FilterManager{
      - parameter parameterName: Name of the parameter to set.
      - parameter parameterValue: Value of the parameter to set.
      */
-    func setFilterParameter(filterName: String, parameterName: String, parameterValue: Double){
+    func setFilterParameter(filterName: Algorithm, parameterName: String, parameterValue: Double){
         getFilterByName(name: filterName)?.setParameter(parameterName: parameterName, parameterValue: parameterValue)
     }
     
