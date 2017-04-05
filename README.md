@@ -19,7 +19,7 @@ There are two options here:
 
 * Use the data source and filter manager classes to completely handle sensor data processing, allowing raw and processed data to be accessed with a simple notification observer. - Best for new users/projects.
 
-## Standalone Filter
+## Option 1: Standalone Filter
 
 In addition to the chosen filter add the following files to your project:
 
@@ -53,7 +53,7 @@ Finally, to pass data to the filter to process:
     
 The filter will now execute the callback registered earlier when it has completed processing the passed in data.
 
-## With Data Source and Filter Manager
+## Option 2: Data Source and Filter Manager
 
 Initalise the data source manager:
 
