@@ -2,16 +2,18 @@
 
 A convenient and reliable set of signal processing tools for developers to integrate into their project to better utilise the sensors on an iPhone. 
 
-Creating a filter that has the right characteristics for your application can be an extremely time consuming task, and often requires knowledge of signal processing to be effective.
+Creating a filter that has the right characteristics can be an extremely time consuming task, and often requires knowledge of signal processing.
 
-This library provides an alternative to that, with ready to use filters that can be customised and integrated into your application quickly. They can be applied to almost any data source from iOS or elsewhere, and have been designed to be easy to use for someone with little or no signal processing experience. Key features include:
+This library provides an alternative to that, with ready to use filters that can be customised and integrated into your application quickly and easily. 
+
+Key features include:
 
 * A consistent, easy to use interface and simple data model
 * “Drag and drop” functionality. Each filter can operate as a standalone class. No project imports or external dependencies required.
 * The latest Swift 3 syntax.
 * Concurrent calculations where necessary. 
 
-# Basic Code Usage
+## Basic Code Usage
 
 There are two options here:
 
@@ -19,7 +21,7 @@ There are two options here:
 
 * Use the data source and filter manager classes to completely handle sensor data processing, allowing raw and processed data to be accessed with a simple notification observer. - Best for new users/projects.
 
-## Option 1: Standalone Filter
+### Option 1: Standalone Filter
 
 In addition to the chosen filter add the following files to your project:
 
@@ -53,7 +55,7 @@ Finally, to pass data to the filter to process:
     
 The filter will now execute the callback registered earlier when it has completed processing the passed in data.
 
-## Option 2: Data Source and Filter Manager
+### Option 2: Data Source and Filter Manager
 
 Initalise the data source manager:
 
@@ -93,5 +95,19 @@ Where `myClass.newProcessedData` and `myClass.newRawData` are Objective-C functi
         let accelData = incomingData["data"]
     }
     
+# Showcase App and Example Code
+
+Included in this proejct is a showcase app which can be used to experiment with the filters to find the right one for your needs.
+
+### Instalation
+
+Requires Xcode 8.3 or later and a ** real ** iPhone or iPad running iOS 10 or later. Simply open the DataFil project in Xcode, sign it and sideload it onto your device. 
+
+### Features
+
+* Realtime sensor data display
+* Interactive filters
+* Data recording and exporting as CSV or JSON
+* Apple Watch sensor data streaming for visualisation or recording.
 
 ## See the Wiki for more information on how to use this repo 
