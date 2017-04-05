@@ -59,7 +59,7 @@ The filter will now execute the callback registered earlier when it has complete
 
 Initalise the data source manager:
 
-    let dcm = dataSourceManage(sourceId: "John's iPhone")
+    let dcm = dataSourceManager(sourceId: "John's iPhone")
 
 
 Disable uneeded data sources, start up the rest: 
@@ -94,7 +94,48 @@ Where `myClass.newProcessedData` and `myClass.newRawData` are Objective-C functi
         let incomingData = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = incomingData["data"]
     }
+ 
+## Apple Watch Data Streaming
+
+The toolkit also provides the complete set of code requried to stream sensor data from an Apple Watch to an Iphone. The filters are all compatible with the Apple Watch, and all of the code in the `GlobalModel` group is designed to run on either platform.
+
+### Basic Usage
+
+To stream data from the Apple Watch to a paried iPhone:
+
+Both devices must have a copy of the `GlobalModel` group available to them. Ensure this by checking the Targets of the group in the attributes inspector. 
+
+** On the Apple Watch: **
+
+Start the data sources:
+
+    let dcm = dataSourceManager(sourceId: "John's Apple Watch")
     
+Disable uneeded data sources, start up the rest: 
+
+    dcm.modifyDataSources(accel:true,gyro:false,mag:false)
+    dcm.initaliseDatasources()
+    
+Begin pushing sensor data to the iPhone: 
+
+    RemoteDataInterface.sharedInstance.publishOutgoingData()
+    
+ ** On the iPhone: ** 
+ 
+ Start listening for incoming data:
+ 
+     remoteCommunicator.sharedInstance.start(deviceId: "device")
+ 
+ In the class to receive the remote data:
+ 
+     NotificationCenter.default.addObserver(self, selector: #selector(myClass.newRemoteData), name: Notification.Name("newRemoteData"), object: nil)
+     
+Where `myClass.newRemoteData` is an Objective-C function that will be called with when a notification of new data is posted. It must accept a single `notification` argument. 
+
+### Other Features
+
+The Apple Watch communication shown here is extremely powerful, and allows for to way sending of key value messages between the devices, as well as the observation of incoming keyed messages from anywhere in the application. For more informaiton, see the Remote Communicator page in the wiki. 
+
 # Showcase App and Example Code
 
 Included in this proejct is a showcase app which can be used to experiment with the filters to find the right one for your needs.
