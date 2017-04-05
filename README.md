@@ -1,19 +1,25 @@
-# Welcome to the README for DataFil!
+# DataFil - A Complete Signal Processing Toolkit for iOS
 
-The purpose of this software is to provide a convenient and reliable set of signal processing tools for developers to integrate into their project to better utilise the suite of sensors provided on an iPhone. 
+A convenient and reliable set of signal processing tools for developers to integrate into their project to better utilise the sensors on an iPhone. 
 
-Creating a filter that has the right characteristics for your application can be an extremely time consuming task, and often requires knowledge of digital signal processing to be effective.
+Creating a filter that has the right characteristics for your application can be an extremely time consuming task, and often requires knowledge of signal processing to be effective.
 
-This library provides an alternative to that, with ready to use filters that can be customised and integrated into your application quickly. The filters can be applied to almost any data source from iOS or elsewhere, and have been designed to maximise ease of use for someone with little or no signal processing experience. With this in mind, the key features of the filters include:
+This library provides an alternative to that, with ready to use filters that can be customised and integrated into your application quickly. They can be applied to almost any data source from iOS or elsewhere, and have been designed to be easy to use for someone with little or no signal processing experience. Key features include:
 
 * A consistent, easy to use interface and simple data model
 * “Drag and drop” functionality. Each filter can operate as a standalone class. No project imports or external dependencies required.
 * The latest Swift 3 syntax.
 * Concurrent calculations where necessary. 
 
-## Basic Code Usage
+# Basic Code Usage
 
-### Standalone Filter
+There are two options here:
+
+* Take the filter algorithm and use it as a standalone object with your existing project code. Best for users with signal processing knowledge or projects with their own sensor data handling set up.
+
+* Use the data source and filter manager classes to completely handle sensor data processing, allowing raw and processed data to be accessed with a simple notification observer. - Best for new users/projects.
+
+## Standalone Filter
 
 In addition to the chosen filter add the following files to your project:
 
@@ -47,7 +53,7 @@ Finally, to pass data to the filter to process:
     
 The filter will now execute the callback registered earlier when it has completed processing the passed in data.
 
-### With Data Source and Filter Manager
+## With Data Source and Filter Manager
 
 Initalise the data source manager:
 
