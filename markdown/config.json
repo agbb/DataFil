@@ -1,0 +1,8 @@
+{
+    "title": "DataFil Documentation",
+    "author": "Alexander Gubbay",
+     "format": "html",
+    "tagline": "Full Documentation for the DataFil Project",
+    "breadcrumbs": true,
+    "breadcrumb_separator": "Chevrons"
+}
