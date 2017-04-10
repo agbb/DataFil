@@ -85,11 +85,28 @@ The filter functions through the use of convolution. Using linear algebra to app
 <li>Filter application per point: O(nl+nr) where <code>nl</code> = leftScan and <code>nr</code> = rightScan</li>
 </ul>
 <h1 id="page_Parameters">Parameters</h1>
-<p>| Name and Type                                       	| Description                                                                                                                                                                                                                                                                                                                                           	||
-|-----------------------------------------------------	|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	||
-| <code>leftScan:Double</code>  Range: 1...n                       	| Defines the number of future,points that should be considered when calculating the current point. The larger this value, the larger the delay. A large difference between the left and right range can lead to anomalous behaviour. A forward scan value slightly larger than a backward scan value can reduce under and overshoot on sudden changes. 	| 	||
-| <code>rightScan:Double</code>   Range: 1...n                     	| Defines the number of historic points to be considered when calculating the current point. Does not affect delay. Does increase memory use. A higher value results in a smoother output.                                                                                                                                                              	| 	||
-| <code>filterPolynomial:Double</code>  (rightScan+leftScan+1)...n 	| The order of the polynomial used to calculate the coefficients. A higher order polynomial filter will respond better to high amplitude changes. Note that this value must be larger than (nr+nl+1) or no filtering will be applied. An error will be displayed in the console.                                                                        	| 	||</p>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>leftScan:Double</code>  Range: 1...n</td>
+<td>Defines the number of future,points that should be considered when calculating the current point. The larger this value, the larger the delay. A large difference between the left and right range can lead to anomalous behaviour. A forward scan value slightly larger than a backward scan value can reduce under and overshoot on sudden changes.</td>
+</tr>
+<tr>
+<td><code>rightScan:Double</code>   Range: 1...n</td>
+<td>Defines the number of historic points to be considered when calculating the current point. Does not affect delay. Does increase memory use. A higher value results in a smoother output.</td>
+</tr>
+<tr>
+<td><code>filterPolynomial:Double</code>  (rightScan+leftScan+1)...n</td>
+<td>The order of the polynomial used to calculate the coefficients. A higher order polynomial filter will respond better to high amplitude changes. Note that this value must be larger than (nr+nl+1) or no filtering will be applied. An error will be displayed in the console.</td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://github.com/ozliftoff/Accelerometer-Graph/blob/master/images/savgol2.jpg?raw=true" alt="Savitzky-Golay Application" /></p>
 <p>The above graphs are examples of a good and two bad configurations of this filter. The first above shows well how a properly calibrated filter will preserve the height and width of major movements in the data. The second displays anomalous changes on the descending and ascending leg of the major movement due to a low order being used with comparatively high numbers of points being considered. Lastly, the third shows a configuration where the polynomial is too low, and the number of points considered too high for the frequency of change present in the data. The height and width of the data is lost.</p>
 <h1 id="page_Testing">Testing</h1>

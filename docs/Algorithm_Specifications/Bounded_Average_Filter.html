@@ -87,11 +87,32 @@ This filter would be well suited to situations where:</p>
 While the algorithm does not run in constant time, the number of historical points to consider is likely small. The algorithm can run with 0 previous values considered.</li>
 </ul>
 <h1 id="page_Parameters">Parameters</h1>
-<p>| Name and Type                      	| Description                                                                             	|	||
-|------------------------------------	|-----------------------------------------------------------------------------------------	||
-| <code>upperBound:Double</code>  Range: 0...8    	| The upper bound beyond which the signal centre is reset and the bounds shift upwards.   	|	||
-| <code>lowerBound:Double</code>  Range: 0...8    	| The lower bound beyond which the signal centre is reset and the bounds shift downwards. 	|	||
-| <code>pointsAverage:Double</code>  Range: 0...n 	| The number of points to consider in the moving average. Determines complexity.          	|	||</p>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>upperBound:Double</code>  Range: 0...8</td>
+<td>The upper bound beyond which the signal centre is reset and the bounds shift upwards.</td>
+</tr>
+<tr>
+<td><code>lowerBound:Double</code>  Range: 0...8</td>
+<td>The lower bound beyond which the signal centre is reset and the bounds shift downwards.</td>
+</tr>
+<tr>
+<td><code>points:Double</code>  Range: 0...n</td>
+<td>The number of points to consider in the moving average. Determines complexity.</td>
+</tr>
+<tr>
+<td><code>exponential:Double</code>  Range: 0 or 1</td>
+<td>Switches the moving average calculation to an exponential moving average algorithm that reduces lag in output.</td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://github.com/ozliftoff/Accelerometer-Graph/blob/master/images/boundedAvg.jpg?raw=true" alt="Bounded Average Application" /></p>
 <p>The figures above show that the bounds size must be carefully matched to the expected accelerations in the application. If there are too small, the data is noisy and has many artefacts. If the bounds are too large, changes in the data are lost, and the bounds can settle at an inaccurate value.</p>
 <h1 id="page_Testing">Testing</h1>

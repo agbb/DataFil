@@ -83,10 +83,25 @@
 </ul>
 <p>The complexity and memory requirements of this filter are constant and trivial. At any one time the algorithm keeps track of the previous raw and processed value.</p>
 <h1 id="page_Parameters">Parameters</h1>
-<p>| Name and Type                  	| Description                                                                                                                                                                                                                       	|	||
-|--------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	||
-| <code>CutPoint:Double</code>  Range: 0...10 	| Frequency at which the signal is attenuated. The lower this value, the lower the frequency of a signal needs to be to be attenuated. This results in a less active filter that takes longer to return to zero after displacement. 	||
-| <code>Freq:Double</code>                    	| The frequency of the sampling source. This is used in the coefficient calculation.                                                                                                                                                	||</p>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CutPoint:Double Range: 0...10</td>
+<td>Frequency at which the signal is attenuated. The lower this value, the lower the frequency of a signal needs to be to be attenuated. This results in a less active filter that takes longer to return to zero after displacement.</td>
+</tr>
+<tr>
+<td>Freq:Double</td>
+<td>The frequency of the sampling source. This is used in the coefficient calculation.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://github.com/ozliftoff/Accelerometer-Graph/blob/master/images/highPass.jpg?raw=true" alt="High Pass Filter Application" /></p>
 <p>It can be seen that when a small cut-off frequency is used, the time taken for the filter to bring the signal back to 0. At very high values we can see that this is almost instantaneous. When working with this filter it is important to strike a balance between responsiveness and over activity cutting out useful data.</p>
 <h1 id="page_Testing">Testing</h1>

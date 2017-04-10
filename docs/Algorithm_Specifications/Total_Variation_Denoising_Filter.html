@@ -82,10 +82,24 @@ Memory load:</li>
 <p>Information on the complexity of this algorithm is provided in the paper discussed above. (Condat, 2013)
 When using this filter in the showcase app, the graph may appear to freeze. This is normal behaviour, and the graph will update with new values as they are batch processed. This effect can be reduced by selecting a smaller batch size. The live raw data can be viewed by tapping settings and then unchecking Single Raw &amp; Filtered Graph. The bottom graph will update in jumps as new processed data becomes available.</p>
 <h1 id="page_Parameters">Parameters</h1>
-<p>| Name and Type                   	| Description                                                                                                                                                                                                                                                                                                                                                                                        	||
-|---------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	||
-| <code>lambda:Double</code>  Range: 0.01...1  	| Defines the sensitivity of the filter to changes in value. The larger the lambda value, the larger change in acceleration is required to trigger an update of the output value. It also causes instantaneous jumps to be larger when they occur. This should be tested to a value that is above the level of noise in your data but below the magnitude of changes that are considered meaningful. 	| 	||
-| <code>bufferSize:Double</code>  Range: 1...n 	| Defines the size of the batch to be processed at once. When using the filter for real-time applications this will define the delay. For efficiency and output data consistency, the largest acceptable value should be used.                                                                                                                                                                       	|	||</p>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lambda:Double</code>  Range: 0.01...1</td>
+<td>Defines the sensitivity of the filter to changes in value. The larger the lambda value, the larger change in acceleration is required to trigger an update of the output value. It also causes instantaneous jumps to be larger when they occur. This should be tested to a value that is above the level of noise in your data but below the magnitude of changes that are considered meaningful.</td>
+</tr>
+<tr>
+<td><code>bufferSize:Double</code>  Range: 1...n</td>
+<td>Defines the size of the batch to be processed at once. When using the filter for real-time applications this will define the delay. For efficiency and output data consistency, the largest acceptable value should be used.</td>
+</tr>
+</tbody>
+</table>
 <p><img src="https://github.com/ozliftoff/Accelerometer-Graph/blob/master/images/tvd.jpg?raw=true" alt="Total Variation Dnoising" /></p>
 <p>The sample graphs above show some of the characteristic behaviour of the total variation denoising filter. The first displays clearly how the overall movement in the data is isolated by removing extreme peaks and troughs. It also shows the flat tops at the maxima and minima of the data, characteristic of this algorithm. The middle is included to clearly display the way in which the filter behaves with sudden changes. It can be seen that a single instantaneous jump was made from the old signal value to the new. The effect of selecting a smaller batch size can be seen in the last image. Compared to the first, the processed data more closely resembles the raw data, and the flat tops at maxima and minima are smaller and less clear.</p>
 <h1 id="page_Testing">Testing</h1>

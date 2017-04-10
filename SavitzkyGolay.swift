@@ -12,7 +12,7 @@ class SavitzkyGolay: Filter {
     
     
     var params = [String:Double]()
-    var filterName = "Savitzky Golay"
+    var filterName = Algorithm.SavitzkyGolay
     var observers: [([accelPoint]) -> Void]
     var coeffs = [Double]()
     var index =  Array(repeating: 0, count: 50)
@@ -30,11 +30,6 @@ class SavitzkyGolay: Filter {
      
     }
  
-    
-    func getFilterName() -> String{
-        return filterName
-    }
-    
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
         coeffs = calculateCoeffs(nl: Int(params["leftScan"]!), nr: Int(params["rightScan"]!), m: Int(params["filterPolynomial"]!))

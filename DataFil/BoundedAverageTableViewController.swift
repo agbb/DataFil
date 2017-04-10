@@ -21,6 +21,7 @@ class BoundedAverageTableViewController: UITableViewController {
     @IBOutlet var currentBandSizeLabel: UILabel!
     @IBOutlet weak var movingAverageSlider: UISlider!
     @IBOutlet weak var movingAverageLabel: UILabel!
+    @IBOutlet weak var exponentialMoving: UISwitch!
     
     
     override func viewDidLoad() {
@@ -34,6 +35,7 @@ class BoundedAverageTableViewController: UITableViewController {
                 currentBandSlider.value = Float(filter.params["upperBound"]!)
                 movingAverageLabel.text = "\(Int(filter.params["points"]!))"
                 movingAverageSlider.value = Float(filter.params["points"]!)
+                exponentialMoving.isOn = (filter.params["exponential"]! > 0.0)
             }
         }
     }
@@ -57,6 +59,14 @@ class BoundedAverageTableViewController: UITableViewController {
         if boundedAverageSwitch.isOn {
             fm.setFilterParameter(filterName: Algorithm.BoundedAverage, parameterName: "points", parameterValue: Double(sender.value).roundTo(places: 0))
             movingAverageLabel.text = String(Int(sender.value))
+        }
+    }
+
+    @IBAction func exponentialAvgSwitched(_ sender: UISwitch) {
+        if sender.isOn{
+            fm.setFilterParameter(filterName: Algorithm.BoundedAverage, parameterName: "exponential", parameterValue: 1.0)
+        }else{
+            fm.setFilterParameter(filterName: Algorithm.BoundedAverage, parameterName: "exponential", parameterValue: 0.0)
         }
     }
  
