@@ -60,9 +60,9 @@ class savGolTests: XCTestCase {
         let output1 = savgol.applyFilter(pointToProcess: accelPoint(dataX: 1.0, dataY: 1.0, dataZ: 1.0, count: 6), buffer: buffer)
         XCTAssertEqual(output1.count, 8) //count should equal the input + the forward scan lag (2 here)
         
-        XCTAssertEqualWithAccuracy(Double(output1.x), Double(1.0), accuracy: 0.00001) //All 1s as input should yield an out put of 1.0
-        XCTAssertEqualWithAccuracy(output1.y, Double(1.0), accuracy: 0.000001)
-        XCTAssertEqualWithAccuracy(output1.z, Double(1.0), accuracy: 0.000001)//check for all axes
+        XCTAssertEqualWithAccuracy(Double(output1.xAccel), Double(1.0), accuracy: 0.00001) //All 1s as input should yield an out put of 1.0
+        XCTAssertEqualWithAccuracy(output1.yAccel, Double(1.0), accuracy: 0.000001)
+        XCTAssertEqualWithAccuracy(output1.zAccel, Double(1.0), accuracy: 0.000001)//check for all axes
         
         
         
@@ -79,7 +79,7 @@ class savGolTests: XCTestCase {
         let indexOut = [0, 1, 2, 3, 0, 0, 0, 0]
         let aOut = [[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 5.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 2.0, 0.0, 14.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
         
-        let matrixFunc = fortranMatrixOps()
+        let matrixFunc = FortranMatrixOps()
         
         let output = matrixFunc.luDecomposition(a: aIn, n: n, index: indexIn, d: dIn)
         
@@ -102,15 +102,15 @@ class savGolTests: XCTestCase {
         
         let output2 = savgol.applyFilter(pointToProcess: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 6), buffer: buffer)
         XCTAssertEqual(output2.count, 8) //count should equal the input + the forward scan lag (2 here)
-        XCTAssertEqualWithAccuracy(output2.x, 0.685, accuracy: 0.001)//confirm manual calulation for output.
-        XCTAssertEqualWithAccuracy(output2.y, 0.685, accuracy: 0.001)
-        XCTAssertEqualWithAccuracy(output2.z, 0.685, accuracy: 0.001)//check for all axes
+        XCTAssertEqualWithAccuracy(output2.xAccel, 0.685, accuracy: 0.001)//confirm manual calulation for output.
+        XCTAssertEqualWithAccuracy(output2.yAccel, 0.685, accuracy: 0.001)
+        XCTAssertEqualWithAccuracy(output2.zAccel, 0.685, accuracy: 0.001)//check for all axes
         
     }
     
     func testNameCorrect(){
         
-        XCTAssertEqual(SavitzkyGolay().getFilterName(), "Savitzky Golay")
+        XCTAssertEqual(SavitzkyGolay().filterName.description, "Savitzky Golay Filter")
     }
     
 }

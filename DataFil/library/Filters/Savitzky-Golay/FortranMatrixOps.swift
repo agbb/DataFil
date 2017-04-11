@@ -8,7 +8,7 @@
 
 import Foundation
 
-class fortranMatrixOps {
+class FortranMatrixOps {
     
     func luBacksubstitute(a: [[Double]], n: Int, np: Int, index: [Int], b:[Double]) -> [Double]{
         

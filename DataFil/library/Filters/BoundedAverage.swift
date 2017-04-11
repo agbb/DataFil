@@ -12,7 +12,7 @@
 
 import Foundation
 
-class boundedAverage: Filter {
+class BoundedAverage: Filter {
     
     
     var params = [String:Double]()
@@ -40,6 +40,7 @@ class boundedAverage: Filter {
     
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
+        print("set paramter called HERE ++++++++++++ \(parameterValue)")
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
@@ -76,8 +77,10 @@ class boundedAverage: Filter {
 
 
             let points = (Double(params["points"]!).roundTo(places: 0))
-            
+             print("HEREEEEEEEE \(points)")
+        
             if points > 1.0 {
+                print("POINTSSS")
                 let newPoint = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
 
                 if exponential > 0.0{
@@ -88,10 +91,12 @@ class boundedAverage: Filter {
                 }else{
                     //sum points
                     for i in buffer{
+                        print(i.xAccel)
                         newPoint.xAccel += i.xAccel
                         newPoint.yAccel += i.yAccel
                         newPoint.zAccel += i.zAccel
                     }
+                    print(newPoint.xAccel)
                     newPoint.xAccel = newPoint.xAccel/Double(buffer.count)
                     newPoint.yAccel = newPoint.yAccel/Double(buffer.count)
                     newPoint.zAccel = newPoint.zAccel/Double(buffer.count)
@@ -106,7 +111,7 @@ class boundedAverage: Filter {
     }
     
     func boundedAverage(currentRaw: accelPoint){
-        var newPoint = accelPoint()
+        let newPoint = accelPoint()
         newPoint.count = currentRaw.count
         if currentRaw.xAccel > (currentCenterX + params["upperBound"]!){
             currentCenterX = currentRaw.xAccel

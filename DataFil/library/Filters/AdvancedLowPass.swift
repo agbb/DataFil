@@ -13,7 +13,7 @@
 
 import Foundation
 
-class advancedLowPass: Filter {
+class AdvancedLowPass: Filter {
     
     var params = [String:Double]()
     var filterName = Algorithm.LowPass

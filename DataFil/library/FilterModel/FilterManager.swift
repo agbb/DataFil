@@ -62,7 +62,7 @@ class FilterManager{
             activeFilters.append(highPass)
             break
         case .LowPass:
-            let lowPass = advancedLowPass()
+            let lowPass = AdvancedLowPass()
             lowPass.id = activeFilters.count
             
             let update = {(data: [accelPoint])->Void in
@@ -74,7 +74,7 @@ class FilterManager{
             activeFilters.append(lowPass)
             break
         case .BoundedAverage:
-            let boundedAvg = boundedAverage()
+            let boundedAvg = BoundedAverage()
             boundedAvg.id = activeFilters.count
             
             let update = {(data: [accelPoint])->Void in

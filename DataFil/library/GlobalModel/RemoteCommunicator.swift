@@ -16,9 +16,9 @@ import WatchConnectivity
 /**
  Creates and manages sessions with a remote Watch or iPhone. Sends messages as key value pairs and notifies subscibers of a particular key of an incoming message under that key. Singleton.
  */
-class remoteCommunicator: NSObject, WCSessionDelegate {
+class RemoteCommunicator: NSObject, WCSessionDelegate {
 
-    static let sharedInstance = remoteCommunicator()
+    static let sharedInstance = RemoteCommunicator()
     var watchObservers: [String: [(Any) -> Void]]
     var delegates = [AnyObject]()
     var session = WCSession.default()

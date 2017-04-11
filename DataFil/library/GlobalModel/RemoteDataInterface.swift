@@ -46,7 +46,7 @@ class RemoteDataInterface {
             }
         }
 
-        remoteCommunicator.sharedInstance.addObserver(key: observerKey, update: incoming)
+        RemoteCommunicator.sharedInstance.addObserver(key: observerKey, update: incoming)
         isListening = true
     }
     /**
@@ -74,7 +74,7 @@ class RemoteDataInterface {
         }
 
         if buffer.count > 30 {
-            remoteCommunicator.sharedInstance.sendMessage(key: "watchAccelRaw", value: buffer)
+            RemoteCommunicator.sharedInstance.sendMessage(key: "watchAccelRaw", value: buffer)
             buffer.removeAll()
         }
         isSending = true

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  MainViewController.swift
 //  Accelerometer Graph
 //
 //  Created by Alex Gubbay on 07/12/2016.
@@ -12,8 +12,10 @@
 import UIKit
 import Charts
 
-
-class FirstViewController: UIViewController, ChartViewDelegate {
+/*
+ Class responsible for the display and management of graphics on the app. Utilises iOS Charts: https://github.com/danielgindi/Charts licence: MIT
+ */
+class MainViewController: UIViewController, ChartViewDelegate {
 
     
     
@@ -27,10 +29,10 @@ class FirstViewController: UIViewController, ChartViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(FirstViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)

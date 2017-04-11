@@ -13,6 +13,7 @@ import Foundation
 
 /**
  Formats the recorded data in `accalPoint` format into a structure for persisting to disk. Either JSON or CSV.
+ Utilises SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON/ under the MIT licence.
  */
 class DataFormatter {
     

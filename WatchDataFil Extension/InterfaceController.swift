@@ -30,7 +30,7 @@ class InterfaceController: WKInterfaceController {
     @IBAction func startButtonPressed() {
 
         if !active{
-            remoteCommunicator.sharedInstance.start(deviceId: "watch")
+            RemoteCommunicator.sharedInstance.start(deviceId: "watch")
 
             accel.initaliseDatasources()
             RemoteDataInterface.sharedInstance.publishOutgoingData()

@@ -22,7 +22,7 @@ class boundedAverageTests: XCTestCase {
     
     func testMinimumJumpAttenuation(){
         
-        let boundAvg = boundedAverage()
+        let boundAvg = BoundedAverage()
         var outputData = [accelPoint]()
         
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
@@ -52,7 +52,7 @@ class boundedAverageTests: XCTestCase {
     
     func testAverage(){
         
-        let boundAvg = boundedAverage()
+        let boundAvg = BoundedAverage()
         boundAvg.setParameter(parameterName: "points", parameterValue: 100)
         var outputData = [accelPoint]()
         
@@ -60,11 +60,16 @@ class boundedAverageTests: XCTestCase {
             outputData.append(contentsOf: data)
         })
         
-        for i in 0...100{
+        for i in 1...101{
             
             let input = accelPoint(dataX: Double(i), dataY: Double(i), dataZ: Double(i), count: i)
             boundAvg.addDataPoint(dataPoint: input)
         }
+        print("-------")
+        for i in 0..<outputData.count{
+            print(outputData[i].xAccel)
+        }
+        print("-------")
         XCTAssertEqual(outputData[50].xAccel, 25)
         XCTAssertEqual(outputData[50].yAccel, 25)
         XCTAssertEqual(outputData[50].zAccel, 25)
@@ -77,7 +82,7 @@ class boundedAverageTests: XCTestCase {
     
     func testMinimumJumpPass(){
         
-        let boundAvg = boundedAverage()
+        let boundAvg = BoundedAverage()
         var outputData = [accelPoint]()
         
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
@@ -119,7 +124,7 @@ class boundedAverageTests: XCTestCase {
     
     func testUpdateParams(){
     
-        let boundAvg = boundedAverage()
+        let boundAvg = BoundedAverage()
         var outputData = [accelPoint]()
         
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
@@ -204,7 +209,7 @@ class boundedAverageTests: XCTestCase {
     // For regression testing purposes.
     func testNameCorrect(){
         
-        XCTAssertEqual(boundedAverage().getFilterName(), "Bounded Average")
+        XCTAssertEqual(BoundedAverage().filterName.description, "Bounded Average")
     }
     
     
@@ -212,7 +217,7 @@ class boundedAverageTests: XCTestCase {
     func testPerformaceSetUp(){
         
         self.measure {
-            let _ = boundedAverage()
+            let _ = BoundedAverage()
         }
         
     }
@@ -220,7 +225,7 @@ class boundedAverageTests: XCTestCase {
     //Included for comparison, this filter shows trivial time to complete one point calculation
     func testPerformanceSinglePoint() {
         
-        let boundAvg = boundedAverage()
+        let boundAvg = BoundedAverage()
         var count = 0
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
@@ -243,7 +248,7 @@ class boundedAverageTests: XCTestCase {
     
     func testPerformanceTenThouPoints(){
         
-        let boundAvg = boundedAverage()
+        let boundAvg = BoundedAverage()
         var count = 0
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
             count+=1

@@ -128,7 +128,7 @@ class highPassTests: XCTestCase {
     // For regression testing purposes.
     func testNameCorrect(){
         
-        XCTAssertEqual(HighPass().getFilterName(), "High Pass")
+        XCTAssertEqual(HighPass().filterName.description, "High Pass")
     }
     
     

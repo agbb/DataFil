@@ -22,7 +22,7 @@ class WatchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        remoteCommunicator.sharedInstance.start(deviceId: "device")
+        RemoteCommunicator.sharedInstance.start(deviceId: "device")
         updateConnectionStatus()
 
         // Do any additional setup after loading the view.
@@ -30,7 +30,7 @@ class WatchViewController: UIViewController {
     
     func updateConnectionStatus(){
         
-        let remote = remoteCommunicator.sharedInstance
+        let remote = RemoteCommunicator.sharedInstance
         
             if remote.session.isWatchAppInstalled {
                 installedLabel.text = "YES"

@@ -114,7 +114,7 @@ class SavitzkyGolay: Filter {
         let ld = 0
         let np = nl + nr + 1
         var c = Array(repeating: 0.0, count: np + 2)
-        let matrix = fortranMatrixOps()
+        let matrix = FortranMatrixOps()
         
         let max = 6
         

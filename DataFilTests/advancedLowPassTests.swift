@@ -24,7 +24,7 @@ class advancedLowPassTests: XCTestCase {
     
     func testCoeffGenerationButterworth(){
         
-        let lowPss = advancedLowPass()
+        let lowPss = AdvancedLowPass()
         
         lowPss.setParameter(parameterName: "n", parameterValue: 1)
         lowPss.setParameter(parameterName: "p", parameterValue: 1.4)
@@ -41,7 +41,7 @@ class advancedLowPassTests: XCTestCase {
     
     func testCoeffGenerationCriticallyDamped(){
         
-        let lowPss = advancedLowPass()
+        let lowPss = AdvancedLowPass()
 
         lowPss.setParameter(parameterName: "n", parameterValue: 1)
         lowPss.setParameter(parameterName: "p", parameterValue: 2)
@@ -59,7 +59,7 @@ class advancedLowPassTests: XCTestCase {
     
     func testCoeffGenerationBessel(){
         
-        let lowPss = advancedLowPass()
+        let lowPss = AdvancedLowPass()
         
         lowPss.setParameter(parameterName: "n", parameterValue: 1)
         lowPss.setParameter(parameterName: "p", parameterValue: 3)
@@ -78,7 +78,7 @@ class advancedLowPassTests: XCTestCase {
     // For regression testing purposes.
     func testNameCorrect(){
         
-        XCTAssertEqual(advancedLowPass().getFilterName(), "Low Pass")
+        XCTAssertEqual(AdvancedLowPass().filterName.description, "Low Pass")
     }
     
     
@@ -86,7 +86,7 @@ class advancedLowPassTests: XCTestCase {
     func testPerformaceSetUp(){
         
         self.measure {
-            let _ = advancedLowPass()
+            let _ = AdvancedLowPass()
         }
         
     }
@@ -94,7 +94,7 @@ class advancedLowPassTests: XCTestCase {
     //Included for comparison, this filter shows trivial time to complete one point calculation
     func testPerformanceSinglePoint() {
         
-        let lowPss = advancedLowPass()
+        let lowPss = AdvancedLowPass()
         var count = 0
         lowPss.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
@@ -117,7 +117,7 @@ class advancedLowPassTests: XCTestCase {
     
     func testPerformanceTenThouPoints(){
         
-        let lowPss = advancedLowPass()
+        let lowPss = AdvancedLowPass()
         var count = 0
         lowPss.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
