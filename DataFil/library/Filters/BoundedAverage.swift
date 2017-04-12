@@ -32,7 +32,7 @@ class BoundedAverage: Filter {
         params["upperBound"] = 0.1
         params["lowerBound"] = 0.1
         params["points"] = 1
-        params["exponential"] = 1.0
+        params["exponential"] = 0.0
         observers = []
 
     }
@@ -77,26 +77,27 @@ class BoundedAverage: Filter {
 
 
             let points = (Double(params["points"]!).roundTo(places: 0))
-             print("HEREEEEEEEE \(points)")
         
             if points > 1.0 {
-                print("POINTSSS")
+
                 let newPoint = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: dataPoint.count)
 
                 if exponential > 0.0{
+                    print("in exponential")
                     let weight = (2.0 / (points+1))
                     newPoint.xAccel = (dataPoint.xAccel * weight)+(previous.xAccel * (1.0 - weight))
                     newPoint.yAccel = (dataPoint.yAccel * weight)+(previous.yAccel * (1.0 - weight))
                     newPoint.zAccel = (dataPoint.zAccel * weight)+(previous.zAccel * (1.0 - weight))
                 }else{
                     //sum points
+
                     for i in buffer{
-                        print(i.xAccel)
+
                         newPoint.xAccel += i.xAccel
                         newPoint.yAccel += i.yAccel
                         newPoint.zAccel += i.zAccel
                     }
-                    print(newPoint.xAccel)
+                
                     newPoint.xAccel = newPoint.xAccel/Double(buffer.count)
                     newPoint.yAccel = newPoint.yAccel/Double(buffer.count)
                     newPoint.zAccel = newPoint.zAccel/Double(buffer.count)

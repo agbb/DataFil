@@ -104,11 +104,11 @@ class highPassTests: XCTestCase {
         for i in 1...999{ //prevent out of bounds when checking sums
             
             let current = outputData[i]
-            var raw = 0.0
+ 
             
             if i % 10 == 0{
                 
-                raw = 1.0
+         
                 var min = current.xAccel
                 var max = current.xAccel
                 for j in -2...2{

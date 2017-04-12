@@ -60,23 +60,19 @@ class boundedAverageTests: XCTestCase {
             outputData.append(contentsOf: data)
         })
         
-        for i in 1...101{
+        for i in 0...100{
             
             let input = accelPoint(dataX: Double(i), dataY: Double(i), dataZ: Double(i), count: i)
             boundAvg.addDataPoint(dataPoint: input)
         }
-        print("-------")
-        for i in 0..<outputData.count{
-            print(outputData[i].xAccel)
-        }
-        print("-------")
+       
         XCTAssertEqual(outputData[50].xAccel, 25)
         XCTAssertEqual(outputData[50].yAccel, 25)
         XCTAssertEqual(outputData[50].zAccel, 25)
         
-        XCTAssertEqual(outputData[100].xAccel, 50)
-        XCTAssertEqual(outputData[100].yAccel, 50)
-        XCTAssertEqual(outputData[100].zAccel, 50)
+        XCTAssertEqual(outputData[100].xAccel, 50.5)
+        XCTAssertEqual(outputData[100].yAccel, 50.5)
+        XCTAssertEqual(outputData[100].zAccel, 50.5)
 
     }
     

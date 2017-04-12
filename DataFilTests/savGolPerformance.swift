@@ -138,38 +138,6 @@ class savGolPerformance: XCTestCase {
             })
         }
     }
-    
-    func testPerformanceTenThouPoints1(){
-        
-        let savGol = SavitzkyGolay()
-        
-        savGol.setParameter(parameterName: "leftScan", parameterValue: 512)
-        savGol.setParameter(parameterName: "rightScan", parameterValue: 512)
-        savGol.setParameter(parameterName: "filterPolynomial", parameterValue: 6)
-        
-        self.measure {
-            
-            let allPointsAccountedExpectation = self.expectation(description: "allPointedAccountedFor")
-            
-            let savGol = SavitzkyGolay()
-            var count = 0
-            savGol.addObserver(update: {(data: [accelPoint])->Void in
-                
-                count+=1
-                if count > 10000{
-                    
-                    allPointsAccountedExpectation.fulfill()
-                }
-            })
-            
-            for i in 0...10000{
-                savGol.addDataPoint(dataPoint: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i));
-            }
-            
-            self.waitForExpectations(timeout: 10, handler: { error in
-                
-            })
-        }
-    }
+
     
 }
