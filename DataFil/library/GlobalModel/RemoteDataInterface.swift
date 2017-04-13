@@ -40,7 +40,6 @@ class RemoteDataInterface {
             for d in data as! [String]{
                 let accel = self.srl.deserialise(input: d)
                 DispatchQueue.main.async {
-                    print("posting")
                     NotificationCenter.default.post(name: Notification.Name("newRemoteData"), object: nil, userInfo:["data":accel])
                 }
 

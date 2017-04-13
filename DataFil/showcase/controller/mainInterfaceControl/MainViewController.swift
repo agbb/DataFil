@@ -156,14 +156,17 @@ class MainViewController: UIViewController, ChartViewDelegate {
         if remote{
 
             NotificationCenter.default.removeObserver(self)
-            NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.test), name: Notification.Name("newRemoteData"), object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newProcessedData), name: Notification.Name("newRemoteProcessedData"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newRawData), name: Notification.Name("newRemoteData"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
+            FilterManager.sharedInstance.observeRemoteData()
             resetGraph()
             observeSystemState()
         }else{
-            //setTopChartData(values: [0.0])
-           // setBottomChartData(values: [0.0])
+            NotificationCenter.default.removeObserver(self)
+            resetGraph()
             observeLocalData()
+            FilterManager.sharedInstance.observeLocalData()
+            observeSystemState()
         }
     }
 
@@ -180,17 +183,25 @@ class MainViewController: UIViewController, ChartViewDelegate {
     func resetGraph(){
 
         BottomLineChartView.data?.getDataSetByIndex(0).clear()
-        if singleView{
-           BottomLineChartView.data?.getDataSetByIndex(1).clear()
-        }
+        BottomLineChartView.data?.getDataSetByIndex(1).clear()
         TopLineChartView.data?.getDataSetByIndex(0).clear()
+
+        BottomLineChartView.xAxis.resetCustomAxisMax()
+        BottomLineChartView.xAxis.resetCustomAxisMin()
+        TopLineChartView.xAxis.resetCustomAxisMax()
+        TopLineChartView.xAxis.resetCustomAxisMin()
+
+        BottomLineChartView.leftAxis.resetCustomAxisMax()
+        BottomLineChartView.leftAxis.resetCustomAxisMin()
+        TopLineChartView.leftAxis.resetCustomAxisMax()
+        TopLineChartView.leftAxis.resetCustomAxisMin()
+
+        BottomLineChartView.rightAxis.resetCustomAxisMax()
+        BottomLineChartView.rightAxis.resetCustomAxisMin()
+        TopLineChartView.rightAxis.resetCustomAxisMax()
+        TopLineChartView.rightAxis.resetCustomAxisMin()
     }
 
-    func test(notification:NSNotification){
-
-        print("hello")
-
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -238,10 +249,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
                 _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
             }
             
-            if singleView{
-             
-                
-            }else{
+            if !singleView && !remoteSource{
 
                 let yAxisBottom = BottomLineChartView.getAxis(YAxis.AxisDependency.left)
                 let yAxisTop = TopLineChartView.getAxis(YAxis.AxisDependency.left)

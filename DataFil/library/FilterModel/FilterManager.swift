@@ -25,6 +25,15 @@ class FilterManager{
         NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRawData"), object: nil)
 
     }
+
+    func observeRemoteData(){
+        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRemoteData"), object: nil)
+    }
+    func observeLocalData(){
+        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRawData"), object: nil)
+    }
     
     /**
      Called when a notification under "newRawData" key arrives, as registered in the constructor.
