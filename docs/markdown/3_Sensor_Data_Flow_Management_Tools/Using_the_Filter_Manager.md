@@ -34,6 +34,18 @@ To the other parts of the system the data flow remains unchanged. The data sourc
 
 # Function Summary
 
+### observeRemoteData
+
+`func observeRemoteData()`
+
+Will cause the system to start listening for new data from a paired Apple Watch through the use of the `newRemoteData` notification posted by the `remoteDataInterface` class. Stops listening for local data from the `dataSourceManager`
+
+### observeLocalData
+
+`func observeLocalData()`
+
+Will cause the system to start listening for local data from the `dataSourceManager`. Active by default, can be used to switch back from remote data observance. 
+
 ### addNewFilter
 
 `func addNewFiler(AlgorithmToAdd: Algorithm)`

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>       <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>          <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>          <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <title>Filter Implementation - DataFil Documentation</title>
+    <meta name="description" content="Full Documentation for the DataFil Project" />
+    <meta name="author" content="Alexander Gubbay">
+    <meta charset="UTF-8">
+    <link rel="icon" href="../themes/daux/img/favicon-blue.png" type="image/x-icon">
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- CSS -->
+    <link href='../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body class="">
+    
+<header class="Navbar hidden-print">
+    <a class="Navbar__brand" href="../index.html">DataFil Documentation</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451"><path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/></svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on" results=25 autosave=text_search>
+    </div>
+</header>
+<div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <div class="Collapsible__container">
+            <button type="button" class="Button Collapsible__trigger">
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+                <span class="Collapsible__trigger--bar"></span>
+            </button>
+        </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item '><a href="../index.html">DataFil Documentation</a></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Showcase App</a><ul class='Nav'><li class='Nav__item '><a href="../Showcase_App/How_to_Use_the_Showcase_App.html">How to Use the Showcase App</a></li><li class='Nav__item '><a href="../Showcase_App/Using_an_Apple_Watch_with_the_Showcase_App.html">Using an Apple Watch with the Showcase App</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Sensor Data Flow Management Tools</a><ul class='Nav'><li class='Nav__item '><a href="../Sensor_Data_Flow_Management_Tools/Implementing_Apple_Watch_Sensor_Communication.html">Implementing Apple Watch Sensor Communication</a></li><li class='Nav__item '><a href="../Sensor_Data_Flow_Management_Tools/Using_the_Data_Source_Manager.html">Using the Data Source Manager</a></li><li class='Nav__item '><a href="../Sensor_Data_Flow_Management_Tools/Using_the_Filter_Manager.html">Using the Filter Manager</a></li></ul></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Filter Algorithm Implementation</a><ul class='Nav'><li class='Nav__item '><a href="../Filter_Algorithm_Implementation/accelPoint_Data_Object.html">accelPoint Data Object</a></li><li class='Nav__item Nav__item--active'><a href="../Filter_Algorithm_Implementation/Filter_Implementation.html">Filter Implementation</a></li><li class='Nav__item '><a href="../Filter_Algorithm_Implementation/Filter_Protocol.html">Filter Protocol</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Algorithm Specifications</a><ul class='Nav'><li class='Nav__item '><a href="../Algorithm_Specifications/Bounded_Average_Filter.html">Bounded Average Filter</a></li><li class='Nav__item '><a href="../Algorithm_Specifications/High_Pass_Filter.html">High Pass Filter</a></li><li class='Nav__item '><a href="../Algorithm_Specifications/Low_Pass_Filter.html">Low Pass Filter</a></li><li class='Nav__item '><a href="../Algorithm_Specifications/Savitzky_Golay_Filter.html">Savitzky Golay Filter</a></li><li class='Nav__item '><a href="../Algorithm_Specifications/Total_Variation_Denoising_Filter.html">Total Variation Denoising Filter</a></li></ul></li><li class='Nav__item '><a href="../Library_Organisation.html">Library Organisation</a></li><li class='Nav__item '><a href="../Contents.html">Contents</a></li></ul>
+
+            <div class="Links">
+                
+                                    <div class="CodeToggler">
+                        <hr/>
+                                                    <a class="CodeToggler__button CodeToggler__button--main" href="#">Show Code Blocks Inline</a><br>
+                                            </div>
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right ">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../Filter_Algorithm_Implementation/accelPoint_Data_Object.html">Filter Algorithm Implementation</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../Filter_Algorithm_Implementation/Filter_Implementation.html">Filter Implementation</a></h1>
+                    </div>
+
+
+    <div class="s-content">
+        <h1 id="page_Introduction">Introduction</h1>
+<p>This section describes in detail how to interact with the filters in your application. Every filter included has the same interface, as defined by the FilterProtocol. The filters should only be interacted with through this interface, as while they may have other methods publicly visible for testing purposes, these methods will not configure the filter state correctly, and may lead to poor data or crashes.</p>
+<h1 id="page_Enumeration"><code>Algorithm</code> Enumeration</h1>
+<p>Each filter algorithm is identified through the use of the <code>Algorithm</code> enum. It contains the following values:</p>
+<ul>
+<li>
+<code>HighPass</code>
+</li>
+<li>
+<code>LowPass</code>
+</li>
+<li>
+<code>BoundedAverage</code>
+</li>
+<li>
+<code>SavitzkyGolay</code>
+</li>
+<li>
+<code>TotalVariation</code>
+</li>
+</ul>
+<p>Functions described elsewhere, such as <code>addNewFilter</code> require the use of this enum to identify the filter to activate, and should therefore be included in the project.</p>
+<p><code>Algorithm.x.description</code> will return an English full name of the filter.</p>
+<h1 id="page_Setup+and+Use">Setup and Use</h1>
+<p>Every filter depends on 3 key items, which should be included in your project:</p>
+<ul>
+<li>
+<code>accelPoint</code> class</li>
+<li>
+<code>Filter</code> protocol</li>
+<li>
+<code>Algorithm</code> enum</li>
+</ul>
+<p>Some filters may have additional dependencies that must be imported alongside the file. These will be specified in the section of the documentation pertaining to that filter and the class itself.
+Once the required files have been imported into your project, the filter will be ready for use. The following workflow will then apply:</p>
+<ol>
+<li>Create a new filter object, using the default initialiser. As each filter will have an internal state, it is important that a filter is only used for one data stream at a time. New objects should be created to filter data from multiple sources at once.</li>
+<li>Add a callback to the filter, using the <code>addSubscriberCallback</code> function.</li>
+<li>Create an <code>accelPoint</code> object with the data to be filtered, and pass it into the filter object using the <code>addDataPoint</code> function</li>
+<li>Registered observer callbacks will be called with new data when it is ready.</li>
+</ol>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../Filter_Algorithm_Implementation/accelPoint_Data_Object.html">Previous</a></li>            <li class=Pager--next><a href="../Filter_Algorithm_Implementation/Filter_Protocol.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../'
+                });
+            });
+        </script>
+    
+</body>
+</html>
