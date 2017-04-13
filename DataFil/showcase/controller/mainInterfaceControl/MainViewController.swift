@@ -26,13 +26,12 @@ class MainViewController: UIViewController, ChartViewDelegate {
     private var customAxisState = false
     private var singleView = true
     private var pointsCount = 300
-
+    private var remoteSource = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
+        observeLocalData()
+        observeSystemState()
         
         self.TopLineChartView.delegate = self
         self.TopLineChartView.backgroundColor = #colorLiteral(red: 0.2940818071, green: 0.2941382527, blue: 0.2940782309, alpha: 1)
@@ -70,11 +69,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
                 }
             }
         setBottomChartData(values: [0])
-        
     }
-
-
-    
 
     func rotated(){
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
@@ -97,8 +92,9 @@ class MainViewController: UIViewController, ChartViewDelegate {
         if notification.userInfo?["singleView"] as! Bool == false{
             utilities.singleView = false
             TopLineChartView.isHidden = false
-
-           BottomLineChartView.data?.getDataSetByIndex(0).visible = false
+            if BottomLineChartView.data?.getDataSetByIndex(0) != nil{
+                BottomLineChartView.data?.getDataSetByIndex(0).visible = false
+            }
             for const in self.view.constraints{
                 if const.identifier == "heightLimit"{
                     const.priority = 999
@@ -114,8 +110,9 @@ class MainViewController: UIViewController, ChartViewDelegate {
 
             utilities.singleView = true
             TopLineChartView.isHidden = true
-            
-            BottomLineChartView.data?.getDataSetByIndex(0).visible = true
+            if BottomLineChartView.data?.getDataSetByIndex(0) != nil{
+                BottomLineChartView.data?.getDataSetByIndex(0).visible = true
+            }
             for const in self.view.constraints{
                 if const.identifier == "heightLimit"{
                     const.priority = 1
@@ -129,23 +126,71 @@ class MainViewController: UIViewController, ChartViewDelegate {
         }
         
         pointsCount = notification.userInfo?["pointsCount"] as! Int
- 
-        while((TopLineChartView.lineData?.dataSets[0].entryCount)! > pointsCount+1){
+
+        if (TopLineChartView.lineData?.dataSets.count)! > 0 {
+            while((TopLineChartView.lineData?.dataSets[0].entryCount)! > pointsCount+1){
        
-            _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
-            _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
-            _ = TopLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+                _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+                _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
+                _ = TopLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 0)
+            }
+            utilities.pointCount = pointsCount
         }
-        utilities.pointCount = pointsCount
+
         
         autoScale = notification.userInfo?["autoScale"] as! Bool
         if(!autoScale){
               //  TopLineChartView
         }
+        let newSource = notification.userInfo?["remoteSource"] as! Bool
+        if remoteSource != newSource{
+
+            updateSource(remote:newSource)
+            remoteSource = newSource
+        }
         self.view.updateConstraints()
         self.view.layoutSubviews()
     }
 
+    func updateSource(remote:Bool){
+        if remote{
+
+            NotificationCenter.default.removeObserver(self)
+            NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.test), name: Notification.Name("newRemoteData"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newProcessedData), name: Notification.Name("newRemoteProcessedData"), object: nil)
+            resetGraph()
+            observeSystemState()
+        }else{
+            //setTopChartData(values: [0.0])
+           // setBottomChartData(values: [0.0])
+            observeLocalData()
+        }
+    }
+
+    func observeSystemState(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newGraphSettings), name: Notification.Name("newGraphSettings"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+
+    func observeLocalData(){
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newRawData), name: Notification.Name("newRawData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.newProcessedData), name: Notification.Name("newProcessedData"), object: nil)
+    }
+
+    func resetGraph(){
+
+        BottomLineChartView.data?.getDataSetByIndex(0).clear()
+        if singleView{
+           BottomLineChartView.data?.getDataSetByIndex(1).clear()
+        }
+        TopLineChartView.data?.getDataSetByIndex(0).clear()
+    }
+
+    func test(notification:NSNotification){
+
+        print("hello")
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -187,8 +232,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
             let newEntry = ChartDataEntry(x: Double(accelData.count), y: accelData.xAccel)
             
              BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 1)
-            
-            
+
             if((BottomLineChartView.lineData?.dataSets[1].entryCount)! > pointsCount+1){
                 
                 _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)

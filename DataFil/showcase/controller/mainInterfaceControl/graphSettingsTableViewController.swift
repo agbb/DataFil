@@ -28,11 +28,11 @@ class graphSettingsTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         singleGraphSelection.setOn(utilities.singleView, animated: false)
         pointCountSelector.selectedSegmentIndex = (utilities.pointCount/100)-1
-         dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
+         dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() //&& RemoteDataInterface.sharedInstance.isListening
     }
 
     override func viewDidAppear(_ animated: Bool) {
-         dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
+         dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() //&& RemoteDataInterface.sharedInstance.isListening
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +40,7 @@ class graphSettingsTableViewController: UITableViewController {
     }
 
     @IBAction func dataSourceSelectionDidChange(_ sender: UISegmentedControl) {
-        
+        notifyGraphSettings()
     }
 
     // MARK: - Table view data source
@@ -77,7 +77,8 @@ class graphSettingsTableViewController: UITableViewController {
    
     func notifyGraphSettings(){
         let number = (pointCountSelector.selectedSegmentIndex + 1) * 100
-        NotificationCenter.default.post(name: Notification.Name("newGraphSettings"), object: nil, userInfo:["singleView":singleGraphSelection.isOn,"pointsCount":number,"autoScale":autoScale.isOn])
+        NotificationCenter.default.post(name: Notification.Name("newGraphSettings"), object: nil, userInfo:["singleView":singleGraphSelection.isOn,"pointsCount":number,"autoScale":autoScale.isOn,"remoteSource":(dataSourceSelection.selectedSegmentIndex==1)])
+        print("notifying \((dataSourceSelection.selectedSegmentIndex==1))")
     }
     
     func notifyDatasourceSettings(){

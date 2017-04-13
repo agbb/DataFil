@@ -29,6 +29,7 @@ class RemoteCommunicator: NSObject, WCSessionDelegate {
      - parameter deviceId: ID for communication printed alongside debug messages to help trace source.
      */
     func start(deviceId: String){
+        print("starting")
         self.deviceId = deviceId
         if WCSession.isSupported() {
             if session.hasContentPending{
