@@ -59,18 +59,7 @@ class WatchViewController: UIViewController {
     @IBAction func startButtonTapped(_ sender: Any) {
         
         RemoteDataInterface.sharedInstance.subscribeIncomingData()
-        i = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(self.newRemoteData), name: Notification.Name("newRemoteData"), object: nil)
-        i = 0
         updateConnectionStatus()
-    }
-
-
-    func newRemoteData(notification: NSNotification){
-        i += 1
-        
-        let data = notification.userInfo as! Dictionary<String,accelPoint>
-        let accelData = data["data"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,15 +67,5 @@ class WatchViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

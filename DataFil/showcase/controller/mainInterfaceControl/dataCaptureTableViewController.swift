@@ -36,17 +36,11 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         self.pickerView.delegate = self
         pickerView.selectRow(2, inComponent: 0, animated: true)
         pickerView.selectRow(3, inComponent: 1, animated: true)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
-        dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -176,7 +170,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
             }
         }
     }
-    
+
     //MARK: Picker view data source
     
     func pickerView(_: UIPickerView, numberOfRowsInComponent: Int) -> Int {
@@ -199,14 +193,8 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
         }
     }
     
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        //Deselect the sending tableview cell.
+
         tableView.deselectRow(at: tableView.indexPath(for: (sender as! UITableViewCell))!, animated: true)
     }
     

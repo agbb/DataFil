@@ -28,11 +28,11 @@ class graphSettingsTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         singleGraphSelection.setOn(utilities.singleView, animated: false)
         pointCountSelector.selectedSegmentIndex = (utilities.pointCount/100)-1
-         dataSourceSelection.isEnabled = true//RemoteCommunicator.sharedInstance.watchIsConnected() //&& RemoteDataInterface.sharedInstance.isListening
+         dataSourceSelection.isEnabled = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
-         dataSourceSelection.isEnabled = true//RemoteCommunicator.sharedInstance.watchIsConnected() //&& RemoteDataInterface.sharedInstance.isListening
+         dataSourceSelection.isEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
