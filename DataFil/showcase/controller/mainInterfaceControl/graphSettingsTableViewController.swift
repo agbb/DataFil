@@ -20,6 +20,7 @@ class graphSettingsTableViewController: UITableViewController {
     @IBOutlet weak var singleGraphSelection: UISwitch!
     @IBOutlet weak var sampleRateSelection: UISegmentedControl!
     @IBOutlet weak var autoScale: UISwitch!
+    @IBOutlet weak var dataSourceSelection: UISegmentedControl!
    
     
     override func viewDidLoad() {
@@ -27,10 +28,19 @@ class graphSettingsTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = false
         singleGraphSelection.setOn(utilities.singleView, animated: false)
         pointCountSelector.selectedSegmentIndex = (utilities.pointCount/100)-1
+         dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+         dataSourceSelection.isEnabled = RemoteCommunicator.sharedInstance.watchIsConnected() && RemoteDataInterface.sharedInstance.isListening
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    @IBAction func dataSourceSelectionDidChange(_ sender: UISegmentedControl) {
+        
     }
 
     // MARK: - Table view data source
