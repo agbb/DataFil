@@ -13,7 +13,6 @@ import UIKit
 
 class WatchViewController: UIViewController {
 
-
     @IBOutlet weak var installedLabel: UILabel!
     @IBOutlet weak var connectionLabel: UILabel!
     @IBOutlet weak var listeningLabel: UILabel!
@@ -53,11 +52,9 @@ class WatchViewController: UIViewController {
                 listeningLabel.text = "NO"
                 listeningLabel.textColor = #colorLiteral(red: 0.8941736817, green: 0.2608122561, blue: 0.2661629297, alpha: 1)
             }
-    
     }
     
     @IBAction func startButtonTapped(_ sender: Any) {
-        
         RemoteDataInterface.sharedInstance.subscribeIncomingData()
         updateConnectionStatus()
     }
@@ -66,6 +63,4 @@ class WatchViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 }

@@ -11,18 +11,14 @@
  */
 import UIKit
 
-
-
 class graphSettingsTableViewController: UITableViewController {
-
 
     @IBOutlet weak var pointCountSelector: UISegmentedControl!
     @IBOutlet weak var singleGraphSelection: UISwitch!
     @IBOutlet weak var sampleRateSelection: UISegmentedControl!
     @IBOutlet weak var autoScale: UISwitch!
     @IBOutlet weak var dataSourceSelection: UISegmentedControl!
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
@@ -50,28 +46,22 @@ class graphSettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return 4
     }
 
     @IBAction func graphLayoutSwitched(_ sender: UISwitch) {
-     
         notifyGraphSettings()
-        
     }
     @IBAction func graphPointsChanged(_ sender: UISegmentedControl) {
-        
         notifyGraphSettings()
         
     }
     
     @IBAction func autoScaleSwitched(_ sender: UISwitch) {
-        
         notifyGraphSettings()
     }
     
     @IBAction func sampleRateChanged(_ sender: UISegmentedControl) {
-        
         notifyDatasourceSettings()
     }
    
@@ -92,7 +82,5 @@ class graphSettingsTableViewController: UITableViewController {
             sampleRate = 100.0
         }
         NotificationCenter.default.post(name: Notification.Name("newDatasourceSettings"), object: nil, userInfo:["sampleRate":sampleRate])
-        
     }
-
 }

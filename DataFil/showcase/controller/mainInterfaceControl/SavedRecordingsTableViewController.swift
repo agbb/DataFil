@@ -18,14 +18,6 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
     var labelMappings = [String:Date]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +38,6 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
         return data.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordingCell", for: indexPath)
 
@@ -57,7 +48,6 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
         
         return cell
     }
-    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Change the selected background view of the cell.
@@ -67,11 +57,8 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
             let csvRecording = Storage().fetchRecordingWithDate(date:date!).csv
             displayEmailController(attachment: csvRecording, date: date!)
         }else{
-            
             displayEmailController(attachment: jsonRecording, date: date!)
-            
         }
-
     }
     
     //Display the email composer popover to export data
@@ -87,16 +74,12 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
         if MFMailComposeViewController.canSendMail() {
             self.present(email, animated: true, completion: nil)
         }
-
     }
     
      // Dismiss the mail compose view controller.
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
-       
         controller.dismiss(animated: true, completion: nil)
     }
-    
 
     
     // Override to support editing the table view.
@@ -110,6 +93,4 @@ class SavedRecordingsTableViewController: UITableViewController, MFMailComposeVi
             tableView.deleteRows(at: [indexPath], with: .fade)
         }     
     }
-
-
 }

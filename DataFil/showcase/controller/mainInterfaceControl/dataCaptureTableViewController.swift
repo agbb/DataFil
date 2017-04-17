@@ -52,6 +52,7 @@ class dataCaptureTableViewController: UITableViewController, UIPickerViewDelegat
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     @IBAction func recordPressed(_ sender: UIButton) {
 
         timeRemaining = (minuteSelection * 60) + secondSelection

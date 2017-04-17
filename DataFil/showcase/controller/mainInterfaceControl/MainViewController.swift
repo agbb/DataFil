@@ -17,8 +17,6 @@ import Charts
  */
 class MainViewController: UIViewController, ChartViewDelegate {
 
-    
-    
     @IBOutlet weak var BottomLineChartView: LineChartView!
     @IBOutlet weak var TopLineChartView: LineChartView!
     private var axis = "x"
@@ -86,7 +84,6 @@ class MainViewController: UIViewController, ChartViewDelegate {
             }
         })
     }
-    
     func newGraphSettings(notification:NSNotification){
 
         if notification.userInfo?["singleView"] as! Bool == false{
@@ -124,7 +121,6 @@ class MainViewController: UIViewController, ChartViewDelegate {
             }
             singleView = true
         }
-        
         pointsCount = notification.userInfo?["pointsCount"] as! Int
 
         if (TopLineChartView.lineData?.dataSets.count)! > 0 {
@@ -136,15 +132,12 @@ class MainViewController: UIViewController, ChartViewDelegate {
             }
             utilities.pointCount = pointsCount
         }
-
-        
         autoScale = notification.userInfo?["autoScale"] as! Bool
         if(!autoScale){
               //  TopLineChartView
         }
         let newSource = notification.userInfo?["remoteSource"] as! Bool
         if remoteSource != newSource{
-
             updateSource(remote:newSource)
             remoteSource = newSource
         }
@@ -210,10 +203,7 @@ class MainViewController: UIViewController, ChartViewDelegate {
     func newRawData(notification: NSNotification){
         let data = notification.userInfo as! Dictionary<String,accelPoint>
         let accelData = data["data"]
-
         let newEntry = ChartDataEntry(x: Double((accelData?.count)!), y: (accelData?.xAccel)!)
-        
-        
         TopLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
         BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 0)
         
@@ -230,36 +220,27 @@ class MainViewController: UIViewController, ChartViewDelegate {
             
             self.TopLineChartView.setNeedsDisplay()
         }
-        
-        
     }
     
     func newProcessedData(notification: NSNotification){
 
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelDataArray = data["data"]
-        
         for accelData in accelDataArray!{
             let newEntry = ChartDataEntry(x: Double(accelData.count), y: accelData.xAccel)
-            
              BottomLineChartView.data?.addEntry(newEntry, dataSetIndex: 1)
 
             if((BottomLineChartView.lineData?.dataSets[1].entryCount)! > pointsCount+1){
                 
                 _ = BottomLineChartView.data?.removeEntry(xValue: 0, dataSetIndex: 1)
             }
-            
             if !singleView && !remoteSource{
-
                 let yAxisBottom = BottomLineChartView.getAxis(YAxis.AxisDependency.left)
                 let yAxisTop = TopLineChartView.getAxis(YAxis.AxisDependency.left)
-
                 if Double((BottomLineChartView.lineData?.yMax)!) >= Double((TopLineChartView.lineData?.yMax)!){
                     //Bottom chart is higher, Make top chart max slave
-                    
                     yAxisTop.axisMaximum = Double(yAxisBottom.axisMaximum)
                     yAxisBottom.resetCustomAxisMax()
-                    
                 }else{
                     //Top chart is higher, make bottom chart max slave
                     yAxisBottom.axisMaximum = Double(yAxisTop.axisMaximum)
@@ -267,10 +248,8 @@ class MainViewController: UIViewController, ChartViewDelegate {
                 }
                 if Double((BottomLineChartView.lineData?.yMin)!) <= Double((TopLineChartView.lineData?.yMin)!){
                     //Bottom chart is lower, Make top chart min slave
-                    
                      yAxisTop.axisMinimum = Double(yAxisBottom.axisMinimum)
                      yAxisBottom.resetCustomAxisMin()
-                    
                 }else{
                     //Top chart is lower, Make bottom chart min slave
                     yAxisBottom.axisMinimum = Double(yAxisTop.axisMinimum)
@@ -279,7 +258,6 @@ class MainViewController: UIViewController, ChartViewDelegate {
             }
             BottomLineChartView.notifyDataSetChanged()
             BottomLineChartView.data?.notifyDataChanged()
- 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 // your code here
                 self.BottomLineChartView.setNeedsDisplay()
@@ -288,29 +266,20 @@ class MainViewController: UIViewController, ChartViewDelegate {
     }
     
     func setTopChartData(values: [Double]){
-      
-        
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
-        
         for i in 0 ..< values.count {
             yVals1.append(ChartDataEntry(x: Double(i), y: values[i]))
         }
-        
         let set1: LineChartDataSet = LineChartDataSet(values: yVals1, label: "Raw X-Axis")
         set1.setColor(#colorLiteral(red: 0.8692195415, green: 0.3558411002, blue: 0.2854923606, alpha: 1))
-        
-        
         self.TopLineChartView.legend.enabled = false
-
         TopLineChartView.dragEnabled = false
         self.TopLineChartView.data = configureDataSet(sets: [set1])
         
     }
     
     func configureDataSet(sets: [LineChartDataSet])->LineChartData{
-        
         var dataSets : [LineChartDataSet] = [LineChartDataSet]()
-        
         for set in sets{
             set.axisDependency = .left
             set.lineWidth = 1.0
@@ -321,18 +290,13 @@ class MainViewController: UIViewController, ChartViewDelegate {
             
             dataSets.append(set)
         }
-   
-
         let data: LineChartData = LineChartData(dataSets: dataSets)
         return  data
     }
     
     func setBottomChartData(values: [Double]){
-
-
         var yVals1 : [ChartDataEntry] = [ChartDataEntry]()
         var yVals2 : [ChartDataEntry] = [ChartDataEntry]()
-        
         for i in 0 ..< values.count {
             yVals1.append(ChartDataEntry(x: Double(i), y: values[i]))
             yVals2.append(ChartDataEntry(x: Double(i), y: values[i]))
@@ -352,13 +316,8 @@ class MainViewController: UIViewController, ChartViewDelegate {
             let dataSets = configureDataSet(sets: [processedDataLine])
             self.BottomLineChartView.data = dataSets
         }
-        
         self.BottomLineChartView.legend.enabled = true
         self.BottomLineChartView.dragEnabled = false
-        
-
-       
     }
-    
 }
 
