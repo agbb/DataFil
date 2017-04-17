@@ -44,7 +44,6 @@ class RemoteCommunicator: NSObject, WCSessionDelegate {
         }
     }
     override init(){
-
         watchObservers = [:]
     }
     func session(_ session: WCSession,
@@ -58,13 +57,11 @@ class RemoteCommunicator: NSObject, WCSessionDelegate {
     func isSupported() -> Bool{
         return WCSession.isSupported()
     }
-    
 
     #if os(iOS)
     func sessionDidDeactivate(_ session: WCSession) {
         //ERM
     }
-
     func sessionDidBecomeInactive(_ session: WCSession) {
         //Do some stuff here I gueess
     }
@@ -79,7 +76,6 @@ class RemoteCommunicator: NSObject, WCSessionDelegate {
             notifyObservers(key: k, data: message[k] as Any)
         }
     }
-
     /**
      Sends message to remote device if possible. Will print to console if not.
      - paramter key: Identifies which subscibrers on the remote device to notify. 
@@ -98,9 +94,7 @@ class RemoteCommunicator: NSObject, WCSessionDelegate {
      - returns: True if an Apple Watch is connected.
     */
     func watchIsConnected() -> Bool{
-        
         return !session.isReachable
-      
     }
 
     /**
@@ -117,7 +111,6 @@ class RemoteCommunicator: NSObject, WCSessionDelegate {
             }
         }
     }
-
     private func notifyObservers(key: String, data: Any) {
 
         if let registeredObservers = watchObservers[key]{

@@ -2,18 +2,18 @@ An `accelPoint` object represents an instantaneous sensor reading, with X Y and 
 
 # Variable Summary
 
-| Name and Type 	| Description                                         	|
-|---------------	|-----------------------------------------------------	|
-| `xAccel:Double`        	| Acceleration in the x axis in ms2                   	|
-| `yAccel:Double`        	| Acceleration in the y axis in ms2                   	|
-| `zAccel:Double`        	| Acceleration in the z axis in ms2                   	|
-| `xGyro:Double`         	| Rotational velocity in x axis in rad/sec            	|
-| `yGyro:Double`         	| Rotational velocity in y axis in rad/sec            	|
-| `zGyro:Double`         	| Rotational velocity in z axis in rad/sec            	|
-| `xMag:Double`          	| Magnetic field in x axis in militeslas              	|
-| `yMag:Double`          	| Magnetic field in y axis in militeslas              	|
-| `zMagDouble`          	| Magnetic field in z axis in militeslas              	|
-| `Count:Int`     	| The identification number of the acceleration point 	|
+| Name and Type | Description                                         |
+|---------------|-----------------------------------------------------|
+| `xAccel:Double`        | Acceleration in the x axis in ms2                   |
+| `yAccel:Double`        | Acceleration in the y axis in ms2                   |
+| `zAccel:Double`        | Acceleration in the z axis in ms2                   |
+| `xGyro:Double`         | Rotational velocity in x axis in rad/sec            |
+| `yGyro:Double`         | Rotational velocity in y axis in rad/sec            |
+| `zGyro:Double`         | Rotational velocity in z axis in rad/sec            |
+| `xMag:Double`          | Magnetic field in x axis in militeslas              |
+| `yMag:Double`          | Magnetic field in y axis in militeslas              |
+| `zMagDouble`          | Magnetic field in z axis in militeslas              |
+| `Count:Int`     | The identification number of the acceleration point 	|
 
 # Function Summary
 

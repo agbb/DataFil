@@ -10,20 +10,16 @@
  The software implementation below is NOT designed to be used in any situation where the failure of the algorithms code on which they rely or mathematical assumptions made therin could lead to the harm of the user or others, property or the environment. It is NOT designed to prevent silent failures or fail safe.
  */
 import Foundation
-
 /**
  Class that controls the data flow through filters. When initalised, it will begin listening for data from the DataSourceManager class, published under the `newRawData` notifcation.
  */
-
 class FilterManager{
     
     static let sharedInstance = FilterManager()
     var activeFilters = [Filter]()
     
     init(){
-
         NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRawData"), object: nil)
-
     }
 
     func observeRemoteData(){
@@ -34,7 +30,6 @@ class FilterManager{
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(FilterManager.newRawData), name: Notification.Name("newRawData"), object: nil)
     }
-    
     /**
      Called when a notification under "newRawData" key arrives, as registered in the constructor.
      */
@@ -47,9 +42,7 @@ class FilterManager{
         }else{ //no filters, direct input straight to output
             receiveData(data: [accelData!], id: -1)
         }
-        
     }
-    
     /**
      Enables the filter algorithm passed into the method, causing the "newProcessesData" notification to begin posting the output of the raw data after convoultion with this filter and any others enabled.
      
@@ -87,7 +80,7 @@ class FilterManager{
             boundedAvg.id = activeFilters.count
             
             let update = {(data: [accelPoint])->Void in
-                
+
                 self.receiveData(data: data, id: boundedAvg.id)
             }
             
@@ -113,9 +106,7 @@ class FilterManager{
            activeFilters.append(tvd)
             break
         }
-        
     }
-    
     /**
      Removes the fitler from the data flow, causing the output of "newProcessedData" to be the convoluted output of the raw data and any remaining filters. If none, then the raw data will be outputted.
      - parameter filterName: Name of the filter algorithm to remove.
@@ -128,7 +119,6 @@ class FilterManager{
             }
         }
     }
-
     /**
      Function to retreive a filter object that with the matching name.
      - parameter name: Name of the filter to return.
@@ -142,7 +132,6 @@ class FilterManager{
         }
         return nil
     }
-    
     /**
      Function for setting a parameter of an enabled filter.
      - parameter filterName: Name of the filter whos parameter to set.
@@ -152,21 +141,17 @@ class FilterManager{
     func setFilterParameter(filterName: Algorithm, parameterName: String, parameterValue: Double){
         getFilterByName(name: filterName)?.setParameter(parameterName: parameterName, parameterValue: parameterValue)
     }
-    
     /**
      Function called by each active filter to deliver its output. Will decide if the output data needs to be passed onto another filter, or outputted through the "newProcessedData" notification.
      */
     private func receiveData(data: [accelPoint], id:Int){
 
-        
         if(id >= activeFilters.count-1){ //Possible for data from dedacitvated filters to arrive asynchronusly
-
             NotificationCenter.default.post(name: Notification.Name("newProcessedData"), object: nil, userInfo:["data":data])
         }else{
             for dataPoint in data{
                 activeFilters[id+1].addDataPoint(dataPoint: dataPoint)
             }
         }
-        
     }
 }

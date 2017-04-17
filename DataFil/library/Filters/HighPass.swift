@@ -42,13 +42,9 @@ class HighPass: Filter{
     func setParameter(parameterName: String, parameterValue: Double) {
         
         params[parameterName] = parameterValue
-        
-        
         sampleGap = 1.0/(params["sampleRate"]!)
         cutoff = 1.0/(params["cutoffFrequency"]!)
-        
         filterVal = cutoff/(sampleGap+cutoff)
-
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {

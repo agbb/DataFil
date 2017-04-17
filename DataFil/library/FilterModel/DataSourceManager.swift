@@ -11,7 +11,9 @@
  */
 import Foundation
 import CoreMotion
-
+/*
+ Responsible for creating data objects from the system sensor outputs. Publically broadcasts them via notification.
+ */
 class DataSourceManager{
 
     lazy var manager = CMMotionManager()
@@ -26,6 +28,9 @@ class DataSourceManager{
         self.sourceId = sourceId
         NotificationCenter.default.addObserver(self, selector: #selector(self.newDatasourceSettings), name: Notification.Name("newDatasourceSettings"), object: nil)
     }
+    /**
+     Starts the data sources up and when ready begins broadcasting data objects via the `newRawData` notification.
+     */
     func initaliseDatasources(){
         print("hello")
         if manager.isGyroAvailable && gyroSelected{
@@ -90,27 +95,27 @@ class DataSourceManager{
         }
     }
 
+    /**
+     Shuts down data sources. Use to conserve power.
+    */
     func deinitDatasources(){
-
         manager.stopAccelerometerUpdates()
         manager.startGyroUpdates()
         manager.startMagnetometerUpdates()
     }
-
+    /**
+     Nominated by the observer to be called when notified of new settings for data sources. Called when a notification with the format ["sampleRate":Double] and the name "newDataSourceSettings" is posted to update the sample rate of the sensors.
+     */
     @objc func newDatasourceSettings(notification: NSNotification) {
         let data = notification.userInfo as! Dictionary<String,Double>
         sampleRate = data["sampleRate"]!
         if manager.isAccelerometerAvailable{
             if manager.isAccelerometerActive != false{
+                print("notified \(sampleRate)")
                 manager.accelerometerUpdateInterval = 1.0/sampleRate
             }else{
                 print("accelerometer not active")
             }
         }
     }
-    
 }
-
-
-
-

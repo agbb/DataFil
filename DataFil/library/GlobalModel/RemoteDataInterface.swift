@@ -22,6 +22,7 @@ class RemoteDataInterface {
     var buffer = [String]()
     var isListening = false
     var isSending = false
+    var sampleBuffer = 30
 
     /**
      Calling will cause the class to attempt to send new raw data points to remote partner. Class begins listening for notifications under the "newRawData" name, serialises them and sends them to the `RemoteCommunicator` class
@@ -42,10 +43,8 @@ class RemoteDataInterface {
                 DispatchQueue.main.async {
                     NotificationCenter.default.post(name: Notification.Name("newRemoteData"), object: nil, userInfo:["data":accel])
                 }
-
             }
         }
-
         RemoteCommunicator.sharedInstance.addObserver(key: observerKey, update: incoming)
         isListening = true
     }
@@ -53,14 +52,10 @@ class RemoteDataInterface {
      Used for cleanup after not longer needed.
      */
     func teardown(){
-        
          NotificationCenter.default.removeObserver(self)
         isListening = false
         isSending = false
-        
     }
-    
-    
     deinit {
         teardown()
          NotificationCenter.default.removeObserver(self)
@@ -68,16 +63,13 @@ class RemoteDataInterface {
 
     @objc private func newOutgoingData(notification: NSNotification){
         let data = notification.userInfo as! Dictionary<String,accelPoint>
-
         if let accelData = data["data"]{
             buffer.append(srl.serialise(input: accelData))
         }
-
-        if buffer.count > 30 {
+        if buffer.count > sampleBuffer {
             RemoteCommunicator.sharedInstance.sendMessage(key: "watchAccelRaw", value: buffer)
             buffer.removeAll()
         }
         isSending = true
     }
-
 }

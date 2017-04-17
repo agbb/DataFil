@@ -13,14 +13,11 @@
 import Foundation
 
 class TotalVariationWrapper: Filter {
-    
-    
-    
+
     var params = [String:Double]()
     var filterName = Algorithm.TotalVariation
     var observers: [([accelPoint]) -> Void]
     var id = 0
-    
     var buffer = [accelPoint]()
     
     init(){
@@ -30,9 +27,7 @@ class TotalVariationWrapper: Filter {
     }
 
     func setParameter(parameterName: String, parameterValue: Double) {
-        
         params[parameterName] = parameterValue
-        
     }
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
@@ -54,5 +49,4 @@ class TotalVariationWrapper: Filter {
             i(data)
         }
     }
-
 }

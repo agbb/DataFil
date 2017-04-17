@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -17,15 +17,28 @@
                         <label alignment="left" text="Data Streaming" id="iM4-1k-cgT">
                             <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                         </label>
-                        <button width="1" alignment="left" title="Start" id="7LY-Tt-SCc">
+                        <button width="1" alignment="left" title="Stop" id="7LY-Tt-SCc">
                             <connections>
                                 <action selector="startButtonPressed" destination="AgC-eL-Hgc" id="d15-Kg-KNE"/>
                             </connections>
                         </button>
-                        <label alignment="left" text="Label" id="2V6-TN-NEc"/>
+                        <label alignment="left" text="Sample Rate" id="601-se-n2V"/>
+                        <slider width="1" alignment="left" value="2" maximum="3" steps="3" id="dmX-LX-1ep">
+                            <connections>
+                                <action selector="sampleRateAdjusted:" destination="AgC-eL-Hgc" id="UwU-3y-B8Q"/>
+                            </connections>
+                        </slider>
+                        <table alignment="left" id="XDd-MF-wyn"/>
+                        <label alignment="left" text="Data Batching" id="c1U-S5-98v"/>
+                        <slider width="1" alignment="left" value="2" maximum="3" steps="3" id="ddl-Sm-VsF">
+                            <connections>
+                                <action selector="dataBatchingAdjusted:" destination="AgC-eL-Hgc" id="job-De-3xa"/>
+                            </connections>
+                        </slider>
                     </items>
                     <connections>
-                        <outlet property="infoLabel" destination="2V6-TN-NEc" id="qM8-V2-nTU"/>
+                        <outlet property="dataBatchingSlider" destination="ddl-Sm-VsF" id="nh6-2r-w1a"/>
+                        <outlet property="sampleRateSlider" destination="dmX-LX-1ep" id="HUv-P5-1I0"/>
                         <outlet property="startButton" destination="7LY-Tt-SCc" id="fQU-wJ-rnz"/>
                     </connections>
                 </controller>

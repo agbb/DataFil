@@ -71,18 +71,56 @@
     <div class="s-content">
         <p>An <code>accelPoint</code> object represents an instantaneous sensor reading, with X Y and Z values. Distinct points should be given unique IDs. This ID may be for example a sequence number or a timestamp of the reading. Initialisation using the default initialiser will set all values, including ID to 0. accelPoints are used as the data model input and output for the filter algorithms, and is designed to be similar in function to Apple’s implementation.</p>
 <h1 id="page_Variable+Summary">Variable Summary</h1>
-<p>| Name and Type 	| Description                                         	| 	||
-|---------------	|-----------------------------------------------------	||
-| <code>xAccel:Double</code>        	| Acceleration in the x axis in ms2                   	||
-| <code>yAccel:Double</code>        	| Acceleration in the y axis in ms2                   	||
-| <code>zAccel:Double</code>        	| Acceleration in the z axis in ms2                   	||
-| <code>xGyro:Double</code>         	| Rotational velocity in x axis in rad/sec            	||
-| <code>yGyro:Double</code>         	| Rotational velocity in y axis in rad/sec            	||
-| <code>zGyro:Double</code>         	| Rotational velocity in z axis in rad/sec            	||
-| <code>xMag:Double</code>          	| Magnetic field in x axis in militeslas              	||
-| <code>yMag:Double</code>          	| Magnetic field in y axis in militeslas              	||
-| <code>zMagDouble</code>          	| Magnetic field in z axis in militeslas              	|	||
-| <code>Count:Int</code>     	| The identification number of the acceleration point 	| 	||</p>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xAccel:Double</code></td>
+<td>Acceleration in the x axis in ms2</td>
+</tr>
+<tr>
+<td><code>yAccel:Double</code></td>
+<td>Acceleration in the y axis in ms2</td>
+</tr>
+<tr>
+<td><code>zAccel:Double</code></td>
+<td>Acceleration in the z axis in ms2</td>
+</tr>
+<tr>
+<td><code>xGyro:Double</code></td>
+<td>Rotational velocity in x axis in rad/sec</td>
+</tr>
+<tr>
+<td><code>yGyro:Double</code></td>
+<td>Rotational velocity in y axis in rad/sec</td>
+</tr>
+<tr>
+<td><code>zGyro:Double</code></td>
+<td>Rotational velocity in z axis in rad/sec</td>
+</tr>
+<tr>
+<td><code>xMag:Double</code></td>
+<td>Magnetic field in x axis in militeslas</td>
+</tr>
+<tr>
+<td><code>yMag:Double</code></td>
+<td>Magnetic field in y axis in militeslas</td>
+</tr>
+<tr>
+<td><code>zMagDouble</code></td>
+<td>Magnetic field in z axis in militeslas</td>
+</tr>
+<tr>
+<td><code>Count:Int</code></td>
+<td>The identification number of the acceleration point</td>
+</tr>
+</tbody>
+</table>
 <h1 id="page_Function+Summary">Function Summary</h1>
 <h3 id="page_get%24Axis">get$Axis</h3>
 <p><code>func getAccelAxis(axis: String) -&gt; Double</code></p>

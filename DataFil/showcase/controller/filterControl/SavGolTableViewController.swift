@@ -14,17 +14,11 @@ import UIKit
 class SavGolTableViewController: UITableViewController {
 
     @IBOutlet weak var savGolSwitch: UISwitch!
-    
     @IBOutlet weak var forwardScanStepper: UIStepper!
     @IBOutlet weak var forwardScanLabel: UILabel!
-    
     @IBOutlet weak var backwardScanStepper: UIStepper!
     @IBOutlet weak var backwardScanLabel: UILabel!
-    
     @IBOutlet weak var smoothingPolSegment: UISegmentedControl!
-    
-    
-    
     let fm = FilterManager.sharedInstance
     
     override func viewDidLoad() {
@@ -78,7 +72,4 @@ class SavGolTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-  
-
 }

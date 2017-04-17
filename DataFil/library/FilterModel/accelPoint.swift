@@ -14,8 +14,7 @@ import Foundation
  Data object representing a set of sensor readings from a single point in time.
  */
 class accelPoint {
-    
-    
+
     var xAccel = 0.0
     var yAccel = 0.0
     var zAccel = 0.0
@@ -25,25 +24,19 @@ class accelPoint {
     var xMag = 0.0
     var yMag = 0.0
     var zMag = 0.0
-    
     var count = 0
-    init(dataX: Double, dataY: Double, dataZ: Double, count: Int) {
-        
 
+    init(dataX: Double, dataY: Double, dataZ: Double, count: Int) {
         self.xAccel = dataX
         self.yAccel = dataY
         self.zAccel = dataZ
         self.count = count
-        
     }
-    
     init() {
-        
         self.xAccel = 0
         self.yAccel = 0
         self.zAccel = 0
         self.count = 0
-        
     }
     
     /**
@@ -64,7 +57,6 @@ class accelPoint {
             print("cant get value, axis not valid")
             return -100
         }
-        
     }
     /**
      Allows for dynamic runtime selction of a the axis to return.
@@ -84,7 +76,6 @@ class accelPoint {
             print("cant get value, axis not valid")
             return -100
         }
-        
     }
     /**
      Allows for dynamic runtime selction of a the axis to return.
@@ -104,7 +95,6 @@ class accelPoint {
             print("cant get value, axis not valid")
             return -100
         }
-        
     }
     /**
      Allows for dynamic runtime selction of a the axis to set.
@@ -123,7 +113,6 @@ class accelPoint {
         default:
              print("cant set value, axis not valid")
         }
-        
     }
     /**
      Allows for dynamic runtime selction of a the axis to set.
@@ -142,7 +131,6 @@ class accelPoint {
         default:
             print("cant set value, axis not valid")
         }
-        
     }
     /**
      Allows for dynamic runtime selction of a the axis to set.
@@ -161,8 +149,5 @@ class accelPoint {
         default:
             print("cant set value, axis not valid")
         }
-        
     }
-    
-    
 }

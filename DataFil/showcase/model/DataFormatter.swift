@@ -68,17 +68,13 @@ class DataFormatter {
      - returns: JSON object header.
      */
      func formatJSONheader(triggerTime: Date, fromWatch: Bool)-> JSON{
-        
-        
+
         let dateFormatter = utilities.dateFormatter
-        
         var dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
         if fromWatch{
             dateString = "{\"date\" : \""+dateFormatter.string(from: triggerTime as Date)+"\"}"
         }
         let dateJson = dateString.data(using: .utf8, allowLossyConversion: false)
-    
-        
         var json = JSON(data: dateJson!)
         let filters = FilterManager.sharedInstance.activeFilters
         var filterData = [String:[String:Double]]()
@@ -140,14 +136,9 @@ class DataFormatter {
             pointDict["zMag"] = point.zMag
             processedPoints.append(pointDict)
         }
-        
         workingJSON["raw"] = JSON(rawPoints)
         workingJSON["processed"] = JSON(processedPoints)
         
         return workingJSON
-        
-        
     }
-
-    
 }

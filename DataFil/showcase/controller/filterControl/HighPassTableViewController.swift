@@ -19,9 +19,6 @@ class HighPassTableViewController: UITableViewController {
     @IBOutlet weak var currentAlphaLabel: UILabel!
     @IBOutlet weak var currentAlphaSlider: UISlider!
 
-    
-   
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -35,22 +32,17 @@ class HighPassTableViewController: UITableViewController {
                 currentAlphaSlider.value = Float(filter.params["cutPoint"]!)
             }
         }
-
     }
 
     @IBAction func highPassSwitchTapped(_ sender: UISwitch) {
-        
-        
         if sender.isOn{
             fm.addNewFilter(algorithmToEnable: Algorithm.HighPass)
         }else{
-            
             fm.removeFilter(name: Algorithm.HighPass)
         }
     }
     
     @IBAction func highPassSliderAdjusted(_ sender: UISlider) {
-        
         if highPassSwitch.isOn {
             fm.setFilterParameter(filterName: Algorithm.HighPass, parameterName: "cutPoint", parameterValue: Double(sender.value))
             currentAlphaLabel.text = String(Double(sender.value).roundTo(places: 2))
@@ -61,6 +53,4 @@ class HighPassTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }

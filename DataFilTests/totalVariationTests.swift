@@ -85,10 +85,7 @@ class totalVariationTests: XCTestCase {
             }else{
                 slopeValue = 500 - (Double(i) - 500)
             }
-            
-            
             XCTAssertEqualWithAccuracy(current.xAccel, slopeValue, accuracy: 1.5)
-            
         }
     }
     
@@ -119,7 +116,6 @@ class totalVariationTests: XCTestCase {
                 }
                 
                 totalVar.addObserver(update: outputClosure)
-                
                 let inputContents = try String(contentsOfFile: inputPath)
                 let inputStrings = inputContents.components(separatedBy: "\n")
                 var inputPoints = [accelPoint]()
@@ -135,31 +131,22 @@ class totalVariationTests: XCTestCase {
                 
                 let outputContents = try String(contentsOfFile: outputPath)
                 let outputStrings = outputContents.components(separatedBy: "\n")
-                
                 var outputPoints = [accelPoint]()
-                
                 for num in 0..<outputStrings.count-1{
                     let doubleNum = Double(outputStrings[num])
                     let point = accelPoint(dataX: doubleNum!, dataY: doubleNum!, dataZ: doubleNum!, count: num)
                     outputPoints.append(point)
                 }
-                
                 for i in 0..<outputData.count{
-                    
-                    
                     XCTAssertEqualWithAccuracy(outputData[i].xAccel, outputPoints[i].xAccel,accuracy: 0.001)
                 }
             }catch {
                 print("File Read Error for file \(outputPath)")
                 XCTAssertFalse(true)
             }
-            
         } catch {
             print("File Read Error for file \(inputPath)")
             XCTAssertFalse(true)
         }
-        
     }
-
-    
 }

@@ -74,8 +74,6 @@ class BoundedAverage: Filter {
     }
     
     func movingAverage(dataPoint:accelPoint, exponential: Double)->accelPoint{
-
-
             let points = (Double(params["points"]!).roundTo(places: 0))
         
             if points > 1.0 {
@@ -92,12 +90,10 @@ class BoundedAverage: Filter {
                     //sum points
 
                     for i in buffer{
-
                         newPoint.xAccel += i.xAccel
                         newPoint.yAccel += i.yAccel
                         newPoint.zAccel += i.zAccel
                     }
-                
                     newPoint.xAccel = newPoint.xAccel/Double(buffer.count)
                     newPoint.yAccel = newPoint.yAccel/Double(buffer.count)
                     newPoint.zAccel = newPoint.zAccel/Double(buffer.count)
@@ -105,10 +101,8 @@ class BoundedAverage: Filter {
                 previous = newPoint
                 return newPoint
             }else{
-
                 return dataPoint
             }
-
     }
     
     func boundedAverage(currentRaw: accelPoint){

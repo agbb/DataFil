@@ -15,12 +15,9 @@ import CoreData
  Manages the storage and retreival of recorded captures from disk. Utilises CoreStorage.
  */
 class Storage{
-    
-    
     /**
         Retrives all records from disk.
         - returns: An array of tuples: `(Date: Date,csv: String, json: String)`
-     
      */
     func fetchRecordings() -> [(Date: Date,csv: String, json: String)]{
     
@@ -46,21 +43,17 @@ class Storage{
         }
         return recordings
     }
-    
     /**
         Saves JSON recording to disk.
         - parameter json: JSON object to save
         - parameter triggerTime: Date object created at the start of the recording. Used to idntify.
      */
     func saveRecordingJson(json: JSON, triggerTime:Date){
-        
-        
+
         let jsonString = json.rawString([.castNilToNSNull: true])
-        
         let managedContext = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Recording", in: managedContext)
         let recording = NSManagedObject(entity: entity!, insertInto: managedContext)
-        
         recording.setValue(triggerTime, forKey: "triggerTime")
         recording.setValue(jsonString, forKey: "jsonString")
 
@@ -69,8 +62,6 @@ class Storage{
         }catch{
             print("save failed")
         }
-        
-        
     }
     
     /**
@@ -144,5 +135,4 @@ class Storage{
             print("error fetching")
         }
     }
-
 }

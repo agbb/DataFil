@@ -14,8 +14,6 @@ import UIKit
 class LowPassTableViewController: UITableViewController {
 
     let fm = FilterManager.sharedInstance
-
-    
     @IBOutlet weak var pLabel: UILabel!
     @IBOutlet weak var gLabel: UILabel!
     @IBOutlet weak var pStepper: UIStepper!
@@ -34,39 +32,27 @@ class LowPassTableViewController: UITableViewController {
                 pLabel.text = "P: \(Double(filter.params["p"]!).roundTo(places: 2))"
                 gLabel.text = "G: \(Double(filter.params["g"]!).roundTo(places: 2))"
                 passesSegment.selectedSegmentIndex = (Int(filter.params["n"]!)-1)
-               
             }
         }
-        
     }
-    
-    
-    
-    
     @IBAction func pValueChanged(_ sender: UIStepper) {
         pLabel.text = "P: \(sender.value)"
         if lowPassSwitch.isOn{
             fm.setFilterParameter(filterName: Algorithm.LowPass, parameterName: "p", parameterValue: sender.value)
         }
     }
-   
-    
+
     @IBAction func gValueChanged(_ sender: UIStepper) {
         gLabel.text = "G: \(sender.value)"
         if lowPassSwitch.isOn{
             fm.setFilterParameter(filterName: Algorithm.LowPass, parameterName: "g", parameterValue: sender.value)
         }
     }
-    
     @IBAction func passesValueChanged(_ sender: UISegmentedControl) {
         if lowPassSwitch.isOn{
             fm.setFilterParameter(filterName: Algorithm.LowPass, parameterName: "n", parameterValue: Double(sender.selectedSegmentIndex+1))
         }
     }
-    
-    
-    
-  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,6 +69,5 @@ class LowPassTableViewController: UITableViewController {
             
             fm.removeFilter(name: Algorithm.LowPass)
         }
-        
     }
 }

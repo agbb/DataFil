@@ -64,6 +64,4 @@ class tvdTableViewController: UITableViewController {
             bufferStepperLabel.text = "Buffer Size: \(Int(sender.value))"
         }
     }
-  
-
 }

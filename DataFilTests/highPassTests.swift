@@ -24,7 +24,6 @@ class highPassTests: XCTestCase {
         
         let highPss = HighPass()
         var outputData = [accelPoint]()
-        
         let output = {(data: [accelPoint])->Void in
             
             outputData.append(contentsOf: data)
@@ -39,21 +38,15 @@ class highPassTests: XCTestCase {
         }
         //confirm that output is near constant and doesnt rise abouve marginal value
         for i in 0...1000{
-        
             let current = outputData[i]
             let raw = Double(i) * 0.01
-            
             XCTAssertLessThanOrEqual(current.xAccel, raw) //ensure no ringing is present
-
         }
     }
     
     func testLowFreqAttenuation(){
-        
         let highPss = HighPass()
-       
         var outputData = [accelPoint]()
-        
         let output = {(data: [accelPoint])->Void in
             
             outputData.append(contentsOf: data)
@@ -65,18 +58,13 @@ class highPassTests: XCTestCase {
             
             let slopeValue = Double(i) * 0.01
             let pointToAdd = accelPoint(dataX: slopeValue, dataY: slopeValue, dataZ: 0.0, count: i)
-            
             highPss.addDataPoint(dataPoint: pointToAdd);
         }
-    
         for i in 100...100{ //allow time for signal to sabilise
-            
             let current = outputData[i]
-
             //The filtered signal should never be greater than this.
             XCTAssertLessThan(current.xAccel, 0.021)
         }
-        
     }
     
     func testHighFreqPass(){
@@ -87,28 +75,18 @@ class highPassTests: XCTestCase {
         highPss.addObserver(update: {(data: [accelPoint])->Void in
             outputData.append(contentsOf: data)
         })
-        
         for i in 0...1000{
-            
             var slopeValue = 0.0
-            
             if i % 10 == 0{
-                
                 slopeValue = 1.0
             }
             let pointToAdd = accelPoint(dataX: slopeValue, dataY: 0.0, dataZ: 0.0, count: i)
 
             highPss.addDataPoint(dataPoint: pointToAdd);
         }
-        
         for i in 1...999{ //prevent out of bounds when checking sums
-            
             let current = outputData[i]
- 
-            
             if i % 10 == 0{
-                
-         
                 var min = current.xAccel
                 var max = current.xAccel
                 for j in -2...2{
@@ -127,65 +105,46 @@ class highPassTests: XCTestCase {
     
     // For regression testing purposes.
     func testNameCorrect(){
-        
         XCTAssertEqual(HighPass().filterName.description, "High Pass")
     }
-    
-    
     // Test time for filter to initalise
     func testPerformaceSetUp(){
-        
         self.measure {
             let _ = HighPass()
         }
-        
     }
     
     //Included for comparison, this filter shows trivial time to complete one point calculation
     func testPerformanceSinglePoint() {
-        
         let highPss = HighPass()
         var count = 0
         highPss.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
         })
-        
         self.measure {
-           
             let pointToAdd = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
             highPss.addDataPoint(dataPoint: pointToAdd);
-            
             while(count < 1){
-                
                 //Wait for all points to return
                 //Timer runs until the point returns
-                
             }
-            
         }
     }
     
     func testPerformanceTenThouPoints(){
-        
         let highPss = HighPass()
         var count = 0
         highPss.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
         })
-    
         self.measure {
-        
             for i in 0...10000{
-                
                 highPss.addDataPoint(dataPoint: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i));
-                
             }
             while(count < 10000){
                 //Wait for all points to return
                 //Timer runs until all 1000 points return
             }
-            
         }
     }
-    
 }

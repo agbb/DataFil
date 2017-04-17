@@ -55,19 +55,16 @@ class Recorder{
         Timer.scheduledTimer(withTimeInterval: time, repeats: false, block: {_ in
             //fire stopRecording method at end of time period
             self.stopRecording(triggerTime: triggerTime, fromWatch: fromWatch)
-            
             })
     }
     
      @objc private func newRawData(notification: NSNotification){
         print(notification.name)
-       let data = notification.userInfo as! Dictionary<String,accelPoint>
-       let accelData = data["data"]
+        let data = notification.userInfo as! Dictionary<String,accelPoint>
+        let accelData = data["data"]
         accelData?.count = rawRecordingPoint
-         rawRecordingPoint += 1
-        
+        rawRecordingPoint += 1
         rawData.append(accelData!)
-        
     }
     /**
      Called to end the recording. Triggers the process of writing to disk.
@@ -79,12 +76,10 @@ class Recorder{
         NotificationCenter.default.removeObserver(self)
         print(rawData.count)
         if(exportAsJson){
-            
             let jsonHeader = formatter.formatJSONheader(triggerTime: triggerTime as Date, fromWatch: fromWatch)
             let outputData = formatter.formatJSONdata(header: jsonHeader, rawData: rawData, processedData: processedData)
             Storage().saveRecordingJson(json: outputData, triggerTime: triggerTime as Date)
         }else{
-            
             let csvString = formatter.formatCSV(rawData: rawData, processedData: processedData)
             Storage().saveRecordingCsv(csv: csvString, triggerTime: triggerTime as Date)
             
@@ -93,18 +88,13 @@ class Recorder{
         rawRecordingPoint = 0
         processedRecordingPoint = 0
     }
-    
-    
-    
-    
-    
+
     @objc private func newProcessedData(notification: NSNotification){
         
         print(notification.name)
         let data = notification.userInfo as! Dictionary<String,[accelPoint]>
         let accelData = data["data"]
         for point in accelData! {
-            
             point.count = processedRecordingPoint
             processedRecordingPoint += 1
             processedData.append(point)

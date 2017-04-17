@@ -12,7 +12,6 @@
 import WatchKit
 import Foundation
 
-
 class InterfaceController: WKInterfaceController {
 
     var active = false
@@ -20,12 +19,11 @@ class InterfaceController: WKInterfaceController {
 
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
-        
     }
+
     @IBOutlet var startButton: WKInterfaceButton!
-    @IBOutlet var infoLabel: WKInterfaceLabel!
+    @IBOutlet var sampleRateSlider: WKInterfaceSlider!
+    @IBOutlet var dataBatchingSlider: WKInterfaceSlider!
 
     @IBAction func startButtonPressed() {
 
@@ -42,6 +40,38 @@ class InterfaceController: WKInterfaceController {
             active = false
         }
     }
+    @IBAction func sampleRateAdjusted(_ value: Float) {
+
+        if value == 0{
+            accel.sampleRate = 10
+
+        }else if value == 1{
+            accel.sampleRate = 20
+
+        }else if value == 2{
+            accel.sampleRate = 40
+
+        }else{
+            accel.sampleRate = 60
+        }
+    }
+
+    @IBAction func dataBatchingAdjusted(_ value: Float) {
+        print("here")
+        if value == 0{
+            RemoteDataInterface.sharedInstance.sampleBuffer = 0
+            print(0)
+        }else if value == 1{
+            RemoteDataInterface.sharedInstance.sampleBuffer = 15
+            print(15)
+        }else if value == 2{
+            RemoteDataInterface.sharedInstance.sampleBuffer = 30
+            print(30)
+        }else{
+            RemoteDataInterface.sharedInstance.sampleBuffer = 60
+            print(60)
+        }
+    }
 
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
@@ -52,5 +82,4 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
-
 }

@@ -47,7 +47,6 @@
 		FA7AFBFE1E46007A00A4D6D1 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE34B3D1DFB509B00962F61 /* FilterManager.swift */; };
 		FA7AFBFF1E46007A00A4D6D1 /* FilterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */; };
 		FA7AFC001E46007A00A4D6D1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* MainViewController.swift */; };
-		FA7AFC011E46007A00A4D6D1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
 		FA7AFC021E46007A00A4D6D1 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */; };
 		FA7AFC031E46007A00A4D6D1 /* dataCaptureTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */; };
 		FA7AFC041E46007A00A4D6D1 /* SavedRecordingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */; };
@@ -88,7 +87,6 @@
 		FAD062E01E4B9D0C00877100 /* TVDenoising.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD062DD1E4B953F00877100 /* TVDenoising.swift */; };
 		FAD59C631DF880B000A7FD6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C621DF880B000A7FD6A /* AppDelegate.swift */; };
 		FAD59C651DF880B000A7FD6A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C641DF880B000A7FD6A /* MainViewController.swift */; };
-		FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD59C661DF880B000A7FD6A /* SecondViewController.swift */; };
 		FAD59C6A1DF880B000A7FD6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C681DF880B000A7FD6A /* Main.storyboard */; };
 		FAD59C6C1DF880B000A7FD6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */; };
 		FAD59C6F1DF880B000A7FD6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD59C6D1DF880B000A7FD6A /* LaunchScreen.storyboard */; };
@@ -234,7 +232,6 @@
 		FAD59C5F1DF880B000A7FD6A /* DataFil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataFil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD59C621DF880B000A7FD6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD59C641DF880B000A7FD6A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		FAD59C661DF880B000A7FD6A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FAD59C691DF880B000A7FD6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD59C6B1DF880B000A7FD6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD59C6E1DF880B000A7FD6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -327,7 +324,6 @@
 				FA186CBD1DF97EB800835B7C /* FilterTableViewController.swift */,
 				FAF078771DFC8251009BBB00 /* FilterDetailViewController.swift */,
 				FAD59C641DF880B000A7FD6A /* MainViewController.swift */,
-				FAD59C661DF880B000A7FD6A /* SecondViewController.swift */,
 				FAAAC0131E2E912A003FF8B6 /* dataCaptureTableViewController.swift */,
 				FA76DD351E3B6E7F00189217 /* graphSettingsTableViewController.swift */,
 				FAEE08CE1E33B11A00AEEDE0 /* SavedRecordingsTableViewController.swift */,
@@ -730,7 +726,6 @@
 			files = (
 				FA7AFC0A1E46008000A4D6D1 /* Filter.swift in Sources */,
 				FA88F51E1E6AF2D300FA197D /* totalVariationTests.swift in Sources */,
-				FA7AFC011E46007A00A4D6D1 /* SecondViewController.swift in Sources */,
 				FA7AFBFD1E46007A00A4D6D1 /* SavGolTableViewController.swift in Sources */,
 				FA7AFBFB1E46007A00A4D6D1 /* LowPassTableViewController.swift in Sources */,
 				FA7AFC041E46007A00A4D6D1 /* SavedRecordingsTableViewController.swift in Sources */,
@@ -781,7 +776,6 @@
 				FA9B3B0B1E0070A300873309 /* HighPassTableViewController.swift in Sources */,
 				FAA52D061E38C633006262A5 /* DataFormatter.swift in Sources */,
 				FA230EAC1E75893300AE58E4 /* WatchViewController.swift in Sources */,
-				FAD59C671DF880B000A7FD6A /* SecondViewController.swift in Sources */,
 				FAA52CFF1E38A9DD006262A5 /* BoundedAverage.swift in Sources */,
 				FA230EBD1E75CD3600AE58E4 /* RemoteCommunicator.swift in Sources */,
 				FAEE08861E30E61D00AEEDE0 /* SwiftyJSON.swift in Sources */,

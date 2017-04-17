@@ -19,9 +19,7 @@ class advancedLowPassTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    
-    
+
     func testCoeffGenerationButterworth(){
         
         let lowPss = AdvancedLowPass()
@@ -73,24 +71,19 @@ class advancedLowPassTests: XCTestCase {
         XCTAssertEqualWithAccuracy(lowPss.c,  0.734400887, accuracy: 0.0001)
         XCTAssertEqualWithAccuracy(lowPss.w0, 0.023075979, accuracy: 0.0001)
     }
-    
-    
+
     // For regression testing purposes.
     func testNameCorrect(){
         
         XCTAssertEqual(AdvancedLowPass().filterName.description, "Low Pass")
     }
-    
-    
     // Test time for filter to initalise
     func testPerformaceSetUp(){
         
         self.measure {
             let _ = AdvancedLowPass()
         }
-        
     }
-    
     //Included for comparison, this filter shows trivial time to complete one point calculation
     func testPerformanceSinglePoint() {
         
@@ -106,12 +99,9 @@ class advancedLowPassTests: XCTestCase {
             lowPss.addDataPoint(dataPoint: pointToAdd);
             
             while(count < 1){
-                
                 //Wait for all points to return
                 //Timer runs until the point returns
-                
-            }
-            
+           }
         }
     }
     
@@ -122,20 +112,14 @@ class advancedLowPassTests: XCTestCase {
         lowPss.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
         })
-        
         self.measure {
-            
             for i in 0...10000{
-                
-                lowPss.addDataPoint(dataPoint: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i));
-                
+                lowPss.addDataPoint(dataPoint: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i))
             }
             while(count < 10000){
                 //Wait for all points to return
                 //Timer runs until all 1000 points return
             }
-            
         }
     }
-    
 }

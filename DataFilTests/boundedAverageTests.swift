@@ -24,21 +24,15 @@ class boundedAverageTests: XCTestCase {
         
         let boundAvg = BoundedAverage()
         var outputData = [accelPoint]()
-        
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
             outputData.append(contentsOf: data)
         })
-        
         for i in 0...100{
-            
             let input = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i)
-            
             if i % 2 == 0{
-                
                 input.xAccel = 0.09
                 input.yAccel = 0.09
                 input.zAccel = 0.09
-                
             }
             boundAvg.addDataPoint(dataPoint: input)
         }
@@ -65,7 +59,6 @@ class boundedAverageTests: XCTestCase {
             let input = accelPoint(dataX: Double(i), dataY: Double(i), dataZ: Double(i), count: i)
             boundAvg.addDataPoint(dataPoint: input)
         }
-       
         XCTAssertEqual(outputData[50].xAccel, 25)
         XCTAssertEqual(outputData[50].yAccel, 25)
         XCTAssertEqual(outputData[50].zAccel, 25)
@@ -119,18 +112,14 @@ class boundedAverageTests: XCTestCase {
     }
     
     func testUpdateParams(){
-    
         let boundAvg = BoundedAverage()
         var outputData = [accelPoint]()
-        
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
             outputData.append(contentsOf: data)
         })
         
         for i in 0...10{
-            
             let input = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i)
-            
             if i % 2 == 0{
                 input.xAccel = 0.11
                 input.yAccel = 0.11
@@ -142,7 +131,6 @@ class boundedAverageTests: XCTestCase {
             }
             boundAvg.addDataPoint(dataPoint: input)
         }
-        
         for i in 0...outputData.count-1{
             if i % 2 == 0{
                 XCTAssertEqual(outputData[i].xAccel, 0.11)
@@ -158,16 +146,11 @@ class boundedAverageTests: XCTestCase {
                 XCTAssertEqual(outputData[i].zAccel, 0.0)
             }
         }
-        
         outputData.removeAll()
-        
         boundAvg.setParameter(parameterName: "upperBound", parameterValue: 0.2)
         boundAvg.setParameter(parameterName: "lowerBound", parameterValue: 0.2)
-        
         for i in 0...10{
-            
             let input = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i)
-            
             if i % 2 == 0{
                 input.xAccel = 0.51
                 input.yAccel = 0.51
@@ -179,8 +162,6 @@ class boundedAverageTests: XCTestCase {
             }
             boundAvg.addDataPoint(dataPoint: input)
         }
-        
-        
         for i in 0...outputData.count-1{
             if i % 2 == 0{
                 XCTAssertEqual(outputData[i].xAccel, 0.51)
@@ -196,10 +177,6 @@ class boundedAverageTests: XCTestCase {
                 XCTAssertEqual(outputData[i].zAccel, 0.0)
             }
         }
-        
-        
-
-        
     }
     
     // For regression testing purposes.
@@ -208,16 +185,12 @@ class boundedAverageTests: XCTestCase {
         XCTAssertEqual(BoundedAverage().filterName.description, "Bounded Average")
     }
     
-    
     // Test time for filter to initalise
     func testPerformaceSetUp(){
-        
         self.measure {
             let _ = BoundedAverage()
         }
-        
     }
-    
     //Included for comparison, this filter shows trivial time to complete one point calculation
     func testPerformanceSinglePoint() {
         
@@ -226,19 +199,13 @@ class boundedAverageTests: XCTestCase {
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
         })
-        
         self.measure {
-            
             let pointToAdd = accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: 0)
             boundAvg.addDataPoint(dataPoint: pointToAdd);
-            
             while(count < 1){
-                
                 //Wait for all points to return
                 //Timer runs until the point returns
-                
             }
-            
         }
     }
     
@@ -249,20 +216,14 @@ class boundedAverageTests: XCTestCase {
         boundAvg.addObserver(update: {(data: [accelPoint])->Void in
             count+=1
         })
-        
         self.measure {
-            
             for i in 0...10000{
-                
                 boundAvg.addDataPoint(dataPoint: accelPoint(dataX: 0.0, dataY: 0.0, dataZ: 0.0, count: i));
-                
             }
             while(count < 10000){
                 //Wait for all points to return
                 //Timer runs until all 1000 points return
             }
-            
         }
     }
-    
 }

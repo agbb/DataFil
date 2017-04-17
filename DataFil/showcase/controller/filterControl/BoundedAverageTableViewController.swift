@@ -13,7 +13,6 @@ import UIKit
 
 class BoundedAverageTableViewController: UITableViewController {
 
-    
     private let fm = FilterManager.sharedInstance
     
     @IBOutlet weak var currentBandSlider: UISlider!
@@ -22,8 +21,7 @@ class BoundedAverageTableViewController: UITableViewController {
     @IBOutlet weak var movingAverageSlider: UISlider!
     @IBOutlet weak var movingAverageLabel: UILabel!
     @IBOutlet weak var exponentialMoving: UISwitch!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,11 +44,9 @@ class BoundedAverageTableViewController: UITableViewController {
     }
 
     @IBAction func boundedAverageTapped(_ sender: UISwitch) {
-        
         if sender.isOn{
             fm.addNewFilter(algorithmToEnable: Algorithm.BoundedAverage)
         }else{
-            
             fm.removeFilter(name: Algorithm.BoundedAverage)
         }
         
@@ -69,15 +65,12 @@ class BoundedAverageTableViewController: UITableViewController {
             fm.setFilterParameter(filterName: Algorithm.BoundedAverage, parameterName: "exponential", parameterValue: 0.0)
         }
     }
- 
+
     @IBAction func bandsizeSliderAdjusted(_ sender: UISlider) {
-        
         if boundedAverageSwitch.isOn {
             fm.setFilterParameter(filterName: Algorithm.BoundedAverage, parameterName: "upperBound", parameterValue: Double(sender.value))
             fm.setFilterParameter(filterName: Algorithm.BoundedAverage, parameterName: "lowerBound", parameterValue: Double(sender.value))
             currentBandSizeLabel.text = String(Double(sender.value).roundTo(places: 2))
         }
-        
     }
-
 }

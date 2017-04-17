@@ -13,6 +13,9 @@
 
 import Foundation
 
+/**
+ Implementation derived from mathematics described at: http://unicorn.us.com/trading/allpolefilters.html
+ */
 class AdvancedLowPass: Filter {
     
     var params = [String:Double]()
@@ -40,7 +43,6 @@ class AdvancedLowPass: Filter {
         calculateCoeffcients()
     }
 
-    
     func setParameter(parameterName: String, parameterValue: Double) {
         params[parameterName] = parameterValue
         c = 0.0
@@ -77,12 +79,9 @@ class AdvancedLowPass: Filter {
         a2 = a0
         b1 = 2.0 * a0 * (1.0 / k2 - 1.0)
         b2 = 1.0 - (a0 + a1 + a2 + b1)
-
     }
-
     
     func addDataPoint(dataPoint: accelPoint) -> Void {
-
         lowPass(currentRaw: dataPoint)
     }
     
@@ -102,25 +101,16 @@ class AdvancedLowPass: Filter {
         var zCurrent = currentRaw.zAccel
         
         for _ in 0...Int(params["n"]!)-1{
-
-         xCurrent = a0 * xCurrent + a1 * rawMinusOne.xAccel + a2 * rawMinusTwo.xAccel + b1 * processedMinusOne.xAccel + b2 * processedMinusTwo.xAccel
-
-        
-         yCurrent = a0 * yCurrent + a1 * rawMinusOne.yAccel + a2 * rawMinusTwo.yAccel + b1 * processedMinusOne.yAccel + b2 * processedMinusTwo.yAccel
-        
-         zCurrent = a0 * zCurrent + a1 * rawMinusOne.zAccel + a2 * rawMinusTwo.zAccel + b1 * processedMinusOne.zAccel + b2 * processedMinusTwo.zAccel
+            xCurrent = a0 * xCurrent + a1 * rawMinusOne.xAccel + a2 * rawMinusTwo.xAccel + b1 * processedMinusOne.xAccel + b2 * processedMinusTwo.xAccel
+            yCurrent = a0 * yCurrent + a1 * rawMinusOne.yAccel + a2 * rawMinusTwo.yAccel + b1 * processedMinusOne.yAccel + b2 * processedMinusTwo.yAccel
+            zCurrent = a0 * zCurrent + a1 * rawMinusOne.zAccel + a2 * rawMinusTwo.zAccel + b1 * processedMinusOne.zAccel + b2 * processedMinusTwo.zAccel
         }
         rawMinusTwo = accelPoint(dataX:rawMinusOne.xAccel, dataY:rawMinusOne.yAccel, dataZ:rawMinusOne.zAccel, count : currentRaw.count)
-        rawMinusOne = accelPoint(dataX:currentRaw.xAccel, dataY:currentRaw.yAccel, dataZ:currentRaw.zAccel, count : currentRaw.count)
-        
+        rawMinusOne = accelPoint(dataX:currentRaw.xAccel, dataY:currentRaw.yAccel, dataZ:currentRaw.zAccel, count :currentRaw.count)
         let newPoint = accelPoint(dataX:xCurrent, dataY:yCurrent, dataZ:zCurrent, count : currentRaw.count)
-        
-        processedMinusTwo = accelPoint(
-            dataX:processedMinusOne.xAccel,dataY:processedMinusOne.yAccel, dataZ: processedMinusOne.zAccel, count:currentRaw.count)
-        processedMinusOne = accelPoint(
-            dataX:xCurrent, dataY:yCurrent, dataZ:zCurrent, count : currentRaw.count)
+        processedMinusTwo = accelPoint(dataX:processedMinusOne.xAccel,dataY:processedMinusOne.yAccel, dataZ: processedMinusOne.zAccel, count:currentRaw.count)
+        processedMinusOne = accelPoint(dataX:xCurrent, dataY:yCurrent, dataZ:zCurrent, count : currentRaw.count)
 
         notifyObservers(data: [newPoint])
     }
-    
 }

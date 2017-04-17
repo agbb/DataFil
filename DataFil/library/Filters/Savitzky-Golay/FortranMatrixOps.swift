@@ -8,23 +8,24 @@
 
 import Foundation
 
+/**
+ A translation of Fortran Matrix operations relied upon by the Savitzky Golay algorithm for coeff generation. Original:
+ 
+ J-P Moreau. (n.d.). LU Decomposition Routines - f90. Retrieved February 7, 2017, from http://jean-pierre.moreau.pagesperso-orange.fr/Fortran/lu_f90.txt
+ */
 class FortranMatrixOps {
     
     func luBacksubstitute(a: [[Double]], n: Int, np: Int, index: [Int], b:[Double]) -> [Double]{
-        
         var wB = b
         var wA = a
         var wIndex = index
         var sum = 0.0
         var ii = 0
-        
         for i in 1...n{
             let ll = wIndex[i]
             sum = wB[ll]
             wB[ll] = wB[i]
-
             if ii != 0{
-
                 for j in ii...i-1{
                    sum = sum - wA[i][j] * wB[j]
 
@@ -35,9 +36,7 @@ class FortranMatrixOps {
             wB[i] = sum
         }
         for i in stride(from:n, to:0, by:-1){
-
             sum = wB[i]
-            
             if (i < n ){
                 for j in i+1...n{
                     sum = sum - wA[i][j] * wB[j]
@@ -45,31 +44,21 @@ class FortranMatrixOps {
             }
             wB[i] = sum/wA[i][i]
         }
-        
         return wB
     }
-    
-    
     func luDecomposition(a: [[Double]], n: Int, index: [Int], d:Double) -> (index:[Int], a:[[Double]]){
-        
         let nmax = 100, tiny = 1.0e-20
-        
         var wA = a
         var wIndex = index
         var wD = d
-        
         var sum = 0.0
         var dum = 0.0
         var vv = Array(repeating: 0.0, count: nmax)
         var aamax = 0.0
         var imax = 0
-        
         wD = 1
-        
         for i in 1...n{
-            
             aamax = 0.0
-            
             for j in 1...n{
                 
                 let absA = abs(wA[i][j])
@@ -95,7 +84,6 @@ class FortranMatrixOps {
                 }
             }
             aamax = 0.0
-            
             for i in j...n{
                 sum = wA[i][j]
                 if j > 1 {
@@ -108,7 +96,6 @@ class FortranMatrixOps {
                 if dum >= aamax {
                     imax = i
                     aamax = dum
-        
                 }
             }
             if j != imax {
@@ -126,7 +113,6 @@ class FortranMatrixOps {
                     wA[j][j] = tiny
                 }
                 dum = 1/wA[j][j]
-                
                 for i in j+1...n{
                     wA[i][j] = wA[i][j] * dum
                 }
@@ -135,8 +121,6 @@ class FortranMatrixOps {
         if wA[n][n] == 0{
             wA[n][n] = tiny
         }
-
         return (wIndex,wA)
     }
-  
 }

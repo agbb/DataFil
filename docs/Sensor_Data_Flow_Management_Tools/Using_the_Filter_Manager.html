@@ -100,17 +100,25 @@ filMan.addNewFilter(Algorithm.SavitzkyGolay)
 </code></pre>
 <p>To the other parts of the system the data flow remains unchanged. The data source and sink are unaware of this change to the system, effectively maintaining separation between our model, controller and view layers.</p>
 <h1 id="page_Variable+Summary">Variable Summary</h1>
-<p>| Name and Type                                  	| Description                                                                                                                                                                                                           	|	||
-|------------------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	||
-| <code>SharedInstance:FilterManager</code> (static constant) 	| Singleton variable for the class                                                                                                                                                                                      	||
-| <code>activeFilters:[Filter]</code>                        	| Array of objects that implement the  <code>Filter</code> protocol, that raw or partially processed data will be passed to. The filter manager expects these objects to eventually return an <code>accelPoint</code> and is listening for this. 	||</p>
+<table>
+<thead>
+<tr>
+<th>Name and Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SharedInstance:FilterManager</code> (static constant)</td>
+<td>Singleton variable for the class</td>
+</tr>
+<tr>
+<td><code>activeFilters:[Filter]</code></td>
+<td>Array of objects that implement the <code>Filter</code> protocol, that raw or partially processed data will be passed to. The filter manager expects these objects to eventually return an <code>accelPoint</code> and is listening for this.</td>
+</tr>
+</tbody>
+</table>
 <h1 id="page_Function+Summary">Function Summary</h1>
-<h3 id="page_observeRemoteData">observeRemoteData</h3>
-<p><code>func observeRemoteData()</code></p>
-<p>Will cause the system to start listening for new data from a paired Apple Watch through the use of the <code>newRemoteData</code> notification posted by the <code>remoteDataInterface</code> class. Stops listening for local data from the <code>dataSourceManager</code></p>
-<h3 id="page_observeLocalData">observeLocalData</h3>
-<p><code>func observeLocalData()</code></p>
-<p>Will cause the system to start listening for local data from the <code>dataSourceManager</code>. Active by default, can be used to switch back from remote data observance.</p>
 <h3 id="page_addNewFilter">addNewFilter</h3>
 <p><code>func addNewFiler(AlgorithmToAdd: Algorithm)</code></p>
 <p>This function is used to activate a new filter. The <code>Algorithm</code> enum is used to identify the filter to activate. When a filter is active, the <code>newProcessedData</code> notification will contain the convoluted output of the raw data and active filters.</p>

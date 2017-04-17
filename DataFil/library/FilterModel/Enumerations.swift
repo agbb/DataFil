@@ -10,7 +10,6 @@
  The software implementation below is NOT designed to be used in any situation where the failure of the algorithms code on which they rely or mathematical assumptions made therin could lead to the harm of the user or others, property or the environment. It is NOT designed to prevent silent failures or fail safe.
  */
 import Foundation
-
 /**
  Enumeration of the filter algorithms available in the library
  */

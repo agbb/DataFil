@@ -22,7 +22,8 @@ While the algorithm does not run in constant time, the number of historical poin
 |------------------------------------|-----------------------------------------------------------------------------------------|
 | `upperBound:Double`  Range: 0...8    | The upper bound beyond which the signal centre is reset and the bounds shift upwards.   |
 | `lowerBound:Double`  Range: 0...8    | The lower bound beyond which the signal centre is reset and the bounds shift downwards. |
-| `pointsAverage:Double`  Range: 0...n | The number of points to consider in the moving average. Determines complexity.          |
+| `points:Double`  Range: 0...n | The number of points to consider in the moving average. Determines complexity.          |
+| `exponential:Double`  Range: 0 or 1 | Switches the moving average calculation to an exponential moving average algorithm that reduces lag in output.          |
 
 ![Bounded Average Application](https://github.com/ozliftoff/Accelerometer-Graph/blob/master/images/boundedAvg.jpg?raw=true)
 

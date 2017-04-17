@@ -104,8 +104,12 @@ While the algorithm does not run in constant time, the number of historical poin
 <td>The lower bound beyond which the signal centre is reset and the bounds shift downwards.</td>
 </tr>
 <tr>
-<td><code>pointsAverage:Double</code>  Range: 0...n</td>
+<td><code>points:Double</code>  Range: 0...n</td>
 <td>The number of points to consider in the moving average. Determines complexity.</td>
+</tr>
+<tr>
+<td><code>exponential:Double</code>  Range: 0 or 1</td>
+<td>Switches the moving average calculation to an exponential moving average algorithm that reduces lag in output.</td>
 </tr>
 </tbody>
 </table>

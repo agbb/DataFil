@@ -27,24 +27,12 @@ To the other parts of the system the data flow remains unchanged. The data sourc
 
 # Variable Summary
 
-| Name and Type                                  	| Description                                                                                                                                                                                                           	|
-|------------------------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| `SharedInstance:FilterManager` (static constant) 	| Singleton variable for the class                                                                                                                                                                                      	|
-| `activeFilters:[Filter]`                        	| Array of objects that implement the `Filter` protocol, that raw or partially processed data will be passed to. The filter manager expects these objects to eventually return an `accelPoint` and is listening for this. 	|
+| Name and Type                                  | Description                                                                                                                                                                                                           |
+|------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `SharedInstance:FilterManager` (static constant) | Singleton variable for the class                                                                                                                                                                                      |
+| `activeFilters:[Filter]`                        | Array of objects that implement the `Filter` protocol, that raw or partially processed data will be passed to. The filter manager expects these objects to eventually return an `accelPoint` and is listening for this. |
 
 # Function Summary
-
-### observeRemoteData
-
-`func observeRemoteData()`
-
-Will cause the system to start listening for new data from a paired Apple Watch through the use of the `newRemoteData` notification posted by the `remoteDataInterface` class. Stops listening for local data from the `dataSourceManager`
-
-### observeLocalData
-
-`func observeLocalData()`
-
-Will cause the system to start listening for local data from the `dataSourceManager`. Active by default, can be used to switch back from remote data observance. 
 
 ### addNewFilter
 

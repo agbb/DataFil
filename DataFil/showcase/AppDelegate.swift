@@ -19,39 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        
         let dsm = DataSourceManager(sourceId: "device")
         dsm.initaliseDatasources()
-
-
         _ = FilterManager.sharedInstance
         _ = utilities.init()
         
         return true
     }
-   
+
+    /*
+     Functions here must exist but do not need a body
+     */
     func applicationWillResignActive(_ application: UIApplication) {
-     
     }
-
     func applicationDidEnterBackground(_ application: UIApplication) {
-           }
-
+    }
     func applicationWillEnterForeground(_ application: UIApplication) {
-       
     }
-
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
     }
-
     func applicationWillTerminate(_ application: UIApplication) {
-       
     }
-
-
 }
 

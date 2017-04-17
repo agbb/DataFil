@@ -21,7 +21,6 @@ class savGolTests: XCTestCase {
         super.tearDown()
     }
     
-    
     //MARK: Test coefficients generation against canonical examples.
     func testCoeffs222(){
         let expectedCoeffs222 = [-0.085714285714285743, 0.3428571428571428, 0.48571428571428565, 0.3428571428571428, -0.085714285714285743]
@@ -63,9 +62,6 @@ class savGolTests: XCTestCase {
         XCTAssertEqualWithAccuracy(Double(output1.xAccel), Double(1.0), accuracy: 0.00001) //All 1s as input should yield an out put of 1.0
         XCTAssertEqualWithAccuracy(output1.yAccel, Double(1.0), accuracy: 0.000001)
         XCTAssertEqualWithAccuracy(output1.zAccel, Double(1.0), accuracy: 0.000001)//check for all axes
-        
-        
-        
     }
     
     func testLuDecomp(){
@@ -105,12 +101,10 @@ class savGolTests: XCTestCase {
         XCTAssertEqualWithAccuracy(output2.xAccel, 0.685, accuracy: 0.001)//confirm manual calulation for output.
         XCTAssertEqualWithAccuracy(output2.yAccel, 0.685, accuracy: 0.001)
         XCTAssertEqualWithAccuracy(output2.zAccel, 0.685, accuracy: 0.001)//check for all axes
-        
     }
     
     func testNameCorrect(){
         
         XCTAssertEqual(SavitzkyGolay().filterName.description, "Savitzky Golay Filter")
     }
-    
 }

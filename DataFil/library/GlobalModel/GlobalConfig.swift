@@ -28,7 +28,6 @@ struct utilities{
         utilities.dateFormatter.timeStyle = .full
     }
  
- 
     static func duplicateAccelData(data: [accelPoint])-> [accelPoint]{
         var outputArray = [accelPoint]()
         for d in data{
@@ -37,7 +36,6 @@ struct utilities{
         return outputArray
     }
 }
-
 
 extension Double {
     /**
@@ -57,7 +55,6 @@ var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "Model")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
         if let error = error {
-            
             fatalError("Unresolved error with the persistent container")
         }
     })
@@ -74,7 +71,3 @@ func ^^ (first: Double, second: Double) -> Double {
     return pow(Double(first), Double(second))
 }
 
-struct alertBuilder{
-    
-    
-}
